@@ -88,12 +88,12 @@
 
             <div class="col-sm-4">
               <div class="actions">
-                <%= f.submit "Enviar", class: "btn btn-primary" %>
+                <%= f.submit "Enviar", class: "btn btn-primary", size: 50 %>
+                <%= render "devise/shared/links" %>
+                <%= link_to "Regresar", root_path, class: 'btn btn-info', size: 20 %>
               </div>
             <% end %>
-
-            <%= render "devise/shared/links" %>
             </div>
-          </div>
-        </div>
-      </div>
+         </div>
+   </div>
+</div>

@@ -8,12 +8,12 @@ class PaginasController < ApplicationController
   def servicios
   end
 
-  def clientes
-  end
-
   def precios
   end
 
   def contacto
+  end
+
+  def socios
   end
 end

@@ -4,7 +4,7 @@ class NoticiaController < ApplicationController
   # GET /noticia
   # GET /noticia.json
   def index
-    @noticia = Noticium.all
+    @noticia = Noticia.all
   end
 
   # GET /noticia/1
@@ -14,7 +14,7 @@ class NoticiaController < ApplicationController
 
   # GET /noticia/new
   def new
-    @noticium = Noticium.new
+    @noticium = Noticia.new
   end
 
   # GET /noticia/1/edit
@@ -24,7 +24,7 @@ class NoticiaController < ApplicationController
   # POST /noticia
   # POST /noticia.json
   def create
-    @noticium = Noticium.new(noticium_params)
+    @noticium = Noticia.new(noticium_params)
 
     respond_to do |format|
       if @noticium.save
@@ -64,7 +64,7 @@ class NoticiaController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_noticium
-      @noticium = Noticium.find(params[:id])
+      @noticium = Noticia.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -3,9 +3,13 @@
    <p>Nos Especializamos en la Seguridad Escolar</p>
    <form class="form-inline">
       <div class="input-group">
-        <input type="email" class="form-control" size="50" placeholder="correo electrónico" required>
+
         <div class="input-group-btn">
-          <%= link_to "Suscríbete",  new_user_registration_path, class:'btn btn-primary' %>
+          <% if current_user %>
+             <%= link_to "Ir a Sitio Socios ...",  socios_path, class:'btn btn-success' %>
+          <% else %>
+             <%= link_to "Suscribete",  new_user_registration_path, class:'btn btn-success' %>
+          <% end %>
         </div>
       </div>
    </form>
