@@ -1,95 +1,99 @@
-<h2>Sign up</h2>
+<div id="registro" class="container">
+  <h2><%= image_tag "manzana.jpg", width: 100 %> Zona Registro Socios</h2>
+  <div class="container-fluid bg-grey">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+         <div class="row">
+            <div class="col-sm-4">
+              <h2>Datos Usuario</h2>
+              <div class="field">
+                <%= f.label :nombre_usuario %><br />
+                <%= f.text_field :nombre, autofocus: true, placeholder: "nombre usuario" %>
+              </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="field">
+                <%= f.label :Correo_electronico %><br />
+                <%= f.email_field :email, autofocus: true, placeholder: "correo electrónico" %>
+              </div>
 
-<!-- inicio campos propios -->
-<div class="field">
-  <%= f.label :nombre %><br />
-  <%= f.text_field :nombre, autofocus: true, autocomplete: "nombre" %>
-</div>
+              <div class="field">
+                <%= f.label :contraseña %>
+                <% if @minimum_password_length %>
+                <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "nueva-contraseña" %>
+              </div>
 
-<div class="field">
-  <%= f.label :appaterno %><br />
-  <%= f.text_field :appaterno, autocomplete: "appaterno" %>
-</div>
+              <div class="field">
+                <%= f.label :confirmar_contraseña %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              </div>
+            </div>
 
-<div class="field">
-  <%= f.label :rfc %><br />
-  <%= f.text_field :rfc, autocomplete: "rfc" %>
-</div>
+            <div class="col-sm-4">
+              <h2>Datos Fiscales</h2>
+              <div class="field">
+                <%= f.label :"RFC" %><br />
+                <%= f.text_field :rfc, autocomplete: "rfc" %>
+              </div>
 
-<div class="field">
-  <%= f.label :razon_social %><br />
-  <%= f.text_field :razon_social, autocomplete: "razon_social" %>
-</div>
+              <div class="field">
+                <%= f.label :razon_social %><br />
+                <%= f.text_field :razon_social, autocomplete: "razon_social" %>
+              </div>
 
-<div class="field">
-  <%= f.label :domicilio_fiscal %><br />
-  <%= f.textarea_field :domicilio_fiscal, autocomplete: "domicilio_fiscal" %>
-</div>
+              <div class="field">
+                <%= f.label :domicilio_fiscal %><br />
+                <%= f.text_area :domicilio_fiscal, autocomplete: "domicilio_fiscal" %>
+              </div>
 
-<div class="field">
-  <%= f.label :domicilio_fisico %><br />
-  <%= f.text_field :domicilio_fisico, autocomplete: "domicilio_fisico" %>
-</div>
+               <div class="field">
+                 <%= f.label :domicilio_fisico %><br />
+                 <%= f.text_area :domicilio_fisico, autocomplete: "domicilio_fisico" %>
+               </div>
 
-<div class="field">
-  <%= f.label :sucursal %><br />
-  <%= f.text_field :sucursal, autocomplete: "sucursal" %>
-</div>
+               <div class="field">
+                 <%= f.label :sucursal %><br />
+                 <%= f.text_field :sucursal, autocomplete: "sucursal" %>
+               </div>
 
-<div class="field">
-  <%= f.label :telefono_oficina %><br />
-  <%= f.text_field :telefono_oficina, autocomplete: "telefono_oficina" %>
-</div>
+               <div class="field">
+                 <%= f.label :telefono_oficina %><br />
+                 <%= f.text_field :telefono_oficina, autocomplete: "telefono_oficina" %>
+               </div>
+            </div>
 
-<div class="field">
-  <%= f.label :nombre_enlace %><br />
-  <%= f.text_field :nombre_enlace, autocomplete: "nombre_enlace" %>
-</div>
+            <div class="col-sm-4">
+              <h2>Datos Enlace</h2>
+              <div class="field">
+                <%= f.label :nombre_enlace %><br />
+                <%= f.text_field :nombre_enlace, autocomplete: "nombre_enlace" %>
+              </div>
 
-<div class="field">
-  <%= f.label :appaterno_enlace %><br />
-  <%= f.text_field :appaterno_enlace,  autocomplete: "appaterno_enlace" %>
-</div>
+              <div class="field">
+                <%= f.label :appaterno_enlace %><br />
+                <%= f.text_field :appaterno_enlace,  autocomplete: "appaterno_enlace" %>
+              </div>
 
-<div class="field">
-  <%= f.label :cargo_enlace %><br />
-  <%= f.text_field :cargo_enlace, autocomplete: "cargo_enlace" %>
-</div>
+              <div class="field">
+                <%= f.label :cargo_enlace %><br />
+                <%= f.text_field :cargo_enlace, autocomplete: "cargo_enlace" %>
+              </div>
 
-<div class="field">
-  <%= f.label :correo_enlace %><br />
-  <%= f.mail_field :correo_enlace, autocomplete: "correo_enlace" %>
-</div>
+              <div class="field">
+                <%= f.label :correo_enlace %><br />
+                <%= f.email_field :correo_enlace, autocomplete: "correo_enlace" %>
+              </div>
+            </div>
 
+            <div class="col-sm-4">
+              <div class="actions">
+                <%= f.submit "Enviar", class: "btn btn-primary" %>
+              </div>
+            <% end %>
 
-<!-- fin campos propios -->
-
-
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+            <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        </div>
+      </div>
