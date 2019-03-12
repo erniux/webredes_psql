@@ -3,6 +3,72 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+<!-- inicio campos propios -->
+<div class="field">
+  <%= f.label :nombre %><br />
+  <%= f.text_field :nombre, autofocus: true, autocomplete: "nombre" %>
+</div>
+
+<div class="field">
+  <%= f.label :appaterno %><br />
+  <%= f.text_field :appaterno, autocomplete: "appaterno" %>
+</div>
+
+<div class="field">
+  <%= f.label :rfc %><br />
+  <%= f.text_field :rfc, autocomplete: "rfc" %>
+</div>
+
+<div class="field">
+  <%= f.label :razon_social %><br />
+  <%= f.text_field :razon_social, autocomplete: "razon_social" %>
+</div>
+
+<div class="field">
+  <%= f.label :domicilio_fiscal %><br />
+  <%= f.textarea_field :domicilio_fiscal, autocomplete: "domicilio_fiscal" %>
+</div>
+
+<div class="field">
+  <%= f.label :domicilio_fisico %><br />
+  <%= f.text_field :domicilio_fisico, autocomplete: "domicilio_fisico" %>
+</div>
+
+<div class="field">
+  <%= f.label :sucursal %><br />
+  <%= f.text_field :sucursal, autocomplete: "sucursal" %>
+</div>
+
+<div class="field">
+  <%= f.label :telefono_oficina %><br />
+  <%= f.text_field :telefono_oficina, autocomplete: "telefono_oficina" %>
+</div>
+
+<div class="field">
+  <%= f.label :nombre_enlace %><br />
+  <%= f.text_field :nombre_enlace, autocomplete: "nombre_enlace" %>
+</div>
+
+<div class="field">
+  <%= f.label :appaterno_enlace %><br />
+  <%= f.text_field :appaterno_enlace,  autocomplete: "appaterno_enlace" %>
+</div>
+
+<div class="field">
+  <%= f.label :cargo_enlace %><br />
+  <%= f.text_field :cargo_enlace, autocomplete: "cargo_enlace" %>
+</div>
+
+<div class="field">
+  <%= f.label :correo_enlace %><br />
+  <%= f.mail_field :correo_enlace, autocomplete: "correo_enlace" %>
+</div>
+
+
+<!-- fin campos propios -->
+
+
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

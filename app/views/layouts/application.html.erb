@@ -15,8 +15,10 @@
 
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-    <%= yield %>
+    <%= render 'shared/application_nav' %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <%= yield %>
   </body>
 </html>
