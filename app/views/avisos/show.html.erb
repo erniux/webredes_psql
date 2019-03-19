@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @aviso.titulo %>
+</p>
+
+<p>
+  <strong>Detalle:</strong>
+  <%= @aviso.detalle %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @aviso.fecha %>
+</p>
+
+<p>
+  <strong>Imagen:</strong>
+  <%= @aviso.imagen %>
+</p>
+
+<%= link_to 'Edit', edit_aviso_path(@aviso) %> |
+<%= link_to 'Back', avisos_path %>

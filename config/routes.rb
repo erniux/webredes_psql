@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :avisos
   devise_for :users, path: '',path_names: {sign_in: 'ingresar', sign_out: 'salir', sign_up: 'registro'}
   resources :eventos
-  resources :noticia
   resources :recursos
   resources :servicios
   resources :precios

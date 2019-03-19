@@ -1,10 +1,10 @@
-<%= form_with(model: noticium, local: true) do |form| %>
-  <% if noticium.errors.any? %>
+<%= form_with(model: aviso, local: true) do |form| %>
+  <% if aviso.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(noticium.errors.count, "error") %> prohibited this noticium from being saved:</h2>
+      <h2><%= pluralize(aviso.errors.count, "error") %> prohibited this aviso from being saved:</h2>
 
       <ul>
-      <% noticium.errors.full_messages.each do |message| %>
+      <% aviso.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= form.label :fecha %>
-    <%= form.date_select :fecha %>
+    <%= form.datetime_select :fecha %>
   </div>
 
   <div class="field">
-    <%= form.label :autor %>
-    <%= form.text_field :autor %>
+    <%= form.label :imagen %>
+    <%= form.text_field :imagen %>
   </div>
 
   <div class="actions">

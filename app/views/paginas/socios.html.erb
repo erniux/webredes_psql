@@ -1,2 +1,66 @@
 <%= render "shared/application_nav_socios" %>
 <h1>Sitio Socios</h1>
+<%= @eventos.inspect %>
+<%= @avisos.inspect %>
+
+<div class="row">
+  <h2>EVENTOS</h2>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title"><%= @eventos.titulo %></h3>
+        <p class="card-text"><%= @eventos.detalle %></p>
+  	    <p class="card-text"><%= @eventos.fecha_inicio %></p>
+  	    <p class="card-text"><%= @eventos.fecha_fin %></p>
+  	    <p class="card-text"><%= @eventos.expositor %></p>
+  	    <p class="card-text"><%= @eventos.lugar %></p>
+        <%= link_to "Consultar", evento_path(@eventos.id) %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">Otro Evento</h3>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <h2>NOTICIAS</h2>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title"><%= @avisos.titulo %></h3>
+        <p class="card-text"><%= @avisos.detalle %></p>
+        <p class="card-text"><%= @avisos.fecha %></p>
+        <p class="card-text"><%= @avisos.imagen %></p>
+        <%= link_to "Consultar", aviso_path(@avisos.id) %>
+         
+         
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+        <h3 class="card-title">Otra Noticia/Aviso
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+create_table "noticia", force: :cascade do |t|
+    t.string "titulo"
+    t.text "detalle"
+    t.date "fecha"
+    t.string "autor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "imagen"
+  end
