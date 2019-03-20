@@ -16,6 +16,6 @@ class PaginasController < ApplicationController
 
   def socios
     @eventos = Evento.last
-    @avisos = Aviso.last
+    @avisos = Aviso.first
   end
 end

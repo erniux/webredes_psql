@@ -1,28 +1,20 @@
 class AvisosController < ApplicationController
   before_action :set_aviso, only: [:show, :edit, :update, :destroy]
 
-  # GET /avisos
-  # GET /avisos.json
   def index
     @avisos = Aviso.all
   end
 
-  # GET /avisos/1
-  # GET /avisos/1.json
   def show
   end
 
-  # GET /avisos/new
   def new
     @aviso = Aviso.new
   end
 
-  # GET /avisos/1/edit
   def edit
   end
 
-  # POST /avisos
-  # POST /avisos.json
   def create
     @aviso = Aviso.new(aviso_params)
 
@@ -37,8 +29,6 @@ class AvisosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /avisos/1
-  # PATCH/PUT /avisos/1.json
   def update
     respond_to do |format|
       if @aviso.update(aviso_params)
@@ -51,8 +41,6 @@ class AvisosController < ApplicationController
     end
   end
 
-  # DELETE /avisos/1
-  # DELETE /avisos/1.json
   def destroy
     @aviso.destroy
     respond_to do |format|
@@ -62,13 +50,14 @@ class AvisosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_aviso
       @aviso = Aviso.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def aviso_params
-      params.require(:aviso).permit(:titulo, :detalle, :fecha, :imagen)
+      params.require(:aviso).permit(:id, :titulo, :detalle, :fecha, :imagen)
     end
 end
+
+ 
