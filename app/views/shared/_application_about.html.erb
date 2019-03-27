@@ -5,9 +5,7 @@
       <p><%= @about.descripcion %></p>
       <a href="#contact" class="btn btn-default btn-lg">Contáctanos</a>
       <% if user_signed_in? %>
-         <% if current_user.is_admin? %>
             <%= link_to 'Editar', edit_acercade_path(@about),class: "btn btn-default btn-lg"  %>
-         <% end %>
       <% end %>
 
     </div>

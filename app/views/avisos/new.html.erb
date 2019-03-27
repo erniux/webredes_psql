@@ -1,5 +1,8 @@
-<h1>New Aviso</h1>
+<%= render "shared/application_nav_socios" %>
+<div class="container-fluid-crud">
+   <h1>Agregar Noticias</h1>
 
-<%= render 'form', aviso: @aviso %>
-
-<%= link_to 'Back', avisos_path %>
+      <%= render 'form', aviso: @aviso %>
+      
+      <%= link_to 'Regresar a Noticias', avisos_path %>
+</div>

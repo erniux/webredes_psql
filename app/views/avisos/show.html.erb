@@ -1,24 +1,26 @@
-<p id="notice"><%= notice %></p>
+<%= render "shared/application_nav_socios" %>
+<div class="container-fluid-crud">
+   <p id="notice"><%= notice %></p>
+   
+   <p>
+     <strong><%= @aviso.titulo %></strong>
+   </p>
+   
+   <p>
+     <strong>Detalle:</strong>
+     <%= @aviso.detalle %>
+   </p>
+   
+   <p>
+     <strong>Publicada el:</strong>
+     <%= @aviso.fecha.strftime("%m/%d/%Y %I:%M%p") %>
+   </p>
+   
+   <p>
+     <%= image_tag @aviso.imagen.to_s %>
+   </p>
+   
+   <%= link_to 'Modificar', edit_aviso_path(@aviso) %> |
+   <%= link_to 'Regresar a Noticias', avisos_path %>
 
-<p>
-  <strong>Titulo:</strong>
-  <%= @aviso.titulo %>
-</p>
-
-<p>
-  <strong>Detalle:</strong>
-  <%= @aviso.detalle %>
-</p>
-
-<p>
-  <strong>Fecha:</strong>
-  <%= @aviso.fecha %>
-</p>
-
-<p>
-  <strong>Imagen:</strong>
-  <%= @aviso.imagen %>
-</p>
-
-<%= link_to 'Edit', edit_aviso_path(@aviso) %> |
-<%= link_to 'Back', avisos_path %>
+</div>

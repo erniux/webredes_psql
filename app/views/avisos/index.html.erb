@@ -1,19 +1,8 @@
 <%= render "shared/application_nav_socios" %>
-<p id="notice"><%= notice %></p>
-
-<h1>Avisos</h1>
+<div class="container-fluid-crud">
+<h1>Noticias y Avisos</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Detalle</th>
-      <th>Fecha</th>
-      <th>Imagen</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @avisos.each do |aviso| %>
       <tr>

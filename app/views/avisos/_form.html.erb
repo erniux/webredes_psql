@@ -1,24 +1,18 @@
 <%= form_with(model: aviso, local: true) do |form| %>
   <% if aviso.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(aviso.errors.count, "error") %> prohibited this aviso from being saved:</h2>
-
-      <ul>
       <% aviso.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+         <%= js add_gritter(message, title: "Aviso", sticky: false) %>
       <% end %>
-      </ul>
-    </div>
   <% end %>
 
   <div class="field">
-    <%= form.label :titulo %>
-    <%= form.text_field :titulo %>
+    <%= form.label :"título" %>
+    <%= form.text_field :titulo, size: 60 %>
   </div>
 
   <div class="field">
-    <%= form.label :detalle %>
-    <%= form.text_area :detalle %>
+    <%= form.label :"descripción" %>
+    <%= form.text_area :detalle, rows: 20, cols: 60 %>
   </div>
 
   <div class="field">
@@ -27,11 +21,12 @@
   </div>
 
   <div class="field">
-    <%= form.label :imagen %>
-    <%= form.text_field :imagen %>
+    <%= form.label :"imágen" %>
+    <%= form.text_field :imagen, size: 60 %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar" %>
   </div>
+
 <% end %>

@@ -1,4 +1,6 @@
 // import the CSS framework
+@import "gritter";
+
 .jumbotron {
   background-color: #424242; /* Gris RedES */
   color: #ffffff;
@@ -11,6 +13,11 @@
 
 .container-fluid {
   padding: 60px 50px;
+}
+
+.container-fluid-crud {
+   padding: 60px 50px;
+  
 }
 
 .logo-small {

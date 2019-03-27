@@ -12,5 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require gritter
 //= require turbolinks
 //= require_tree .

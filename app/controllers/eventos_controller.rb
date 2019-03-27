@@ -1,8 +1,5 @@
 class EventosController < ApplicationController
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_editor!, only: [:edit, :update, :new, :create]
-  before_action :authenticate_admin!, only: [:edit, :update, :new, :create, :destroy]
-
 
   def index
     @eventos = Evento.all

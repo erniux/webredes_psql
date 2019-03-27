@@ -1,6 +1,9 @@
-<h1>Editing Aviso</h1>
-
-<%= render 'form', aviso: @aviso %>
-
-<%= link_to 'Show', @aviso %> |
-<%= link_to 'Back', avisos_path %>
+<%= render "shared/application_nav_socios" %>
+<div class="container-fluid-crud">
+   <h1>Modificar Noticias</h1>
+   
+   <%= render 'form', aviso: @aviso %>
+   
+   <%= link_to 'Mostrar', @aviso %> |
+   <%= link_to 'Regresar a Noticias', avisos_path %>
+</div>
