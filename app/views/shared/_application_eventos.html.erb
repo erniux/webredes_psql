@@ -12,7 +12,7 @@
         <p><%= @eventos.fecha_inicio %></p>
         <p><%= @eventos.fecha_fin %></p>
         <p><%= @eventos.expositor %></p>
-        <p><%= image_tag @eventos.imagen %></p>
+        <p><%= image_tag @eventos.imagen.to_s %></p>
         <%= link_to 'Continuar Lectura', evento_path(@eventos),class: "btn btn-default btn-lg"  %>
       <%= link_to 'Editar', edit_evento_path(@eventos),class: "btn btn-default btn-lg"  %>
       </div>
