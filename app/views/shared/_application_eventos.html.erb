@@ -14,7 +14,12 @@
         <p><%= @eventos.expositor %></p>
         <p><%= image_tag @eventos.imagen.to_s %></p>
         <%= link_to 'Continuar Lectura', evento_path(@eventos),class: "btn btn-default btn-lg"  %>
-      <%= link_to 'Editar', edit_evento_path(@eventos),class: "btn btn-default btn-lg"  %>
+        <% if user_signed_in? %>
+         <% if current_user.is_admin? %>
+            <%= link_to 'Editar', edit_evento_path(@eventos),class: "btn btn-default btn-lg"  %>
+         <% end %>
+      <% end %>
+      
       </div>
     </div>
   </div>
