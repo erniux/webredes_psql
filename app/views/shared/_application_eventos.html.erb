@@ -9,8 +9,8 @@
         <h4><%= @eventos.titulo %></h4>
         <p><%= @eventos.detalle %></p>
         <p><%= @eventos.lugar %></p>
-        <p><%= @eventos.fecha_inicio %></p>
-        <p><%= @eventos.fecha_fin %></p>
+        <p>del: <%= @eventos.fecha_inicio.strftime("%d-%m-%Y") %> al: 
+        <%= @eventos.fecha_fin.strftime("%d-%m-%Y") %></p>
         <p><%= @eventos.expositor %></p>
         <p><%= image_tag @eventos.imagen.to_s %></p>
         <%= link_to 'Continuar Lectura', evento_path(@eventos),class: "btn btn-default btn-lg"  %>

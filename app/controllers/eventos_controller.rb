@@ -1,30 +1,23 @@
 class EventosController < ApplicationController
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
 
-  # GET /eventos
-  # GET /eventos.json
   def index
     @eventos = Evento.all
   end
 
-  # GET /eventos/1
-  # GET /eventos/1.json
   def show
   end
 
-  # GET /eventos/new
   def new
     @evento = Evento.new
   end
 
-  # GET /eventos/1/edit
   def edit
   end
 
-  # POST /eventos
-  # POST /eventos.json
   def create
-    @evento = Evento.new(evento_params)
+  #  @evento = Evento.new(evento_params)
+     @evento = current_user.eventos.new(evento_params)
 
     respond_to do |format|
       if @evento.save
@@ -69,6 +62,6 @@ class EventosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def evento_params
-      params.require(:evento).permit(:titulo, :detalle, :lugar, :fecha_inicio, :fecha_fin, :expòsitor)
+      params.require(:evento).permit(:titulo, :detalle, :lugar, :fecha_inicio, :fecha_fin, :expositor, :imagen, :user_id)
     end
 end

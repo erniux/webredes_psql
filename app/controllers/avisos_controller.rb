@@ -16,7 +16,8 @@ class AvisosController < ApplicationController
   end
 
   def create
-    @aviso = Aviso.new(aviso_params)
+    #@aviso = Aviso.new(aviso_params)
+    @aviso = current_user.avisos.new(aviso_params)
 
     respond_to do |format|
       if @aviso.save
@@ -54,9 +55,8 @@ class AvisosController < ApplicationController
       @aviso = Aviso.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def aviso_params
-      params.require(:aviso).permit(:id, :titulo, :detalle, :fecha, :imagen)
+      params.require(:aviso).permit(:id, :titulo, :detalle, :fecha, :imagen, :user_id)
     end
 end
 

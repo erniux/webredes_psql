@@ -30,5 +30,17 @@
   <%= @evento.expositor %>
 </p>
 
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @evento.user.nombre %>
+</p>
+
+<p>
+  <strong>Correo Usuario:</strong>
+  <%= @evento.user.email %>
+</p>
+ 
+
 <%= link_to 'Edit', edit_evento_path(@evento) %> |
 <%= link_to 'Back', eventos_path %>
