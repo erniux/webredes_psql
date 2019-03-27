@@ -6,10 +6,19 @@
       </div>
       <div class="col-sm-8">
         <h2>EVENTOS</h2>
-        <h4>Sed laoreet mollis purus</h4>
-        <p>In sollicitudin fermentum enim non imperdiet. Curabitur volutpat suscipit mauris, in scelerisque magna dapibus ut. Suspendisse sodales dolor eu nulla feugiat, in faucibus diam finibus.</p>
-        <button class="btn btn-default btn-lg">Continuar leyendo</button>
+        <h4><%= @eventos.titulo %></h4>
+        <p><%= @eventos.detalle %></p>
+        <p><%= @eventos.lugar %></p>
+        <p><%= @eventos.fecha_inicio %></p>
+        <p><%= @eventos.fecha_fin %></p>
+        <p><%= @eventos.expositor %></p>
+        <p><%= image_tag @eventos.imagen %></p>
+        <%= link_to 'Continuar Lectura', evento_path(@eventos),class: "btn btn-default btn-lg"  %>
+      <%= link_to 'Editar', edit_evento_path(@eventos),class: "btn btn-default btn-lg"  %>
       </div>
     </div>
   </div>
 </div>
+
+
+ 

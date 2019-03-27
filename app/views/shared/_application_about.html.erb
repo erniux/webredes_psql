@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-sm-8">
       <h2>Sobre Nosotros</h2>
-      <h4>Sed laoreet mollis purus</h4>
-      <p>In sollicitudin fermentum enim non imperdiet. Curabitur volutpat suscipit mauris, in scelerisque magna dapibus ut. Suspendisse sodales dolor eu nulla feugiat, in faucibus diam finibus.</p>
-      <button class="btn btn-default btn-lg">Contáctanos</button>
+      <p><%= @about.descripcion %></p>
+      <a href="#contact" class="btn btn-default btn-lg">Contáctanos</a>
+      <%= link_to 'Editar', edit_acercade_path(@about),class: "btn btn-default btn-lg"  %>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-signal logo"></span>
@@ -19,8 +19,9 @@
     </div>
     <div class="col-sm-8">
       <h2>Nuestros Valores</h2>
-      <h4><strong>MISIÓN:</strong> Nuesra Misión Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</h4>
-      <p><strong>VISIÓN:</strong> Nuestra Visión Mauris pretium at est sit amet dapibus. Sed pretium massa eget dolor egestas, sed hendrerit mi convallis. Ut ac dignissim.</p>
+      <h4><strong>MISIÓN:</strong> <%= @about.mision %></h4>
+      <br>
+      <h4><strong>VISIÓN:</strong> <%= @about.vision %></h4>
     </div>
   </div>
 </div>

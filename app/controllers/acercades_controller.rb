@@ -1,28 +1,20 @@
 class AcercadesController < ApplicationController
   before_action :set_acercade, only: [:show, :edit, :update, :destroy]
 
-  # GET /acercades
-  # GET /acercades.json
   def index
     @acercades = Acercade.all
   end
 
-  # GET /acercades/1
-  # GET /acercades/1.json
   def show
   end
 
-  # GET /acercades/new
   def new
     @acercade = Acercade.new
   end
 
-  # GET /acercades/1/edit
   def edit
   end
 
-  # POST /acercades
-  # POST /acercades.json
   def create
     @acercade = Acercade.new(acercade_params)
 
@@ -37,8 +29,6 @@ class AcercadesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /acercades/1
-  # PATCH/PUT /acercades/1.json
   def update
     respond_to do |format|
       if @acercade.update(acercade_params)
@@ -51,8 +41,6 @@ class AcercadesController < ApplicationController
     end
   end
 
-  # DELETE /acercades/1
-  # DELETE /acercades/1.json
   def destroy
     @acercade.destroy
     respond_to do |format|
@@ -62,13 +50,11 @@ class AcercadesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_acercade
       @acercade = Acercade.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def acercade_params
-      params.require(:acercade).permit(:descripcion)
+      params.require(:acercade).permit(:descripcion, :mision, :vision, :valores)
     end
 end

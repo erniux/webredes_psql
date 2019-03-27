@@ -1,10 +1,14 @@
 <div id="noticias" class="container-fluid">
+  <div class="container-fluid bg-grey">
   <div class="row">
     <div class="col-sm-8">
       <h2>NOTICIAS</h2>
-      <h4>Sed laoreet mollis purus</h4>
-      <p>In sollicitudin fermentum enim non imperdiet. Curabitur volutpat suscipit mauris, in scelerisque magna dapibus ut. Suspendisse sodales dolor eu nulla feugiat, in faucibus diam finibus.</p>
-      <button class="btn btn-default btn-lg">Continuar leyendo</button>
+      <h4><%= @avisos.titulo %></h4>
+      <p><%= @avisos.detalle %></p>
+      <p><%= @avisos.fecha %></p>
+      <p><%= image_tag @avisos.imagen %></p>
+      <%= link_to 'Continuar Lectura', aviso_path(@avisos),class: "btn btn-default btn-lg"  %>
+      <%= link_to 'Editar', edit_aviso_path(@avisos),class: "btn btn-default btn-lg"  %>
     </div>
     <div class="col-sm-4">
       <span class="glyphicon glyphicon-list-alt logo"></span>
