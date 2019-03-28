@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+      resources :users
+      resources :acercades
+      resources :avisos
+      resources :clientes
+      resources :contactos
+      resources :eventos
+      resources :precios
+      resources :recursos
+      resources :servicios
+
+      root to: "users#index"
+    end
   resources :avisos
   devise_for :users, path: '',path_names: {sign_in: 'ingresar', sign_out: 'salir', sign_up: 'registro'}
   resources :eventos
