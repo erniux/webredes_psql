@@ -1,23 +1,26 @@
 <%= render "shared/application_nav_socios" %>
 <div class="container-fluid-crud">
 <h1>Noticias y Avisos</h1>
-
-<table>
-  <tbody>
-    <% @avisos.each do |aviso| %>
-      <tr>
-        <td><%= aviso.titulo %></td>
-        <td><%= aviso.detalle %></td>
-        <td><%= aviso.fecha %></td>
-        <td><%= aviso.imagen %></td>
-        <td><%= link_to 'Show', aviso %></td>
-        <td><%= link_to 'Edit', edit_aviso_path(aviso) %></td>
-        <td><%= link_to 'Destroy', aviso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
 <br>
+<p><%= link_to 'Crear Noticia', new_aviso_path, class: "btn btn-default btn-lg" %></p>
+<br>
+<% @avisos.each do |aviso| %>
+  <div class="row">
+    <div class="card">
+      <div class="col-md-6">
+         <strong><%= aviso.titulo %></strong>
+         <p><%= link_to 'Mostrar', aviso %>
+         <%= link_to 'Modificar', edit_aviso_path(aviso) %>
+         <%= link_to 'Eliminar', aviso, method: :delete, data: { confirm: '¿Confirma eliminar el Registro?' } %></p>
+         <h6><%= aviso.updated_at.strftime("%m/%d/%Y %I:%M%p") %></h6>
+         <p><%= aviso.detalle %></p>
+      </div>
+      <div class="col-md-6">
+        <%= image_tag aviso.imagen %>
+      </div>
 
-<%= link_to 'New Aviso', new_aviso_path %>
+    </div>
+  </div>
+  <br>
+<% end %>
+</div>

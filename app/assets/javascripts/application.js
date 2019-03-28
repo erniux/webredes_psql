@@ -14,4 +14,7 @@
 //= require activestorage
 //= require gritter
 //= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
+//= require moment/es
 //= require_tree .

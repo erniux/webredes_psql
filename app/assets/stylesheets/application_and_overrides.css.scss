@@ -1,5 +1,8 @@
 // import the CSS framework
 @import "gritter";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
 
 .jumbotron {
   background-color: #424242; /* Gris RedES */
@@ -16,7 +19,7 @@
 }
 
 .container-fluid-crud {
-   padding: 60px 50px;
+   padding: 50px 350px;
   
 }
 
