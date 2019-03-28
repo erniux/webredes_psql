@@ -12,7 +12,8 @@
          <p><%= link_to 'Mostrar', aviso %>
          <%= link_to 'Modificar', edit_aviso_path(aviso) %>
          <%= link_to 'Eliminar', aviso, method: :delete, data: { confirm: '¿Confirma eliminar el Registro?' } %></p>
-         <h6><%= aviso.updated_at.strftime("%m/%d/%Y %I:%M%p") %></h6>
+         <h6><%= aviso.updated_at.strftime("%d/%m/%Y %H:%M:%S") %></h6>
+         
          <p><%= aviso.detalle %></p>
       </div>
       <div class="col-md-6">

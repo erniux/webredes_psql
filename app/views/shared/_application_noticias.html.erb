@@ -4,7 +4,7 @@
     <div class="col-sm-8">
       <h2>NOTICIAS</h2>
       <h4><%= @avisos.titulo %></h4>
-      <p><small><em><%= @avisos.fecha.strftime("%d-%m-%Y") %></em></small></p>
+      <p><small><em><%= @avisos.updated_at.strftime("%d-%m-%Y") %></em></small></p>
       <p><%= @avisos.detalle %></p>
       <p><%= image_tag @avisos.imagen.to_s %></p>
       <%= link_to 'Continuar Lectura', aviso_path(@avisos),class: "btn btn-default btn-lg"  %>
