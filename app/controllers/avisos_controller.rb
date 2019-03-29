@@ -13,6 +13,7 @@ class AvisosController < ApplicationController
   end
 
   def edit
+    authorize @aviso
   end
 
   def create
@@ -31,6 +32,8 @@ class AvisosController < ApplicationController
   end
 
   def update
+    authorize @aviso
+    
     respond_to do |format|
       if @aviso.update(aviso_params)
         format.html { redirect_to @aviso, notice: 'Aviso was successfully updated.' }
