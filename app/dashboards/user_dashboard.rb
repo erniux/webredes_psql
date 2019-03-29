@@ -12,7 +12,7 @@ class UserDashboard < Administrate::BaseDashboard
     avisos: Field::HasMany,
     id: Field::Number,
     email: Field::String,
-    encrypted_password: Field::String,
+    password: Field::String,
     nombre: Field::String,
     appaterno: Field::String,
     rfc: Field::String,
@@ -51,6 +51,7 @@ class UserDashboard < Administrate::BaseDashboard
     :avisos,
     :id,
     :email,
+    :type,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -60,7 +61,7 @@ class UserDashboard < Administrate::BaseDashboard
     :avisos,
     :id,
     :email,
-    :encrypted_password,
+    :password,
     :nombre,
     :appaterno,
     :rfc,
@@ -75,17 +76,6 @@ class UserDashboard < Administrate::BaseDashboard
     :cargo_enlace,
     :correo_enlace,
     :telefono_enlace,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
-    :sign_in_count,
-    :current_sign_in_at,
-    :last_sign_in_at,
-    :current_sign_in_ip,
-    :last_sign_in_ip,
-    :created_at,
-    :updated_at,
-    :permission_level,
     :type,
   ].freeze
 
@@ -96,7 +86,7 @@ class UserDashboard < Administrate::BaseDashboard
     :eventos,
     :avisos,
     :email,
-    :encrypted_password,
+    :password,
     :nombre,
     :appaterno,
     :rfc,
@@ -111,16 +101,6 @@ class UserDashboard < Administrate::BaseDashboard
     :cargo_enlace,
     :correo_enlace,
     :telefono_enlace,
-    :reset_password_token,
-    :reset_password_sent_at,
-    :remember_created_at,
-    :sign_in_count,
-    :current_sign_in_at,
-    :last_sign_in_at,
-    :current_sign_in_ip,
-    :last_sign_in_ip,
-    :permission_level,
-    :type,
   ].freeze
 
   # Overwrite this method to customize how users are displayed
