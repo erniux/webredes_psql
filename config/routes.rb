@@ -10,6 +10,20 @@ Rails.application.routes.draw do
       resources :precios
       resources :recursos
       resources :servicios
+      resources :admin_users
+
+      root to: "users#index"
+    end
+  namespace :admin do
+      resources :users
+      resources :acercades
+      resources :avisos
+      resources :clientes
+      resources :contactos
+      resources :eventos
+      resources :precios
+      resources :recursos
+      resources :servicios
 
       root to: "users#index"
     end
