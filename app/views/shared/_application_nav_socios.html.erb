@@ -11,13 +11,11 @@
 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "SOCIOS", socios_path  %></li>
-        <li><%= link_to "RECURSOS", recursos_path  %></li>
-        <li><%= link_to "EVENTOS", eventos_path  %></li>
-        <li><%= link_to "NOTICIAS", avisos_path  %></li>
-
-
         <% if current_user %>
+           <li><%= link_to "SOCIOS", socios_path  %></li>
+           <li><%= link_to "RECURSOS", recursos_path  %></li>
+           <li><%= link_to "EVENTOS", eventos_path  %></li>
+           <li><%= link_to "NOTICIAS", avisos_path  %></li>
            <li><%= link_to "SALIR", destroy_user_session_path, method: :delete %></li>
         <% else %>
            <li><%= link_to "ZONA SOCIOS", new_user_session_path %></li>

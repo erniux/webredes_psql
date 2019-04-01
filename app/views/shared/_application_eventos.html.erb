@@ -13,11 +13,10 @@
         <%= @eventos.fecha_fin.strftime("%d-%m-%Y") %></p>
         <p><%= @eventos.expositor %></p>
         <p><%= image_tag @eventos.imagen.to_s %></p>
-        <%= link_to 'Continuar Lectura', evento_path(@eventos),class: "btn btn-default btn-lg"  %>
         <% if user_signed_in? %>
-            <%= link_to 'Editar', edit_evento_path(@eventos),class: "btn btn-default btn-lg"  %>
+           <%= link_to 'Continuar Lectura', evento_path(@eventos),class: "btn btn-default btn-lg"  %>
+           <%= link_to 'Editar', edit_evento_path(@eventos),class: "btn btn-default btn-lg"  %>
       <% end %>
-      
       </div>
     </div>
   </div>

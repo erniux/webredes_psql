@@ -7,9 +7,9 @@
       <p><small><em><%= @avisos.updated_at.strftime("%d-%m-%Y") %></em></small></p>
       <p><%= @avisos.detalle %></p>
       <p><%= image_tag @avisos.imagen.to_s %></p>
-      <%= link_to 'Continuar Lectura', aviso_path(@avisos),class: "btn btn-default btn-lg"  %>
       <% if user_signed_in? %>
-            <%= link_to 'Editar', edit_aviso_path(@avisos),class: "btn btn-default btn-lg"  %>
+         <%= link_to 'Continuar Lectura', aviso_path(@avisos),class: "btn btn-default btn-lg"  %>
+         <%= link_to 'Editar', edit_aviso_path(@avisos),class: "btn btn-default btn-lg"  %>
       <% end %>
     </div>
     <div class="col-sm-4">

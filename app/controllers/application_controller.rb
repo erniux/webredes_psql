@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+	protect_from_forgery
+
    include DeviseWhitelist
    include Pundit
 
@@ -7,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    flash[:notice] = "Usted no esta autorizado para ejecutar esta función."
+    flash[:notice] = "#{@user} Usted no esta autorizado para ejecutar esta función."
     redirect_to(root_path)
   end
 
