@@ -6,7 +6,7 @@ class AcercadesController < ApplicationController
   end
 
   def show
-    authorize @acercade
+    
   end
 
   def new
@@ -16,7 +16,7 @@ class AcercadesController < ApplicationController
   end
 
   def edit
-    authorize @acercade
+    
   end
 
   def create
@@ -34,7 +34,7 @@ class AcercadesController < ApplicationController
   end
 
   def update
-    authorize @acercade
+    
 
     respond_to do |format|
       if @acercade.update(acercade_params)
