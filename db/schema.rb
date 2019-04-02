@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_29_121440) do
+ActiveRecord::Schema.define(version: 2019_04_02_152238) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2019_03_29_121440) do
     t.string "mision"
     t.string "vision"
     t.string "valores"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_acercades_on_user_id"
   end
 
   create_table "avisos", force: :cascade do |t|
@@ -33,26 +35,6 @@ ActiveRecord::Schema.define(version: 2019_03_29_121440) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_avisos_on_user_id"
-  end
-
-  create_table "clientes", force: :cascade do |t|
-    t.string "nombre"
-    t.string "rfc"
-    t.string "responsable"
-    t.string "telefono"
-    t.string "correo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "contactos", force: :cascade do |t|
-    t.string "nombre"
-    t.string "telefono"
-    t.string "celular"
-    t.string "correo"
-    t.string "departamento"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "eventos", force: :cascade do |t|
@@ -75,6 +57,8 @@ ActiveRecord::Schema.define(version: 2019_03_29_121440) do
     t.float "precio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_precios_on_user_id"
   end
 
   create_table "recursos", force: :cascade do |t|
@@ -82,6 +66,8 @@ ActiveRecord::Schema.define(version: 2019_03_29_121440) do
     t.string "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_recursos_on_user_id"
   end
 
   create_table "servicios", force: :cascade do |t|
@@ -89,6 +75,8 @@ ActiveRecord::Schema.define(version: 2019_03_29_121440) do
     t.text "caracteristicas"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_servicios_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -124,6 +112,10 @@ ActiveRecord::Schema.define(version: 2019_03_29_121440) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "acercades", "users"
   add_foreign_key "avisos", "users"
   add_foreign_key "eventos", "users"
+  add_foreign_key "precios", "users"
+  add_foreign_key "recursos", "users"
+  add_foreign_key "servicios", "users"
 end

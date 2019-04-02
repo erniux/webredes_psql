@@ -10,8 +10,6 @@ class AcercadesController < ApplicationController
   end
 
   def new
-    authorize @acercade
-
     @acercade = Acercade.new
   end
 
@@ -21,6 +19,7 @@ class AcercadesController < ApplicationController
 
   def create
     @acercade = Acercade.new(acercade_params)
+    
 
     respond_to do |format|
       if @acercade.save

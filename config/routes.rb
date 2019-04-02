@@ -34,8 +34,6 @@ Rails.application.routes.draw do
   resources :recursos
   resources :servicios
   resources :precios
-  resources :contactos
-  resources :clientes
   resources :acercades
 
 
