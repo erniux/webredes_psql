@@ -1,37 +1,39 @@
-<%= form_with(model: acercade, local: true) do |form| %>
-  <% if acercade.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(acercade.errors.count, "error") %> prohibited this acercade from being saved:</h2>
-
-      <ul>
-      <% acercade.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :descripcion %>
-    <%= form.text_area :descripcion %>
-  </div>
-
-  <div class="field">
-    <%= form.label :mision %>
-    <%= form.text_area :mision %>
-  </div>
-
-  <div class="field">
-    <%= form.label :vision %>
-    <%= form.text_area :vision %>
-  </div>
-
-  <div class="field">
-    <%= form.label :valores %>
-    <%= form.text_area :valores %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<% if current_user %>
+   <%= form_with(model: acercade, local: true) do |form| %>
+     <% if acercade.errors.any? %>
+       <div id="error_explanation">
+         <h2><%= pluralize(acercade.errors.count, "error") %> prohibited this acercade from being saved:</h2>
+   
+         <ul>
+         <% acercade.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
+         <% end %>
+         </ul>
+       </div>
+     <% end %>
+   
+     <div class="field">
+       <%= form.label :descripcion %>
+       <%= form.text_area :descripcion %>
+     </div>
+   
+     <div class="field">
+       <%= form.label :mision %>
+       <%= form.text_area :mision %>
+     </div>
+   
+     <div class="field">
+       <%= form.label :vision %>
+       <%= form.text_area :vision %>
+     </div>
+   
+     <div class="field">
+       <%= form.label :valores %>
+       <%= form.text_area :valores %>
+     </div>
+   
+     <div class="actions">
+       <%= form.submit %>
+     </div>
+   <% end %>
 <% end %>

@@ -1,3 +1,4 @@
+<% if current_user %>
 <p id="notice"><%= notice %></p>
 
 <h1>Acercades</h1>
@@ -14,9 +15,8 @@
     <% @acercades.each do |acercade| %>
       <tr>
         <td><%= acercade.descripcion %></td>
-        <td><%= link_to 'Show', acercade %></td>
-        <td><%= link_to 'Edit', edit_acercade_path(acercade) %></td>
-        <td><%= link_to 'Destroy', acercade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', acercade %></td>
+        <td><%= link_to 'Actualizar', edit_acercade_path(acercade) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Acercade', new_acercade_path %>
+<% end %>

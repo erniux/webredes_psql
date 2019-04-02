@@ -6,6 +6,7 @@ class EventosController < ApplicationController
   end
 
   def show
+    authorize @evento
   end
 
   def new
@@ -13,6 +14,7 @@ class EventosController < ApplicationController
   end
 
   def edit
+    authorize @evento
   end
 
   def create
@@ -30,9 +32,9 @@ class EventosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /eventos/1
-  # PATCH/PUT /eventos/1.json
   def update
+    authorize @evento
+
     respond_to do |format|
       if @evento.update(evento_params)
         format.html { redirect_to @evento, notice: 'Evento was successfully updated.' }
@@ -44,8 +46,6 @@ class EventosController < ApplicationController
     end
   end
 
-  # DELETE /eventos/1
-  # DELETE /eventos/1.json
   def destroy
     @evento.destroy
     respond_to do |format|
@@ -55,12 +55,10 @@ class EventosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_evento
       @evento = Evento.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def evento_params
       params.require(:evento).permit(:titulo, :detalle, :lugar, :fecha_inicio, :fecha_fin, :expositor, :imagen, :user_id)
     end

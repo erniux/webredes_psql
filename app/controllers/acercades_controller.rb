@@ -6,13 +6,17 @@ class AcercadesController < ApplicationController
   end
 
   def show
+    authorize @acercade
   end
 
   def new
+    authorize @acercade
+
     @acercade = Acercade.new
   end
 
   def edit
+    authorize @acercade
   end
 
   def create
@@ -20,7 +24,7 @@ class AcercadesController < ApplicationController
 
     respond_to do |format|
       if @acercade.save
-        format.html { redirect_to @acercade, notice: 'Acercade was successfully created.' }
+        format.html { redirect_to @acercade, notice: 'Regsitro creado correctamente.' }
         format.json { render :show, status: :created, location: @acercade }
       else
         format.html { render :new }
@@ -30,9 +34,11 @@ class AcercadesController < ApplicationController
   end
 
   def update
+    authorize @acercade
+
     respond_to do |format|
       if @acercade.update(acercade_params)
-        format.html { redirect_to @acercade, notice: 'Acercade was successfully updated.' }
+        format.html { redirect_to @acercade, notice: 'Registro actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @acercade }
       else
         format.html { render :edit }
@@ -44,7 +50,7 @@ class AcercadesController < ApplicationController
   def destroy
     @acercade.destroy
     respond_to do |format|
-      format.html { redirect_to acercades_url, notice: 'Acercade was successfully destroyed.' }
+      format.html { redirect_to acercades_url, notice: 'Registro eliminado correctamente.' }
       format.json { head :no_content }
     end
   end
