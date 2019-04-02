@@ -1,5 +1,8 @@
-<h1>New Recurso</h1>
-
-<%= render 'form', recurso: @recurso %>
-
-<%= link_to 'Back', recursos_path %>
+<%= render "shared/application_nav_socios" %>
+<div class="container-fluid-crud">
+   <h1>Subir Recursos</h1>
+   
+   <%= render 'form', recurso: @recurso %>
+   
+   <%= link_to 'Regresar', recursos_path %>
+</div>

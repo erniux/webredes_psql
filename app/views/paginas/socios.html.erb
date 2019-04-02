@@ -1,21 +1,25 @@
 <%= render "shared/application_nav_socios" %>
 <div class="container-fluid-crud">
-<h1>Sitio Socios</h1>
+  <div class="col-sm-4">
+     <h1>Sitio Socios</h1>
+  </div>
+  <div class="col-sm-8">
+     <%= image_tag "redes.jpg", width: 400 %>
+  </div>
 
 <div class="container">
    <div class="row">
      <h2><%= link_to "EVENTOS", evento_path(@eventos.id) %></h2>
-     <div class="col-sm-6">
        <div class="card">
-         <div class="card-block">
-         
+        <div class="card-block">
+          <div class="col-sm-6">
            <h3 class="card-title"><%= @eventos.titulo %></h3>
            <p class="card-text"><%= @eventos.detalle %></p>
-           <p class="card-text"><%= @eventos.fecha_inicio %></p>
-           <p class="card-text"><%= @eventos.fecha_fin %></p>
            <p class="card-text"><%= @eventos.expositor %></p>
            <p class="card-text"><%= @eventos.lugar %></p>
-        
+         </div>
+         <div class="col-sm-6">
+          <p><%= image_tag @eventos.imagen %></p>
          </div>
        </div>
      </div>
@@ -23,14 +27,16 @@
 
    <div class="row">
      <h2><%= link_to "NOTICIAS", aviso_path(@avisos.id) %></h2>
-     <div class="col-sm-6">
        <div class="card">
          <div class="card-block">
-          
+          <div class="col-sm-6">
             <h3 h3 class="card-title"><%= @avisos.titulo %></h3>
             <p><%= @avisos.detalle %></p>
             <p><%= @avisos.fecha %></p>
-            <p><%= @avisos.imagen %></p>         
+          </div>
+          <div class="col-sm-6">
+            <p><%= image_tag @avisos.imagen %></p>         
+          </div>
          </div>
        </div>
      </div>
