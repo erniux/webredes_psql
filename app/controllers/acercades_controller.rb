@@ -3,10 +3,11 @@ class AcercadesController < ApplicationController
 
   def index
     @acercades = Acercade.all
+    authorize @acercades
   end
 
   def show
-    
+    authorize @acercade
   end
 
   def new
@@ -14,27 +15,24 @@ class AcercadesController < ApplicationController
   end
 
   def edit
-    
+    authorize @acercade
   end
 
   def create
     @acercade = Acercade.new(acercade_params)
-    
+    @acercade = current_user.id
 
     respond_to do |format|
       if @acercade.save
         format.html { redirect_to @acercade, notice: 'Regsitro creado correctamente.' }
-        format.json { render :show, status: :created, location: @acercade }
       else
         format.html { render :new }
-        format.json { render json: @acercade.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
-    
-
+    authorize @acercade
     respond_to do |format|
       if @acercade.update(acercade_params)
         format.html { redirect_to @acercade, notice: 'Registro actualizado correctamente.' }

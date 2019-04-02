@@ -24,10 +24,8 @@ class AvisosController < ApplicationController
     respond_to do |format|
       if @aviso.save
         format.html { redirect_to @aviso, notice: 'Aviso was successfully created.' }
-        format.json { render :show, status: :created, location: @aviso }
       else
         format.html { render :new }
-        format.json { render json: @aviso.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -38,10 +36,8 @@ class AvisosController < ApplicationController
     respond_to do |format|
       if @aviso.update(aviso_params)
         format.html { redirect_to @aviso, notice: 'Aviso was successfully updated.' }
-        format.json { render :show, status: :ok, location: @aviso }
       else
         format.html { render :edit }
-        format.json { render json: @aviso.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -50,7 +46,6 @@ class AvisosController < ApplicationController
     @aviso.destroy
     respond_to do |format|
       format.html { redirect_to avisos_url, notice: 'Aviso was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 

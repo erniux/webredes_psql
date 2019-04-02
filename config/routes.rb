@@ -4,8 +4,6 @@ Rails.application.routes.draw do
       resources :users
       resources :acercades
       resources :avisos
-      resources :clientes
-      resources :contactos
       resources :eventos
       resources :precios
       resources :recursos
@@ -18,8 +16,6 @@ Rails.application.routes.draw do
       resources :users
       resources :acercades
       resources :avisos
-      resources :clientes
-      resources :contactos
       resources :eventos
       resources :precios
       resources :recursos

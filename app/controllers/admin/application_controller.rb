@@ -18,8 +18,6 @@ module Admin
         flash[:notice] = "No esta autorizado a ingresar a esta página"
         redirect_to(root_path)
       end
-       
-
     end
 
     # Override this value to specify the number of elements to display at a time
