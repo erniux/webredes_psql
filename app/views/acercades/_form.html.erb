@@ -14,26 +14,27 @@
    
      <div class="field">
        <%= form.label :descripcion %>
-       <%= form.text_area :descripcion %>
+       <%= form.text_area :descripcion, rows: 20, cols: 60 %>
      </div>
    
      <div class="field">
        <%= form.label :mision %>
-       <%= form.text_area :mision %>
+       <%= form.text_area :mision, rows: 20, cols: 60 %>
      </div>
    
      <div class="field">
        <%= form.label :vision %>
-       <%= form.text_area :vision %>
+       <%= form.text_area :vision, rows: 20, cols: 60 %>
      </div>
    
      <div class="field">
        <%= form.label :valores %>
-       <%= form.text_area :valores %>
+       <%= form.text_area :valores, rows: 20, cols: 60 %>
      </div>
    
      <div class="actions">
-       <%= form.submit %>
-     </div>
+    <%= form.submit "Guardar" %>
+  </div>
    <% end %>
 <% end %>
+

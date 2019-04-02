@@ -1,38 +1,30 @@
 <%= render "shared/application_nav_socios" %>
-<p id="notice"><%= notice %></p>
+<div class="container-fluid-crud">
+   <p id="notice"><%= notice %></p>
 
-<h1>Eventos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Detalle</th>
-      <th>Lugar</th>
-      <th>Fecha inicio</th>
-      <th>Fecha fin</th>
-      <th>Expositor</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @eventos.each do |evento| %>
-      <tr>
-        <td><%= evento.titulo %></td>
-        <td><%= evento.detalle %></td>
-        <td><%= evento.lugar %></td>
-        <td><%= evento.fecha_inicio %></td>
-        <td><%= evento.fecha_fin %></td>
-        <td><%= evento.expositor %></td>
-        <td><%= link_to 'Show', evento %></td>
-        <td><%= link_to 'Edit', edit_evento_path(evento) %></td>
-        <td><%= link_to 'Destroy', evento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Evento', new_evento_path %>
+   <h1>Eventos</h1>
+   <br>
+   <%= link_to 'Crear Nuevo Evento', new_evento_path %>
+   <br>  
+   <% @eventos.each do |evento| %>
+     <div class="row">
+        <div class="card">
+           <div class="col-md-6">
+       <strong><%= evento.titulo %></strong>
+       <p><%= link_to 'Mostrar', evento %> |
+          <%= link_to 'Editar', edit_evento_path(evento) %> |
+          <%= link_to 'Eliminar', evento, method: :delete, data: { confirm: '¿Confirma Eliminar Evento?' } %></p>
+       <h6>del: <%= evento.fecha_inicio.strftime("%d/%m/%Y %H:%M:%S") %> al: 
+         <%= evento.fecha_fin.strftime("%d/%m/%Y %H:%M:%S") %></h6>
+       
+       <p><%= evento.detalle %></p>
+       <p><%= evento.lugar %></p>
+       <p><%= evento.expositor %></p>
+     </div>
+     <div class="col-md-6">
+       <%= image_tag evento.imagen %>
+     </div></div>
+     </div>
+     <br>
+   <% end %>
+</div>

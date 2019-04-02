@@ -1,9 +1,29 @@
-<p id="notice"><%= notice %></p>
+<%= render "shared/application_nav_socios" %>
+<div class="container-fluid-crud">
+   <p id="notice"><%= notice %></p>
+   
+   <p>
+     <strong>Descripcion:</strong>
+     <%= @acercade.descripcion %>
+   </p>
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @acercade.descripcion %>
-</p>
+   <p>
+     <strong>Misión:</strong>
+     <%= @acercade.mision %>
+   </p>
 
-<%= link_to 'Modificar', edit_acercade_path(@acercade) %> |
-<%= link_to 'Regresar', root_path %>
+
+   <p>
+     <strong>Vision:</strong>
+     <%= @acercade.vision %>
+   </p>
+
+   <p>
+     <strong>Valores:</strong>
+     <%= @acercade.valores %>
+   </p>
+
+   
+   <%= link_to 'Modificar', edit_acercade_path(@acercade) %> |
+   <%= link_to 'Regresar', root_path %>
+</div>

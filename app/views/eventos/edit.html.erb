@@ -1,6 +1,10 @@
-<h1>Editing Evento</h1>
+<%= render "shared/application_nav_socios" %>
+<div class="container-fluid-crud">
+   <h1>Modificar Evento</h1>
 
-<%= render 'form', evento: @evento %>
+   <%= render 'form', evento: @evento %>
 
-<%= link_to 'Show', @evento %> |
-<%= link_to 'Back', eventos_path %>
+   <%= link_to 'Mostrar', @evento %> |
+   <%= link_to 'Regresar a Eventos', eventos_path %>
+
+</div>

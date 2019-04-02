@@ -9,8 +9,8 @@
     <div class="card">
       <div class="col-md-6">
          <strong><%= aviso.titulo %></strong>
-         <p><%= link_to 'Mostrar', aviso %>
-         <%= link_to 'Modificar', edit_aviso_path(aviso) %>
+         <p><%= link_to 'Mostrar', aviso %> |
+         <%= link_to 'Modificar', edit_aviso_path(aviso) %> |
          <%= link_to 'Eliminar', aviso, method: :delete, data: { confirm: '¿Confirma eliminar el Registro?' } %></p>
          <h6><%= aviso.updated_at.strftime("%d/%m/%Y %H:%M:%S") %></h6>
          

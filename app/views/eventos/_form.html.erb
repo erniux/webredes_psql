@@ -13,17 +13,17 @@
 
   <div class="field">
     <%= form.label :titulo %>
-    <%= form.text_field :titulo %>
+    <%= form.text_field :titulo, size: 60 %>
   </div>
 
   <div class="field">
     <%= form.label :detalle %>
-    <%= form.text_field :detalle %>
+    <%= form.text_area :detalle, rows: 20, cols: 60 %>
   </div>
 
   <div class="field">
     <%= form.label :lugar %>
-    <%= form.text_field :lugar %>
+    <%= form.text_field :lugar, size: 60 %>
   </div>
 
   <div class="field">
@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= form.label :expositor %>
-    <%= form.text_field :expositor %>
+    <%= form.text_field :expositor, size: 60 %>
   </div>
 
   <div class="field">
@@ -47,6 +47,11 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar" %>
   </div>
+  
 <% end %>
+
+
+
+

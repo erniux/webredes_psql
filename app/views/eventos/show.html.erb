@@ -1,12 +1,12 @@
+<%= render "shared/application_nav_socios" %>
+<div class="container-fluid-crud">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Titulo:</strong>
-  <%= @evento.titulo %>
+  <strong><%= @evento.titulo %></strong>
 </p>
 
 <p>
-  <strong>Detalle:</strong>
   <%= @evento.detalle %>
 </p>
 
@@ -17,12 +17,12 @@
 
 <p>
   <strong>Fecha inicio:</strong>
-  <%= @evento.fecha_inicio %>
+  <%= @evento.fecha_inicio.strftime("%d/%m/%Y %H:%M:%S") %>
 </p>
 
 <p>
   <strong>Fecha fin:</strong>
-  <%= @evento.fecha_fin %>
+  <%= @evento.fecha_fin.strftime("%d/%m/%Y %H:%M:%S") %>
 </p>
 
 <p>
@@ -30,17 +30,11 @@
   <%= @evento.expositor %>
 </p>
 
-
 <p>
-  <strong>Usuario:</strong>
-  <%= @evento.user.nombre %>
-</p>
+     <%= image_tag @evento.imagen.to_s %>
+   </p>
 
-<p>
-  <strong>Correo Usuario:</strong>
-  <%= @evento.user.email %>
-</p>
  
 
-<%= link_to 'Edit', edit_evento_path(@evento) %> |
-<%= link_to 'Back', eventos_path %>
+<%= link_to 'Editar', edit_evento_path(@evento) %> |
+<%= link_to 'Regresar', eventos_path %>
