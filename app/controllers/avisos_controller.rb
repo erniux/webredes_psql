@@ -23,7 +23,7 @@ class AvisosController < ApplicationController
 
     respond_to do |format|
       if @aviso.save
-        format.html { redirect_to @aviso, notice: 'Aviso was successfully created.' }
+        format.html { redirect_to @aviso, notice: 'Regsitro creado correctamente.' }
       else
         format.html { render :new }
       end
@@ -35,7 +35,7 @@ class AvisosController < ApplicationController
 
     respond_to do |format|
       if @aviso.update(aviso_params)
-        format.html { redirect_to @aviso, notice: 'Aviso was successfully updated.' }
+        format.html { redirect_to @aviso, notice: 'Regsitro actualizado correctamente.' }
       else
         format.html { render :edit }
       end
@@ -45,7 +45,7 @@ class AvisosController < ApplicationController
   def destroy
     @aviso.destroy
     respond_to do |format|
-      format.html { redirect_to avisos_url, notice: 'Aviso was successfully destroyed.' }
+      format.html { redirect_to avisos_url, notice: 'Regsitro eliminado correctamente.' }
     end
   end
 

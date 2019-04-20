@@ -24,7 +24,7 @@ class AcercadesController < ApplicationController
 
     respond_to do |format|
       if @acercade.save
-        format.html { redirect_to @acercade, notice: 'Regsitro creado correctamente.' }
+        format.html { redirect_to @acercade, notice: 'Registro creado correctamente.' }
       else
         format.html { render :new }
       end
