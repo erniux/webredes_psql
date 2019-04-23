@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :servicios
       resources :admin_users
 
+
       root to: "users#index"
     end
   namespace :admin do
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
   get 'socios', to: 'paginas#socios'
   get 'precios', to: 'paginas#precios'
   get 'contacto', to: 'paginas#contacto'
+  get 'reconocimiento', to: 'paginas#reconocimiento'
 
 root  'paginas#inicio'
   

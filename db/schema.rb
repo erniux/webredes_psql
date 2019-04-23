@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_02_152238) do
+ActiveRecord::Schema.define(version: 2019_04_23_162911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2019_04_02_152238) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_avisos_on_user_id"
+  end
+
+  create_table "doc_reconocimientos", force: :cascade do |t|
+    t.string "titulo"
+    t.text "contenido"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_doc_reconocimientos_on_user_id"
   end
 
   create_table "eventos", force: :cascade do |t|
@@ -114,6 +123,7 @@ ActiveRecord::Schema.define(version: 2019_04_02_152238) do
 
   add_foreign_key "acercades", "users"
   add_foreign_key "avisos", "users"
+  add_foreign_key "doc_reconocimientos", "users"
   add_foreign_key "eventos", "users"
   add_foreign_key "precios", "users"
   add_foreign_key "recursos", "users"

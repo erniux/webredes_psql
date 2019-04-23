@@ -22,4 +22,8 @@ class PaginasController < ApplicationController
     @eventos = Evento.last
     @avisos = Aviso.last
   end
+
+  def reconocimientos
+  end
+  
 end

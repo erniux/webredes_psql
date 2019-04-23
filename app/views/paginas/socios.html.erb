@@ -1,16 +1,17 @@
 <%= render "shared/application_nav_socios" %>
 <div class="container-fluid-crud">
-  <div class="col-sm-4">
+  <div class="col-md-4">
      <h1>Sitio Socios</h1>
   </div>
-  <div class="col-sm-8">
+  <div class="col-md-8">
      <%= image_tag "redes.jpg", width: 400 %>
-  </div>
-
-<div class="container">
+  </div><hr>
+</div>
+<p>
+  <div class="container-fluid-crud">
    <div class="row">
      <h2><%= link_to "EVENTOS", evento_path(@eventos.id) %></h2>
-       <div class="card">
+    <div class="card">   
         <div class="card-block">
           <div class="col-sm-6">
            <h3 class="card-title"><%= @eventos.titulo %></h3>
