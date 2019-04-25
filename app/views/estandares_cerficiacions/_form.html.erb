@@ -1,0 +1,42 @@
+<%= form_with(model: estandares_cerficiacion, local: true) do |form| %>
+  <% if estandares_cerficiacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(estandares_cerficiacion.errors.count, "error") %> Verificar los erroes que se muestran:</h2>
+
+      <ul>
+      <% estandares_cerficiacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :estandar %>
+    <%= form.text_area :estandar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripción %>
+    <%= form.text_area :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :puntos %>
+    <%= form.text_field :puntos %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observaciones %>
+    <%= form.text_area :observaciones %>
+  </div>
+
+  <div class="field">
+    <%= form.label :etapa_certificacion %>
+    <%= form.text_field :etapa_certificacions_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

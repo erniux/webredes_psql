@@ -33,3 +33,6 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
 gem 'administrate', '~> 0.11.0'
 gem 'bourbon', '~> 5.1'
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'mini_magick', '~> 4.9', '>= 4.9.3'
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'

@@ -1,6 +1,6 @@
 class PaginasController < ApplicationController
   def inicio
-     @eventos = Evento.last
+    @eventos = Evento.last
     @avisos = Aviso.last
     @about = Acercade.first
     @servicios = Servicio.all
@@ -24,6 +24,7 @@ class PaginasController < ApplicationController
   end
 
   def reconocimientos
+
   end
   
 end

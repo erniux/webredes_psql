@@ -1,0 +1,33 @@
+<%= render "shared/application_nav_reconocimientos" %>
+<div class="container-fluid-crud">
+<p id="notice"><%= notice %></p>
+
+<h1>Evidencia Estandars</h1>
+<%= link_to 'Crear Evidencias Estandar', new_evidencia_estandar_path, class: "btn btn-default btn-lg" %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Documento</th>
+      <th>Tipo documento</th>
+      <th>Estandares de cerficiación</th>
+      <th colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @evidencia_estandars.each do |evidencia_estandar| %>
+      <tr>
+        <td><%= evidencia_estandar.nombre_documento %></td>
+        <td><%= evidencia_estandar.tipo_documento %></td>
+        <td><%= evidencia_estandar.estandares_cerficiacions %></td>
+        <td><%= link_to 'Mostrar', evidencia_estandar %></td>
+        <td><%= link_to 'Modificar', edit_evidencia_estandar_path(evidencia_estandar) %></td>
+        <td><%= link_to 'Eliminar', evidencia_estandar, method: :delete, data: { confirm: '¿Confirma Eliminar Evento?' } %></p>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>

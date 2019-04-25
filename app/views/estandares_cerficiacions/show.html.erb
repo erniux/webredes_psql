@@ -1,0 +1,33 @@
+<%= render "shared/application_nav_reconocimientos" %>
+<div class="container-fluid-crud">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estandar:</strong>
+  <%= @estandares_cerficiacion.estandar %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @estandares_cerficiacion.descripcion %>
+</p>
+
+<p>
+  <strong>Puntos:</strong>
+  <%= @estandares_cerficiacion.puntos %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @estandares_cerficiacion.observaciones %>
+</p>
+
+<p>
+  <strong>Etapa certificacions:</strong>
+  <%= @estandares_cerficiacion.etapa_certificacions %>
+</p>
+
+<%= link_to 'Modificar', edit_estandares_cerficiacion_path(@estandares_cerficiacion) %> |
+<%= link_to 'Regresar', estandares_cerficiacions_path %>
+
+</div>

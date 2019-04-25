@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre documento:</strong>
+  <%= @evidencia_estandar.nombre_documento %>
+</p>
+
+<p>
+  <strong>Tipo documento:</strong>
+  <%= @evidencia_estandar.tipo_documento %>
+</p>
+
+<p>
+  <strong>Estandares cerficiacions:</strong>
+  <%= @evidencia_estandar.estandares_cerficiacions %>
+</p>
+
+<%= link_to 'Edit', edit_evidencia_estandar_path(@evidencia_estandar) %> |
+<%= link_to 'Back', evidencia_estandars_path %>

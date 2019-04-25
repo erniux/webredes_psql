@@ -1,0 +1,2 @@
+module EtapaCertificacionsHelper
+end

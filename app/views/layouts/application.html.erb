@@ -16,9 +16,6 @@
 
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-
-    <%= render 'shared/application_nav' %>
-
     <%= yield %>
 
     <%= js add_gritter(flash[:notice], title: "Aviso", sticky: false) %>

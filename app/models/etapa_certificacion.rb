@@ -1,0 +1,2 @@
+class EtapaCertificacion < ApplicationRecord
+end

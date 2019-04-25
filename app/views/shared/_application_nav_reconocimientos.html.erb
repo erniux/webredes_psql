@@ -12,10 +12,11 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-left">
         <% if current_user %>
-           <li><%= link_to "PROCESO", reconocimiento_path  %></li>
-           <li><%= link_to "RECURSOS", reconocimiento_path  %></li>
-           <li><%= link_to "EVENTOS", reconocimiento_path  %></li>
-           <li><%= link_to "NOTICIAS", reconocimiento_path  %></li>
+           <li><%= link_to "SOCIOS", socios_path  %></li>
+           <li><%= link_to "ETAPAS", etapa_certificacions_path  %></li>
+           <li><%= link_to "ESTANDARES", estandares_cerficiacions_path  %></li>
+           <li><%= link_to "EVIDENCIAS", evidencia_estandars_path  %></li>
+           <li><%= link_to "MI CERTIFICACION", reconocimientos_path  %></li>
            <li><%= link_to "SALIR", destroy_user_session_path, method: :delete %></li>
         <% else %>
            <li><%= link_to "ZONA SOCIOS", new_user_session_path %></li>
