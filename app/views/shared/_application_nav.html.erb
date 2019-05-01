@@ -20,7 +20,7 @@
           <% if current_user %>
             <li><%= link_to "salir", destroy_user_session_path, method: :delete %></li>
           <% else %>
-            <li class="ribbon ribbon_element"><%= link_to "afiliate", new_user_registration_path %></li>
+            <li><%= link_to "afiliate", new_user_registration_path %></li>
           <% end %>
           <li class="manzanita"><%= image_tag "manzana_pequena.jpg", width: 25  %></li>
           <li><%= link_to "inicio", root_path %></li>
@@ -38,10 +38,10 @@
           <% if current_user %>
             <li><%= link_to "salir", destroy_user_session_path, method: :delete %></li>
           <% else %>
-            <li class="ribbon ribbon_element"><%= link_to "afiliate", new_user_registration_path %></li>
+            <li><%= link_to "afiliate", new_user_registration_path %></li>
           <% end %>
           <li class="manzanita"><%= image_tag "manzana_pequena.jpg", width: 25  %></li>
-          <li><a href="#inicio">inicio</a></li>
+          <li class='flecha-inicial'><a href="#inicio">inicio</a></li>
           <li><a href="#about">nosotros</a></li>
           <li><a href="#eventos">eventos</a></li>
           <li><%= link_to "socios", socios_path %></li> 
