@@ -20,7 +20,7 @@
           <% if current_user %>
             <li><%= link_to "salir", destroy_user_session_path, method: :delete %></li>
           <% else %>
-            <li><%= link_to "afiliate", new_user_registration_path %></li>
+            <li><%= link_to "afiliate", new_user_registration_path, background: image-url('flecha_roja.jpg'); %></li>
           <% end %>
           <li class="manzanita"><%= image_tag "manzana_pequena.jpg", width: 25  %></li>
           <li><%= link_to "inicio", root_path %></li>
