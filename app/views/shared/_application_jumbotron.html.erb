@@ -1,16 +1,4 @@
-<div class="jumbotron text-center">
+<div id="inicio" class="jumbotron text-center">
    <p><%= image_tag "redes.jpg", width: 400, alt: "profile image" %></p>
-   <p>Nos Especializamos en la Seguridad Escolar</p>
-   <form class="form-inline">
-      <div class="input-group">
-
-        <div class="input-group-btn">
-          <% if current_user %>
-             <%= link_to "Ir a Sitio Socios ...",  socios_path, class:'btn btn-success' %>
-          <% else %>
-             <%= link_to "Suscribete",  new_user_registration_path, class:'btn btn-success' %>
-          <% end %>
-        </div>
-      </div>
-   </form>
+   <p><%= image_tag "acoso.jpg", width: 900, alt: "profile image" %></p>   
 </div>

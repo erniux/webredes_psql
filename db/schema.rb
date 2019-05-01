@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_25_152742) do
+ActiveRecord::Schema.define(version: 2019_04_29_224214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,11 @@ ActiveRecord::Schema.define(version: 2019_04_25_152742) do
     t.string "vision"
     t.string "valores"
     t.bigint "user_id"
+    t.text "que_somos"
+    t.text "que_hacemos"
+    t.text "que_buscamos"
+    t.text "enfoque"
+    t.text "importancia"
     t.index ["user_id"], name: "index_acercades_on_user_id"
   end
 
@@ -88,6 +93,15 @@ ActiveRecord::Schema.define(version: 2019_04_25_152742) do
     t.index ["user_id"], name: "index_precios_on_user_id"
   end
 
+  create_table "reconocimiento_redes", force: :cascade do |t|
+    t.string "nombre"
+    t.text "descripcion"
+    t.bigint "acercades_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["acercades_id"], name: "index_reconocimiento_redes_on_acercades_id"
+  end
+
   create_table "recursos", force: :cascade do |t|
     t.string "nombre"
     t.string "user"
@@ -145,6 +159,7 @@ ActiveRecord::Schema.define(version: 2019_04_25_152742) do
   add_foreign_key "eventos", "users"
   add_foreign_key "evidencia_estandars", "estandares_cerficiacions", column: "estandares_cerficiacions_id"
   add_foreign_key "precios", "users"
+  add_foreign_key "reconocimiento_redes", "acercades", column: "acercades_id"
   add_foreign_key "recursos", "users"
   add_foreign_key "servicios", "users"
 end

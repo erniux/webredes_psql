@@ -5,10 +5,21 @@
 @import 'bootstrap-datetimepicker';
 @import 'bourbon';
 
+.imagen {
+  color: #FDFEFE;
+  background-color: #cccc;
+  width: 100%;
+}
+
 .jumbotron {
-  background-color: #424242; /* Gris RedES */
-  color: #ffffff;
-  padding: 100px 25px;
+  /* background-color: #424242; */ /* Gris RedES */
+  color: #black;
+  padding: 150px 30px;
+  background-color: #FDFEFE;
+}
+
+.manzanita {
+  margin: 10px 20px;
 }
 
 .bg-grey {
@@ -22,6 +33,11 @@
 .container-fluid-crud {
    padding: 50px 350px;
   
+}
+
+.container-fluid-grey {
+  padding: 120px 22px;
+  background-color: #C0C0C0;
 }
 
 .container {
@@ -43,6 +59,11 @@
     text-align: center;
     margin: 25px 0;
   }
+
+  .col-md-6 {
+    padding: 0px 0px;
+  }
+
 }
 
 .thumbnail {
@@ -125,34 +146,49 @@
 
 .panel-footer .btn {
   margin: 15px 0;
-  background-color: #298A08;
+  background-color: #FDFEFE;
   color: #fff;
 }
 
 .navbar {
   margin-bottom: 0;
-  background-color: #424242;
+  color: black;
   z-index: 9999;
   border: 0;
-  font-size: 11px !important;
+  font-size: small;
   line-height: 1.42857143 !important;
   letter-spacing: 1.5px;
-  border-radius: 0;
+  background-color: #ffffff; 
+  
 }
 
 .navbar li a, .navbar .navbar-brand {
-  color: #fff !important;
+  color: black !important;
+  font-size: small;
+  width: 8.5em;
+  background-color: #ffffff; 
+
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
-  color: #FF0000 !important;
-  background-color: #fff !important;
+  color: #ffffff !important;
+  background-image: url("/assets/flecha_roja_derecha.png"); 
+  background-position: center left;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .navbar-default .navbar-toggle {
-  border-color: transparent;
-  color: #fff !important;
+  border-color: #ffffff;
+  color: #black !important;
+  background-color: #ffffff;
 }
+
+.navbar-default .navbar-nav > .active > a {
+  background-color: #ffffff;  
+}
+ 
+
 
 footer .glyphicon {
   font-size: 20px;
@@ -193,6 +229,16 @@ footer .glyphicon {
     opacity: 1;
     -webkit-transform: translateY(0%);
   }
+}
+
+.nosotros-titulo{
+  text-align: right;
+  color: white;
+} 
+
+.nosotros-enfoque{
+  padding: 0px 0px;
+  background-color:   #696969;
 }
 
 

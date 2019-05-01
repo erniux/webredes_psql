@@ -1,31 +1,57 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container">
+    <div class="row imagen">
+      <span style="font-size: 40px;"> crisis </span>
+      <span style="font-size: 30px;"> incendio </span>
+      <span style="font-size: 50px;"> emergencia </span>
+      <span style="font-size: 45px;"> redes sociales </span>
+      <span style="font-size: 30px;"> drogas </span>
+    </div>
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a><%= link_to "INICIO", root_path, class: "navbar-brand" %></a> 
     </div>
-
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-left">
-        <li><a href="#about">SOBRE RedES</a></li>
-        <li><a href="#noticias">NOTICIAS/EVENTOS</a></li>
-        <li><a href="#services">SERVICIOS</a></li>
-        <li><a href="#portfolio">PORTAFOLIO</a></li>
-        <li><a href="#pricing">PRECIOS</a></li>
-        <li><a href="#contact">CONTACTO</a></li>
-
-        <% if current_user %>
-           <li><%= link_to "SOCIOS", socios_path %></li> 
-           <li><%= link_to "ADMINISTRACION", admin_root_path %></li> 
-           <li><%= link_to "RECONOCIMIENTOS", reconocimientos_path %></li>
-           <li><%= link_to "SALIR", destroy_user_session_path, method: :delete %></li>
-        <% else %>
-           <li><%= link_to "ZONA SOCIOS", new_user_session_path %></li>
-           <li><%= link_to "SUSCRIBETE", new_user_registration_path %></li>
+        <% if current_page?(socios_path) || current_page?(new_user_registration_path) || current_page?(new_user_session_path) %>
+          <% if current_user %>
+            <li><%= link_to "salir", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li class="ribbon ribbon_element"><%= link_to "afiliate", new_user_registration_path %></li>
+          <% end %>
+          <li class="manzanita"><%= image_tag "manzana_pequeña.jpg", width: 25  %></li>
+          <li><%= link_to "inicio", root_path %></li>
+          <li><%=link_to "nosotros", root_path, href: '/#about' %></li>
+          <li><%=link_to "eventos", root_path, href: '/#eventos' %></li>
+          <li><%= link_to "socios", socios_path %></li> 
+          <li><%=link_to "blog", root_path, href: '/#noticias' %></li>
+          <li><%=link_to "contacto", root_path, href: '/#contact' %></li>
+          <% if current_user %>
+             <li><%= link_to "socios", socios_path %></li> 
+             <li><%= link_to "dashboard", admin_root_path %></li> 
+             <li><%= link_to "certificate", reconocimientos_path %></li>
+          <% end %>
+        <% elsif current_page?(root_path)  %>
+          <% if current_user %>
+            <li><%= link_to "salir", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li class="ribbon ribbon_element"><%= link_to "afiliate", new_user_registration_path %></li>
+          <% end %>
+          <li class="manzanita"><%= image_tag "manzana_pequeña.jpg", width: 25  %></li>
+          <li><a href="#inicio">inicio</a></li>
+          <li><a href="#about">nosotros</a></li>
+          <li><a href="#eventos">eventos</a></li>
+          <li><%= link_to "socios", socios_path %></li> 
+          <li><a href="#noticias">blog</a></li>
+          <li><a href="#contact">contacto</a></li>
+          <% if current_user %>
+             <li><%= link_to "socios", socios_path %></li> 
+             <li><%= link_to "dashboard", admin_root_path %></li> 
+             <li><%= link_to "certificate", reconocimientos_path %></li>
+          <% end %> 
         <% end %>
       </ul>
     </div>

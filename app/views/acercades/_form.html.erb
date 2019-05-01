@@ -11,25 +11,50 @@
          </ul>
        </div>
      <% end %>
-   
+
      <div class="field">
-       <%= form.label :descripcion %>
-       <%= form.text_area :descripcion, rows: 15, cols: 60 %>
+       <%= form.label :descripción %>
+       <%= form.text_area :descripción, rows: 5, cols: 60 %>
      </div>
    
      <div class="field">
-       <%= form.label :mision %>
-       <%= form.text_area :mision, rows: 5, cols: 60 %>
+       <%= form.label :'¿Qué somos?' %>
+       <%= form.text_area :que_somos, rows: 15, cols: 60 %>
+     </div>
+   
+     <div class="field">
+       <%= form.label :'¿Qué hacemos' %>
+       <%= form.text_area :que_hacemos, rows: 5, cols: 60 %>
+     </div>
+
+     <div class="field">
+       <%= form.label :'¿Qué buscamos?' %>
+       <%= form.text_area :que_buscamos, rows: 10, cols: 60 %>
      </div>
    
      <div class="field">
        <%= form.label :vision %>
        <%= form.text_area :vision, rows: 5, cols: 60 %>
      </div>
-   
+
+     <div class="field">
+       <%= form.label :mision %>
+       <%= form.text_area :mision, rows: 5, cols: 60 %>
+     </div>
+
      <div class="field">
        <%= form.label :valores %>
-       <%= form.text_area :valores, rows: 10, cols: 60 %>
+       <%= form.text_area :valores, rows: 5, cols: 60 %>
+     </div>
+
+     <div class="field">
+       <%= form.label :'Nuestro Enfoque' %>
+       <%= form.text_area :enfoque, rows: 10, cols: 60 %>
+     </div>
+
+     <div class="field">
+       <%= form.label :'importancia' %>
+       <%= form.text_area :importancia, rows: 10, cols: 60 %>
      </div>
    
      <div class="actions">
@@ -37,4 +62,5 @@
   </div>
    <% end %>
 <% end %>
+
 

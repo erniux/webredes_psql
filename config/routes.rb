@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :reconocimiento_redes
   namespace :admin do
       resources :users
       resources :acercades

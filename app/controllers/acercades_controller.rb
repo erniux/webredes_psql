@@ -7,7 +7,6 @@ class AcercadesController < ApplicationController
   end
 
   def show
-    authorize @acercade
   end
 
   def new
@@ -15,7 +14,6 @@ class AcercadesController < ApplicationController
   end
 
   def edit
-    authorize @acercade
   end
 
   def create
@@ -32,7 +30,6 @@ class AcercadesController < ApplicationController
   end
 
   def update
-    authorize @acercade
     respond_to do |format|
       if @acercade.update(acercade_params)
         format.html { redirect_to @acercade, notice: 'Registro actualizado correctamente.' }
@@ -58,6 +55,8 @@ class AcercadesController < ApplicationController
     end
 
     def acercade_params
-      params.require(:acercade).permit(:descripcion, :mision, :vision, :valores)
+      params.require(:acercade).permit(:descripcion, :mision, :vision, :valores, :que_somos, :que_hacemos, 
+                                       :que_buscamos, :enfoque, :importancia)
     end
 end
+

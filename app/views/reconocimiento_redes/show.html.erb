@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @reconocimiento_rede.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @reconocimiento_rede.descripcion %>
+</p>
+
+<p>
+  <strong>Acercades:</strong>
+  <%= @reconocimiento_rede.acercades %>
+</p>
+
+<%= link_to 'Edit', edit_reconocimiento_rede_path(@reconocimiento_rede) %> |
+<%= link_to 'Back', reconocimiento_redes_path %>
