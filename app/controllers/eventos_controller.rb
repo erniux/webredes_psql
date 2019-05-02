@@ -6,7 +6,7 @@ class EventosController < ApplicationController
   end
 
   def show
-    authorize @evento
+    
   end
 
   def new
@@ -14,7 +14,7 @@ class EventosController < ApplicationController
   end
 
   def edit
-    authorize @evento
+    
   end
 
   def create
@@ -33,7 +33,7 @@ class EventosController < ApplicationController
   end
 
   def update
-    authorize @evento
+    
 
     respond_to do |format|
       if @evento.update(evento_params)

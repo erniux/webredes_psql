@@ -40,6 +40,16 @@
   background-color: #C0C0C0;
 }
 
+.container-fluid-eventos {
+  padding: 120px 22px;
+  background-color: #FFF;
+}
+
+.imagen-eventos{
+  width: 80%; 
+  align: center;
+}
+
 .container {
   width: 1470px;
 }
@@ -47,6 +57,12 @@
 .logo-small {
   color: #FF0000;
   font-size: 50px;
+}
+
+.logo-mas {
+  width: 50px;
+  background-color: #fff;
+
 }
 
 .logo {
@@ -62,6 +78,11 @@
 
   .col-md-6 {
     padding: 0px 0px;
+  }
+
+  .col-sm-8 {
+  width: 100%;
+  align-items: center;
   }
 
 }
@@ -238,7 +259,8 @@ footer .glyphicon {
 } 
 
 .nosotros-enfoque{
-  padding: 0px 0px;
+  padding: 20px 20px;
+  margin: 10px 10px;
   background-color:   #696969;
 }
 
