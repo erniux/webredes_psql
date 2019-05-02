@@ -33,8 +33,6 @@ class EventosController < ApplicationController
   end
 
   def update
-    
-
     respond_to do |format|
       if @evento.update(evento_params)
         format.html { redirect_to @evento, notice: 'Registro actualizado correctamente.' }

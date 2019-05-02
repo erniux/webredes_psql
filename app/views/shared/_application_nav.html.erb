@@ -19,7 +19,7 @@
         <% if current_page?(socios_path) || current_page?(new_user_registration_path) || current_page?(new_user_session_path) || current_page?(controller: 'eventos', action: 'new')%>
           <% if current_user %>
             <li><%= link_to "salir", destroy_user_session_path, method: :delete %></li>
-          <% else %>
+          <% else %>        
             <li><%= link_to "afiliate", new_user_registration_path %></li>
           <% end %>
           <li class="manzanita"><%= image_tag "manzana_pequena.jpg", width: 25  %></li>

@@ -1,6 +1,13 @@
 <div id="eventos" class="container-fluid">
   <div class="container-fluid-eventos">
     <div class="row">
+      <div class="col-sm-6">
+        <%= image_tag "redes_corto.jpg", width: 500 %>
+      </div>
+      <div class="col-sm-6">
+        <h1>2019</h1>
+    </div>
+    
       <div class="col-sm-8">
         <p><%= image_tag @eventos.imagen.to_s, class: 'imagen-eventos' %></p>
         <h4><%= @eventos.titulo %></h4>
