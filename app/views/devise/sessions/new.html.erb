@@ -1,45 +1,55 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<div id="ingresar" class="container-fluid bg-grey">
-  <div class="container-fluid bg-grey">
-     <div class="row">
-        <div class="col-sm-5">
-           <h2><%= image_tag "manzana.jpg", width: 100 %> Zona Ingreso a Socios</h2>
-        </div>
-        <div class="col-sm-7">
-           <div class="row">
-              <div class="col-sm-6 form-group">
-                <%= f.email_field :email,
-                                  autofocus: true,
-                                  autocomplete: "email",
-                                  class: "form-control",
-                                  placeholder: "correo electrónico"  %>
-              </div>
-           </div>
-           <div class="row">
-             <div class="col-sm-6 form-group">
-               <%= f.password_field :password,
-                                     autocomplete: "current-password",
-                                     class: "form-control",
-                                     placeholder: "contraseña" %>
-             </div>
-           </div>
-      <div class="row">
-        <div class="col-sm-6 form-group">
-           <% if devise_mapping.rememberable? %>
-             <div class="field">
-               <%= f.check_box :remember_me %> Recordarme
-             </div>
-           <% end %>
+<div id="socios" class="container-fluid-login">
+  <div class="row">
+      <h2 class="nosotros-titulo"><strong>socios</strong></h2><br><br>
+      <div class="col-md-12 row-login">
+        <%= f.label :'Usuario' %>
+        <%= f.email_field :email,
+                          autofocus: true,
+                          autocomplete: "email",
+                          class: "form-control",
+                          placeholder: "correo electrónico",  
+                          align: 'right' %><br>
+        <%= f.label :'Contraseña' %>
+        <%= f.password_field :password,
+                             autocomplete: "current-password",
+                             class: "form-control",
+                             placeholder: "contraseña" %><br>
+        <% if devise_mapping.rememberable? %>
+          <%= f.check_box :remember_me %> Recordarme
+        <% end %><br><br> 
 
-           <div class="row">
-             <div class="col-sm-12 form-group">
-               <%= f.submit "Ingresar", class: "btn btn-primary" %>
-               <%= link_to "Regresar", root_path, class: 'btn btn-success' %>
-               <%= render "devise/shared/links" %>
-
-             </div>
-           </div>
+        <%= f.submit "Entrar", class: "btn btn-primary" %>   
+      </div>
     </div>
   </div>
-  <% end %>
+    <div class="col-md-6">
+      <% if devise_mapping.registerable? && controller_name != 'registrations' %>
+        <%= link_to "¿Aún no eres socio?", new_registration_path(resource_name), class: 'btn btn-danger-registrate'   %>
+      <% end %>
+
+      <p class="conoce-mas-socio">¡Conoce los beneficios y registrate!</p>
+    </div>
+  
+  
+  <div class="col-md-6 socios-materiales">
+    <h2>Accede a nuestros materiales:</h2>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>boletín mensual</a></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>banco de información</a></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>calendario de capacitación</a></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>material de difusión</a></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>información estratégica</a></p>
+      <%= link_to eventos_path do %>
+        <%= image_tag "circulo_mas.png", class: "logo-mas" %>
+      <% end %>
+  </div>
+  
+
+ 
 </div>
+<% end %>
+
+
+
+
+
