@@ -1,8 +1,7 @@
-<%= render "shared/application_nav_socios" %>
-<div class="container-fluid-crud">
-<h1>Noticias y Avisos</h1>
+<div class="container-fluid">
+<h1>blog</h1>
 <br>
-<p><%= link_to 'Crear Noticia', new_aviso_path, class: "btn btn-default btn-lg" %></p>
+<p><%= link_to 'Nueva Entrada', new_aviso_path, class: "btn btn-default btn-lg" %></p>
 <br>
 <% @avisos.each do |aviso| %>
   <div class="row">

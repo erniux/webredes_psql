@@ -1,17 +1,2 @@
-<%= render "shared/application_nav_socios" %>
-<div class="container-fluid-crud">
-      <p id="notice"><%= notice %></p>
+<%= render "shared/application_about" %>
 
-      <h1>Acerca de RedES</h1>
-      <% @acercades.each do |acercade| %>  
-         <div class="row">
-            <div class="card">
-               <div class="col-md-6">
-                  <%= acercade.descripcion %>
-                  <%= link_to 'Actualizar', edit_acercade_path(acercade) %>
-                </div>
-              </div>
-            </div>
-      <% end %>
-  <% end %>
-</div>div

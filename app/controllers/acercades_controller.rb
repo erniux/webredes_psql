@@ -2,8 +2,7 @@ class AcercadesController < ApplicationController
   before_action :set_acercade, only: [:show, :edit, :update, :destroy]
 
   def index
-    @acercades = Acercade.all
-    authorize @acercades
+    @acercades = Acercade.first
   end
 
   def show
@@ -17,9 +16,7 @@ class AcercadesController < ApplicationController
   end
 
   def create
-    @acercade = Acercade.new(acercade_params)
-    @acercade = current_user.id
-
+    @acercade = current_user.acercades.new(acercade_params)
     respond_to do |format|
       if @acercade.save
         format.html { redirect_to @acercade, notice: 'Registro creado correctamente.' }

@@ -1,19 +1,15 @@
-<div id="noticias" class="container-fluid">
-  <div class="container-fluid bg-grey">
+<div id="blog" class="container-fluid-grey">
   <div class="row">
-    <div class="col-sm-8">
-      <h2>NOTICIAS</h2>
-      <h4><%= @avisos.titulo %></h4>
-      <p><small><em><%= @avisos.updated_at.strftime("%d-%m-%Y") %></em></small></p>
-      <p><%= @avisos.detalle %></p>
-      <p><%= image_tag @avisos.imagen.to_s %></p>
+    <h2 class="nosotros-titulo"><strong>blog</strong>
       <% if user_signed_in? %>
-         <%= link_to 'Continuar Lectura', aviso_path(@avisos),class: "btn btn-default btn-lg"  %>
-         <%= link_to 'Editar', edit_aviso_path(@avisos),class: "btn btn-default btn-lg"  %>
+            <%= link_to 'Editar', edit_aviso_path(@avisos),class: "btn btn-default btn-lg"  %>
       <% end %>
+    </h2>
+    <div class="col-md-6">
+      <p><%= @avisos.detalle %></p><br>
     </div>
-    <div class="col-sm-4">
-      <span class="glyphicon glyphicon-list-alt logo"></span>
+    <div class="col-md-6 nosotros-enfoque">
+       <%= image_tag @avisos.imagen %>
     </div>
   </div>
 </div>

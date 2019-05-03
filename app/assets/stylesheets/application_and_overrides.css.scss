@@ -15,10 +15,11 @@
 
 .bg-grey {
   background-color: #f6f6f6;
+  padding: 150px 30px;
 }
 
 .container-fluid {
-  padding: 60px 50px;
+  padding: 85px 50px;
 }
 
 .container {
@@ -146,6 +147,7 @@
   letter-spacing: 1.5px;
   background-color: #ffffff; 
   text-align: -webkit-center;
+  box-sizing: border-box;
   
 }
 
@@ -160,7 +162,7 @@
 .navbar-nav li a:hover, .navbar-nav li.active a {
   color: #ffffff !important;
   background-image: url('/assets/flecha_azul.png'); 
-  box-sizing: border-box;
+  box-sizing: border-box; 
   background-position: center left;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -171,6 +173,7 @@
   border-color: #ffffff;
   color: #black !important;
   background-color: #ffffff;
+  box-sizing: border-box;
 }
 
 .navbar-default .navbar-nav > .active > a {
@@ -252,7 +255,17 @@ footer .glyphicon {
   background-color: #C0C0C0;
 }
 
+.conteiner-fluid-white {
+  padding: 50px 350px;
+  background-color: #FFF; 
+}
+
 .container-fluid-login {
+  padding: 65px 22px;
+  background-color: #C0C0C0;  
+}
+
+.container-fluid-noticias {
   padding: 65px 22px;
   background-color: #C0C0C0;
   

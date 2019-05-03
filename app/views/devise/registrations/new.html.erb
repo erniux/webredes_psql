@@ -1,100 +1,95 @@
-<div id="registro" class="container-fluid">
-  <h2><%= image_tag "manzana.jpg", width: 100 %> Zona Registro Socios</h2>
-  <div class="container-fluid bg-grey">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="container-fluid bg-grey">
+  <h2><%= image_tag "manzana.jpg", width: 80 %><em> Unete a redes y completando el siguiente formulario</em></h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
-         <div class="row">
-            <div class="col-sm-4">
-              <h2>Datos Usuario</h2>
-              <div class="field">
-                <%= f.label :nombre_usuario %><br />
-                <%= f.text_field :nombre, autofocus: true, placeholder: "nombre usuario" %>
-              </div>
+      <div class="row">
+        
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <h2>Datos Usuario</h2>
 
-              <div class="field">
-                <%= f.label :Correo_electronico %><br />
-                <%= f.email_field :email, autofocus: true, placeholder: "correo electrónico" %>
-              </div>
+          <div class="field">
+             <%= f.label :'institución' %><br />
+             <%= f.text_field :sucursal, autofocus: true, placeholder: "institución" %>
+           </div>
 
-              <div class="field">
-                <%= f.label :contraseña %>
-                <% if @minimum_password_length %>
-                <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
-                <% end %><br />
-                <%= f.password_field :password, autocomplete: "nueva-contraseña" %>
-              </div>
+          <div class="field">
+              <%= f.label :'nombre' %><br />
+              <%= f.text_field :nombre,  placeholder: "nombre" %>
+          </div>
+          <div class="field">
+            <%= f.label :'apellido paterno' %><br />
+            <%= f.text_field :appaterno_enlace,  placeholder: "apellido paterno" %>
+          </div>
 
-              <div class="field">
-                <%= f.label :confirmar_contraseña %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-              </div>
-            </div>
+          <div class="field">
+            <%= f.label :'cargo' %><br />
+            <%= f.text_field :cargo_enlace, placeholder: "cargo" %>
+          </div>
 
-            <div class="col-sm-4">
-              <h2>Datos Fiscales</h2>
-              <div class="field">
-                <%= f.label :"RFC" %><br />
-                <%= f.text_field :rfc, autocomplete: "rfc" %>
-              </div>
+          <div class="field">
+            <%= f.label :Correo_electronico %><br />
+            <%= f.email_field :email, autofocus: true, placeholder: "correo electrónico" %>
+          </div>
 
-              <div class="field">
-                <%= f.label :razon_social %><br />
-                <%= f.text_field :razon_social, autocomplete: "razon_social" %>
-              </div>
+          <div class="field">
+            <%= f.label :contraseña %>
+            <% if @minimum_password_length %>
+            <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
+            <% end %><br />
+            <%= f.password_field :password, placeholder: "contraseña" %>
+          </div>
 
-              <div class="field">
-                <%= f.label :domicilio_fiscal %><br />
-                <%= f.text_area :domicilio_fiscal, autocomplete: "domicilio_fiscal" %>
-              </div>
+          <div class="field">
+            <%= f.label :confirmar_contraseña %><br />
+            <%= f.password_field :password_confirmation, placeholder: "confirmar contraseña" %>
+          </div>
+        </div>
 
-               <div class="field">
-                 <%= f.label :domicilio_fisico %><br />
-                 <%= f.text_area :domicilio_fisico, autocomplete: "domicilio_fisico" %>
-               </div>
+        <div class="col-sm-4">
+          <h2>Datos Fiscales</h2>
+          <div class="field">
+            <%= f.label :'RFC' %><br />
+            <%= f.text_field :rfc, placeholder: "RFC" %>
+          </div>
 
-               <div class="field">
-                 <%= f.label :sucursal %><br />
-                 <%= f.text_field :sucursal, autocomplete: "sucursal" %>
-               </div>
+          <div class="field">
+            <%= f.label :razon_social %><br />
+            <%= f.text_field :razon_social, placeholder: "razón social" %>
+          </div>
 
-               <div class="field">
-                 <%= f.label :telefono_oficina %><br />
-                 <%= f.text_field :telefono_oficina, autocomplete: "telefono_oficina" %>
-               </div>
-            </div>
+          <div class="field">
+            <%= f.label :domicilio_fiscal %><br />
+            <%= f.text_area :domicilio_fiscal, placeholder: "domicilio fiscal" %>
+          </div>
 
-            <div class="col-sm-4">
-              <h2>Datos Enlace</h2>
-              <div class="field">
-                <%= f.label :nombre_enlace %><br />
-                <%= f.text_field :nombre_enlace, autocomplete: "nombre_enlace" %>
-              </div>
+          <div class="field">
+            <%= f.label :'Teléfono' %><br />
+            <%= f.text_field :telefono_oficina, placeholder: "teléfono" %>
+          </div>
+            
+          <div class="actions">
+            <%= f.submit "Enviar", class: "btn btn-primary", size: 50 %>
+            <%= render "devise/shared/links" %>
+            <%= link_to "Regresar", root_path, class: 'btn btn-info', size: 20 %>
+          </div>
+        </div>
 
-              <div class="field">
-                <%= f.label :appaterno_enlace %><br />
-                <%= f.text_field :appaterno_enlace,  autocomplete: "appaterno_enlace" %>
-              </div>
+        <div class="col-sm-4">
+          <strong><em>¿Aún no cuentas con tu membresía?</em></strong>
+          <p> Conoce los beneficios: </p>
+          <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>Acceso a una base de conocimiento en constante actualización con la contribución de colegas y expertos en distintos aspectos de la seguridad escolar, a través de artículos, conferencias, podcasts, foros, repositorios, etc.</a></p>
+          <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>Oportunidades para relacionarse con una red de colegas y expertos.</a></p>
 
-              <div class="field">
-                <%= f.label :cargo_enlace %><br />
-                <%= f.text_field :cargo_enlace, autocomplete: "cargo_enlace" %>
-              </div>
-
-              <div class="field">
-                <%= f.label :correo_enlace %><br />
-                <%= f.email_field :correo_enlace, autocomplete: "correo_enlace" %>
-              </div>
-            </div>
-
-            <div class="col-sm-4">
-              <div class="actions">
-                <%= f.submit "Enviar", class: "btn btn-primary", size: 50 %>
-                <%= render "devise/shared/links" %>
-                <%= link_to "Regresar", root_path, class: 'btn btn-info', size: 20 %>
-              </div>
-            <% end %>
-            </div>
-         </div>
-   </div>
+          <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>Información estratégica para decisiones oportunas (noticias, análisis de tendencias, alertas locales, etc.).</a></p>
+          <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>Herramientas y materiales ya probados en otra parte o desarrollados con la contribución de todos, para no tener que reinventar la rueda y concentrarse estratégicamente en lo más apremiante o importante para la escuela.</a></p>
+          
+          
+        </div>
+    <% end %>
+  </div>
 </div>
 
+    
+   

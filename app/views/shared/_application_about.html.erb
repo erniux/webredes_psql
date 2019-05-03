@@ -2,26 +2,26 @@
   <div class="row">
       <h2 class="nosotros-titulo"><strong>nosotros</strong>
       <% if user_signed_in? %>
-            <%= link_to 'Editar', edit_acercade_path(@about),class: "btn btn-default btn-lg"  %>
+            <%= link_to 'Editar', edit_acercade_path(@acercades),class: "btn btn-default btn-lg"  %>
       <% end %>
       </h2><br><br>
 
       <div class="col-md-6">
         <strong>¿qué somos?</strong>
-        <p><%= @about.que_somos %></p><br>
+        <p><%= @acercades.que_somos %></p><br>
         <strong>¿qué hacemos?</strong>
-        <p><%= @about.que_hacemos %></p><br>
+        <p><%= @acercades.que_hacemos %></p><br>
       </div>
       <div class="col-md-6">
         <strong>¿qué buscamos?</strong>
-        <p><%= @about.que_buscamos %></p><br>
+        <p><%= @acercades.que_buscamos %></p><br>
         <strong>importancia</strong>
-        <p><%= @about.importancia %></p><br>
+        <p><%= @acercades.importancia %></p><br>
       </div>
   </div>
   <div class="col-md-6 nosotros-enfoque">
     <strong>nuestro enfoque</strong>
-    <p><%= @about.enfoque %></p>
+    <p><%= @acercades.enfoque %></p>
   </div>
 </div>
 
