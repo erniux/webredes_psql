@@ -50,7 +50,6 @@
   width: 100%;
   align-items: center;
   }
-
 }
 
 .thumbnail {
@@ -153,7 +152,7 @@
 
 .navbar li a, .navbar .navbar-brand {
   color: black !important;
-  font-size: small;
+  font-size: initial;
   width: 8.5em;
   background-color: #ffffff; 
   box-sizing: border-box;
@@ -228,7 +227,7 @@ footer .glyphicon {
 .imagen {
   color: #FDFEFE;
   background-color: #cccc;
-  
+   vertical-align: middle;
 }
 
 .nosotros-titulo {
