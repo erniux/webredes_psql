@@ -2,22 +2,39 @@
 	<p><%= image_tag "redes.jpg", width: 400, alt: "profile image" %></p>
 	<p><%= image_tag "acoso.jpg", width: 900, alt: "profile image" %></p>   
 
-	<div>
-		<p>nosotros</p>
-   		<%= @about.que_somos %>
-   	</div>
-   	<div>
-   		<p>eventos</p>
-   		<%= @eventos.detalle %>
-   	</div>
-   	<div>
-   		<p>socios</p>
-   		<ul>Accede a nuestros materiales (boletín mensual, banco de información, calendario de capacitación, material de difusión, información estratégica)
-	¿Aún no eres socio? ¡Conoce los beneficios y regístrate! 
+	<div class="bg-dark">
+		<p class="nosotros-titulo">nosotros</p>
+   	</p><%= @about.que_somos %></p>
+      <p><%= link_to 'conoce más', acercades_path, class: "btn btn-default btn-md" %></p>
+   </div>
+   <div class="bg-dark"> 
+		<p class="nosotros-titulo">eventos</p>
+		<%= @eventos.detalle %><p></p>
+      <p><%= link_to 'participa', eventos_path, class: "btn btn-default btn-md" %></p>
+	</div>
 
-   	</div>
-   	<div>
-   		<p>blog</p>
-   		<%= @avisos.detalle %>
-   	</div>
+	<div class="bg-dark">
+      <p class="nosotros-titulo">socios</p>
+      <ul>Accede a nuestros materiales: </ul>
+      <ul>boletín mensual.</ul>
+      <ul>banco de información.</ul>
+      <ul>calendario de capacitación.</ul>
+      <ul>material de difusión.</ul>
+      <ul>información estratégica.</ul>
+   </div>
+	     
+   <% if current_user %>
+     <p>¡Ingresa a nuestro sitio!</p>
+     <p><%= link_to "socios", socios_path, class: "btn btn-default btn-md" %></p> 
+   <% else %>
+     <p>¿Aún no cuentas con tu membresía?</p>
+     <p><%= link_to "socios", new_user_registration_path, class: "btn btn-default btn-md" %></p> 
+   <% end %>
+   
+
+   <div class="bg-dark">
+   	<p class="nosotros-titulo">blog</p>
+   	<%= @avisos.detalle %><p></p>
+      <p><%= link_to "escribe tu artículo", avisos_path, class: "btn btn-default btn-md" %></p> 
+   </div>
 </div>
