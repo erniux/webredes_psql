@@ -1,5 +1,6 @@
 class AcercadesController < ApplicationController
   before_action :set_acercade, only: [:show, :edit, :update, :destroy]
+  access all: [:show, :index], site_admin: :all
 
   def index
     @acercades = Acercade.first

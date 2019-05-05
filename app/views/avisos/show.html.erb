@@ -1,25 +1,31 @@
-<div class="container-fluid">
-   <p id="notice"><%= notice %></p>
-   
-   <p>
-     <strong><%= @aviso.titulo %></strong>
-   </p>
-   
-   <p>
-     <strong>Detalle:</strong>
-     <%= @aviso.detalle %>
-   </p>
-   
-   <p>
-     <strong>Ultima Actualización:</strong>
-     <%= @aviso.updated_at.strftime("%d/%m/%Y %H:%M:%S") %>
-   </p>
-   
-   <p>
-     <%= image_tag @aviso.imagen.to_s %>
-   </p>
-   
-   <%= link_to 'Modificar', edit_aviso_path(@aviso) %> |
-   <%= link_to 'Regresar a Blog', avisos_path %>
+<div class="container">
+  <div class="container-fluid">
+     <p id="notice"><%= notice %></p>
+     
+     <p>
+       <h3><%= @aviso.titulo %></h3>
+     </p>
+     <p>
+       <%= link_to 'Modificar', edit_aviso_path(@aviso), class: "btn btn-success btn-lg", size: 50 if logged_in?(:site_admin) %>
+     <%= link_to 'Regresar a Blog', avisos_path, class: "btn btn-default btn-lg", size: 50 %>
 
+
+     </p>
+     
+     <p>
+       <strong>Detalle:</strong>
+       <%= @aviso.detalle %>
+     </p>
+     
+     <p>
+       <strong>Ultima Actualización:</strong>
+       <%= @aviso.updated_at.strftime("%d/%m/%Y %H:%M:%S") %>
+     </p>
+     
+     <p>
+       <%= image_tag @aviso.imagen.to_s %>
+     </p>
+     
+  
+  </div>
 </div>

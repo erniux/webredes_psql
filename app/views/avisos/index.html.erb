@@ -1,22 +1,24 @@
+<div class="container">
 <div class="container-fluid">
 <h1>blog</h1>
 <br>
-<p><%= link_to 'Nueva Entrada', new_aviso_path, class: "btn btn-default btn-lg" %></p>
+<p><%= link_to 'Nueva Entrada', new_aviso_path, class: "btn btn-default btn-lg" if logged_in?(:site_admin) %></p>
 <br>
 <% @avisos.each do |aviso| %>
   <div class="row">
     <div class="card">
       <div class="col-md-6">
          <strong><%= aviso.titulo %></strong>
-         <p><%= link_to 'Mostrar', aviso %> |
-         <%= link_to 'Modificar', edit_aviso_path(aviso) %> |
-         <%= link_to 'Eliminar', aviso, method: :delete, data: { confirm: '¿Confirma eliminar el Registro?' } %></p>
+         <p><%= link_to 'Mostrar', aviso, class: "btn btn-primary btn-lg", size: 50 %> 
+         <%= link_to 'Modificar', edit_aviso_path(aviso), class: "btn btn-success btn-lg", size: 50 if logged_in?(:site_admin) %> 
+         <%= link_to 'Eliminar', aviso, method: :delete, data: { confirm: '¿Confirma eliminar el Registro?' },
+                      class: "btn btn-danger btn-lg", size: 50 if logged_in?(:site_admin) %></p>
          <h6><%= aviso.updated_at.strftime("%d/%m/%Y %H:%M:%S") %></h6>
          
          <p><%= aviso.detalle %></p>
       </div>
       <div class="col-md-6">
-        <%= image_tag aviso.imagen %>
+        <%= image_tag aviso.imagen.to_s, width: '100%' %>
       </div>
 
     </div>
@@ -24,3 +26,5 @@
   <br>
 <% end %>
 </div>
+</div>
+

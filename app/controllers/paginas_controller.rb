@@ -3,7 +3,6 @@ class PaginasController < ApplicationController
     @eventos = Evento.last
     @avisos = Aviso.last
     @about = Acercade.first
-    @servicios = Servicio.all
   end
 
   def acerca_de

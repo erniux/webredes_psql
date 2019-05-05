@@ -3,4 +3,6 @@ class Aviso < ApplicationRecord
 	validates_presence_of :titulo, length: { in: 10..50 }
 
 	belongs_to :user
+
+	mount_uploader :imagen, AvisoUploader
 end

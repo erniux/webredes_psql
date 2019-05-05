@@ -1,11 +1,12 @@
-<div class="container-fluid">
-  <div class="col-md-4">
-     <h1>Sitio Socios</h1>
-  </div>
-  <div class="col-md-8">
+<div class="container">
+  <div class="container-fluid">
+    <div class="col-md-4">
+     <h1>Socios</h1>
+    </div>
+    <div class="col-md-8">
      <%= image_tag "redes.jpg", width: 400 %>
-  </div><hr>
-</div>
+    </div><hr>
+  </div>
 <p>
   <div class="container-fluid-crud">
    <div class="row">
@@ -19,14 +20,14 @@
            <p class="card-text"><%= @eventos.lugar %></p>
          </div>
          <div class="col-sm-6">
-          <p><%= image_tag @eventos.imagen %></p>
+          <p><%= image_tag @eventos.imagen.to_s %></p>
          </div>
        </div>
      </div>
    </div>
 
    <div class="row">
-     <h2><%= link_to "NOTICIAS", aviso_path(@avisos.id) %></h2>
+     <h2><%= link_to "BLOG", aviso_path(@avisos.id) %></h2>
        <div class="card">
          <div class="card-block">
           <div class="col-sm-6">
@@ -35,10 +36,13 @@
             <p><%= @avisos.fecha %></p>
           </div>
           <div class="col-sm-6">
-            <p><%= image_tag @avisos.imagen %></p>         
+            <p><%= image_tag @avisos.imagen.to_s   %></p>         
           </div>
          </div>
        </div>
      </div>
    </div>
 </div>
+</p>
+</div>
+

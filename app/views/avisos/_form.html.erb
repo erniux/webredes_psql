@@ -16,12 +16,15 @@
   </div>
 
   <div class="field">
-    <%= form.label :"imágen" %>
-    <%= form.text_field :imagen, size: 60 %>
+    <label class="btn btn-default btn-lg">
+      <%= form.file_field :imagen %>
+    </label>
   </div>
 
   <div class="actions">
-    <%= form.submit "Guardar" %>
+    <%= form.submit "Guardar", class: "btn btn-primary btn-lg", size: 50 %>
+    <%= link_to 'Mostrar', @aviso, class: "btn btn-default btn-lg", size: 50 %> 
+    <%= link_to 'Regresar a Blog', avisos_path, class: "btn btn-info btn-lg", size: 50 %>
   </div>
 
 <% end %>

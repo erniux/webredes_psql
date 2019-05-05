@@ -1,28 +1,21 @@
 class ReconocimientoRedesController < ApplicationController
   before_action :set_reconocimiento_rede, only: [:show, :edit, :update, :destroy]
+  access certificador: :all, site_admin: :all
 
-  # GET /reconocimiento_redes
-  # GET /reconocimiento_redes.json
   def index
     @reconocimiento_redes = ReconocimientoRede.all
   end
 
-  # GET /reconocimiento_redes/1
-  # GET /reconocimiento_redes/1.json
   def show
   end
 
-  # GET /reconocimiento_redes/new
   def new
     @reconocimiento_rede = ReconocimientoRede.new
   end
 
-  # GET /reconocimiento_redes/1/edit
   def edit
   end
 
-  # POST /reconocimiento_redes
-  # POST /reconocimiento_redes.json
   def create
     @reconocimiento_rede = ReconocimientoRede.new(reconocimiento_rede_params)
 
@@ -37,8 +30,6 @@ class ReconocimientoRedesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reconocimiento_redes/1
-  # PATCH/PUT /reconocimiento_redes/1.json
   def update
     respond_to do |format|
       if @reconocimiento_rede.update(reconocimiento_rede_params)
@@ -51,8 +42,6 @@ class ReconocimientoRedesController < ApplicationController
     end
   end
 
-  # DELETE /reconocimiento_redes/1
-  # DELETE /reconocimiento_redes/1.json
   def destroy
     @reconocimiento_rede.destroy
     respond_to do |format|
@@ -62,12 +51,10 @@ class ReconocimientoRedesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_reconocimiento_rede
       @reconocimiento_rede = ReconocimientoRede.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def reconocimiento_rede_params
       params.require(:reconocimiento_rede).permit(:nombre, :descripcion, :acercades_id)
     end

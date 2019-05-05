@@ -1,8 +1,9 @@
-<div class="container-fluid">
-   <h1>Agregar Entrada</h1>
-
-      <%= render 'form', aviso: @aviso %>
-      
-      <%= link_to 'Regresar a Blog', avisos_path %>
+<div class="container">
+	<div class="container-fluid">
+	   <h1>Agregar Entrada</h1>
+	
+	      <%= render 'form', aviso: @aviso %>
+	      
+	      <%= link_to 'Regresar a Blog', avisos_path, class: "btn btn-info btn-lg", size: 50  %>
+	</div>
 </div>
-

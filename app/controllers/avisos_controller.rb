@@ -1,5 +1,6 @@
 class AvisosController < ApplicationController
   before_action :set_aviso, only: [:show, :edit, :update, :destroy]
+  access all: [:show, :index], site_admin: :all
 
   def index
     @avisos = Aviso.all

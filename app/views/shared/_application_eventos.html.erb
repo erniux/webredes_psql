@@ -1,28 +1,27 @@
-<div id="eventos" class="container-fluid">
-  <div class="container-fluid-eventos">
-    <div class="row">
-      <div class="col-sm-6">
-        <%= image_tag "redes_corto.jpg", width: 500 %>
-      </div>
-      <div class="col-sm-6">
-        <h1>2019</h1>
+<div id="about" class="container-fluid-grey">
+  <div class="row">
+    
+      <%= image_tag "redes_corto.jpg", width: 500 %>
+    </div>
+    <div class="col-sm-6">
+      <h1>2019</h1>
     </div>
     
-      <div class="col-sm-8">
-        <p><%= image_tag @eventos.imagen.to_s, class: 'imagen-eventos' %></p>
-        <h4><%= @eventos.titulo %></h4>
-      </div>
-      <div class="col-sm-4">
-        <strong>del:</strong> <%= @eventos.fecha_inicio.strftime("%d-%m-%Y") %> <strong>al: </strong>
-        <%= @eventos.fecha_fin.strftime("%d-%m-%Y") %></p>
-        <p><strong>Lugar: </strong><%= @eventos.lugar %></p>
-        <p><strong>Expositor: </strong><%= @eventos.expositor %></p>
+  <div class="col-sm-8">
+    <p><%= image_tag @eventos.imagen.to_s, class: 'imagen-eventos' %></p>
+    <h4><%= @eventos.titulo %></h4>
+  </div>
+  <div class="col-sm-4">
+    <strong>del:</strong> <%= @eventos.fecha_inicio.strftime("%d-%m-%Y") %> <strong>al: </strong>
+    <%= @eventos.fecha_fin.strftime("%d-%m-%Y") %></p>
+    <p><strong>Lugar: </strong><%= @eventos.lugar %></p>
+    <p><strong>Expositor: </strong><%= @eventos.expositor %></p>
         
-        <%= link_to eventos_path do %>
-          <%= image_tag "circulo_mas.png", class: "logo-mas" %>
-        <% end %>
-      </div>
-      </div>
+    <%= link_to eventos_path do %>
+      <%= image_tag "circulo_mas.png", class: "logo-mas" %>
+    <% end %>
+  </div>
+</div>
     </div>
   </div>
 </div>

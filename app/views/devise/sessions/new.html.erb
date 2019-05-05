@@ -1,8 +1,9 @@
+<div class="container">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div id="socios" class="container-fluid-login">
   <div class="row">
-      <h2 class="nosotros-titulo"><strong>socios</strong></h2><br><br>
-      <div class="col-md-12 row-login">
+      <h2><strong>socios</strong></h2><br><br>
+      <div class="col-md-6 row-login">
         <%= f.label :'Usuario' %>
         <%= f.email_field :email,
                           autofocus: true,
@@ -39,7 +40,7 @@
       <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>calendario de capacitación</a></p>
       <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>material de difusión</a></p>
       <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>información estratégica</a></p>
-      <%= link_to eventos_path do %>
+      <%= link_to socios_path do %>
         <%= image_tag "circulo_mas.png", class: "logo-mas" %>
       <% end %>
   </div>
@@ -48,6 +49,7 @@
  
 </div>
 <% end %>
+</div>
 
 
 

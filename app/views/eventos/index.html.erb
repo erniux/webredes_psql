@@ -1,10 +1,10 @@
-
-<div class="container-fluid">
+<div class="container">
+  <div class="container-fluid">
    <p id="notice"><%= notice %></p>
 
    <h1>Eventos</h1>
    <br>
-   <%= link_to 'Crear Nuevo Evento', new_evento_path, class: "btn btn-default btn-lg" %></p>
+   <p><%= link_to 'Nuevo Evento', new_evento_path, class: "btn btn-default btn-lg" if logged_in?(:site_admin) %></p>
    
    <br>  
    <% @eventos.each do |evento| %>
@@ -12,9 +12,9 @@
         <div class="card">
            <div class="col-md-6">
        <strong><%= evento.titulo %></strong>
-       <p><%= link_to 'Mostrar', evento %> |
-          <%= link_to 'Editar', edit_evento_path(evento) %> |
-          <%= link_to 'Eliminar', evento, method: :delete, data: { confirm: '¿Confirma Eliminar Evento?' } %></p>
+       <p><%= link_to 'Mostrar', evento, class: "btn btn-primary btn-lg", size: 50 %> 
+          <%= link_to 'Modificar', edit_evento_path(evento), class: "btn btn-success btn-lg", size: 50 if logged_in?(:site_admin) %> 
+          <%= link_to 'Eliminar', evento, method: :delete, data: { confirm: '¿Confirma Eliminar Evento?' }, class: "btn btn-danger btn-lg", size: 50 if logged_in?(:site_admin) %></p>
        <h6>del: <%= evento.fecha_inicio.strftime("%d/%m/%Y %H:%M:%S") %> al: 
          <%= evento.fecha_fin.strftime("%d/%m/%Y %H:%M:%S") %></h6>
        
@@ -23,9 +23,10 @@
        <p><%= evento.expositor %></p>
      </div>
      <div class="col-md-6">
-       <%= image_tag evento.imagen %>
+       <%= image_tag evento.imagen.to_s, width: '100%' %>
      </div></div>
      </div>
      <br>
    <% end %>
+  </div>
 </div>

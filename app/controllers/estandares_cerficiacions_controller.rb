@@ -1,28 +1,21 @@
 class EstandaresCerficiacionsController < ApplicationController
   before_action :set_estandares_cerficiacion, only: [:show, :edit, :update, :destroy]
+  access certificador: :all, site_admin: :all
 
-  # GET /estandares_cerficiacions
-  # GET /estandares_cerficiacions.json
   def index
     @estandares_cerficiacions = EstandaresCerficiacion.all
   end
 
-  # GET /estandares_cerficiacions/1
-  # GET /estandares_cerficiacions/1.json
   def show
   end
 
-  # GET /estandares_cerficiacions/new
   def new
     @estandares_cerficiacion = EstandaresCerficiacion.new
   end
 
-  # GET /estandares_cerficiacions/1/edit
   def edit
   end
 
-  # POST /estandares_cerficiacions
-  # POST /estandares_cerficiacions.json
   def create
     @estandares_cerficiacion = EstandaresCerficiacion.new(estandares_cerficiacion_params)
 
@@ -37,8 +30,6 @@ class EstandaresCerficiacionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /estandares_cerficiacions/1
-  # PATCH/PUT /estandares_cerficiacions/1.json
   def update
     respond_to do |format|
       if @estandares_cerficiacion.update(estandares_cerficiacion_params)
@@ -51,8 +42,6 @@ class EstandaresCerficiacionsController < ApplicationController
     end
   end
 
-  # DELETE /estandares_cerficiacions/1
-  # DELETE /estandares_cerficiacions/1.json
   def destroy
     @estandares_cerficiacion.destroy
     respond_to do |format|
@@ -62,12 +51,10 @@ class EstandaresCerficiacionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_estandares_cerficiacion
       @estandares_cerficiacion = EstandaresCerficiacion.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def estandares_cerficiacion_params
       params.require(:estandares_cerficiacion).permit(:estandar, :descripcion, :puntos, :observaciones, :etapa_certificacions_id)
     end

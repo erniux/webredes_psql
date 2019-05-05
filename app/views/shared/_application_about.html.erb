@@ -1,8 +1,9 @@
+<div class="container">
 <div id="about" class="container-fluid-grey">
   <div class="row">
       <h2 class="nosotros-titulo"><strong>nosotros</strong>
       <% if user_signed_in? %>
-            <%= link_to 'Editar', edit_acercade_path(@acercades),class: "btn btn-default btn-lg"  %>
+        <%= link_to 'Editar', edit_acercade_path(@acercades),class: "btn btn-default btn-lg" if logged_in?(:site_admin) %>
       <% end %>
       </h2><br><br>
 
@@ -20,9 +21,14 @@
       </div>
   </div>
   <div class="col-md-6 nosotros-enfoque">
-    <strong>nuestro enfoque</strong>
+    <p><strong>nuestro enfoque</strong></p>
     <p><%= @acercades.enfoque %></p>
   </div>
+  <div class="col-md-3 nosotros-reconocimiento">
+    <p><h3>reconocimientos</h3></p>
+    <p>En 2018, la Iniciativa Red de escuelas seguras recibió el Premio a las Buenas Prácticas en la Seguridad Privada, en el marco de los II Premios Nacionales de Seguridad y Emergencias.</p>
+
+</div>
 </div>
 
 

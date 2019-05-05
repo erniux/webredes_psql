@@ -4,6 +4,8 @@ class Evento < ApplicationRecord
 	validates_presence_of :lugar, :expositor, length: { in: 5..50 }
 
 	belongs_to :user
+
+	mount_uploader :imagen, EventoUploader
 	 
 end
 

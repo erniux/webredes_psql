@@ -1,28 +1,21 @@
 class EtapaCertificacionsController < ApplicationController
   before_action :set_etapa_certificacion, only: [:show, :edit, :update, :destroy]
+  access certificador: :all, site_admin: :all
 
-  # GET /etapa_certificacions
-  # GET /etapa_certificacions.json
   def index
     @etapa_certificacions = EtapaCertificacion.all
   end
 
-  # GET /etapa_certificacions/1
-  # GET /etapa_certificacions/1.json
   def show
   end
 
-  # GET /etapa_certificacions/new
   def new
     @etapa_certificacion = EtapaCertificacion.new
   end
 
-  # GET /etapa_certificacions/1/edit
   def edit
   end
 
-  # POST /etapa_certificacions
-  # POST /etapa_certificacions.json
   def create
     @etapa_certificacion = EtapaCertificacion.new(etapa_certificacion_params)
 
@@ -37,8 +30,6 @@ class EtapaCertificacionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /etapa_certificacions/1
-  # PATCH/PUT /etapa_certificacions/1.json
   def update
     respond_to do |format|
       if @etapa_certificacion.update(etapa_certificacion_params)
@@ -51,8 +42,6 @@ class EtapaCertificacionsController < ApplicationController
     end
   end
 
-  # DELETE /etapa_certificacions/1
-  # DELETE /etapa_certificacions/1.json
   def destroy
     @etapa_certificacion.destroy
     respond_to do |format|
@@ -62,12 +51,10 @@ class EtapaCertificacionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_etapa_certificacion
       @etapa_certificacion = EtapaCertificacion.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def etapa_certificacion_params
       params.require(:etapa_certificacion).permit(:nombre, :descripcion)
     end

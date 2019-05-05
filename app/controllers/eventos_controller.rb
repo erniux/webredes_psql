@@ -1,5 +1,6 @@
 class EventosController < ApplicationController
   before_action :set_evento, only: [:show, :edit, :update, :destroy]
+  access all: [:show, :index], site_admin: :all
 
   def index
     @eventos = Evento.all

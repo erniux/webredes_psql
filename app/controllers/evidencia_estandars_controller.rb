@@ -1,5 +1,6 @@
 class EvidenciaEstandarsController < ApplicationController
   before_action :set_evidencia_estandar, only: [:show, :edit, :update, :destroy]
+  access certificador: :all, site_admin: :all
 
   # GET /evidencia_estandars
   # GET /evidencia_estandars.json
