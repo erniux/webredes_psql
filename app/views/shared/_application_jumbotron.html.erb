@@ -1,20 +1,20 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
+
+   <div class="container-fluid-inicio">
+      <div class="col-md-12">
+         <p><%= image_tag "acoso.jpg", width: '95%', alt: "profile image" %></p> 
+         <p><%= image_tag "redes.jpg", width: '30%', alt: "profile image" %></p>
+      </div>
+   </div>
    <div class="container">
       <div class="col-md-6">
-         <p><%= image_tag "acoso.jpg", width: 660, alt: "profile image" %></p> 
-         <p><%= image_tag "redes.jpg", width: 200, alt: "profile image" %></p>
-      </div>
-      <div class="col-md-6 container-inicio">
-         <p><%= image_tag "manzana.jpg", width: '10%', alt: "profile image" %></p> 
+         <p><%= image_tag "manzana.jpg", width: '5%', alt: "profile image" %></p> 
          <h2>nosotros</h2>
          <span><%= @about.que_somos %></span>
          <p></p>
          <p><%= link_to 'conoce más', acercades_path, class: "btn btn-default btn-lg" %></p>
       </div>
    </div>
-</div>
-
 <div class="container">
 <div class="container-fluid">
   <div class="row">
@@ -25,7 +25,7 @@
       <p><%= @eventos.lugar %></p>
       <p><%= @eventos.expositor %></p>
       <p>del: <%= @eventos.fecha_inicio.strftime('%d / %B / %Y') %> al: <%= @eventos.fecha_fin.strftime('%d /%B/%Y') %> </p>
-      <p><%= image_tag @eventos.imagen.to_s %></p>
+      <p><%= image_tag @eventos.imagen.to_s, width: '100%' %></p>
 
    
       <p><%= link_to 'asiste', eventos_path, class: "btn btn-default btn-lg" %></p>
@@ -41,15 +41,15 @@
    <div class="col-md-4">
       <h2>socios</h2>
        <div class="col-md-12 socios-materiales">
-         <h4>Accede a nuestros materiales:</h4>
-            <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>boletín mensual</a></p>
-            <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>banco de información</a></p>
-            <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>calendario de capacitación</a></p>
-            <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>material de difusión</a></p>
-            <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <a>información estratégica</a></p>
+         <p><h4>Accede a nuestros materiales:</h4></p>
+            <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>boletín mensual</span></p>
+            <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>banco de información</span></p>
+            <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>calendario de capacitación</span></p>
+            <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>material de difusión</span></p>
+            <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>información estratégica</span></p>
          <p>
             <%= link_to eventos_path do %>
-              <%= image_tag "circulo_mas.png", class: "logo-mas" %>
+              <%= image_tag "circulo_mas.png", width: '8%', class: "logo-mas" %>
             <% end %>
          </p>
       </div>
@@ -68,7 +68,7 @@
         
 </div>
 </div>
-</div>
+
 
 
 

@@ -5,6 +5,14 @@
 @import 'bootstrap-datetimepicker';
 @import 'bourbon';
 
+#main {max-width:960px; min-width:320px; margin:0 auto;}
+
+@media screen and (max-width:480px){
+  body {
+    font-size:80%; // achicamos la fuente en pantallas pequeñas 
+  } 
+}
+
 @font-face {
 font-family: 'Myriad Pro Regular';
 font-style: normal;
@@ -74,6 +82,11 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   font-family: 'Myriad Pro Regular';
 }
 
+.container-menu {
+  font-family: 'Myriad Pro Regular';
+  
+
+}
 .logo-small {
   color: #FF0000;
   font-size: 50px;
@@ -84,7 +97,10 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   font-size: 200px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 6000px) {
+.container {    
+           width: 100%;
+    }
 
 }
 
@@ -109,7 +125,11 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   letter-spacing: 1.5px;
   background-color: #ffffff; 
   text-align: -webkit-center;
-  box-sizing: border-box; 
+  
+}
+
+.icon-bar {
+   background-color:black !important;
 }
 
 .navbar li a, .navbar .navbar-brand {
@@ -185,17 +205,34 @@ footer .glyphicon {
 /*++++++++++++++++ mis estilos :-) ETR +++++++++++++++++++++++*/
 /*++++++++++++++++ mis estilos :-) ETR +++++++++++++++++++++++*/
 
-.imagen {
+.banner{
+  vertical-align: middle; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  background-color: #8E8E8D; 
+  color:white;  
+  height: 75px;
   width: 1470px;
-  height: 100px;
-  background: #CECECE;
-  background-image: url('/assets/banner.png'); 
-  background-position: center;
-  background-repeat: repeat;
-  
-  
+  font-size: -webkit-xxx-large;
+  position: relative;
+  -webkit-animation-name: banner; 
+  -webkit-animation-duration: 60s; 
+  -webkit-animation-direction: alternate; 
+  animation-name: banner;
+  animation-iteration-count: infinite;
 }
 
+@-webkit-keyframes banner {
+  from {
+    left: -1300px;
+    }
+    to {
+    left: 1000px;
+    }
+  }
+  
+ 
 .nosotros-titulo {
   text-align: right;
   color: white;
@@ -308,6 +345,79 @@ footer .glyphicon {
   width: 50px;
   background-color: #fff;
 }
+
+/**** ESTILOS DEL BANNER CON GOOGLE WEB DESIGNER ****/
+ 
+.gwd-page-content {
+  background-color: transparent;
+  transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transform-style: preserve-3d;
+  position: absolute;
+}
+.gwd-page-wrapper {
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  transform: translateZ(0px);
+}
+.gwd-page-size {
+  width: 100%;
+  height: 100%;
+}
+.gwd-p-zpz5 {
+  position: absolute;
+  font-family: Verdana;
+  background-image: none;
+  background-color: rgb(142, 142, 141);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  width: 584px;
+  height: 33px;
+  transform-origin: 292px 16.5px 0px;
+  top: 1px;
+  left: -284px;
+  transform-style: preserve-3d;
+  transform: translate3d(0px, 0px, 0px);
+}
+.gwd-span-1teu {
+  font-size: 20px;
+}
+.gwd-span-156q {
+  font-size: 12px;
+}
+.gwd-span-w8di {
+  font-size: 24px;
+}
+.gwd-span-goe1 {
+  font-size: 14px;
+}
+.gwd-p-1fk8 {
+  height: auto;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: auto;
+}
+.gwd-p-5fb0 {
+  height: auto;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: auto;
+}
+@keyframes gwd-gen-d2r4gwdanimation_gwd-keyframes {
+  0% {
+    transform: translate3d(0px, 0px, 0px);
+    animation-timing-function: linear;
+  }
+  100% {
+    transform: translate3d(265px, 0px, 0px);
+    animation-timing-function: linear;
+  }
+}
+#page1.gwd-play-animation .gwd-gen-d2r4gwdanimation {
+  animation: gwd-gen-d2r4gwdanimation_gwd-keyframes 2.2s linear 0s 1 normal forwards running;
+}
+ 
 
 
 
