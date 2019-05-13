@@ -1,16 +1,16 @@
-<%= render "shared/application_nav_reconocimientos" %>
 <div class="container-fluid-crud">
 
 <p id="notice"><%= notice %></p>
 
 <h1>Etapas Certificación</h1>
 <%= link_to 'Agragar Etapa Certificación', new_etapa_certificacion_path, class: 'btn btn-default btn-lg' %>
-
+<p></p>
 <table class="table">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Descripción</th>
+      <th>Etapa</th>
       <th colspan="3">Acciones</th>
     </tr>
   </thead>
@@ -20,6 +20,7 @@
       <tr>
         <td><%= etapa_certificacion.nombre %></td>
         <td><%= etapa_certificacion.descripcion %></td>
+        <td><%= etapa_certificacion.estandares_certificacions %>
         <td><%= link_to 'Mostrar', etapa_certificacion %></td>
         <td><%= link_to 'Modificar', edit_etapa_certificacion_path(etapa_certificacion) %></td>
         <td><%= link_to 'Eliminar', etapa_certificacion, method: :delete, data: { confirm: '¿Confirma Eliminar el Registro?' } %></td>

@@ -1,3 +1,4 @@
 class EstandaresCerficiacion < ApplicationRecord
-  belongs_to :etapa_certificacions
+  has_many :etapa_certificacions
+  accepts_nested_attributes_for :etapa_certificacions, allow_destroy: true
 end

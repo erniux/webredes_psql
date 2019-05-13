@@ -21,6 +21,15 @@
     <%= form.text_area :descripcion %>
   </div>
 
+  
+    <%= form.fields_for :etapa_certificacion do |etapa| %>
+      <div class="field">
+        <%= etapa.label :etapa %>
+        <%= etapa.text_field :etapa %>
+      </div>
+    <% end %>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>
