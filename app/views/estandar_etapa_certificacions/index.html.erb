@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Estandar Etapa Certificacions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Descripcion</th>
+      <th>Observaciones</th>
+      <th>Etapa certificacion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estandar_etapa_certificacions.each do |estandar_etapa_certificacion| %>
+      <tr>
+        <td><%= estandar_etapa_certificacion.titulo %></td>
+        <td><%= estandar_etapa_certificacion.descripcion %></td>
+        <td><%= estandar_etapa_certificacion.observaciones %></td>
+        <td><%= estandar_etapa_certificacion.etapa_certificacion %></td>
+        <td><%= link_to 'Show', estandar_etapa_certificacion %></td>
+        <td><%= link_to 'Edit', edit_estandar_etapa_certificacion_path(estandar_etapa_certificacion) %></td>
+        <td><%= link_to 'Destroy', estandar_etapa_certificacion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Estandar Etapa Certificacion', new_estandar_etapa_certificacion_path %>

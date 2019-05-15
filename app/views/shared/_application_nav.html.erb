@@ -28,10 +28,11 @@
             <li><%= link_to "socios", new_user_session_path %></li> 
           <% end %>  
           <li><%= link_to "blog", avisos_path %></li>
+          <li><%= link_to "certificate", reconocimientos_path %></li>
           <li><%=link_to "contacto", root_path, href: '/#contact' %></li>
           <% if current_user %>
              <li><%= link_to "dashboard", admin_root_path %></li> 
-             <li><%= link_to "certificate", reconocimientos_path if logged_in?(:certificador,  :escuela) %></li>
+             
           <% end %> 
 
 
@@ -52,47 +53,4 @@
 
 
  
-
-
-
-<!--
-<nav class="navbar navbar-expand-lg navbar-fixed-top navbar-light bg-light"> 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">  
-  <div class="container">
-     <div class="imagen"></div>
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#NavbarPrincipal">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="NavbarPrincipal">
-      <ul class="nav navbar-nav navbar-left">
-          <% if current_user %>
-            <li><%= link_to "salir", destroy_user_session_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to "afiliate", new_user_registration_path %></li>
-          <% end %>
-          <li class="manzanita"><%= image_tag "manzana_pequena.jpg", width: 25  %></li>
-          <li><%= link_to "inicio", root_path %></li>
-          <li><%= link_to "nosotros", acercades_path %></li>
-          <li><%= link_to "eventos", eventos_path %></li>
-          <% if current_user %>
-            <li><%= link_to "socios", socios_path %></li> 
-          <% else %>
-            <li><%= link_to "socios", new_user_session_path %></li> 
-          <% end %>  
-          <li><%= link_to "blog", avisos_path %></li>
-          <li><%=link_to "contacto", root_path, href: '/#contact' %></li>
-          <% if current_user %>
-             <li><%= link_to "dashboard", admin_root_path %></li> 
-             <li><%= link_to "certificate", '#' %></li>
-          <% end %> 
-        
-      </ul>
-    </div>
-  </div>
-</nav>
--->
 

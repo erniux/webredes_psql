@@ -1,16 +1,16 @@
-<%= render "shared/application_nav_reconocimientos" %>
-<div class="container-fluid-crud">
-	<p id="notice"><%= notice %></p>
-	
-	<p>
-	  <strong>Nombre:</strong>
-	  <%= @etapa_certificacion.nombre %>
-	</p>
-	
-	<p>
-	  <strong>Descripcion:</strong>
-	  <%= @etapa_certificacion.descripcion %>
-	</p>
-	<%= link_to 'Modificar', edit_etapa_certificacion_path(@etapa_certificacion) %> |
-	<%= link_to 'Regresar', etapa_certificacions_path %>
+<div class="container-crud">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @etapa_certificacion.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @etapa_certificacion.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_etapa_certificacion_path(@etapa_certificacion) %> |
+<%= link_to 'Back', etapa_certificacions_path %>
 </div>

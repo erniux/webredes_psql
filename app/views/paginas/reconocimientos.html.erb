@@ -123,6 +123,15 @@
 
 		</div>
 
+		<div class="ingresar-cert">
+  			<%= form_for(:user, :url => session_path(:user)) do |f| %>
+  				<%= f.text_field :email, placeholder: 'Correo' %>
+  				<%= f.password_field :password, placeholder: 'Contraseña' %>
+  				<%= f.submit 'Ingresar', class: "btn btn-primary" %>
+  				
+			<% end %>
+		</div>
   </div>
+</div>
 </div>
   

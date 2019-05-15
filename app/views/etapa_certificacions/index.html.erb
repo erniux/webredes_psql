@@ -1,16 +1,14 @@
-<div class="container-fluid-crud">
-
+<div class="container-crud">
 <p id="notice"><%= notice %></p>
 
-<h1>Etapas Certificación</h1>
-<%= link_to 'Agragar Etapa Certificación', new_etapa_certificacion_path, class: 'btn btn-default btn-lg' %>
-<p></p>
+<h1>Etapas para Alcanzar la Certificación</h1>
+<p><%= link_to 'Agregar Etapa Certificacion', new_etapa_certificacion_path, class: "btn btn-default btn-lg" if logged_in?(:site_admin) %></p>
+
 <table class="table">
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Descripción</th>
-      <th>Etapa</th>
+      <th>Descripcion</th>
       <th colspan="3">Acciones</th>
     </tr>
   </thead>
@@ -19,17 +17,17 @@
     <% @etapa_certificacions.each do |etapa_certificacion| %>
       <tr>
         <td><%= etapa_certificacion.nombre %></td>
-        <td><%= etapa_certificacion.descripcion %></td>
-        <td><%= etapa_certificacion.estandares_certificacions %>
-        <td><%= link_to 'Mostrar', etapa_certificacion %></td>
+        <td class="columna-ancha"><%= etapa_certificacion.descripcion %></td>
+        <td><%= link_to 'Detalle', etapa_certificacion %></td>
         <td><%= link_to 'Modificar', edit_etapa_certificacion_path(etapa_certificacion) %></td>
-        <td><%= link_to 'Eliminar', etapa_certificacion, method: :delete, data: { confirm: '¿Confirma Eliminar el Registro?' } %></td>
+        <td><%= link_to 'Eliminar', etapa_certificacion, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+
+
 </div>
-
-

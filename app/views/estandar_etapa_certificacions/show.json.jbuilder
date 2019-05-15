@@ -1,0 +1,1 @@
+json.partial! "estandar_etapa_certificacions/estandar_etapa_certificacion", estandar_etapa_certificacion: @estandar_etapa_certificacion

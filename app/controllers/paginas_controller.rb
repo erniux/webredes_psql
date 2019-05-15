@@ -3,6 +3,7 @@ class PaginasController < ApplicationController
     @eventos = Evento.last
     @avisos = Aviso.last
     @about = Acercade.first
+    @etapas = EtapaCertificacion.all
   end
 
   def acerca_de

@@ -1,0 +1,37 @@
+<%= form_with(model: estandar_etapa_certificacion, local: true) do |form| %>
+  <% if estandar_etapa_certificacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(estandar_etapa_certificacion.errors.count, "error") %> prohibited this estandar_etapa_certificacion from being saved:</h2>
+
+      <ul>
+      <% estandar_etapa_certificacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :titulo %>
+    <%= form.text_area :titulo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descripcion %>
+    <%= form.text_area :descripcion %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observaciones %>
+    <%= form.text_field :observaciones %>
+  </div>
+
+  <div class="field">
+    <%= form.label :etapa_certificacion_id %>
+    <%= form.text_field :etapa_certificacion_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

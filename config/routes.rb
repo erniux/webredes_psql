@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :estandar_etapa_certificacions
+  resources :etapa_certificacions
   resources :reconocimiento_redes
   namespace :admin do
       resources :users
@@ -36,9 +38,6 @@ Rails.application.routes.draw do
   resources :acercades
 
   
-  resources :evidencia_estandars
-  resources :estandares_cerficiacions
-  resources :etapa_certificacions
 
   get 'acerca_de', to: 'paginas#acerca_de'
   get 'servicios', to: 'paginas#servicios'

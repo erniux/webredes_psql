@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_13_003836) do
+ActiveRecord::Schema.define(version: 2019_05_14_180613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,23 +42,21 @@ ActiveRecord::Schema.define(version: 2019_05_13_003836) do
     t.index ["user_id"], name: "index_avisos_on_user_id"
   end
 
-  create_table "estandares_cerficiacions", force: :cascade do |t|
-    t.text "estandar"
+  create_table "estandar_etapa_certificacions", force: :cascade do |t|
+    t.text "titulo"
     t.text "descripcion"
-    t.float "puntos"
-    t.text "observaciones"
-    t.bigint "etapa_certificacions_id"
+    t.string "observaciones"
+    t.bigint "etapa_certificacion_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["etapa_certificacions_id"], name: "index_estandares_cerficiacions_on_etapa_certificacions_id"
+    t.index ["etapa_certificacion_id"], name: "index_estandar_etapa_certificacions_on_etapa_certificacion_id"
   end
 
   create_table "etapa_certificacions", force: :cascade do |t|
-    t.string "nombre"
+    t.text "nombre"
     t.text "descripcion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "etapa"
   end
 
   create_table "eventos", force: :cascade do |t|
@@ -73,15 +71,6 @@ ActiveRecord::Schema.define(version: 2019_05_13_003836) do
     t.string "imagen"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_eventos_on_user_id"
-  end
-
-  create_table "evidencia_estandars", force: :cascade do |t|
-    t.text "nombre_documento"
-    t.string "tipo_documento"
-    t.bigint "estandares_cerficiacions_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["estandares_cerficiacions_id"], name: "index_evidencia_estandars_on_estandares_cerficiacions_id"
   end
 
   create_table "precios", force: :cascade do |t|
@@ -157,9 +146,8 @@ ActiveRecord::Schema.define(version: 2019_05_13_003836) do
 
   add_foreign_key "acercades", "users"
   add_foreign_key "avisos", "users"
-  add_foreign_key "estandares_cerficiacions", "etapa_certificacions", column: "etapa_certificacions_id"
+  add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
   add_foreign_key "eventos", "users"
-  add_foreign_key "evidencia_estandars", "estandares_cerficiacions", column: "estandares_cerficiacions_id"
   add_foreign_key "precios", "users"
   add_foreign_key "reconocimiento_redes", "acercades", column: "acercades_id"
   add_foreign_key "recursos", "users"

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @estandar_etapa_certificacion.titulo %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @estandar_etapa_certificacion.descripcion %>
+</p>
+
+<p>
+  <strong>Observaciones:</strong>
+  <%= @estandar_etapa_certificacion.observaciones %>
+</p>
+
+<p>
+  <strong>Etapa certificacion:</strong>
+  <%= @estandar_etapa_certificacion.etapa_certificacion %>
+</p>
+
+<%= link_to 'Edit', edit_estandar_etapa_certificacion_path(@estandar_etapa_certificacion) %> |
+<%= link_to 'Back', estandar_etapa_certificacions_path %>

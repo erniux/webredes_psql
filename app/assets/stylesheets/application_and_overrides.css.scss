@@ -70,7 +70,7 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   margin-top: 60px;
   margin-left: 0px;
   padding: 10px 100px;
-  font-family: Myriad Pro Light;
+  font-family: 'Myriad Pro Light';
   font-size: 20px;
   text-align: -webkit-center;
 
@@ -98,10 +98,12 @@ src:url ('MYRIADPRO-BOLDIT.woff')
 }
 
 @media (max-width: 6000px) {
-.container {    
-           width: 100%;
-    }
-
+  .container {    
+    width: 100%;
+  }
+  .imagen-inicial {
+    width: 150%;
+  }
 }
 
 .item h4 {
@@ -114,10 +116,12 @@ src:url ('MYRIADPRO-BOLDIT.woff')
 
 .item span {
   font-style: normal;
+  font-size: 16px;
 }
 
 .navbar {
   margin-bottom: 0;
+  margin-top: 0;
   color: black;
   z-index: 9999;
   border: 0;
@@ -127,6 +131,7 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   text-align: -webkit-center;
   
 }
+
 
 .icon-bar {
    background-color:black !important;
@@ -213,22 +218,21 @@ footer .glyphicon {
   background-color: #8E8E8D; 
   color:white;  
   height: 75px;
-  width: 1470px;
+  width: 145%;
   font-size: -webkit-xxx-large;
   position: relative;
   -webkit-animation-name: banner; 
-  -webkit-animation-duration: 60s; 
-  -webkit-animation-direction: alternate; 
+  -webkit-animation-duration: 30s; 
   animation-name: banner;
   animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes banner {
   from {
-    left: -1300px;
+    left: -100%;
     }
     to {
-    left: 1000px;
+    left: 50%;
     }
   }
   
@@ -433,6 +437,57 @@ footer .glyphicon {
   background-color: #FC0107;
   color: white;
 
+  
+}
+
+.ingresar-cert {
+  padding: 10px 30px;
+  margin-top: 50px;
+  background-color: #327839;
+  color: white;
+  
+}
+
+.columna-ancha {
+  width: 800px;
+}
+
+.imagen-inicial {
+  width: 70%;
+  margin-left: 20%;
+}
+
+.logo-inicial {
+  width: 15%;
+  margin-left: 20%;
+}
+
+.certificate-inicial > p{
+  margin-left: 50%;
+  margin-right: 10%;
+  font-size: 18px;
+  font-family: 'Myriad Pro Regular';
+  text-align: justify;
+}
+
+.col-md-4 > p{
+  font-size: 18px;
+  font-family: 'Myriad Pro Regular';
+  text-align: justify;
+  
+}
+
+.col-md-8 > p{
+  font-size: 18px;
+  font-family: 'Myriad Pro Regular';
+  text-align: justify;
+  
+}
+
+.col-md-8 > p{
+  font-size: 18px;
+  font-family: 'Myriad Pro Regular';
+  text-align: justify;
   
 }
 
