@@ -28,10 +28,12 @@
             <li><%= link_to "socios", new_user_session_path %></li> 
           <% end %>  
           <li><%= link_to "blog", avisos_path %></li>
-          <li><%= link_to "certificate", reconocimientos_path %></li>
+          <% if current_user %>
+            <li><%= link_to "certificate", reconocimientos_path %></li>
+          <% end %>
           <li><%=link_to "contacto", root_path, href: '/#contact' %></li>
           <% if current_user %>
-             <li><%= link_to "dashboard", admin_root_path %></li> 
+             <li><%= link_to "dashboard", admin_root_path if logged_in?(:site_admin, :admin)  %></li> 
              
           <% end %> 
 

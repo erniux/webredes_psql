@@ -259,7 +259,7 @@ footer .glyphicon {
 
 .nosotros-reconocimiento{
   padding: 20px 20px;
-  margin: 52px 157px;
+  margin: 52% 100%;
   background-color: red;
   color: white;
 }
@@ -298,7 +298,20 @@ footer .glyphicon {
   width: 40rem;
   margin: 8px auto;
   float: right;
+  font-family: 'Myriad Pro light';
+  font-size: 18px;
 }
+
+.row-login-rapido {
+  padding: 20px 19px;
+  width: 40rem;
+  margin: 16px;
+  float: right;
+  font-family: 'Myriad Pro light';
+  font-size: 18px;
+  background-color: goldenrod;
+}
+
 
 .conoce-mas-socio {
   padding: 30px 10px;
@@ -436,9 +449,9 @@ footer .glyphicon {
   margin-top: 50px;
   background-color: #FC0107;
   color: white;
-
-  
 }
+
+
 
 .ingresar-cert {
   padding: 10px 30px;
@@ -453,13 +466,13 @@ footer .glyphicon {
 }
 
 .imagen-inicial {
-  width: 70%;
-  margin-left: 20%;
+  width: 85%;
+  margin-left: 10%;
 }
 
 .logo-inicial {
   width: 15%;
-  margin-left: 20%;
+  margin-left: 10%;
 }
 
 .certificate-inicial > p{
@@ -469,6 +482,123 @@ footer .glyphicon {
   font-family: 'Myriad Pro Regular';
   text-align: justify;
 }
+
+.certificacion{
+  margin-top: -25%;
+  color: white;
+  font-family: 'Myriad Pro Regular';
+  font-sizer: 20px;
+}
+
+.estandar-texto-cert {
+  font-family: 'Myriad Pro Regular';
+  font-sizer: 20px;
+  color: black;
+  
+}
+
+.como-funciona-certificacion{
+  color: white;
+  font-family: 'Myriad Pro light';
+  font-size: 18px;
+  text-align: justify;
+  padding: 10px 10px;
+  margin-left: 15%;
+  margin-right: 20%;
+  background-color: #646463;
+}
+
+.como-proceso{
+  font-family: 'Myriad Pro light';
+  font-size: 18px;
+  text-align: justify;
+  margin-left: 15%;
+  margin-right: 20%;
+  margin-top: 10%;
+  background-color: #646463;
+  padding: 20px 20px;
+  color: white;
+  
+}
+
+#cert-niveles {
+    counter-reset: li; 
+    list-style: none; 
+    *list-style: decimal; 
+    font: 20px 'Myriad Pro light', 'lucida sans';
+    padding: 0;
+    margin-bottom: 4em;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+#cert-niveles ol {
+    margin: 0 0 0 2em; 
+}
+
+#cert-niveles li{
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em .8em;
+    *padding: .4em;
+    margin: .5em 0 .5em 2.5em;
+    background: #ddd;
+    color: #444;
+    text-decoration: none;
+    transition: all .3s ease-out;   
+}
+
+#cert-niveles li:hover{
+    background: #eee;
+}   
+
+#cert-niveles li:before{
+    content: counter(li);
+    counter-increment: li;
+    position: absolute; 
+    left: -2.5em;
+    top: 50%;
+    margin-top: -1em;
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    text-align: center;
+    font-weight: bold;
+}
+
+#cert-niveles li:after{
+    position: absolute; 
+    content: '';
+    border: .5em solid transparent;
+    left: -1em;
+    top: 50%;
+    margin-top: -.5em;
+    transition: all .3s ease-out;               
+}
+
+#cert-niveles li:hover:after{
+    left: -.5em;
+    border-left-color: #fa8072;             
+}
+
+.cert-bronce:before {
+  background-color: #d37f3c;
+}
+
+.cert-plata:before {
+  background-color: #d5dddf;
+}
+
+.cert-oro:before {
+  background-color: #ecc662;
+}
+
+
+
+.subtitulo {
+  padding: 40px 51px;
+    text-align: center;
+}
+
 
 .col-md-4 > p{
   font-size: 18px;
