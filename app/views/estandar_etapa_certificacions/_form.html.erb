@@ -1,3 +1,4 @@
+<div class="container-fluid-crud">
 <%= form_with(model: estandar_etapa_certificacion, local: true) do |form| %>
   <% if estandar_etapa_certificacion.errors.any? %>
     <div id="error_explanation">
@@ -12,26 +13,42 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :'etapa_certificacion' %>
+    <%= form.collection_select :etapa_certificacion_id, EtapaCertificacion.order(:id), :id, :nombre, include_blank: true %>
+  </div>
+
+  <div class="field">
     <%= form.label :titulo %>
-    <%= form.text_area :titulo %>
+    <%= form.text_area :titulo, cols: 60, rows: 4 %>
   </div>
 
   <div class="field">
     <%= form.label :descripcion %>
-    <%= form.text_area :descripcion %>
+    <%= form.text_area :descripcion, cols: 60, rows: 5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :evidencias %>
+    <%= form.text_area :evidencias, cols: 60, rows: 5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detalle_puntaje %>
+    <%= form.text_area :puntaje, cols: 60, rows: 5 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :puntaje_total %>
+    <%= form.text_field :puntaje_total %>
   </div>
 
   <div class="field">
     <%= form.label :observaciones %>
-    <%= form.text_field :observaciones %>
-  </div>
-
-  <div class="field">
-    <%= form.label :etapa_certificacion_id %>
-    <%= form.text_field :etapa_certificacion_id %>
+    <%= form.text_area :observaciones, cols: 60, rows: 5 %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar Registro" %>
   </div>
 <% end %>
+</div>

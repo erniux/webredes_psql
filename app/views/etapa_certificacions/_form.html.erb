@@ -1,3 +1,4 @@
+<div class="container-fluid-crud">
 <%= form_with(model: etapa_certificacion, local: true) do |form| %>
   <% if etapa_certificacion.errors.any? %>
     <div id="error_explanation">
@@ -13,15 +14,29 @@
 
   <div class="field">
     <%= form.label :nombre %>
-    <%= form.text_area :nombre %>
+    <%= form.text_area :nombre, cols: 100 %>
   </div>
 
   <div class="field">
     <%= form.label :descripcion %>
-    <%= form.text_area :descripcion %>
+    <%= form.text_area :descripcion, cols: 100, rows: 5 %>
   </div>
 
+  <div class="col-md-12">
+    <h2>Estandares</h2>
+    
+    <!-- <div>
+      <%= form.fields_for :estandar_etapa_certificacions do |estandar| %>
+      <%= render 'estandar_etapa_certificacion_fields', f: estandar %>
+      <% end %>
+  </div>
+  <div>
+    <%= link_to_add_association 'Agregar Estandar', form, :estandar_etapa_certificacion %>
+  </div> -->
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Guardar Registro " %>
   </div>
 <% end %>
+
+</div>

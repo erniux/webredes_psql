@@ -2,6 +2,11 @@
 
 <p>
   <strong>Titulo:</strong>
+  <%= @estandar_etapa_certificacion.etapa_certificacion_id %>
+</p>
+
+<p>
+  <strong>Titulo:</strong>
   <%= @estandar_etapa_certificacion.titulo %>
 </p>
 
@@ -11,14 +16,29 @@
 </p>
 
 <p>
+  <strong>Puntaje:</strong>
+  <%= @estandar_etapa_certificacion.puntaje %>
+</p>
+
+<p>
+  <strong>Puntaje:</strong>
+  <%= @estandar_etapa_certificacion.puntaje_total %>
+</p>
+
+<p>
   <strong>Observaciones:</strong>
   <%= @estandar_etapa_certificacion.observaciones %>
 </p>
 
 <p>
-  <strong>Etapa certificacion:</strong>
-  <%= @estandar_etapa_certificacion.etapa_certificacion %>
+  <strong>Evidencias:</strong>
+  <%= @estandar_etapa_certificacion.evidencias %>
 </p>
 
-<%= link_to 'Edit', edit_estandar_etapa_certificacion_path(@estandar_etapa_certificacion) %> |
-<%= link_to 'Back', estandar_etapa_certificacions_path %>
+<p>
+
+
+   
+
+<%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(@estandar_etapa_certificacion) %> |
+<%= link_to 'Regresar', estandar_etapa_certificacions_path %>
