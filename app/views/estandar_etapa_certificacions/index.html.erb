@@ -4,12 +4,12 @@
 <h1>Estandares por Etapa de Certificación</h1>
 <div class="nav-secundario">
 <%= link_to 'Agregar Estandar', new_estandar_etapa_certificacion_path, class: "btn btn-default btn-lg" if logged_in?(:certificador, :admin) %>
-<%= link_to 'Regresar al Proceso', etapa_certificacion_path, class: "btn btn-default btn-lg"  %>
+<%= link_to 'Regresar al Proceso', etapa_certificacions_path, class: "btn btn-default btn-lg"  %>
 <%= form_tag(estandar_etapa_certificacions_path, :method => "get", class: 'navbar-form navbar-left') do %>
   <div class="input-group">  
     <%= search_field_tag :search, params[:search], placeholder: "Búsqueda", class: "form-control" %>  
     <div class="input-group-btn">  
-      <%= button_tag "", class: "btn btn-info", :name => nil%>  
+      <%= button_tag "", class: "btn btn-info glyphicon glyphicon-search", :name => nil%>  
     </div>  
   </div>  
 <% end %>
