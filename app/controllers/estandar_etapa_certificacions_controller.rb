@@ -67,6 +67,7 @@ def index
 
 
     def estandar_etapa_certificacion_params
-      params.require(:estandar_etapa_certificacion).permit(:titulo, :descripcion, :observaciones, :etapa_certificacion_id, :puntaje, :evidencias, :puntaje_total)
+      params.require(:id, :estandar_etapa_certificacion).permit(:titulo, :descripcion, :observaciones, 
+                     :etapa_certificacion_id, :puntaje, :evidencias, :puntaje_total)
     end
 end
