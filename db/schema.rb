@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_203145) do
+ActiveRecord::Schema.define(version: 2019_05_21_013947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(version: 2019_05_16_203145) do
     t.text "que_buscamos"
     t.text "enfoque"
     t.text "importancia"
+    t.text "porque_socio"
+    t.string "imagen_inicial"
+    t.string "imagen_nostros"
     t.index ["user_id"], name: "index_acercades_on_user_id"
   end
 
@@ -83,16 +86,25 @@ ActiveRecord::Schema.define(version: 2019_05_16_203145) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "tipo"
     t.index ["user_id"], name: "index_precios_on_user_id"
+  end
+
+  create_table "pregunta", force: :cascade do |t|
+    t.text "pregunta"
+    t.text "respuesta"
+    t.string "autor"
+    t.string "tipo"
+    t.string "responsable"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reconocimiento_redes", force: :cascade do |t|
     t.string "nombre"
     t.text "descripcion"
-    t.bigint "acercades_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["acercades_id"], name: "index_reconocimiento_redes_on_acercades_id"
   end
 
   create_table "recursos", force: :cascade do |t|
@@ -152,7 +164,6 @@ ActiveRecord::Schema.define(version: 2019_05_16_203145) do
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
   add_foreign_key "eventos", "users"
   add_foreign_key "precios", "users"
-  add_foreign_key "reconocimiento_redes", "acercades", column: "acercades_id"
   add_foreign_key "recursos", "users"
   add_foreign_key "servicios", "users"
 end

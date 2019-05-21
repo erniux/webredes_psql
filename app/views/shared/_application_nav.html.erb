@@ -11,34 +11,43 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active">
+        <li>
         <% if current_user %>
-            <%= link_to "salir", destroy_user_session_path, method: :delete, class: "active" %>
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.nombre %> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "salir", destroy_user_session_path, method: :delete, class: "active" %></li>
+            <li><%= link_to "perfil", edit_user_registration_path %></li>
+            <li><%= link_to "socios", socios_path %></li>
+            <li><%= link_to "certificate", reconocimientos_path %></li>
+          </ul>
           <% else %>
-            <%= link_to "afiliate", new_user_registration_path, class: "active" %>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">afiliate<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "registro", new_user_registration_path %></li>
+            <li><%= link_to "ingresar", new_user_session_path %></li>
+          </ul>
           <% end %>
         </li>
         <li class="manzanita"><%= image_tag "manzana_pequena.jpg", width: 25  %></li>
         <li><%= link_to "inicio", root_path %></li>
           <li><%= link_to "nosotros", acercades_path %></li>
           <li><%= link_to "eventos", eventos_path %></li>
-          <% if current_user %>
-            <li><%= link_to "socios", socios_path %></li> 
-          <% else %>
-            <li><%= link_to "socios", new_user_session_path %></li> 
-          <% end %>  
+          <li><%= link_to "socios", socios_path %></li> 
           <li><%= link_to "blog", avisos_path %></li>
-          <% if current_user %>
-            <li><%= link_to "certificate", reconocimientos_path %></li>
-          <% end %>
+          <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">certificate <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "conocenos", reconocimientos_path %></li>
+            <li><%= link_to "proceso", etapa_certificacions_path %></li>
+            <li><%= link_to "preguntas", pregunta_path %></li>
+          </ul>
+        </li>
           <li><%=link_to "contacto", root_path, href: '/#contact' %></li>
           <% if current_user %>
              <li><%= link_to "dashboard", admin_root_path if logged_in?(:site_admin, :admin)  %></li> 
-             
           <% end %> 
 
-
-        <!--  
+        <!--   EJEMPLO PARA DROPDOWN MENU
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
           <ul class="dropdown-menu">

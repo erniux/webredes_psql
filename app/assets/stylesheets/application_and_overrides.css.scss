@@ -104,6 +104,10 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   .imagen-inicial {
     width: 150%;
   }
+
+  .imagen-nosotros {
+    width: 100%;
+  }
 }
 
 .item h4 {
@@ -258,8 +262,7 @@ footer .glyphicon {
 }
 
 .nosotros-reconocimiento{
-  padding: 20px 20px;
-  margin: 52% 100%;
+  
   background-color: red;
   color: white;
 }
@@ -269,7 +272,17 @@ footer .glyphicon {
 }
 
 .container-fluid-crud {
-   padding: 50px 350px;
+   margin-left: 5%;
+   margin-right: 5%;
+   padding: 10px 10px;
+}
+
+.socios-sombra{
+  background-color: #C0C1C0;
+  text-align: right;
+  padding: 60px 60px;
+  margin-left: 65%;
+  color: white;
 }
 
 .container-fluid-grey {
@@ -303,15 +316,12 @@ footer .glyphicon {
 }
 
 .row-login-rapido {
-  padding: 20px 19px;
-  width: 40rem;
-  margin: 16px;
-  float: right;
+  
+  padding: 10px 10px;
   font-family: 'Myriad Pro light';
   font-size: 18px;
   background-color: goldenrod;
 }
-
 
 .conoce-mas-socio {
   padding: 30px 10px;
@@ -451,8 +461,6 @@ footer .glyphicon {
   color: white;
 }
 
-
-
 .ingresar-cert {
   padding: 10px 30px;
   margin-top: 50px;
@@ -468,6 +476,12 @@ footer .glyphicon {
 .imagen-inicial {
   width: 85%;
   margin-left: 10%;
+}
+
+.imagen-nosotros{
+  width: 80%; 
+  align: center;
+  
 }
 
 .logo-inicial {
@@ -614,11 +628,26 @@ footer .glyphicon {
   
 }
 
-.col-md-8 > p{
+.col-md-6 > p{
   font-size: 18px;
   font-family: 'Myriad Pro Regular';
   text-align: justify;
   
+}
+
+.control-busqueda {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: 69%;
+  margin-bottom: 0;
+  margin-left: 10%;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+}
+
+.nav-secundario{
+  padding: 10px 10px;
 }
 
 

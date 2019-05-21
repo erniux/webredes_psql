@@ -1,6 +1,7 @@
 class EtapaCertificacionsController < ApplicationController
   before_action :set_etapa_certificacion, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  access all: [:index, :show, :new, :create], certificador: :all
 
   
   def index
@@ -51,8 +52,7 @@ class EtapaCertificacionsController < ApplicationController
     end
 
     def etapa_certificacion_params
-      params.require(:etapa_certificacion).permit(:nombre, :descripcion,
-                    estandar_etapa_certificacions_attributes: [:id, :titulo, :descripcion, :observaciones, :etapa_certificacion_id, :puntaje, :evidencias, :puntaje_total :_destroy])
+      params.require(:etapa_certificacion).permit(:nombre, :descripcion)
     end
 end
 

@@ -4,6 +4,7 @@ class AcercadesController < ApplicationController
 
   def index
     @acercades = Acercade.first
+    @reconocimientos = ReconocimientoRede.all
   end
 
   def show
@@ -54,7 +55,8 @@ class AcercadesController < ApplicationController
 
     def acercade_params
       params.require(:acercade).permit(:descripcion, :mision, :vision, :valores, :que_somos, :que_hacemos, 
-                                       :que_buscamos, :enfoque, :importancia)
+                                       :que_buscamos, :enfoque, :importancia, :porque_socio, :imagen_inicial, 
+                                       :imagen_nostros)
     end
 end
 

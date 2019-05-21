@@ -1,20 +1,50 @@
-<section class="certificacion">
+<div class="certificacion">
      <%= image_tag "PLanSeguridad.jpg", width: '100%' %>
-</section>
-<div class="container estandar-texto-cert">
+</div>
+
+<div class="estandar-texto-cert">
 	<h1 class="certificacion">¿COMO FUNCIONA?</h1>
 	<p class="como-funciona-certificacion">Nuestro sistema de certificación en la metodología de gestión de riesgos funciona 	través de una plataforma virtual que sirve de guía durante todo el proceso. Las escuelas que decidan participar deberá	cubrir los costos e inscribirse para iniciar su proceso en agosto de cada año. </p>
 	<p class="como-proceso">La certificación está basada en un sistema de puntaje y al final del ejercicio, según el puntaje obtenido, la  escuela recibiría un certificado según el nivel de adopción de la metodología de gestión de riesgos. </p><br>
+</div>
+
+<div class="col-md-6">
 	 <ol id="cert-niveles">
     	<li class="cert-bronce"><strong>BRONCE:</strong><p>Aprende a aplicar la metodología de gestión de riesgos.</p></li>
     	<li class="cert-plata"><strong>PLATA:</strong><p>Desarrolla un plan de acción con base en la metodología de gestión de riesgos.</p></li>
     	<li class="cert-oro"><strong>ORO:</strong><p>Implementa adecuadamente la metodología de gestión de riesgos.</p></li> 
 	</ol>
+</div>
 
-	<%= render 'shared/application_precios' %>
+<div class="col-md-6 row-login-rapido">
+	<h3>Ingresa a tu Sitio</h3>
+    <% if current_user  %>
+       <%= link_to "socios", socios_path, class: "btn btn-default btn-lg" %>
+       <%= link_to "certificate", reconocimientos_path, class: "btn btn-default btn-lg" %>
+    <% else %>
+       <%= form_for(:user, :url => session_path(:user)) do |f| %>
+          <%= f.label :'Usuario' %>
+          <%= f.email_field :email,
+                            autocomplete: "email",
+                            class: "form-control",
+                            placeholder: "correo electrónico",  
+                            align: 'right' %><br>
+          <%= f.label :'Contraseña' %>
+          <%= f.password_field :password,
+                           autocomplete: "current-password",
+                           class: "form-control",
+                           placeholder: "contraseña" %><br>
+          <%= f.submit 'Ingresar', class: "btn btn-primary" %>
+          
+       <% end %>
+    <% end %>
+ </div>
 
+<%= render 'shared/application_precios' %>
+
+<div></div>
 		 
-	<div class="text-center">
+	<div class="col-md-12 text-center">
 		<h1>REQUISITOS</h1>
 		<h4 class="subtitulo">La certificación es por plantel y podrán participar las escuelas del nivel preescolar, primaria y secundaria, así como las de nivel bachillerato, educación profesional técnica, técnico superior, licenciatura y posgrado, las cuales deberán:</h4><br>
 	</div>
@@ -56,31 +86,7 @@
 	<h4>¿Quién me estaría certificando?</h4>
 	<li>RedEs con el aval de su consejo consultivo es quien firma el certificado. </li>
 	
-	<div class="col-md-6 row-login-rapido">
-      <h3>Ingresa a tu Sitio</h3>
-      <% if current_user  %>
-         <%= link_to "socios", socios_path, class: "btn btn-default btn-lg" %>
-         <%= link_to "certificate", etapa_certificacions_path, class: "btn btn-default btn-lg" %>
-      <% else %>
-         <%= form_for(:user, :url => session_path(:user)) do |f| %>
-            <%= f.label :'Usuario' %>
-            <%= f.email_field :email,
-                              autocomplete: "email",
-                              class: "form-control",
-                              placeholder: "correo electrónico",  
-                              align: 'right' %><br>
-            <%= f.label :'Contraseña' %>
-            <%= f.password_field :password,
-                             autocomplete: "current-password",
-                             class: "form-control",
-                             placeholder: "contraseña" %><br>
-            <%= f.submit 'Ingresar', class: "btn btn-primary" %>
-            
-         <% end %>
-      <% end %>
-      </div>
-	</div>
-</div>
+
 
 
 

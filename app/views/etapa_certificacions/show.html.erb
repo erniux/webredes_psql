@@ -1,4 +1,4 @@
-<div class="container-crud">
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,6 +11,6 @@
   <%= @etapa_certificacion.descripcion %>
 </p>
 
-<%= link_to 'Edit', edit_etapa_certificacion_path(@etapa_certificacion) %> |
-<%= link_to 'Back', etapa_certificacions_path %>
+<%= link_to 'Modificar', edit_etapa_certificacion_path(@etapa_certificacion) if logged_in?(:certificador, :admin) %> |
+<%= link_to 'Regresar', etapa_certificacions_path %>
 </div>

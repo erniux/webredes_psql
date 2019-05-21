@@ -1,48 +1,38 @@
-<div class="container">
-  <div class="container-fluid">
-    <div class="col-md-4">
-     <h1>Socios</h1>
-    </div>
-    <div class="col-md-8">
-     <%= image_tag "redes.jpg", width: 400 %>
-    </div><hr>
+<div class="container-fluid-crud">
+  
+   <h1 class="socios-sombra">Socios</h1>
   </div>
-<p>
+  <div class="col-md-6">
+  <!--   <%= image_tag  "redes.jpg", width: 400 %> -->
+    <h3>¿Porqué hacerse socio?</h3>
+    <p><%= @about.porque_socio %></p>
+  </div>
+  <div class="col-md-6">
+    <h3>Acceso a Socios</h3>
+    <div class="container-fluid-crud">
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>base de conocimiento</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>información estratégica</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>herramientas y materiales</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>conferencia mensual</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>material de difusión</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>calendario de capacitación</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>boletín mensual</span></p>
+    </div>
+  </div>
+
+  <%= render "shared/application_precios" %>
+  
+
   <div class="container-fluid-crud">
    <div class="row">
-     <h2><%= link_to "EVENTOS", evento_path(@eventos.id) %></h2>
-    <div class="card">   
-        <div class="card-block">
-          <div class="col-sm-6">
-           <h3 class="card-title"><%= @eventos.titulo %></h3>
-           <p class="card-text"><%= @eventos.detalle %></p>
-           <p class="card-text"><%= @eventos.expositor %></p>
-           <p class="card-text"><%= @eventos.lugar %></p>
-         </div>
-         <div class="col-sm-6">
-          <p><%= image_tag @eventos.imagen.to_s %></p>
-         </div>
-       </div>
-     </div>
+     
+     
    </div>
 
    <div class="row">
-     <h2><%= link_to "BLOG", aviso_path(@avisos.id) %></h2>
-       <div class="card">
-         <div class="card-block">
-          <div class="col-sm-6">
-            <h3 h3 class="card-title"><%= @avisos.titulo %></h3>
-            <p><%= @avisos.detalle %></p>
-            <p><%= @avisos.fecha %></p>
-          </div>
-          <div class="col-sm-6">
-            <p><%= image_tag @avisos.imagen.to_s   %></p>         
-          </div>
-         </div>
-       </div>
-     </div>
-   </div>
+     
+       
+    </div>
+  </div>
 </div>
-</p>
-</div>
-
+ 

@@ -1,0 +1,26 @@
+<div class="container-crud">
+<p id="notice"><%= notice %></p>
+
+<h1>Preguntas Frecuentes</h1>
+<%= link_to 'Agregar Pregunta', new_preguntum_path %>
+
+
+
+    <% @pregunta.each do |preguntum| %>
+
+        <td><%= preguntum.pregunta %></td>
+        <td><%= preguntum.respuesta %></td>
+        <td><%= preguntum.autor %></td>
+        <td><%= preguntum.tipo %></td>
+        <td><%= preguntum.responsable %></td>
+        <td><%= link_to 'Detalle', preguntum %></td>
+        <td><%= link_to 'Modificar', edit_preguntum_path(preguntum) %></td>
+        <td><%= link_to 'Eliminar', preguntum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

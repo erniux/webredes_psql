@@ -56,6 +56,6 @@ class ReconocimientoRedesController < ApplicationController
     end
 
     def reconocimiento_rede_params
-      params.require(:reconocimiento_rede).permit(:nombre, :descripcion, :acercades_id)
+      params.require(:reconocimiento_rede).permit(:nombre, :descripcion)
     end
 end

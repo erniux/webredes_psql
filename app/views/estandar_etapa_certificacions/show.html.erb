@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -36,9 +37,7 @@
 </p>
 
 <p>
-
-
-   
-
-<%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(@estandar_etapa_certificacion) %> |
-<%= link_to 'Regresar', estandar_etapa_certificacions_path %>
+  <%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(@estandar_etapa_certificacion) if logged_in?(:certificador, :admin) %> |
+  <%= link_to 'Regresar', estandar_etapa_certificacions_path %>
+</p>
+</div>

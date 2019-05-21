@@ -1,14 +1,13 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1>Certificación Redes</h1>
+<h1>Reconocimientos Redes</h1>
 
 <table>
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Descripcion</th>
-      <th>Acercades</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,10 +17,9 @@
       <tr>
         <td><%= reconocimiento_rede.nombre %></td>
         <td><%= reconocimiento_rede.descripcion %></td>
-        <td><%= reconocimiento_rede.acercades %></td>
-        <td><%= link_to 'Show', reconocimiento_rede %></td>
-        <td><%= link_to 'Edit', edit_reconocimiento_rede_path(reconocimiento_rede) %></td>
-        <td><%= link_to 'Destroy', reconocimiento_rede, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', reconocimiento_rede %></td>
+        <td><%= link_to 'Modificar', edit_reconocimiento_rede_path(reconocimiento_rede) %></td>
+        <td><%= link_to 'Editar', reconocimiento_rede, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,5 +27,5 @@
 
 <br>
 
-<%= link_to 'New Reconocimiento Rede', new_reconocimiento_rede_path %>
+<%= link_to 'Agregar Reconocimiento', new_reconocimiento_rede_path %>
 </div>

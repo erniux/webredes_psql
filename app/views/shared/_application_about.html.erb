@@ -26,7 +26,17 @@
   </div>
   <div class="col-md-3 nosotros-reconocimiento">
     <p><h3>reconocimientos</h3></p>
+
     <p>En 2018, la Iniciativa Red de escuelas seguras recibió el Premio a las Buenas Prácticas en la Seguridad Privada, en el marco de los II Premios Nacionales de Seguridad y Emergencias.</p>
+
+    <% @reconocimientos.each do |reconocimiento_rede| %>
+        <p><strong><%= reconocimiento_rede.nombre %></strong></p>
+        <p><%= reconocimiento_rede.descripcion %></p>
+    <% end %>
+
+    <%= link_to 'Agregar Reconocimiento', new_reconocimiento_rede_path if logged_in?(:site_admin) %>
+  </div>
+
 
 </div>
 </div>

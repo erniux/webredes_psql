@@ -1,0 +1,65 @@
+<div class="container">
+   <div class="col-md-12 certificate-inicial">
+      <h2>Certificate</h2>      
+   </div>
+   <div class="col-md-8">
+      <p>Las escuelas necesitan disminuir los riesgos que pudieran afectar a sus alumnos, maestros y toda la comunidad escolar. RedEs facilita con este sistema de certificación, una metodología de gestión de riesgos para que las escuelas trabajen de manera constante y sistemática en la disminución de los riesgos que pudieran afectarlas.</p>
+
+      <p>En esta metodología las escuelas deben integrar un equipo de trabajo para elaborar periódicamente un diagnóstico de riesgos, así como para diseñar y ejecutar acciones que permitan prevenir, responder y recuperarse de posibles riesgos. La metodología se implementa durante el año escolar en los siguientes pasos:</p><br>
+
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Septiembre y Octubre: Integración y capacitación del equipo de trabajo.</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Noviembre y Diciembre: Identificación de riesgos.</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Enero: Capacitación especializada.</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Febrero y Marzo: Diseño de acciones.</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Mayo, Junio y Julio: Implementación de acciones</span></p><br>
+      
+
+      <p><h3>Etapas</h3></p>
+
+      <% @etapas.each do |etapa| %>
+         <p><strong><%= etapa.nombre %>:</strong>
+         <%= etapa.descripcion %></p>
+      <% end %>
+
+      <%= link_to "conoce el proceso", reconocimientos_path, class: "btn btn-default btn-lg" %>
+   </div><br>
+   <div class="col-md-4 certificate-inicial">
+      <div class="certificate">
+         <h1><%= link_to "¡CERTIFICATE EN 5 PASOS!", etapa_certificacions_path %></h1>
+
+
+
+         <h3>Preguntas Frecuentes</h3>
+      </div>
+      <div class="sucede">
+         <h1>HAZ QUE SUCEDA</h1>
+         <li>Más del 50% de los niños que mueren en terremotos cada año mueren dentro de los edificios de sus escuelas. </li>
+         <li>(Ejemplo 2)</li>
+         <li>(Ejemplo 3)</li>
+         <li>La metodología en gestión de riesgos contribuirá a la implementación de las mejores prácticas a nivel internacional para tener una escuela más segura.</li>
+      </div>
+   </div>
+   <div class="col-md-6 row-login-rapido">
+      <h3>Ingresa a tu Sitio</h3>
+      <% if current_user  %>
+         <%= link_to "socios", socios_path, class: "btn btn-default btn-lg" %>
+         <%= link_to "certificate", reconocimientos_path, class: "btn btn-default btn-lg" %>
+      <% else %>
+         <%= form_for(:user, :url => session_path(:user)) do |f| %>
+            <%= f.label :'Usuario' %>
+            <%= f.email_field :email,
+                              autocomplete: "email",
+                              class: "form-control",
+                              placeholder: "correo electrónico",  
+                              align: 'right' %><br>
+            <%= f.label :'Contraseña' %>
+            <%= f.password_field :password,
+                             autocomplete: "current-password",
+                             class: "form-control",
+                             placeholder: "contraseña" %><br>
+            <%= f.submit 'Ingresar', class: "btn btn-primary" %>
+            
+         <% end %>
+      <% end %>
+      </div>
+   </div>

@@ -1,11 +1,26 @@
 class EstandarEtapaCertificacionsController < ApplicationController
   before_action :set_estandar_etapa_certificacion, only: [:show, :edit, :update, :destroy]
-  access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
+  access all: [:index, :show, :new, :create], certificador: :all
 
-  def index
-    @estandar_etapa_certificacions = EstandarEtapaCertificacion.all
+def index
+    if params[:search].blank?  
+        @results = EstandarEtapaCertificacion.all
+       else  
+        @parameter = params[:search]
+        @results = EstandarEtapaCertificacion.all.where("etapa_certificacion_id = :search", search: @parameter)
+        
+
+#select  "estandar_etapa_certificacions"."titulo"
+#FROM  "etapa_certificacions", "estandar_etapa_certificacions"
+#where  "estandar_etapa_certificacions.etapa_certificacion_id = etapa_certificacions.id
+#AND  etapa_certificacions.nombre" LIKE 'ETAPA DE ORGANIZACIÓN Y DIAGNÓSTICO. '; 
+
+
+
+
+       end 
   end
-
 
   def show
   end

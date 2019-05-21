@@ -14,7 +14,7 @@
 
      <div class="field">
        <%= form.label :descripción %>
-       <%= form.text_area :descripción, rows: 5, cols: 70 %>
+       <%= form.text_area :descripcion, rows: 5, cols: 70 %>
      </div>
    
      <div class="field">
@@ -55,6 +55,21 @@
      <div class="field">
        <%= form.label :'importancia' %>
        <%= form.text_area :importancia, rows: 5, cols: 70 %>
+     </div>
+
+     <div class="field">
+       <%= form.label :'¿Porque hacerse Socio?' %>
+       <%= form.text_area :porque_socio, rows: 5, cols: 70 %>
+     </div>
+
+     <div class="field">
+       <%= form.label :'Imagen Principal' %>
+       <%= form.file_field :imagen_inicial, rows: 5, cols: 70 %>
+     </div>
+
+     <div class="field">
+       <%= form.label :'imagen nosotros' %>
+       <%= form.file_field :imagen_nostros, rows: 5, cols: 70 %>
      </div>
    
      <div class="actions">
