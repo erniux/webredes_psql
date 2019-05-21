@@ -7,9 +7,9 @@
 
 #main {max-width:960px; min-width:320px; margin:0 auto;}
 
-@media screen and (max-width:480px){
+@media screen and (max-width:600px){
   body {
-    font-size:80%; // achicamos la fuente en pantallas pequeñas 
+     
   } 
 }
 
@@ -176,69 +176,28 @@ footer .glyphicon {
   color: #FF0000;
   background-color: #fff;
 }
-
-.slideanim {visibility:hidden;}
-.slide {
-  /* The name of the animation */
-  animation-name: slide;
-  -webkit-animation-name: slide;
-  /* The duration of the animation */
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  /* Make the element visible */
-  visibility: visible;
-}
-
-/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
-@keyframes slide {
-  0% {
-    opacity: 0;
-    transform: translateY(70%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-@-webkit-keyframes slide {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(70%);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0%);
-  }
-}
-
+ 
 /*++++++++++++++++ mis estilos :-) ETR +++++++++++++++++++++++*/
 /*++++++++++++++++ mis estilos :-) ETR +++++++++++++++++++++++*/
 
 .banner{
-  vertical-align: middle; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
   background-color: #8E8E8D; 
-  color:white;  
-  height: 75px;
-  width: 145%;
-  font-size: -webkit-xxx-large;
+  color: white;  
   position: relative;
-  -webkit-animation-name: banner; 
-  -webkit-animation-duration: 30s; 
-  animation-name: banner;
-  animation-iteration-count: infinite;
+  width: 100%;
 }
 
-@-webkit-keyframes banner {
-  from {
-    left: -100%;
+.banner_backdrop {
+        vertical-align: middle; 
+        display: flex; 
+        align-items: center; 
+        position: relative;
+        -webkit-animation: animateBgTile linear 10s infinite;
+        animation: animateBgTile linear 10s infinite;
     }
-    to {
-    left: 50%;
-    }
-  }
+
+@-webkit-keyframes animateBgTile {
+   from {right: 0;} to {right: 300px;} }
   
  
 .nosotros-titulo {
@@ -375,75 +334,32 @@ footer .glyphicon {
 
 /**** ESTILOS DEL BANNER CON GOOGLE WEB DESIGNER ****/
  
-.gwd-page-content {
-  background-color: transparent;
-  transform: perspective(1400px) matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
-  transform-style: preserve-3d;
-  position: absolute;
-}
-.gwd-page-wrapper {
-  background-color: rgb(255, 255, 255);
-  position: absolute;
-  transform: translateZ(0px);
-}
-.gwd-page-size {
-  width: 100%;
-  height: 100%;
-}
-.gwd-p-zpz5 {
-  position: absolute;
-  font-family: Verdana;
-  background-image: none;
-  background-color: rgb(142, 142, 141);
-  color: rgb(255, 255, 255);
-  text-align: center;
-  width: 584px;
-  height: 33px;
-  transform-origin: 292px 16.5px 0px;
-  top: 1px;
-  left: -284px;
-  transform-style: preserve-3d;
-  transform: translate3d(0px, 0px, 0px);
-}
+ 
 .gwd-span-1teu {
-  font-size: 20px;
+  font-size: 30px;
+  vertical-align: middle; 
+  display: flex; 
+  position: inherit;
 }
 .gwd-span-156q {
-  font-size: 12px;
+  font-size: 25px;
+  vertical-align: middle; 
+  display: flex; 
+  position: inherit;
 }
 .gwd-span-w8di {
-  font-size: 24px;
+  font-size: 15px;
+  vertical-align: middle; 
+  display: flex; 
+  position: inherit;
 }
 .gwd-span-goe1 {
-  font-size: 14px;
+  font-size: 40px;
+  vertical-align: middle; 
+  display: flex; 
+  position: inherit;
 }
-.gwd-p-1fk8 {
-  height: auto;
-  left: 0px;
-  position: absolute;
-  top: 0px;
-  width: auto;
-}
-.gwd-p-5fb0 {
-  height: auto;
-  left: 0px;
-  position: absolute;
-  top: 0px;
-  width: auto;
-}
-@keyframes gwd-gen-d2r4gwdanimation_gwd-keyframes {
-  0% {
-    transform: translate3d(0px, 0px, 0px);
-    animation-timing-function: linear;
-  }
-  100% {
-    transform: translate3d(265px, 0px, 0px);
-    animation-timing-function: linear;
-  }
-}
-#page1.gwd-play-animation .gwd-gen-d2r4gwdanimation {
-  animation: gwd-gen-d2r4gwdanimation_gwd-keyframes 2.2s linear 0s 1 normal forwards running;
-}
+
  
 /* CERTIFICACIONES */
 
@@ -485,8 +401,8 @@ footer .glyphicon {
 }
 
 .logo-inicial {
-  width: 15%;
-  margin-left: 10%;
+  width: 40%;
+  margin-left: 50%;
 }
 
 .certificate-inicial > p{
@@ -498,6 +414,13 @@ footer .glyphicon {
 }
 
 .certificacion{
+  margin-top: -25%;
+  color: white;
+  font-family: 'Myriad Pro Regular';
+  font-sizer: 20px;
+}
+
+.inicio{
   margin-top: -25%;
   color: white;
   font-family: 'Myriad Pro Regular';

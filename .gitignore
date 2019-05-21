@@ -13,9 +13,13 @@
 !/log/.keep
 !/tmp/.keep
 
+
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
+
+#Upload from local machine to upload eventos & blog & principal files
+/public/uploads/*
 
 /node_modules
 /yarn-error.log

@@ -7,7 +7,6 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <%= link_to "WebRedES", root_path, class: "navbar-brand" %>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -28,8 +27,9 @@
             </ul>
           <% end %>
         </li>
-        <li class="manzanita"><%= image_tag "manzana_pequena.jpg", width: 25  %></li>
-        <li><%= link_to "inicio", root_path %></li>
+        <li><%= link_to root_path do %>
+         <%= image_tag "manzana_pequena.jpg", width: 25 %></li>
+        <% end %>
           <li><%= link_to "nosotros", acercades_path %></li>
           <li><%= link_to "eventos", eventos_path %></li>
           <li><%= link_to "socios", socios_path %></li> 
