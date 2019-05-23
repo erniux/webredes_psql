@@ -83,7 +83,7 @@
 	<div class="col-md-4">
 <% if current_user  %>
        <%= link_to "socios", socios_path, class: "btn btn-default btn-lg" %>
-       <%= link_to "certificate", reconocimientos_path, class: "btn btn-default btn-lg" %>
+       <%= link_to "certificate", etapa_certificacions_path, class: "btn btn-default btn-lg" %>
     <% else %>
     <h3>Ingresar a mi certificación</h3>
        <%= form_for(:user, :url => session_path(:user)) do |f| %>
@@ -111,82 +111,4 @@
 	</div>
 </div>
 
-
-<!---- version mas ultima 
-
-
-<div class="certificacion">
-     <%= image_tag "PLanSeguridad.jpg", width: '100%' %>
-</div>
-
-<div class="estandar-texto-cert">
-	<h1 class="certificacion">¿COMO FUNCIONA?</h1>
-	<p class="como-funciona-certificacion">Nuestro sistema de certificación en la metodología de gestión de riesgos funciona 	través de una plataforma virtual que sirve de guía durante todo el proceso. Las escuelas que decidan participar deberá	cubrir los costos e inscribirse para iniciar su proceso en agosto de cada año. </p>
-	<p class="como-proceso">La certificación está basada en un sistema de puntaje y al final del ejercicio, según el puntaje obtenido, la  escuela recibiría un certificado según el nivel de adopción de la metodología de gestión de riesgos. </p><br>
-</div>
-
-<div class="col-md-6">
-	 <ol id="cert-niveles">
-    	<li class="cert-bronce"><strong>BRONCE:</strong><p>Aprende a aplicar la metodología de gestión de riesgos.</p></li>
-    	<li class="cert-plata"><strong>PLATA:</strong><p>Desarrolla un plan de acción con base en la metodología de gestión de riesgos.</p></li>
-    	<li class="cert-oro"><strong>ORO:</strong><p>Implementa adecuadamente la metodología de gestión de riesgos.</p></li> 
-	</ol>
-</div>
-
-<div class="col-md-6 row-login-rapido">
-	<h3>Ingresa a tu Sitio</h3>
-    <% if current_user  %>
-       <%= link_to "socios", socios_path, class: "btn btn-default btn-lg" %>
-       <%= link_to "certificate", reconocimientos_path, class: "btn btn-default btn-lg" %>
-    <% else %>
-       <%= form_for(:user, :url => session_path(:user)) do |f| %>
-          <%= f.label :'Usuario' %>
-          <%= f.email_field :email,
-                            autocomplete: "email",
-                            class: "form-control",
-                            placeholder: "correo electrónico",  
-                            align: 'right' %><br>
-          <%= f.label :'Contraseña' %>
-          <%= f.password_field :password,
-                           autocomplete: "current-password",
-                           class: "form-control",
-                           placeholder: "contraseña" %><br>
-          <%= f.submit 'Ingresar', class: "btn btn-primary" %>
-          
-       <% end %>
-    <% end %>
- </div>
-
-<%= render 'shared/application_precios' %>
-
-<div></div>
-		 
-	<div class="col-md-12 text-center">
-		<h1>REQUISITOS</h1>
-		<h4 class="subtitulo">La certificación es por plantel y podrán participar las escuelas del nivel preescolar, primaria y secundaria, así como las de nivel bachillerato, educación profesional técnica, técnico superior, licenciatura y posgrado, las cuales deberán:</h4><br>
-	</div>
-	<p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Tener un programa de estudios conforme al calendario oficial vigente.</span></p>
-     <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Designar a una persona como mínimo de medio tiempo como responsable del proceso. </span></p><br>
-     <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Brindar a la persona responsable del proceso, del equipo necesario (Computadora, escritorio, Internet)</span></p><br>
-     <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Contar con el acuerdo del titular de la institución para participar en el proceso. </span></p><br>
-     <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Realizar el pago y registrarse en los plazos previamente establecidos.</span></p><br>
-
-	<div class="text-center">     
-		<h1>PERFIL PARA LA O EL ENCARGO DEL PROCESO</h1>
-		<h4 class="subtitulo">Es recomendable que la persona que sea designada para hacerse cargo del proceso pudiera cumplir con el siguiente perfil: </h4><br>
-	</div>
-	<p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Dedicar medio tiempo de su jornada diaria a este ejercicio durante el año escolar en curso.</span></p>
-	<p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Contar con el apoyo del titular de la institución </span></p>
-	<p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Tener capacidades necesarias para poder coordinar a su equipo de trabajo. </span></p>
-	<p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Contar con habilidades para establecer y mantener relaciones con instituciones gubernamentales y no gubernamentales. </span></p>
-	<p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Preferentemente con conocimientos o experiencia en protección civil y/o seguridad pública. </span></p>
-	<p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Tener conocimientos básicos en el uso de computadoras e Internet.</span></p>
-	<p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Tener mínimo 2 años continuos trabajando en esa institución. </span></p><br>
-
-	 
--->
-
-
-
-  
 
