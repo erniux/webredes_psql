@@ -98,17 +98,19 @@ src:url ('MYRIADPRO-BOLDIT.woff')
 }
 
 @media (max-width: 6000px) {
-  .container {    
+  .body {    
     width: 100%;
   }
-  .imagen-inicial {
-    width: 150%;
-  }
+  .container {
+    width: 100%;
+    }
 
-  .imagen-nosotros {
-    width: 100%;
-  }
-}
+    .navbar {
+    width: 100%
+    }
+  } 
+  
+
 
 .item h4 {
   font-size: 19px;
@@ -131,10 +133,40 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   border: 0;
   line-height: 1.42857143 !important;
   letter-spacing: 1.5px;
-  background-color: #ffffff; 
+  background-color: white; 
   text-align: -webkit-center;
+
   
 }
+
+#item-rojo a:hover {
+  background-image: url('/assets/flecha_roja.jpg'); 
+  color: #ffffff !important;
+  background-color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  }
+ 
+ 
+#item-gris a:hover {
+  background-image: url('/assets/flecha_azul.jpg'); 
+  color: #ffffff !important;
+  background-color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  } 
+
+#item-manzanita a:hover {
+  
+  color: #ffffff !important;
+  background-color: #ffffff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  } 
+
 
 
 .icon-bar {
@@ -145,28 +177,24 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   color: black !important;
   font-size: initial;
   width: 8.5em;
-  background-color: #ffffff; 
+  background-color: white; 
   box-sizing: border-box;
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
-  color: #ffffff !important;
-  background-image: url('/assets/flecha_azul.png'); 
-  background-color: #ffffff;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
+  color: white !important;
+  
 }
 
 
 .navbar-default .navbar-toggle {
-  border-color: #ffffff;
+  border-color: white;
   color: #black !important;
-  background-color: #ffffff;
+  background-color: white;
 }
 
 .navbar-default .navbar-nav > .active > a {
-  background-color: #ffffff;  
+  background-color: white;  
   
 }
 
@@ -174,7 +202,7 @@ footer .glyphicon {
   font-size: 20px;
   margin-bottom: 20px;
   color: #FF0000;
-  background-color: #fff;
+  background-color: white;
 }
  
 /*++++++++++++++++ mis estilos :-) ETR +++++++++++++++++++++++*/
@@ -402,7 +430,8 @@ footer .glyphicon {
 
 .logo-inicial {
   width: 40%;
-  margin-left: 50%;
+  margin-left: 55%;
+
 }
 
 .certificate-inicial > p{
@@ -421,10 +450,9 @@ footer .glyphicon {
 }
 
 .inicio{
-  margin-top: -25%;
   color: white;
   font-family: 'Myriad Pro Regular';
-  font-sizer: 20px;
+  
 }
 
 .estandar-texto-cert {
@@ -569,8 +597,9 @@ footer .glyphicon {
   -webkit-appearance: none;
 }
 
-.nav-secundario{
-  padding: 10px 10px;
-}
+/* MENU */
+
+ 
+
 
 
