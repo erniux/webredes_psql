@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery
 
    include DeviseWhitelist
+   include AliadaCopyright
    include Pundit
 
    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -14,12 +15,16 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-  	if current_user.role == "certificador" || "escuela"
- 	 '/etapa_certificacions'
- 	elsif current_user.role == "socio" 
- 	 '/recursos'
- 	end
-  end
+    if current_user.has_role?(:certificador)
+      etapa_certificacions_path
+    elsif current_user.has_role?(:socio)
+      recursos_path
+    elsif current_user.has_role?(:escuela)
+       etapa_certificacions_path
+     else
+      root_path
+    end
+end
 
   def after_sign_out_path_for(resource)
   	root_path

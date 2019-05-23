@@ -1,6 +1,6 @@
 class ReconocimientoRedesController < ApplicationController
   before_action :set_reconocimiento_rede, only: [:show, :edit, :update, :destroy]
-  access certificador: :all, site_admin: :all, escuela: [ :show, :index]
+  access certificador: :all,  escuela: [ :show, :index]
 
   def index
     @reconocimiento_redes = ReconocimientoRede.all

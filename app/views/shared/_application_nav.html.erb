@@ -40,7 +40,7 @@
         <li id="item-gris"><%= link_to "socios", socios_path %></li> 
         <li id="item-gris"><%= link_to "blog", avisos_path %></li>
         <li id="item-gris"><%= link_to "certificate", reconocimientos_path %></li>
-        <li id="item-gris"><%=link_to "contacto", root_path, href: '/#contact' %></li>
+        <li id="item-gris"><%=link_to "contacto", contacto_path  %></li>
         <% if current_user %>
            <li id="item-gris"><%= link_to "dashboard", admin_root_path if logged_in?(:site_admin, :admin)  %></li> 
         <% end %> 
