@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="container-fluid">
+<div class="container-fluid-crud">
    <p id="notice"><%= notice %></p>
 
    <h1>Eventos</h1>
@@ -18,7 +17,7 @@
        <h6>del: <%= evento.fecha_inicio.strftime("%d/%m/%Y %H:%M:%S") %> al: 
          <%= evento.fecha_fin.strftime("%d/%m/%Y %H:%M:%S") %></h6>
        
-       <p><%= evento.detalle %></p>
+       <p><%= evento.detalle.html_safe %></p>
        <p><%= evento.lugar %></p>
        <p><%= evento.expositor %></p>
      </div>

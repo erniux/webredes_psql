@@ -11,8 +11,8 @@
          <p><%= image_tag "manzana.jpg", width: '10%', alt: "profile image" %></p> 
          <h2>nosotros</h2>
          
-         <div class="col-md-8">
-            <p><%= @about.descripcion %></p>
+         <div class="col-md-10">
+            <p><%= @about.descripcion.html_safe %></p>
             <p><%= link_to 'conoce más', acercades_path, class: "btn btn-default btn-lg" %></p>
          </div>
 
@@ -26,9 +26,9 @@
     <div class="col-md-4">
       <h2>eventos</h2>
       <p><%= @eventos.titulo %></p>
-      <p><%= @eventos.detalle %></p>
+      <p><%= @eventos.detalle.html_safe %></p>
       <p><%= @eventos.lugar %></p>
-      <p><%= @eventos.expositor %></p>
+      <p><%= @eventos.expositor.html_safe %></p>
       <p>del: <%= @eventos.fecha_inicio.strftime('%d / %B / %Y') %> al: <%= @eventos.fecha_fin.strftime('%d /%B/%Y') %> </p>
       <p><%= image_tag @eventos.imagen.to_s, width: '100%' %></p>   
       <p><%= link_to 'asiste', eventos_path, class: "btn btn-default btn-lg" %></p>
@@ -36,7 +36,7 @@
    <div class="col-md-4">
       <h2>blog</h2>
       <p><em><%= @avisos.titulo %></em></p>
-      <p><%= @avisos.detalle %></p>
+      <p><%= @avisos.detalle.html_safe %></p>
       <p><%= image_tag @avisos.imagen.to_s, width: '100%' %></p>
       <p><%= link_to 'escribe tu blog', avisos_path, class: "btn btn-default btn-lg" %></p>
    </div>

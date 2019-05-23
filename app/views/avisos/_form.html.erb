@@ -12,7 +12,7 @@
 
   <div class="field">
     <%= form.label :"descripción" %>
-    <%= form.text_area :detalle, rows: 20, cols: 60 %>
+    <%= form.trix_editor :detalle %>
   </div>
 
   <div class="field">
@@ -20,7 +20,7 @@
       <%= form.file_field :imagen %>
     </label>
   </div>
-
+<p></p>
   <div class="actions">
     <%= form.submit "Guardar", class: "btn btn-primary btn-lg", size: 50 %>
     <%= link_to 'Mostrar', @aviso, class: "btn btn-default btn-lg", size: 50 %> 

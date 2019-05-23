@@ -1,14 +1,15 @@
-<div class="container">
+<div class="container-fluid-crud">
 <p id="notice"><%= notice %></p>
 
 <h1>Reconocimientos Redes</h1>
+<%= link_to 'Agregar Reconocimiento', new_reconocimiento_rede_path, class: "btn btn-default btn-lg" if logged_in?(:site_admin) %>
 
-<table>
+<table calss="table">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Descripcion</th>
-      <th colspan="3"></th>
+      <th colspan="3">Acciones</th>
     </tr>
   </thead>
 
@@ -17,9 +18,9 @@
       <tr>
         <td><%= reconocimiento_rede.nombre %></td>
         <td><%= reconocimiento_rede.descripcion %></td>
-        <td><%= link_to 'Mostrar', reconocimiento_rede %></td>
-        <td><%= link_to 'Modificar', edit_reconocimiento_rede_path(reconocimiento_rede) %></td>
-        <td><%= link_to 'Editar', reconocimiento_rede, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar|', reconocimiento_rede %></td>
+        <td><%= link_to 'Modificar|', edit_reconocimiento_rede_path(reconocimiento_rede) %></td>
+        <td><%= link_to 'Eliminar', reconocimiento_rede, method: :delete, data: { confirm: '¿Confirma eliminar Registro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,5 +28,5 @@
 
 <br>
 
-<%= link_to 'Agregar Reconocimiento', new_reconocimiento_rede_path %>
+
 </div>

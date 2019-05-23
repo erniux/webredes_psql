@@ -168,7 +168,6 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   } 
 
 
-
 .icon-bar {
    background-color:black !important;
 }
@@ -221,15 +220,16 @@ footer .glyphicon {
         align-items: center; 
         position: relative;
         -webkit-animation: animateBgTile linear 10s infinite;
-        animation: animateBgTile linear 10s infinite;
+        animation: animateBgTile linear 100s infinite;
     }
 
 @-webkit-keyframes animateBgTile {
-   from {right: 0;} to {right: 300px;} }
+   from {right: 0;} to {right: 5500px;} }
   
  
 .nosotros-titulo {
   text-align: right;
+  font-size: 80px;
   color: white;
 } 
 
@@ -242,7 +242,7 @@ footer .glyphicon {
 }
 
 .nosotros-enfoque{
-  padding: 20px 20px;
+  padding: 10px 20px;
   margin: 10px 10px;
   background-color: #646463;
   color: white;
@@ -273,7 +273,7 @@ footer .glyphicon {
 }
 
 .container-fluid-grey {
-  padding: 120px 22px;
+  padding: 10px 22px;
   background-color: #C0C1C0;
 }
 

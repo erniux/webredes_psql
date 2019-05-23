@@ -1,5 +1,4 @@
-<div class="container">
-<div class="container-fluid">
+<div class="container-fluid-crud">
 <h1>blog</h1>
 <br>
 <p><%= link_to 'Nueva Entrada', new_aviso_path, class: "btn btn-default btn-lg" if logged_in?(:site_admin) %></p>
@@ -15,7 +14,7 @@
                       class: "btn btn-danger btn-lg", size: 50 if logged_in?(:site_admin) %></p>
          <h6><%= aviso.updated_at.strftime("%d/%m/%Y %H:%M:%S") %></h6>
          
-         <p><%= aviso.detalle %></p>
+         <p><%= aviso.detalle.html_safe %></p>
       </div>
       <div class="col-md-6">
         <%= image_tag aviso.imagen.to_s, width: '100%' %>

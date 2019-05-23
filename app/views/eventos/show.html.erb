@@ -1,5 +1,4 @@
-<div class="container">
-  <div class="container-fluid">
+<div class="container-fluid-crud">
   <p id="notice"><%= notice %></p>
   
   <p>
@@ -9,7 +8,7 @@
   <%= link_to 'Regresar a Eventos', eventos_path, class: "btn btn-default btn-lg", size: 50 %></p>
   
   <p>
-    <%= @evento.detalle %>
+    <%= @evento.detalle.html_safe %>
   </p>
   
   <p>

@@ -1,33 +1,31 @@
 <div class="container">
 <div id="about" class="container-fluid-grey">
   <div class="row">
-      <h2 class="nosotros-titulo"><strong>nosotros</strong>
+      <h1 class="nosotros-titulo"><strong>nosotros</strong>
       <% if user_signed_in? %>
         <%= link_to 'Editar', edit_acercade_path(@acercades),class: "btn btn-default btn-lg" if logged_in?(:site_admin) %>
       <% end %>
-      </h2><br><br>
+      </h1><br><br>
 
       <div class="col-md-6">
         <strong>¿qué somos?</strong>
-        <p><%= @acercades.que_somos %></p><br>
+        <p><%= @acercades.que_somos.html_safe %></p><br>
         <strong>¿qué hacemos?</strong>
-        <p><%= @acercades.que_hacemos %></p><br>
+        <p><%= @acercades.que_hacemos.html_safe %></p><br>
       </div>
       <div class="col-md-6">
         <strong>¿qué buscamos?</strong>
-        <p><%= @acercades.que_buscamos %></p><br>
+        <p><%= @acercades.que_buscamos.html_safe %></p><br>
         <strong>importancia</strong>
-        <p><%= @acercades.importancia %></p><br>
+        <p><%= @acercades.importancia.html_safe %></p><br>
       </div>
   </div>
   <div class="col-md-6 nosotros-enfoque">
     <p><strong>nuestro enfoque</strong></p>
-    <p><%= @acercades.enfoque %></p>
+    <p><%= @acercades.enfoque.html_safe %></p>
   </div>
   <div class="col-md-3 nosotros-reconocimiento">
     <p><h3>reconocimientos</h3></p>
-
-    <p>En 2018, la Iniciativa Red de escuelas seguras recibió el Premio a las Buenas Prácticas en la Seguridad Privada, en el marco de los II Premios Nacionales de Seguridad y Emergencias.</p>
 
     <% @reconocimientos.each do |reconocimiento_rede| %>
         <p><strong><%= reconocimiento_rede.nombre %></strong></p>
