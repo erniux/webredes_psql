@@ -48,7 +48,7 @@ class AvisosController < ApplicationController
 
   private
     def set_aviso
-      @aviso = Aviso.find(params[:id])
+      @aviso = Aviso.friendly.find(params[:id])
     end
 
     def aviso_params

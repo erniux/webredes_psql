@@ -1,4 +1,8 @@
 class Evento < ApplicationRecord
+	extend FriendlyId
+
+	friendly_id :titulo, use: :slugged
+	
 	validates_presence_of :titulo, :detalle
 
 	belongs_to :user

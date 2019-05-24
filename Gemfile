@@ -39,6 +39,7 @@ gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'
 gem 'petergate', '~> 2.0', '>= 2.0.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.12'
 gem 'trix-rails', require: 'trix'
+gem 'friendly_id', '~> 5.2', '>= 5.2.5'
 
 
 
