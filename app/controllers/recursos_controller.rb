@@ -1,5 +1,6 @@
 class RecursosController < ApplicationController
   before_action :set_recurso, only: [:show, :edit, :update, :destroy]
+    access socios: :all, site_admin: :all
 
   # GET /recursos
   # GET /recursos.json

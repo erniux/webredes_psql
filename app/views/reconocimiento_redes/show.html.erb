@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid-crud">
 
 <p>
   <strong>Nombre:</strong>
@@ -6,9 +6,11 @@
 </p>
 
 <p>
-  <strong>Descripcion:</strong>
+  <strong>Descripción:</strong>
   <%= @reconocimiento_rede.descripcion %>
 </p>
 
 <%= link_to 'Editar', edit_reconocimiento_rede_path(@reconocimiento_rede) %> |
 <%= link_to 'Regresar', reconocimiento_redes_path %>
+
+</div>

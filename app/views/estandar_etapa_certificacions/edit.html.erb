@@ -1,6 +1,9 @@
-<h1>Modificar Estandar </h1>
+<div class="container-fluid-crud">
+	<h1>Modificar Estandar </h1>
 
-<%= render 'form', estandar_etapa_certificacion: @estandar_etapa_certificacion %>
+	<%= render 'form', estandar_etapa_certificacion: @estandar_etapa_certificacion %>
+	
+	<%= link_to 'Mostrar', @estandar_etapa_certificacion %> |
+	<%= link_to 'Regresar', estandar_etapa_certificacions_path %>
 
-<%= link_to 'Mostrar', @estandar_etapa_certificacion %> |
-<%= link_to 'Regresar', estandar_etapa_certificacions_path %>
+</div>

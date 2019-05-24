@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :pregunta
+  resources :preguntas_certs
   resources :estandar_etapa_certificacions
   resources :etapa_certificacions
   resources :reconocimiento_redes

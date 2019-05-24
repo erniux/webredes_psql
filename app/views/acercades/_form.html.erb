@@ -1,11 +1,8 @@
 <% if current_user %>
    <%= form_with(model: acercade, local: true) do |form| %>
-     <% if acercade.errors.any? %>
-       <div id="error_explanation">
-         <h2><%= pluralize(acercade.errors.count, "error") %> prohibited this acercade from being saved:</h2>
-   
-         <ul>
+     <% if acercade.errors.any? %> 
          <% acercade.errors.full_messages.each do |message| %>
+         <%= js add_gritter(message, title: "Aviso", sticky: false) %>
            <li><%= message %></li>
          <% end %>
          </ul>

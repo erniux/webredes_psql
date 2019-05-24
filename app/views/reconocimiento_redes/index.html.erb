@@ -4,7 +4,7 @@
 <h1>Reconocimientos Redes</h1>
 <%= link_to 'Agregar Reconocimiento', new_reconocimiento_rede_path, class: "btn btn-default btn-lg" if logged_in?(:site_admin) %>
 
-<table calss="table">
+<table class="table">
   <thead>
     <tr>
       <th>Nombre</th>
@@ -18,8 +18,8 @@
       <tr>
         <td><%= reconocimiento_rede.nombre %></td>
         <td><%= reconocimiento_rede.descripcion %></td>
-        <td><%= link_to 'Mostrar|', reconocimiento_rede %></td>
-        <td><%= link_to 'Modificar|', edit_reconocimiento_rede_path(reconocimiento_rede) %></td>
+        <td><%= link_to 'Mostrar', reconocimiento_rede %></td>
+        <td><%= link_to 'Modificar', edit_reconocimiento_rede_path(reconocimiento_rede) %></td>
         <td><%= link_to 'Eliminar', reconocimiento_rede, method: :delete, data: { confirm: '¿Confirma eliminar Registro?' } %></td>
       </tr>
     <% end %>

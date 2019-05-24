@@ -1,0 +1,2 @@
+class PreguntasCert < ApplicationRecord
+end

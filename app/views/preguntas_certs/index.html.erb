@@ -1,0 +1,14 @@
+<div class="container-fluid-crud">
+
+  <h1>Preguntas</h1>
+  <%= link_to 'Hacer Una Pregunta', new_preguntas_cert_path, class: "btn btn-default btn-lg" %>
+
+    <% @preguntas_certs.each do |preguntas_cert| %>
+        <h2><strong><em><%= preguntas_cert.pregunta %></em></strong></h2>
+        <h4><%= preguntas_cert.respuesta.html_safe %></h4>
+        <p><%= link_to 'Mostrar', preguntas_cert if logged_in?(:certificador) %>
+        <%= link_to 'Modificar', edit_preguntas_cert_path(preguntas_cert) if logged_in?(:certificador) %>
+         <%= link_to 'Eliminar', preguntas_cert, method: :delete, data: { confirm: '¿Confirma eliminar registro?' } if logged_in?(:certificador) %></p>
+    <% end %>
+<br>
+</div>

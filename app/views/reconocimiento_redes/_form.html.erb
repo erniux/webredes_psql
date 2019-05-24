@@ -1,14 +1,8 @@
 <%= form_with(model: reconocimiento_rede, local: true) do |form| %>
   <% if reconocimiento_rede.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(reconocimiento_rede.errors.count, "error") %> prohibited this reconocimiento_rede from being saved:</h2>
-
-      <ul>
       <% reconocimiento_rede.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <%= js add_gritter(message, title: "Aviso", sticky: false) %>
       <% end %>
-      </ul>
-    </div>
   <% end %>
 
   <div class="field">
@@ -17,7 +11,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :descripcion %>
+    <%= form.label :'descripción' %>
     <%= form.text_area :descripcion %>
   </div>
 

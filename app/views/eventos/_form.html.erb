@@ -1,15 +1,10 @@
 <%= form_with(model: evento, local: true) do |form| %>
   <% if evento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(evento.errors.count, "error") %> prohibited this evento from being saved:</h2>
-
-      <ul>
       <% evento.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <%= js add_gritter(message, title: "Aviso", sticky: false) %>
       <% end %>
-      </ul>
-    </div>
   <% end %>
+
 
   <div class="field">
     <%= form.label :titulo %>

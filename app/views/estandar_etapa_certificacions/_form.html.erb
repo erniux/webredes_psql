@@ -1,15 +1,9 @@
 <div class="container-fluid-crud">
 <%= form_with(model: estandar_etapa_certificacion, local: true) do |form| %>
   <% if estandar_etapa_certificacion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(estandar_etapa_certificacion.errors.count, "error") %> prohibited this estandar_etapa_certificacion from being saved:</h2>
-
-      <ul>
       <% estandar_etapa_certificacion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <%= js add_gritter(message, title: "Aviso", sticky: false) %>
       <% end %>
-      </ul>
-    </div>
   <% end %>
 
   <div class="field">

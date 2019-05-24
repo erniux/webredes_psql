@@ -1,0 +1,21 @@
+<%= form_with(model: preguntas_cert, local: true) do |form| %>
+  <% if preguntas_cert.errors.any? %>
+      <% preguntas_cert.errors.full_messages.each do |message| %>
+        <%= js add_gritter(message, title: "Aviso", sticky: false) %>
+      <% end %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :pregunta %>
+    <%= form.text_area :pregunta, rows: 5, cols: 80 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :respuesta if logged_in?(:certificador) %>
+    <%= form.trix_editor :respuesta, rows: 5, cols: 80 if logged_in?(:certificador) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -16,8 +16,9 @@
          
          <p><%= aviso.detalle.html_safe %></p>
       </div>
-      <div class="col-md-6">
-        <%= image_tag aviso.imagen.to_s, width: '100%' %>
+      <div class="col-md-6 imagen-crud">
+        <%= image_tag aviso.imagen.to_s, width: 450, height: 350 %>
+        
       </div>
 
     </div>
