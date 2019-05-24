@@ -3,6 +3,7 @@
   <h1>Preguntas</h1>
   <%= link_to 'Hacer Una Pregunta', new_preguntas_cert_path, class: "btn btn-default btn-lg" %>
 
+  <% if logged_in?(:certificador) %>
     <% @preguntas_certs.each do |preguntas_cert| %>
         <h2><strong><em><%= preguntas_cert.pregunta %></em></strong></h2>
         <h4><%= preguntas_cert.respuesta.html_safe %></h4>
@@ -10,6 +11,15 @@
         <%= link_to 'Modificar', edit_preguntas_cert_path(preguntas_cert) if logged_in?(:certificador) %>
          <%= link_to 'Eliminar', preguntas_cert, method: :delete, data: { confirm: '¿Confirma eliminar registro?' } if logged_in?(:certificador) %></p>
     <% end %>
+  <% else %>
+    <% @preguntas_certs_contestadas.each do |preguntas_cert| %>
+        <h2><strong><em><%= preguntas_cert.pregunta %></em></strong></h2>
+        <h4><%= preguntas_cert.respuesta.html_safe %></h4>
+        <p><%= link_to 'Mostrar', preguntas_cert if logged_in?(:certificador) %>
+        <%= link_to 'Modificar', edit_preguntas_cert_path(preguntas_cert) if logged_in?(:certificador) %>
+         <%= link_to 'Eliminar', preguntas_cert, method: :delete, data: { confirm: '¿Confirma eliminar registro?' } if logged_in?(:certificador) %></p>
+    <% end %>
+  <% end %>
 <br>
 </div>
  

@@ -32,7 +32,7 @@
         <p><%= reconocimiento_rede.descripcion %></p>
     <% end %>
 
-    <%= link_to 'Agregar Reconocimiento', new_reconocimiento_rede_path if logged_in?(:site_admin) %>
+    <%= link_to 'Agregar Reconocimiento', new_reconocimiento_rede_path if logged_in?(:site_admin, :admin) %>
   </div>
 
 

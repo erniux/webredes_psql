@@ -4,6 +4,7 @@ class PreguntasCertsController < ApplicationController
 
   # GET /preguntas_certs
   def index
+    @preguntas_certs_contestadas = PreguntasCert.preguntas_contestadas 
     @preguntas_certs = PreguntasCert.all
   end
 
