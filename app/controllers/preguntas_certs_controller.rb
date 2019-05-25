@@ -26,7 +26,7 @@ class PreguntasCertsController < ApplicationController
     @preguntas_cert = PreguntasCert.new(preguntas_cert_params)
 
     if @preguntas_cert.save
-      redirect_to @preguntas_cert, notice: 'Preguntas cert was successfully created.'
+      redirect_to @preguntas_cert, notice: 'La Pregunta se ha enviado al Administrador, Gracias por el interes en pertenecer a RedES.'
     else
       render :new
     end
@@ -35,7 +35,7 @@ class PreguntasCertsController < ApplicationController
   # PATCH/PUT /preguntas_certs/1
   def update
     if @preguntas_cert.update(preguntas_cert_params)
-      redirect_to @preguntas_cert, notice: 'Preguntas cert was successfully updated.'
+      redirect_to @preguntas_cert, notice: 'Registro actualizado correctamente.'
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class PreguntasCertsController < ApplicationController
   # DELETE /preguntas_certs/1
   def destroy
     @preguntas_cert.destroy
-    redirect_to preguntas_certs_url, notice: 'Preguntas cert was successfully destroyed.'
+    redirect_to preguntas_certs_url, notice: 'Registro eliminado correctamente.'
   end
 
   private

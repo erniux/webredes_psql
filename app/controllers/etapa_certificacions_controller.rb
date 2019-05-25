@@ -26,7 +26,7 @@ class EtapaCertificacionsController < ApplicationController
     @etapa_certificacion = EtapaCertificacion.new(etapa_certificacion_params)
 
     if @etapa_certificacion.save
-      redirect_to @etapa_certificacion, notice: 'Etapa certificacion was successfully created.'
+      redirect_to @etapa_certificacion, notice: 'Registro creado correctamente.'
     else
       render :new
     end
@@ -35,7 +35,7 @@ class EtapaCertificacionsController < ApplicationController
   
   def update
     if @etapa_certificacion.update(etapa_certificacion_params)
-      redirect_to @etapa_certificacion, notice: 'Etapa certificacion was successfully updated.'
+      redirect_to @etapa_certificacion, notice: 'Registro actualizado correctamente.'
     else
       render :edit
     end
@@ -43,7 +43,7 @@ class EtapaCertificacionsController < ApplicationController
 
   def destroy
     @etapa_certificacion.destroy
-    redirect_to etapa_certificacions_url, notice: 'Etapa certificacion was successfully destroyed.'
+    redirect_to etapa_certificacions_url, notice: 'Registro eliminado correctamente.'
   end
 
   private

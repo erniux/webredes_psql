@@ -21,7 +21,7 @@ class ReconocimientoRedesController < ApplicationController
 
     respond_to do |format|
       if @reconocimiento_rede.save
-        format.html { redirect_to @reconocimiento_rede, notice: 'Reconocimiento rede was successfully created.' }
+        format.html { redirect_to @reconocimiento_rede, notice: 'Registro creado correctamente.' }
         format.json { render :show, status: :created, location: @reconocimiento_rede }
       else
         format.html { render :new }
@@ -33,7 +33,7 @@ class ReconocimientoRedesController < ApplicationController
   def update
     respond_to do |format|
       if @reconocimiento_rede.update(reconocimiento_rede_params)
-        format.html { redirect_to @reconocimiento_rede, notice: 'Reconocimiento rede was successfully updated.' }
+        format.html { redirect_to @reconocimiento_rede, notice: 'Registro actualizado correctamente.' }
         format.json { render :show, status: :ok, location: @reconocimiento_rede }
       else
         format.html { render :edit }
@@ -45,7 +45,7 @@ class ReconocimientoRedesController < ApplicationController
   def destroy
     @reconocimiento_rede.destroy
     respond_to do |format|
-      format.html { redirect_to reconocimiento_redes_url, notice: 'Reconocimiento rede was successfully destroyed.' }
+      format.html { redirect_to reconocimiento_redes_url, notice: 'Registro eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

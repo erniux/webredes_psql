@@ -39,7 +39,7 @@ def index
     @estandar_etapa_certificacion = EstandarEtapaCertificacion.new(estandar_etapa_certificacion_params)
 
     if @estandar_etapa_certificacion.save
-      redirect_to @estandar_etapa_certificacion, notice: 'Estandar etapa certificacion was successfully created.'
+      redirect_to @estandar_etapa_certificacion, notice: 'Registro creado correctamente.'
     else
       render :new
     end
@@ -48,7 +48,7 @@ def index
 
   def update
     if @estandar_etapa_certificacion.update(estandar_etapa_certificacion_params)
-      redirect_to @estandar_etapa_certificacion, notice: 'Estandar etapa certificacion was successfully updated.'
+      redirect_to @estandar_etapa_certificacion, notice: 'Registro actualizado correctamente.'
     else
       render :edit
     end
@@ -56,7 +56,7 @@ def index
 
   def destroy
     @estandar_etapa_certificacion.destroy
-    redirect_to estandar_etapa_certificacions_url, notice: 'Estandar etapa certificacion was successfully destroyed.'
+    redirect_to estandar_etapa_certificacions_url, notice: 'Registro eliminado correctamente.'
   end
 
   private

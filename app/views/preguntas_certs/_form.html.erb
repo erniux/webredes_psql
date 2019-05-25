@@ -6,7 +6,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :pregunta %>
     <%= form.text_area :pregunta, rows: 5, cols: 80 %>
   </div>
 
@@ -16,6 +15,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Enviar Pregunta", class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
