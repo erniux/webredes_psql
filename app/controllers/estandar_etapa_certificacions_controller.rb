@@ -5,20 +5,10 @@ class EstandarEtapaCertificacionsController < ApplicationController
 
 def index
     if params[:search].blank?  
-        @results = EstandarEtapaCertificacion.all
+        @results = EstandarEtapaCertificacion.all.order("id ASC")
        else  
         @parameter = params[:search]
-        @results = EstandarEtapaCertificacion.all.where("etapa_certificacion_id = :search", search: @parameter)
-        
-
-#select  "estandar_etapa_certificacions"."titulo"
-#FROM  "etapa_certificacions", "estandar_etapa_certificacions"
-#where  "estandar_etapa_certificacions.etapa_certificacion_id = etapa_certificacions.id
-#AND  etapa_certificacions.nombre" LIKE 'ETAPA DE ORGANIZACIÓN Y DIAGNÓSTICO. '; 
-
-
-
-
+        @results = EstandarEtapaCertificacion.all.where("etapa_certificacion_id = :search", search: @parameter).order("id ASC")
        end 
   end
 
@@ -67,7 +57,8 @@ def index
 
 
     def estandar_etapa_certificacion_params
-      params.require(:id, :estandar_etapa_certificacion).permit(:titulo, :descripcion, :observaciones, 
-                     :etapa_certificacion_id, :puntaje, :evidencias, :puntaje_total)
+      params.require(:estandar_etapa_certificacion).permit(:id, :titulo, :descripcion, :observaciones, 
+                     :etapa_certificacion_id, :puntaje, :evidencias, :puntaje_total, :estandar_id)
     end
+    
 end

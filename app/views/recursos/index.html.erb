@@ -1,7 +1,7 @@
-<div class="container-fluid-crud">
-   <p id="notice"><%= notice %></p>
-   
-   <h1>Recursos</h1>
+<%= render 'shared/socios_sidebar' %>
+
+   <div class="main">
+   <h1>Sitio Socios</h1>
    <%= link_to 'Subir Recurso', new_recurso_path, class: "btn btn-default btn-lg" %></p> 
    <br>
    <% @recursos.each do |recurso| %>      

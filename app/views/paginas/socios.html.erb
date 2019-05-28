@@ -4,8 +4,8 @@
   </div>
   <div class="col-md-6">
   <!--   <%= image_tag  "redes.jpg", width: 400 %> -->
-    <h3>¿Porqué hacerse socio?</h3>
-    <p><%= @about.porque_socio.html_safe %></p>
+    <h3><%= @about.tit_titulo_8.html_safe %></h3>
+    <p><%= @about.desc_titulo_8.html_safe %></p>
   </div>
   <div class="col-md-6">
     <h3>Acceso a Socios</h3>
@@ -19,6 +19,38 @@
       <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>boletín mensual</span></p>
     </div>
   </div>
+
+   <div class="card">
+  <div class="col-md-4">
+<% if current_user  %>
+       <%= link_to "socios", recursos_path, class: "btn btn-default btn-lg" %>
+       <%= link_to "certificate", etapa_certificacions_path, class: "btn btn-default btn-lg" %>
+    <% else %>
+    <h3>Ingresar a mi certificación</h3>
+       <%= form_for(:user, :url => session_path(:user)) do |f| %>
+          <%= f.label :'Usuario' %>
+          <%= f.email_field :email,
+                            autocomplete: "email",
+                            class: "form-control",
+                            placeholder: "correo electrónico",  
+                            align: 'right' %><br>
+          <%= f.label :'Contraseña' %>
+          <%= f.password_field :password,
+                           autocomplete: "current-password",
+                           class: "form-control",
+                           placeholder: "contraseña" %><br>
+          <%= f.submit 'Ingresar', class: "btn btn-primary" %>
+          
+       <% end %>
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <h3>Registrase como nuevo usuario</h3>
+    <p>Para adquirir una membresia, y dar inicio a la certificacion, Registrate como un nuevo socio.</p> 
+    <p><%= link_to "Registrate", new_user_registration_path, class: "btn btn-primary" %>
+
+  </div>
+</div>
 
   <%= render "shared/application_precios" %>
   

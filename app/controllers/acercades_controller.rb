@@ -54,9 +54,11 @@ class AcercadesController < ApplicationController
     end
 
     def acercade_params
-      params.require(:acercade).permit(:descripcion, :mision, :vision, :valores, :que_somos, :que_hacemos, 
-                                       :que_buscamos, :enfoque, :importancia, :porque_socio, :imagen_inicial, 
-                                       :imagen_nostros)
+      params.require(:acercade).permit(:tit_titulo_1, :tit_titulo_2, :tit_titulo_3, :tit_titulo_4, :tit_titulo_,
+                                       :tit_titulo_6, :tit_titulo_7, :tit_titulo_8, :tit_titulo_9, :tit_titulo_10,
+                                       :desc_titulo_1, :desc_titulo_2, :desc_titulo_3, :desc_titulo_4, :desc_titulo_5,
+                                       :desc_titulo_6, :desc_titulo_7, :desc_titulo_8, :desc_titulo_9, :desc_titulo_10,
+                                        :imagen_inicial, :imagen_nostros)
     end
 end
 

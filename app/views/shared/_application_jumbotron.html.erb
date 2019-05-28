@@ -4,21 +4,20 @@
      <%= image_tag "redes.jpg",  class: "logo-inicial"  %>
 </div>
 
-<div class="container">
-   <div class="container-fluid">
+
+   <div class="container">
       <hr>
       <div class="col-md-8">
          <p><%= image_tag "manzana.jpg", width: '10%', alt: "profile image" %></p> 
-         <h2>nosotros</h2>
+         <h2><%= @about.tit_titulo_1.html_safe %></h2>
          
          <div class="col-md-10">
-            <p><%= @about.descripcion.html_safe %></p>
+            <p><%= @about.desc_titulo_1.html_safe %></p>
             <p><%= link_to 'conoce más', acercades_path, class: "btn btn-default btn-lg" %></p>
          </div>
 
       </div>
    </div>
-</div>
 
 <div class="container">
 <div class="container-fluid">
@@ -28,7 +27,7 @@
       <p><%= @eventos.titulo %></p>
       <p><%= @eventos.detalle.html_safe %></p>
       <p><%= @eventos.lugar %></p>
-      <p><%= @eventos.expositor.html_safe %></p>
+      <p><%= @eventos.expositor %></p>
       <p>del: <%= @eventos.fecha_inicio.strftime('%d / %B / %Y') %> al: <%= @eventos.fecha_fin.strftime('%d /%B/%Y') %> </p>
       <p><%= image_tag @eventos.imagen.to_s, width: '100%' %></p>   
       <p><%= link_to 'asiste', eventos_path, class: "btn btn-default btn-lg" %></p>

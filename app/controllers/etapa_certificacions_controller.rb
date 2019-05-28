@@ -52,8 +52,12 @@ class EtapaCertificacionsController < ApplicationController
     end
 
     def etapa_certificacion_params
-      params.require(:etapa_certificacion).permit(:id, :nombre, :descripcion)
+      params.require(:etapa_certificacion).permit(:id, :nombre, :descripcion, 
+                     estandar_etapa_certificacions_attributes: [:id, :titulo, :descripcion, :observaciones, :puntaje, 
+                                                               :evidencias, :puntaje_total, :estandar_id, 
+                                                               :etapa_certificacion_id, :_destroy ])
     end
 end
+
 
 

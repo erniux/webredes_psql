@@ -1,4 +1,5 @@
-<div class="container-fluid-crud">
+<%= render "shared/certificate_sidebar" %>
+<div class="main">
 <%= form_with(model: estandar_etapa_certificacion, local: true) do |form| %>
   <% if estandar_etapa_certificacion.errors.any? %>
       <% estandar_etapa_certificacion.errors.full_messages.each do |message| %>
@@ -12,6 +13,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :estandar %>
+    <%= form.text_field :estandar_id %>
+  </div>  
+
+  <div class="field">
     <%= form.label :titulo %>
     <%= form.text_area :titulo, cols: 60, rows: 4 %>
   </div>
@@ -19,17 +25,17 @@
   <div class="field">
     <%= form.label :descripcion %>
     <%= form.text_area :descripcion, cols: 60, rows: 5 %>
-  </div>
+  </div><br>
 
   <div class="field">
     <%= form.label :evidencias %>
-    <%= form.text_area :evidencias, cols: 60, rows: 5 %>
-  </div>
+    <%= form.trix_editor :evidencias, cols: 60, rows: 5 %>
+  </div><br>
 
   <div class="field">
     <%= form.label :detalle_puntaje %>
-    <%= form.text_area :puntaje, cols: 60, rows: 5 %>
-  </div>
+    <%= form.trix_editor :puntaje, cols: 60, rows: 5 %>
+  </div><br>
 
   <div class="field">
     <%= form.label :puntaje_total %>

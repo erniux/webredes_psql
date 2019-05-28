@@ -9,70 +9,82 @@
        </div>
      <% end %>
 
-     <div class="field">
-       <%= form.label :descripción %>
-       <%= form.trix_editor :descripcion %>
-     </div>
-   
-     <div class="field">
-       <%= form.label :'¿Qué somos?' %>
-       <%= form.trix_editor :que_somos %>
-     </div>
-   
-     <div class="field">
-       <%= form.label :'¿Qué hacemos?' %>
-       <%= form.trix_editor :que_hacemos %>
-     </div>
+    <div class="actions">
+      <%= form.submit "Guardar Cambios", class: "btn btn-default btn-lg" %>
+      <%= link_to 'Mostrar', @acercade, class: "btn btn-primary btn-lg"  %> 
+      <%= link_to 'Regresar', root_path, class: "btn btn-info btn-lg" %>
+    </div>
+    
+     <div class="row">
+      <div class="col-md-9">
+        <strong>Título 1</strong>
+        <%= form.trix_editor :tit_titulo_1 %>
+        <strong>Descripción 1</strong>
+        <%= form.trix_editor :desc_titulo_1 %><hr>
+        <strong>Título 2</strong>
+        <%= form.trix_editor :tit_titulo_2 %>
+        <strong>Descripción 2</strong>
+        <%= form.trix_editor :desc_titulo_2 %><hr>
+        <strong>Título 3</strong>
+        <%= form.trix_editor :tit_titulo_3 %>
+        <strong>Descripción 3</strong>
+        <%= form.trix_editor :desc_titulo_3 %><hr>
+        <strong>Título 4</strong>
+        <%= form.trix_editor :tit_titulo_4 %>
+        <strong>Descripción 4</strong>
+        <%= form.trix_editor :desc_titulo_4 %><hr>
+        <strong>Título 5</strong>
+        <%= form.trix_editor :tit_titulo_5 %>
+        <strong>Descripción 5</strong>
+        <%= form.trix_editor :desc_titulo_5 %><hr>
+        <strong>Título 6</strong>
+        <%= form.trix_editor :tit_titulo_6 %>
+        <strong>Descripción 6</strong>
+        <%= form.trix_editor :desc_titulo_6 %><hr>
+        <strong>Título 7</strong>
+        <%= form.trix_editor :tit_titulo_7 %>
+        <strong>Descripción 7</strong>
+        <%= form.trix_editor :desc_titulo_7 %><hr>
+        <strong>Título 8</strong>
+        <%= form.trix_editor :tit_titulo_8 %>
+        <strong>Descripción 8</strong>
+        <%= form.trix_editor :desc_titulo_8 %><hr>
+        <strong>Título 9</strong>
+        <%= form.trix_editor :tit_titulo_9 %>
+        <strong>Descripción 9</strong>
+        <%= form.trix_editor :desc_titulo_9 %><hr>
+        <strong>Título 10</strong>
+        <%= form.trix_editor :tit_titulo_10 %>
+        <strong>Descripción 10</strong>
+        <%= form.trix_editor :desc_titulo_10 %><hr>
 
-     <div class="field">
-       <%= form.label :'¿Qué buscamos?' %>
-       <%= form.trix_editor :que_buscamos %>
-     </div>
-   
-     <div class="field">
-       <%= form.label :vision %>
-       <%= form.trix_editor :vision %>
-     </div>
+        <!-- <div class="field">
+          <%= form.label :'Imagen Principal' %>
+          <%= form.file_field :imagen_inicial %>
+        </div>
 
-     <div class="field">
-       <%= form.label :mision %>
-       <%= form.trix_editor :mision %>
-     </div>
+        <div class="field">
+          <%= form.label :'imagen nosotros' %>
+          <%= form.file_field :imagen_nostros %>
+        </div> -->
+   </div> 
 
-     <div class="field">
-       <%= form.label :valores %>
-       <%= form.trix_editor :valores %>
-     </div>
 
-     <div class="field">
-       <%= form.label :'Nuestro Enfoque' %>
-       <%= form.trix_editor :enfoque %>
-     </div>
+   <div class="col-md-3">
+    <p><%= image_tag "tutorial_1.png", width: '75%' %></p>
+    <p><%= image_tag "tutorial_2.png", width: '80% ' %></p>
+    <p><%= image_tag "tutorial_3.png", width: '75% ' %></p>
+   </div>
+   </div>
+  
 
-     <div class="field">
-       <%= form.label :'importancia' %>
-       <%= form.trix_editor :importancia %>
-     </div>
+    <div class="actions">
+      <%= form.submit "Guardar Cambios", class: "btn btn-default btn-lg" %>
+    </div>
 
-     <div class="field">
-       <%= form.label :'¿Porque hacerse Socio?' %>
-       <%= form.trix_editor :porque_socio %>
-     </div>
-
-     <div class="field">
-       <%= form.label :'Imagen Principal' %>
-       <%= form.file_field :imagen_inicial %>
-     </div>
-
-     <div class="field">
-       <%= form.label :'imagen nosotros' %>
-       <%= form.file_field :imagen_nostros %>
-     </div>
-   
-     <div class="actions">
-    <%= form.submit "Guardar" %>
-  </div>
    <% end %>
 <% end %>
+</div>
+
 
 

@@ -1,14 +1,18 @@
-<div class="container-fluid-crud">
+<%= render 'shared/certificate_sidebar' %>
+<div class="main">
 
 <p>
-  <strong>Nombre:</strong>
-  <%= @etapa_certificacion.nombre %>
+  <h3>Etapa <%= @etapa_certificacion.id %>&nbsp;<%= @etapa_certificacion.nombre %></h3>
 </p>
 
 <p>
-  <strong>Descripción:</strong>
-  <%= @etapa_certificacion.descripcion %>
+	<em><%= @etapa_certificacion.descripcion %></em>
 </p>
+
+
+
+
+ 
 
 <%= link_to 'Modificar', edit_etapa_certificacion_path(@etapa_certificacion) if logged_in?(:certificador, :admin) %> |
 <%= link_to 'Regresar', etapa_certificacions_path %>

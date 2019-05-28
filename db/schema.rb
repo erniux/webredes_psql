@@ -10,27 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_175405) do
+ActiveRecord::Schema.define(version: 2019_05_27_013814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "acercades", force: :cascade do |t|
-    t.text "descripcion"
+    t.text "desc_titulo_1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "mision"
-    t.string "vision"
-    t.string "valores"
+    t.text "desc_titulo_2"
+    t.text "desc_titulo_3"
+    t.text "desc_titulo_4"
     t.bigint "user_id"
-    t.text "que_somos"
-    t.text "que_hacemos"
-    t.text "que_buscamos"
-    t.text "enfoque"
-    t.text "importancia"
-    t.text "porque_socio"
+    t.text "desc_titulo_5"
+    t.text "desc_titulo_6"
+    t.text "desc_titulo_7"
+    t.text "desc_titulo_8"
+    t.text "desc_titulo_9"
+    t.text "desc_titulo_10"
     t.string "imagen_inicial"
     t.string "imagen_nostros"
+    t.text "tit_titulo_1"
+    t.text "tit_titulo_2"
+    t.text "tit_titulo_3"
+    t.text "tit_titulo_4"
+    t.text "tit_titulo_5"
+    t.text "tit_titulo_6"
+    t.text "tit_titulo_7"
+    t.text "tit_titulo_8"
+    t.text "tit_titulo_9"
+    t.text "tit_titulo_10"
     t.index ["user_id"], name: "index_acercades_on_user_id"
   end
 
@@ -57,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_05_24_175405) do
     t.text "puntaje"
     t.text "evidencias"
     t.integer "puntaje_total"
+    t.integer "estandar_id"
     t.index ["etapa_certificacion_id"], name: "index_estandar_etapa_certificacions_on_etapa_certificacion_id"
   end
 
@@ -79,6 +90,7 @@ ActiveRecord::Schema.define(version: 2019_05_24_175405) do
     t.string "imagen"
     t.bigint "user_id"
     t.string "slug"
+    t.binary "imagen_2"
     t.index ["slug"], name: "index_eventos_on_slug", unique: true
     t.index ["user_id"], name: "index_eventos_on_user_id"
   end

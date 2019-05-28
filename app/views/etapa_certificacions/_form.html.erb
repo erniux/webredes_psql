@@ -6,13 +6,6 @@
       <% end %>
   <% end %>
 
-
-  <% if estandar_etapa_certificacion.errors.any? %>
-      <% estandar_etapa_certificacion.errors.full_messages.each do |message| %>
-      <%= js add_gritter(message, title: "Aviso", sticky: false) %>
-      <% end %>
-  <% end %>
-
   <div class="field">
     <%= form.label :nombre %>
     <%= form.text_area :nombre, cols: 100 %>
@@ -26,14 +19,14 @@
   <div class="col-md-12">
     <h2>Estandares</h2>
     
-    <!-- <div>
+    <div>
       <%= form.fields_for :estandar_etapa_certificacions do |estandar| %>
       <%= render 'estandar_etapa_certificacion_fields', f: estandar %>
       <% end %>
   </div>
   <div>
-    <%= link_to_add_association 'Agregar Estandar', form, :estandar_etapa_certificacion %>
-  </div> -->
+    <%= link_to_add_association 'Agregar Estandar', form, :estandar_etapa_certificacions %>
+  </div> 
 
   <div class="actions">
     <%= form.submit "Guardar Registro " %>

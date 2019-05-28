@@ -5,7 +5,7 @@
 @import 'bootstrap-datetimepicker';
 @import 'bourbon';
 
-#main {max-width:960px; min-width:320px; margin:0 auto;}
+/*#main {max-width:960px; min-width:320px; margin:0 auto;}*/
 
 @media screen and (max-width:600px){
   body {
@@ -13,15 +13,17 @@
   } 
 }
 
+/* QUITANDO EL TIPO DE FUENTE PARA VER EL RENDIMINETO
+
 @font-face {
-font-family: 'Myriad Pro Regular';
+font-family: 'Myriad Pro Regular'; 
 font-style: normal;
 font-weight: normal;
 src:url('MYRIADPRO-REGULAR.woff')
 }
 
 @font-face {
-font-family: 'Myriad Pro Light';
+font-family: 'Myriad Pro Light'; 
 font-style: normal;
 font-weight: normal;
 src:url('MyriadPro-Light.woff')
@@ -44,6 +46,8 @@ font-weight: normal;
 src:url ('MYRIADPRO-BOLDIT.woff')
 //src: local('Myriad Pro Bold Italic'), url('fonts/MYRIADPRO-BOLDIT.woff') format('woff');
 }
+
+*/
 
 
 .jumbotron {
@@ -70,7 +74,7 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   margin-top: 60px;
   margin-left: 0px;
   padding: 10px 100px;
-  font-family: 'Myriad Pro Light';
+  /* font-family: 'Myriad Pro Light'; */
   font-size: 20px;
   text-align: -webkit-center;
 
@@ -79,11 +83,11 @@ src:url ('MYRIADPRO-BOLDIT.woff')
 
 .container {
   width: 1470px;
-  font-family: 'Myriad Pro Regular';
+  /* font-family: 'Myriad Pro Regular'; */
 }
 
 .container-menu {
-  font-family: 'Myriad Pro Regular';
+  /* font-family: 'Myriad Pro Regular'; */
   
 
 }
@@ -165,7 +169,7 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
-  } 
+  }  
 
 
 .icon-bar {
@@ -219,12 +223,11 @@ footer .glyphicon {
         display: flex; 
         align-items: center; 
         position: relative;
-        -webkit-animation: animateBgTile linear 10s infinite;
-        animation: animateBgTile linear 100s infinite;
+        animation: animateBgTile linear 100s infinite; 
     }
 
 @-webkit-keyframes animateBgTile {
-   from {right: 0;} to {right: 5500px;} }
+   from {right: 0;} to {right: 4500px;} }
   
  
 .nosotros-titulo {
@@ -243,15 +246,19 @@ footer .glyphicon {
 
 .nosotros-enfoque{
   padding: 10px 20px;
-  margin: 10px 10px;
+  margin-top: -300pxx;
+  margin-bottom: 10px;
   background-color: #646463;
   color: white;
 }
 
 .nosotros-reconocimiento{
-  
   background-color: red;
   color: white;
+   
+  margin-left: 5%;
+  margin-top: -1%;
+  padding: 10px 40px;
 }
 
 .manzanita {
@@ -268,15 +275,16 @@ footer .glyphicon {
   background-color: #C0C1C0;
   text-align: right;
   padding: 60px 60px;
-  margin-left: 65%;
   color: white;
 }
 
 .container-fluid-grey {
   padding: 10px 22px;
   background-color: #C0C1C0;
+  height: 100%;
 }
 
+ 
 .conteiner-fluid-white {
   padding: 50px 350px;
   background-color: #FFF; 
@@ -298,14 +306,14 @@ footer .glyphicon {
   width: 40rem;
   margin: 8px auto;
   float: right;
-  font-family: 'Myriad Pro light';
+  /* font-family: 'Myriad Pro light'; */
   font-size: 18px;
 }
 
 .row-login-rapido {
   
   padding: 10px 10px;
-  font-family: 'Myriad Pro light';
+  /* font-family: 'Myriad Pro light'; */
   font-size: 18px;
   background-color: goldenrod;
 }
@@ -486,25 +494,25 @@ footer .glyphicon {
   margin-left: 50%;
   margin-right: 10%;
   font-size: 18px;
-  font-family: 'Myriad Pro Regular';
+  /* font-family: 'Myriad Pro Regular'; */
   text-align: justify;
 }
 
 .certificacion{
   margin-top: -25%;
   color: white;
-  font-family: 'Myriad Pro Regular';
+  /* font-family: 'Myriad Pro Regular'; */
   font-sizer: 20px;
 }
 
 .inicio{
   color: white;
-  font-family: 'Myriad Pro Regular';
+  /* font-family: 'Myriad Pro Regular'; */
   
 }
 
 .estandar-texto-cert {
-  font-family: 'Myriad Pro Regular';
+  /* font-family: 'Myriad Pro Regular'; */
   font-sizer: 20px;
   color: black;
   
@@ -512,7 +520,7 @@ footer .glyphicon {
 
 .como-funciona-certificacion{
   color: white;
-  font-family: 'Myriad Pro light';
+  /* font-family: 'Myriad Pro light'; */
   font-size: 18px;
   text-align: justify;
   padding: 10px 10px;
@@ -522,7 +530,7 @@ footer .glyphicon {
 }
 
 .como-proceso{
-  font-family: 'Myriad Pro light';
+  /* font-family: 'Myriad Pro light'; */
   font-size: 18px;
   text-align: justify;
   margin-left: 15%;
@@ -538,7 +546,7 @@ footer .glyphicon {
     counter-reset: li; 
     list-style: none; 
     *list-style: decimal; 
-    font: 20px 'Myriad Pro light', 'lucida sans';
+    /* font: 20px 'Myriad Pro light', 'lucida sans'; */
     padding: 0;
     margin-bottom: 4em;
     text-shadow: 0 1px 0 rgba(255,255,255,.5);
@@ -615,21 +623,21 @@ footer .glyphicon {
 
 .col-md-4 > p{
   font-size: 18px;
-  font-family: 'Myriad Pro Regular';
+  /* font-family: 'Myriad Pro Regular'; */
   text-align: justify;
   
 }
 
 .col-md-8 > p{
   font-size: 18px;
-  font-family: 'Myriad Pro Regular';
+  /* font-family: 'Myriad Pro Regular'; */
   text-align: justify;
   
 }
 
 .col-md-6 > p{
   font-size: 18px;
-  font-family: 'Myriad Pro Regular';
+  /* font-family: 'Myriad Pro Regular'; */
   text-align: justify;
   
 }
@@ -645,9 +653,41 @@ footer .glyphicon {
   -webkit-appearance: none;
 }
 
-/* MENU */
-
- 
+/* SOCIOS SIDEBAR */
 
 
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #C0C1C0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  margin-top: 165px;
+  border-radius: 6px;
+}
 
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  /* font-family: 'Myriad Pro Regular'; */
+  color: black;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 220px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

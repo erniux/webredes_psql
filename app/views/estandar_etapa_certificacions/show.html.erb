@@ -1,5 +1,10 @@
-<div class="container-fluid-crud">
-<p id="notice"><%= notice %></p>
+<%= render "shared/certificate_sidebar" %>
+<div class="main">
+
+<p>
+  <strong>estandar ID:</strong>
+  <%= @estandar_etapa_certificacion.estandar_id %>
+</p>
 
 <p>
   <strong>Titulo:</strong>
@@ -18,7 +23,7 @@
 
 <p>
   <strong>Puntaje:</strong>
-  <%= @estandar_etapa_certificacion.puntaje %>
+  <%= @estandar_etapa_certificacion.puntaje.html_safe %>
 </p>
 
 <p>
@@ -33,7 +38,7 @@
 
 <p>
   <strong>Evidencias:</strong>
-  <%= @estandar_etapa_certificacion.evidencias %>
+  <%= @estandar_etapa_certificacion.evidencias.html_safe %>
 </p>
 
 <p>
