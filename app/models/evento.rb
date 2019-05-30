@@ -3,7 +3,7 @@ class Evento < ApplicationRecord
 
 	friendly_id :titulo, use: :slugged
 	
-	validates_presence_of :titulo, :detalle
+	validates_presence_of :titulo, :detalle, :lugar
 
 	belongs_to :user
 

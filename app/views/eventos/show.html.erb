@@ -27,8 +27,10 @@
   </p>
   
   <p>
-    <strong>Expositor:</strong>
-    <%= @evento.expositor %>
+     <% if !(@evento.expositor.empty?) %>
+      <strong>Expositor:</strong>
+      <%= @evento.expositor.html_safe %>
+      <% end %>
   </p>
   
   <p>
