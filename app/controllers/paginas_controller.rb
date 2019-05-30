@@ -3,7 +3,6 @@ class PaginasController < ApplicationController
     @eventos = Evento.last
     @avisos = Aviso.last
     @about = Acercade.first
-    @etapas = EtapaCertificacion.all
     @reconocimientos = ReconocimientoRede.all
   end
 
@@ -26,6 +25,7 @@ class PaginasController < ApplicationController
   end
 
   def reconocimientos
+    @acercade_certificates = AcercadeCertificate.first
 
   end
   

@@ -1,0 +1,2 @@
+module AcercadeCertificatesHelper
+end

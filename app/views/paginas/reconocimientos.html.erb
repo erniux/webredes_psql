@@ -7,23 +7,15 @@
 <div class="container-fluid-crud">
   <div class="row">
   	<div class="col-md-8">
-  		<p><h2>PROVEEMOS UN SISTEMA DE CERTIFICACIÓN PARA QUE LAS ESCUELAS IMPLEMENTEN UNA METODOLOGÍA EN GESTIÓN DE RIESGOS.</h2> </p>
+  		<p><h2><%= @acercade_certificates.tit_titulo_1.html_safe  %></h2> </p>
+  		<% if user_signed_in? %>
+        <%= link_to 'Editar', edit_acercade_certificate_path(@acercade_certificates),class: "btn btn-default btn-lg" if logged_in?(:site_admin) %>
+      <% end %>
 
-  		<p>¡Certifícate en cinco pasos! Las escuelas necesitan disminuir los riesgos que pudieran afectar a sus alimnos, maestros y toda la comunidad escolar. RedEs facilita con este sistema de certificación, una metodología de gestión de riesgos para que las escuelas trabajen de manera constante y sistemática en la disminución de los riesgos que pudieran afectarlas. </p>
+  		<p><%= @acercade_certificates.desc_titulo_1.html_safe %></p>
 
-  		<p>En esta metodología las escuelas deben integrar un equipo de trabajo para elaborar periódicamente un diagnóstico de riesgos, así como para diseñar y ejecutar acciones que permitan prevenir, responder y recuperarse de posibles riesgos. La metodología se implementa durante el año escolar en los siguientes pasos:
-
-		<li>(1)	Septiembre y Octubre: Integración y capacitación del equipo de trabajo.</li>
-		<li>(2)	Noviembre y Diciembre: Identificación de riesgos.</li>     
-		<li>(3)	Enero: Capacitación especializada.</li>
-		<li>(4)	Febrero y Marzo: Diseño de acciones.</li>  
-		<li>(5)	Mayo, Junio y Julio: Implementación de acciones</li> 
-		</p>
-
-		<p><h1>¿COMO FUNCIONA?</h1>
-		<p>Nuestro sistema de certificación en la metodología de gestión de riesgos funciona a través de una plataforma virtual que sirve de guía durante todo el proceso. Las escuelas que decidan participar deberán cubrir los costos e inscribirse para iniciar su proceso en agosto de cada año. 
-
-		La certificación está basada en un sistema de puntaje y al final del ejercicio, según el puntaje obtenido, la  escuela recibiría un certificado según el nivel de adopción de la metodología de gestión de riesgos. </p>
+		<p><h2><%= @acercade_certificates.tit_titulo_2.html_safe  %></h2> </p>
+		<p><%= @acercade_certificates.desc_titulo_2.html_safe %></p>
 
 		<p><strong>BRONCE:</strong></p> La escuela aprende a aplicar la metodología de gestión de riesgos</p>
 		<p><strong>PLATA:</strong></p> La escuela desarrolla un plan de acción con base en la metodología de gestión de riesgos.</p>
@@ -31,83 +23,28 @@
 
 		<%= render 'shared/application_precios' %>
 
-		 
 
-		<p><h1>REQUISITOS</h1></p>
+		<p><h2><%= @acercade_certificates.tit_titulo_3.html_safe  %></h2> </p>
+		<p><%= @acercade_certificates.desc_titulo_3.html_safe %></p>
 
-		<p>La certificación es por plantel y podrán participar las escuelas del nivel preescolar, primaria y secundaria, así como las de nivel bachillerato, educación profesional técnica, técnico superior, licenciatura y posgrado, las cuales deberán:</p>
-
-		<p>
-			<li>Tener un programa de estudios conforme al calendario oficial vigente.</li>
-			<li>Designar a una persona como mínimo de medio tiempo como responsable del proceso. </li>
-			<li>Brindar a la persona responsable del proceso, del equipo necesario (Computadora, escritorio, Internet)</li>
-			<li>Contar con el acuerdo del titular de la institución para participar en el proceso. </li>
-			<li>Realizar el pago y registrarse en los plazos previamente establecidos.</li>
-		</p>
-
-		<p><h1>PERFIL PARA LA O EL ENCARGO DEL PROCESO</h1></p>
-
-		<p>Es recomendable que la persona que sea designada para hacerse cargo del proceso pudiera cumplir con el siguiente perfil: </p>
-
-		<p>
-			<li>Dedicar medio tiempo de su jornada diaria a este ejercicio durante el año escolar en curso.</li>
-			<li>Contar con el apoyo del titular de la institución </li>
-			<li>Tener capacidades necesarias para poder coordinar a su equipo de trabajo. </li>
-			<li>Contar con habilidades para establecer y mantener relaciones con instituciones gubernamentales y no gubernamentales. </li>
-			<li>Preferentemente con conocimientos o experiencia en protección civil y/o seguridad pública. </li>
-			<li>Tener conocimientos básicos en el uso de computadoras e Internet.</li>
-			<li>Tener mínimo 2 años continuos trabajando en esa institución. </li>
-		</p>		
+		<p><h2><%= @acercade_certificates.tit_titulo_4.html_safe  %></h2> </p>
+		<p><%= @acercade_certificates.desc_titulo_4.html_safe %></p>
 	</div>
 	<div class="col-md-4">
 		<div class="certificate">
-			<h1>¡CERTIFICATE EN 5 PASOS!</h1>
+			<p><h2><%= @acercade_certificates.tit_titulo_6.html_safe  %></h2> </p>
+			<p><%= @acercade_certificates.desc_titulo_6.html_safe %></p>
 			
 			<h3><%= link_to "Preguntas Frecuentes", preguntas_certs_path %></h3>
 		</div>
 		<div class="sucede">
-			<h1>HAZ QUE SUCEDA</h1>
-			<p>Más del 50% de los niños que mueren en terremotos cada año mueren dentro de los edificios de sus escuelas. </p>
-
-			(Ejemplo 2)
-
-			(Ejemplo 3)
-
-			<p>La metodología en gestión de riesgos contribuirá a la implementación de las mejores prácticas a nivel internacional para tener una escuela más segura.</p>
-
+			<p><h2><%= @acercade_certificates.tit_titulo_5.html_safe  %></h2> </p>
+			<p><%= @acercade_certificates.desc_titulo_5.html_safe %></p>
 		</div>
   </div>
 </div>
 
-<div class="card">
-	<div class="col-md-6">
-		<% if current_user  %>
-       		<%= link_to "socios", socios_path, class: "btn btn-default btn-lg" %>
-       		<%= link_to "certificate", etapa_certificacions_path, class: "btn btn-default btn-lg" %>
-    	<% else %>
-    		<h3>Ingresar a mi portal</h3>
-       		<%= form_for(:user, :url => session_path(:user)) do |f| %>
-          		<%= f.label :'Usuario' %>
-          		<%= f.email_field :email,
-                            autocomplete: "email",
-                            class: "form-control",
-                            placeholder: "correo electrónico",  
-                            align: 'right' %><br>
-          		<%= f.label :'Contraseña' %>
-          		<%= f.password_field :password,
-                           autocomplete: "current-password",
-                           class: "form-control",
-                           placeholder: "contraseña" %><br>
-          		<%= f.submit 'Ingresar', class: "btn btn-primary" %>
-       		<% end %>
-    	<% end %>
-	</div>
-	<div class="col-md-6">
-		<h3>Registrase como nuevo usuario</h3>
-		<p>Para adquirir una membresia, y dar inicio a la certificacion, Registrate como un nuevo socio.</p> 
-		<p><%= link_to "Registrate", new_user_registration_path, class: "btn btn-primary" %>
+<%= render 'shared/application_fast_login' %>
 
-	</div>
 </div>
-
 

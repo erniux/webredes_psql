@@ -3,10 +3,7 @@
      <% if acercade.errors.any? %> 
          <% acercade.errors.full_messages.each do |message| %>
          <%= js add_gritter(message, title: "Aviso", sticky: false) %>
-           <li><%= message %></li>
          <% end %>
-         </ul>
-       </div>
      <% end %>
 
     <div class="actions">
@@ -58,25 +55,30 @@
         <strong>Descripción 10</strong>
         <%= form.trix_editor :desc_titulo_10 %><hr>
 
-        <!-- <div class="field">
+        <div class="field">
           <%= form.label :'Imagen Principal' %>
           <%= form.file_field :imagen_inicial %>
-        </div>
-
-        <div class="field">
-          <%= form.label :'imagen nosotros' %>
-          <%= form.file_field :imagen_nostros %>
-        </div> -->
-   </div> 
+        </div>     
+    </div> 
 
 
-   <div class="col-md-3">
-    <p><%= image_tag "tutorial_1.png", width: '75%' %></p>
-    <p><%= image_tag "tutorial_2.png", width: '80% ' %></p>
-    <p><%= image_tag "tutorial_3.png", width: '75% ' %></p>
-   </div>
+    <div class="col-md-3">
+      <div class="container-enlarge">
+        <p><%= image_tag "tutorial_1.png", width: '75%' %></p>
+        <span><%= image_tag "tutorial_1.png", width: '100%' %></span>
+      </div>
+      <div class="container-enlarge">
+        <p><%= image_tag "tutorial_2.png", width: '80% ' %></p>
+        <span><%= image_tag "tutorial_2.png", width: '200%' %></span>
+      </div>
+        <div class="container-enlarge">
+        <p><%= image_tag "tutorial_3.png", width: '75% ' %></p>
+        <span><%= image_tag "tutorial_3.png", width: '200%' %></span>
+      </div>
+    </div>
    </div>
   
+ 
 
     <div class="actions">
       <%= form.submit "Guardar Cambios", class: "btn btn-default btn-lg" %>

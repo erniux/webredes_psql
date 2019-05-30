@@ -1,0 +1,70 @@
+<% if current_user %>
+  <%= form_with(model: acercade_certificate, local: true) do |form| %>
+    <% if acercade_certificate.errors.any? %>
+        <% acercade_certificate.errors.full_messages.each do |message| %>
+        <%= js add_gritter(message, title: "Aviso", sticky: false) %>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+      <%= form.submit "Guardar Cambios", class: "btn btn-default btn-lg" %>
+      <%= link_to 'Mostrar', @acercade_certificate, class: "btn btn-primary btn-lg"  %> 
+      <%= link_to 'Regresar', root_path, class: "btn btn-info btn-lg" %>
+  </div>
+
+  <div class="row">
+      <div class="col-md-9">
+        <strong>Título 1</strong>
+        <%= form.trix_editor :tit_titulo_1 %>
+        <strong>Descripción 1</strong>
+        <%= form.trix_editor :desc_titulo_1 %><hr>
+        <strong>Título 2</strong>
+        <%= form.trix_editor :tit_titulo_2 %>
+        <strong>Descripción 2</strong>
+        <%= form.trix_editor :desc_titulo_2 %><hr>
+        <strong>Título 3</strong>
+        <%= form.trix_editor :tit_titulo_3 %>
+        <strong>Descripción 3</strong>
+        <%= form.trix_editor :desc_titulo_3 %><hr>
+        <strong>Título 4</strong>
+        <%= form.trix_editor :tit_titulo_4 %>
+        <strong>Descripción 4</strong>
+        <%= form.trix_editor :desc_titulo_4 %><hr>
+        <strong>Título 5</strong>
+        <%= form.trix_editor :tit_titulo_5 %>
+        <strong>Descripción 5</strong>
+        <%= form.trix_editor :desc_titulo_5 %><hr>
+        <strong>Título 6</strong>
+        <%= form.trix_editor :tit_titulo_6 %>
+        <strong>Descripción 6</strong>
+        <%= form.trix_editor :desc_titulo_6 %><hr>
+
+        <div class="field">
+          <%= form.label :'Imagen Principal' %>
+          <%= form.file_field :imagen_inicial %>
+        </div>     
+    </div> 
+
+
+    <div class="col-md-3">
+      <div class="container-enlarge">
+        <p><%= image_tag "tutorial_4.png", width: '100%' %></p>
+        <span><%= image_tag "tutorial_4.png", width: '200%' %></span>
+      </div>
+      <div class="container-enlarge">
+        <p><%= image_tag "tutorial_5.png", width: '80% ' %></p>
+        <span><%= image_tag "tutorial_5.png", width: '200%' %></span>
+      </div>
+    </div>
+   </div>
+
+  <div class="field">
+    <%= form.label :imagen_encabezado %>
+    <%= form.text_field :imagen_encabezado %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Guardar Cambios" %>
+  </div>
+<% end %>
+<% end %>

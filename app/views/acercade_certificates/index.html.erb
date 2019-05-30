@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Acercade Certificates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tit titulo 1</th>
+      <th>Tit titulo 2</th>
+      <th>Tit titulo 3</th>
+      <th>Tit titulo 4</th>
+      <th>Tit titulo 5</th>
+      <th>Tit titulo 6</th>
+      <th>Tit titulo 7</th>
+      <th>Tit titulo 8</th>
+      <th>Tit titulo 9</th>
+      <th>Tit titulo 10</th>
+      <th>Desc titulo 1</th>
+      <th>Desc titulo 2</th>
+      <th>Desc titulo 3</th>
+      <th>Desc titulo 4</th>
+      <th>Desc titulo 5</th>
+      <th>Desc titulo 6</th>
+      <th>Desc titulo 7</th>
+      <th>Desc titulo 8</th>
+      <th>Desc titulo 9</th>
+      <th>Desc titulo 10</th>
+      <th>Imagen encabezado</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @acercade_certificates.each do |acercade_certificate| %>
+      <tr>
+        <td><%= acercade_certificate.tit_titulo_1 %></td>
+        <td><%= acercade_certificate.tit_titulo_2 %></td>
+        <td><%= acercade_certificate.tit_titulo_3 %></td>
+        <td><%= acercade_certificate.tit_titulo_4 %></td>
+        <td><%= acercade_certificate.tit_titulo_5 %></td>
+        <td><%= acercade_certificate.tit_titulo_6 %></td>
+        <td><%= acercade_certificate.tit_titulo_7 %></td>
+        <td><%= acercade_certificate.tit_titulo_8 %></td>
+        <td><%= acercade_certificate.tit_titulo_9 %></td>
+        <td><%= acercade_certificate.tit_titulo_10 %></td>
+        <td><%= acercade_certificate.desc_titulo_1 %></td>
+        <td><%= acercade_certificate.desc_titulo_2 %></td>
+        <td><%= acercade_certificate.desc_titulo_3 %></td>
+        <td><%= acercade_certificate.desc_titulo_4 %></td>
+        <td><%= acercade_certificate.desc_titulo_5 %></td>
+        <td><%= acercade_certificate.desc_titulo_6 %></td>
+        <td><%= acercade_certificate.desc_titulo_7 %></td>
+        <td><%= acercade_certificate.desc_titulo_8 %></td>
+        <td><%= acercade_certificate.desc_titulo_9 %></td>
+        <td><%= acercade_certificate.desc_titulo_10 %></td>
+        <td><%= acercade_certificate.imagen_encabezado %></td>
+        <td><%= link_to 'Show', acercade_certificate %></td>
+        <td><%= link_to 'Edit', edit_acercade_certificate_path(acercade_certificate) %></td>
+        <td><%= link_to 'Destroy', acercade_certificate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Acercade Certificate', new_acercade_certificate_path %>

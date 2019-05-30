@@ -10,10 +10,12 @@ class EtapaCertificacionsController < ApplicationController
 
   
   def show
+    @etapa_certificacions = EtapaCertificacion.all
   end
 
   
   def new
+    @etapa_certificacions = EtapaCertificacion.all
     @etapa_certificacion = EtapaCertificacion.new
   end
 

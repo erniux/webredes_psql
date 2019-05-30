@@ -1,19 +1,12 @@
 <%= render 'shared/certificate_sidebar' %>
 <div class="main">
-
-<p>
-  <h3>Etapa <%= @etapa_certificacion.id %>&nbsp;<%= @etapa_certificacion.nombre %></h3>
-</p>
-
-<p>
-	<em><%= @etapa_certificacion.descripcion %></em>
-</p>
-
-
-
-
- 
-
-<%= link_to 'Modificar', edit_etapa_certificacion_path(@etapa_certificacion) if logged_in?(:certificador, :admin) %> |
-<%= link_to 'Regresar', etapa_certificacions_path %>
+	<p>
+	  <h3>Etapa <%= @etapa_certificacion.id %>&nbsp;<%= @etapa_certificacion.nombre %></h3>
+	</p>
+	<p>
+		<em><%= @etapa_certificacion.descripcion %></em>
+	</p>
+	
+	<%= link_to 'Modificar', edit_etapa_certificacion_path(@etapa_certificacion) if logged_in?(:certificador, :admin) %> |
+	<%= link_to 'Regresar', etapa_certificacions_path %>
 </div>

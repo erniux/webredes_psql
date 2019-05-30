@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_013814) do
+ActiveRecord::Schema.define(version: 2019_05_28_163948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "acercade_certificates", force: :cascade do |t|
+    t.text "tit_titulo_1"
+    t.text "tit_titulo_2"
+    t.text "tit_titulo_3"
+    t.text "tit_titulo_4"
+    t.text "tit_titulo_5"
+    t.text "tit_titulo_6"
+    t.text "tit_titulo_7"
+    t.text "tit_titulo_8"
+    t.text "tit_titulo_9"
+    t.text "tit_titulo_10"
+    t.text "desc_titulo_1"
+    t.text "desc_titulo_2"
+    t.text "desc_titulo_3"
+    t.text "desc_titulo_4"
+    t.text "desc_titulo_5"
+    t.text "desc_titulo_6"
+    t.text "desc_titulo_7"
+    t.text "desc_titulo_8"
+    t.text "desc_titulo_9"
+    t.text "desc_titulo_10"
+    t.string "imagen_encabezado"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "acercades", force: :cascade do |t|
     t.text "desc_titulo_1"

@@ -1,0 +1,2 @@
+class AcercadeCertificate < ApplicationRecord
+end

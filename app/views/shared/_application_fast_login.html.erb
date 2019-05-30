@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="col-md-5 row-login-rapido">
+		<% if current_user  %>
+       		<%= link_to "socios", recursos_path, class: "btn btn-default btn-lg" %>
+       		<%= link_to "certificate", etapa_certificacions_path, class: "btn btn-default btn-lg" %>
+    	<% else %>
+    		<h3>Ingresar a mi portal</h3>
+       		<%= form_for(:user, :url => session_path(:user)) do |f| %>
+          		<%= f.label :'Usuario' %>
+          		<%= f.email_field :email,
+                            autocomplete: "email",
+                            class: "form-control",
+                            placeholder: "correo electrónico",  
+                            align: 'right' %><br>
+          		<%= f.label :'Contraseña' %>
+          		<%= f.password_field :password,
+                           autocomplete: "current-password",
+                           class: "form-control",
+                           placeholder: "contraseña" %><br>
+          		<%= f.submit 'Ingresar', class: "btn btn-default btn-lg" %>
+          
+       		<% end %>
+    	<% end %>
+  	</div>
+  	<div class="col-md-1">
+  	</div>
+  	<div class="col-md-5 row-registro-rapido">
+    	<h3>Registrase como nuevo usuario</h3>
+    	<p>Para adquirir una membresia, y dar inicio a la experiencia RedES, Registrate ahora y nos pondremos en contacto.</p> 
+    	<p><%= link_to "Registrate", new_user_registration_path, class: "btn btn-default btn-lg" %>
+
+  </div>
+</div>

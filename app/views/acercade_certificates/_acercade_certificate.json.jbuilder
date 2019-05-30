@@ -1,0 +1,2 @@
+json.extract! acercade_certificate, :id, :tit_titulo_1, :tit_titulo_2, :tit_titulo_3, :tit_titulo_4, :tit_titulo_5, :tit_titulo_6, :tit_titulo_7, :tit_titulo_8, :tit_titulo_9, :tit_titulo_10, :desc_titulo_1, :desc_titulo_2, :desc_titulo_3, :desc_titulo_4, :desc_titulo_5, :desc_titulo_6, :desc_titulo_7, :desc_titulo_8, :desc_titulo_9, :desc_titulo_10, :imagen_encabezado, :created_at, :updated_at
+json.url acercade_certificate_url(acercade_certificate, format: :json)

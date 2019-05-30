@@ -311,11 +311,17 @@ footer .glyphicon {
 }
 
 .row-login-rapido {
-  
   padding: 10px 10px;
   /* font-family: 'Myriad Pro light'; */
   font-size: 18px;
-  background-color: goldenrod;
+  background-color: #8E8E8D;
+}
+
+.row-registro-rapido {
+  padding: 64px 20px;
+  /* font-family: 'Myriad Pro light'; */
+  font-size: 18px;
+  background-color: #8E8E8D;
 }
 
 .conoce-mas-socio {
@@ -690,4 +696,28 @@ footer .glyphicon {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+
+/* HACER LAS IMAGENES GRANDES EN HOVER */
+.container-enlarge {
+    display: inline-block;
+    position: relative;
+    margin: 15px;
+}
+.container-enlarge > img {
+    height: auto;
+    max-width: 100%;
+    width: 150px;
+    border-radius: 5px;
+}
+.container-enlarge span {
+    position: absolute;
+    top: -9999em;
+    left: -9999em;
+}
+.container-enlarge:hover span {
+    top: -220px;
+    left: -75px;
+    width: 300px;
 }
