@@ -21,6 +21,7 @@ class EtapaCertificacionsController < ApplicationController
 
   
   def edit
+    @etapa_certificacions = EtapaCertificacion.all
   end
 
   
