@@ -6,6 +6,7 @@ class PreguntasCertsController < ApplicationController
   def index
     @preguntas_certs_contestadas = PreguntasCert.preguntas_contestadas 
     @preguntas_certs = PreguntasCert.all
+    @etapa_certificacions = EtapaCertificacion.all
   end
 
   # GET /preguntas_certs/1
