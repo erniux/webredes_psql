@@ -3,7 +3,7 @@ class AvisosController < ApplicationController
   access all: [:show, :index], site_admin: :all
 
   def index
-    @avisos = Aviso.all
+    @avisos = Aviso.all.order("updated_at DESC")
   end
 
   def show
@@ -52,7 +52,7 @@ class AvisosController < ApplicationController
     end
 
     def aviso_params
-      params.require(:aviso).permit(:id, :titulo, :detalle, :fecha, :imagen, :user_id)
+      params.require(:aviso).permit(:id, :titulo, :detalle, :fecha, :user_id, :foto, uploads: [])
     end
 end
 

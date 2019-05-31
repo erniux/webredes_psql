@@ -21,7 +21,19 @@
      </p>
      
      <p>
-       <%= image_tag @aviso.imagen.to_s %>
+      <%= image_tag(@aviso.foto, width: 200) if @aviso.foto.attached? %> 
+     </p>
+
+     <p>
+       <strong>Uploads:</strong> <br/>
+       <% if @aviso.uploads.attached? %>
+         <% @aviso.uploads.each do |upload| %>
+           <%= link_to upload.filename, upload, target: '_blank' %> <br/>
+           <%= image_tag(upload, width: 200) if @aviso.foto.attached? %> 
+         <% end %>
+       <% else %>
+         <p>no uploads</p>
+       <% end %>
      </p>
       
   </div>

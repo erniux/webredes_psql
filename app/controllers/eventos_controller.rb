@@ -3,7 +3,7 @@ class EventosController < ApplicationController
   access all: [:show, :index], site_admin: :all
 
   def index
-    @eventos = Evento.all
+    @eventos = Evento.all.order("updated_at DESC")
   end
 
   def show
@@ -60,6 +60,6 @@ class EventosController < ApplicationController
 
     def evento_params
       params.require(:evento).permit(:titulo, :detalle, :lugar, :fecha_inicio, :fecha_fin, :expositor, :imagen, 
-                                     :user_id, :imagen_2)
+                                     :user_id, :foto, uploads: [])
     end
 end

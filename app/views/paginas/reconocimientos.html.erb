@@ -1,5 +1,7 @@
 <div class="inicio">
-	<%= image_tag "PLanSeguridad.jpg", width: '100%' %>
+	
+	<%= image_tag @acercade_certificates.foto, width: '100%' if @acercade_certificates.foto.attached? %>
+
 </div>
 
 <p></p>

@@ -36,10 +36,14 @@
     <%= form.trix_editor :expositor %>
   </div>
 
-  <div class="field">
-    <label class="btn btn-default btn-lg">
-      <%= form.file_field :imagen %>
-    </label>
+  <div class="btn btn-default btn-lg">
+    <%= form.label :foto %>
+    <%= form.file_field :foto %>
+  </div>
+
+  <div class="btn btn-default btn-lg">
+    <%= form.label :uploads %>
+    <%= form.file_field :uploads, multiple: true %>
   </div>
 
 

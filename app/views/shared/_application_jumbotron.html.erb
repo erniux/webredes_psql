@@ -1,7 +1,7 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="inicio">
-     <%= image_tag "acoso.jpg", width: '100%' %>
-     <%= image_tag "redes.jpg",  class: "logo-inicial"  %>
+     <%= image_tag @about.foto, width: '100%' if @about.foto.attached? %> 
+     <%= image_tag "redes.jpg",  class: "logo-inicial"  %> 
 </div>
 
 
