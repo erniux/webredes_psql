@@ -40,6 +40,6 @@ gem 'petergate', '~> 2.0', '>= 2.0.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.12'
 gem 'trix-rails', require: 'trix'
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
-
+gem "google-cloud-storage", "~> 1.8", require: false
 
 

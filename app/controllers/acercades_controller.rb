@@ -18,7 +18,8 @@ class AcercadesController < ApplicationController
   end
 
   def create
-    @acercade = current_user.acercades.new(acercade_params)
+    #@acercade = current_user.acercades.new(acercade_params)
+    @acercade = Acercade.new(acercade_params)
     respond_to do |format|
       if @acercade.save
         format.html { redirect_to @acercade, notice: 'Registro creado correctamente.' }

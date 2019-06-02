@@ -7,7 +7,7 @@
 !/storage/.keep
 
 #Upload from local machine to upload eventos & avisos
- /public/uploads
+/config/secrets/*
 
 /node_modules
 /yarn-error.log
