@@ -29,14 +29,14 @@
       <p><%= @eventos.lugar %></p>
       <p><%= @eventos.expositor.html_safe %></p>
       <p>del: <%= @eventos.fecha_inicio.strftime('%d / %B / %Y') %> al: <%= @eventos.fecha_fin.strftime('%d /%B/%Y') %> </p>
-      <p><%= image_tag @eventos.imagen.to_s, width: '100%' %></p>   
+      <p><%= image_tag(@eventos.foto, width: '100%') if @eventos.foto.attached? %> </p>
       <p><%= link_to 'asiste', eventos_path, class: "btn btn-default btn-lg" %></p>
    </div>
    <div class="col-md-4">
       <h2>blog</h2>
       <p><em><%= @avisos.titulo.html_safe %></em></p>
       <p><%= @avisos.detalle.html_safe %></p>
-      <p><%= image_tag @avisos.imagen.to_s, width: '100%' %></p>
+      <p><%= image_tag(@avisos.foto, width: '100%') if @avisos.foto.attached? %> </p>
       <p><%= link_to 'escribe tu blog', avisos_path, class: "btn btn-default btn-lg" %></p>
    </div>
 
