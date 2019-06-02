@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
    include DeviseWhitelist
    include AliadaCopyright
    include Pundit
+   
 
    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
