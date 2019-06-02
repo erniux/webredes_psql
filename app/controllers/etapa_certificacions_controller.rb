@@ -1,7 +1,6 @@
 class EtapaCertificacionsController < ApplicationController
   before_action :set_etapa_certificacion, only: [:show, :edit, :update, :destroy]
-  #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-  access all: [:index, :show], certificador: :all
+  access site_admin: :all, [:escuela, :certificador] => [:show, :index]
 
   
   def index
