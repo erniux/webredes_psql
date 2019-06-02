@@ -1,4 +1,5 @@
-<div class="container-fluid-crud">
+<%= render 'shared/certificate_sidebar' if logged_in?(:site_admin, :certificador, :escuela) %>
+<div id="body-cert">
 	<h1>Actualizar Preguntas</h1>
 	<%= render 'form', preguntas_cert: @preguntas_cert %>
 	<%= link_to 'Mostrar', @preguntas_cert %> |

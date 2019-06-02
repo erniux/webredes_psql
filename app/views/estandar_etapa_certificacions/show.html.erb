@@ -1,13 +1,13 @@
 <%= render "shared/certificate_sidebar" %>
-<div class="main">
+<div id="body-cert">
 
 <p>
   <strong>estandar ID:</strong>
-  <%= @estandar_etapa_certificacion.estandar_id %>
+  <%= @estandar_etapa_certificacion.id %>
 </p>
 
 <p>
-  <strong>Titulo:</strong>
+  <strong>Etapa:</strong>
   <%= @estandar_etapa_certificacion.etapa_certificacion_id %>
 </p>
 
@@ -42,7 +42,29 @@
 </p>
 
 <p>
-  <%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(@estandar_etapa_certificacion) if logged_in?(:certificador, :admin) %> |
+  <strong>Apoyo:</strong> <br/>
+  <% if @estandar_etapa_certificacion.apoyo.attached? %>
+    <% @estandar_etapa_certificacion.apoyo.each do |apoyo| %>
+      <%= link_to apoyo.filename, apoyo, target: '_blank' %> <br/>
+    <% end %>
+  <% else %>
+    <p>no uploads</p>
+  <% end %>
+</p>
+
+<p>
+  <strong>Obligatorio:</strong> <br/>
+  <% if @estandar_etapa_certificacion.obligatorio.attached? %>
+    <% @estandar_etapa_certificacion.obligatorio.each do |obligatorio| %>
+      <%= link_to obligatorio.filename, obligatorio, target: '_blank' %> <br/>
+    <% end %>
+  <% else %>
+    <p>no uploads</p>
+  <% end %>
+</p>
+
+<p>
+  <%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(@estandar_etapa_certificacion) if logged_in?(:site_admin) %> |
   <%= link_to 'Regresar', estandar_etapa_certificacions_path %>
 </p>
 </div>

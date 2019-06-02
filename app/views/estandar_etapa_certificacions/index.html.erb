@@ -1,8 +1,8 @@
 <%= render "shared/certificate_sidebar" %>
-<div class="main">
+<div id="body-cert">
 <h1>Estandares por Etapa de Certificación</h1>
 <div class="nav-secundario">
-<%= link_to 'Agregar Estandar', new_estandar_etapa_certificacion_path, class: "btn btn-default btn-lg" if logged_in?(:certificador, :admin) %>
+<%= link_to 'Agregar Estandar', new_estandar_etapa_certificacion_path, class: "btn btn-default btn-lg" if logged_in?(:site_admin) %>
 <%= link_to 'Regresar al Proceso', etapa_certificacions_path, class: "btn btn-default btn-lg"  %>
 <%= form_tag(estandar_etapa_certificacions_path, :method => "get", class: 'navbar-form navbar-left') do %>
   <div class="input-group">  
@@ -33,8 +33,8 @@
         <td><%= estandar_etapa_certificacion.descripcion %></td>
         <td><%= estandar_etapa_certificacion.puntaje_total %></td>
         <td><%= link_to 'Detalle', estandar_etapa_certificacion %></td>
-        <td><%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(estandar_etapa_certificacion) if logged_in?(:certificador, :admin) %></td>
-        <td><%= link_to 'Eliminar', estandar_etapa_certificacion, method: :delete, data: { confirm: '¿Confirma Eliminar el Registro?' } if logged_in?(:certificador, :admin) %></td>
+        <td><%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(estandar_etapa_certificacion) if logged_in?(:site_admin) %></td>
+        <td><%= link_to 'Eliminar', estandar_etapa_certificacion, method: :delete, data: { confirm: '¿Confirma Eliminar el Registro?' } if logged_in?(:site_admin) %></td>
       </tr>
     <% end %>
   </tbody>

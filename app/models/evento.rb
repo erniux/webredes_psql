@@ -9,8 +9,6 @@ class Evento < ApplicationRecord
 
 	has_one_attached :foto
 	has_many_attached :uploads
-
-	mount_uploader :imagen, EventoUploader
 	 
 end
 

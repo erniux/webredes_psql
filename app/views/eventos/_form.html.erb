@@ -41,12 +41,6 @@
     <%= form.file_field :foto %>
   </div>
 
-  <div class="btn btn-default btn-lg">
-    <%= form.label :uploads %>
-    <%= form.file_field :uploads, multiple: true %>
-  </div>
-
-
   <div class="actions">
     <%= form.submit "Guardar", class: "btn btn-primary btn-lg", size: 50 %>
     <%= link_to 'Mostrar', @evento, class: "btn btn-default btn-lg", size: 50 %> 

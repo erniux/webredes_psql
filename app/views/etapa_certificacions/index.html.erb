@@ -1,8 +1,8 @@
 <%= render 'shared/certificate_sidebar' %>
-<div class="main">
+<div id="body-cert">
 
 <h1>Etapas para Alcanzar la Certificación</h1>
-<p><%= link_to 'Agregar Etapa Certificacion', new_etapa_certificacion_path, class: "btn btn-default btn-lg" if logged_in?(:certificador, :admin)  %></p>
+<p><%= link_to 'Agregar Etapa Certificacion', new_etapa_certificacion_path, class: "btn btn-default btn-lg" if logged_in?(:site_admin)  %></p>
 
 
 <table class="table">
@@ -20,9 +20,9 @@
         <td><%= etapa_certificacion.nombre %></td>
         <td class="columna-ancha"><%= etapa_certificacion.descripcion %></td>
         <td><%= link_to 'Detalle', etapa_certificacion %></td>
-        <td><%= link_to 'Modificar', edit_etapa_certificacion_path(etapa_certificacion) if logged_in?(:certificador, :admin) %></td>
+        <td><%= link_to 'Modificar', edit_etapa_certificacion_path(etapa_certificacion) if logged_in?(:site_admin) %></td>
         <td><%= link_to 'Estandares', estandar_etapa_certificacions_path %></td>
-        <td><%= link_to 'Eliminar', etapa_certificacion, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } if logged_in?(:certificador, :admin) %></td>
+        <td><%= link_to 'Eliminar', etapa_certificacion, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } if logged_in?(:site_admin) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,7 +1,6 @@
 class EstandarEtapaCertificacionsController < ApplicationController
-  before_action :set_estandar_etapa_certificacion, only: [:show, :edit, :update, :destroy]
-  #access all: [:index, :show, :new, :edit, :create, :update, :destroy], user: :all
-  access all: [:index, :show], certificador: :all
+  before_action :set_estandar_etapa_certificacion, only: [:show, :edit, :update, :destroy] 
+  access site_admin: :all, [:escuela, :certificador] => [:show, :index]
 
 def index
     if params[:search].blank?  
@@ -62,7 +61,7 @@ def index
 
     def estandar_etapa_certificacion_params
       params.require(:estandar_etapa_certificacion).permit(:id, :titulo, :descripcion, :observaciones, 
-                     :etapa_certificacion_id, :puntaje, :evidencias, :puntaje_total, :estandar_id)
+                     :etapa_certificacion_id, :puntaje, :evidencias, :puntaje_total, :estandar_id, apoyo: [], obligatorio: [])
     end
     
 end

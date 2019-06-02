@@ -1,5 +1,5 @@
-<%= render "shared/certificate_sidebar" %>
-<div class="main">
+
+
 <%= form_with(model: estandar_etapa_certificacion, local: true) do |form| %>
   <% if estandar_etapa_certificacion.errors.any? %>
       <% estandar_etapa_certificacion.errors.full_messages.each do |message| %>
@@ -47,8 +47,18 @@
     <%= form.text_area :observaciones, cols: 60, rows: 5 %>
   </div>
 
+  <div class="btn btn-default btn-lg">
+    <%= form.label :apoyo %>
+    <%= form.file_field :apoyo, multiple: true %>
+  </div>
+
+  <div class="btn btn-default btn-lg">
+    <%= form.label :obligatorio %>
+    <%= form.file_field :obligatorio, multiple: true %>
+  </div>
+
   <div class="actions">
     <%= form.submit "Guardar Registro" %>
   </div>
 <% end %>
-</div>
+

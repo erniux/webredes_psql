@@ -1,15 +1,47 @@
-<% if current_user %>
-<div class="sidenav">
-    <%= link_to "Inicio", etapa_certificacions_path %>
+<div id="menu-side-bar">
+  <div id="logo-sidebar">
+  </div>
+  
+  <div id="container-sidebar-first" class="container-sidebar">
+    <div class="logo-interior">
+      <p class="texto-sidebar"><%= link_to "Inicio", etapa_certificacions_path %></p>
+    </div>
+  </div>
+
+  <div class="container-sidebar">
     <% @etapa_certificacions.each do |etapa| %>
-      <%= link_to "Etapa #{etapa.id}", etapa_certificacion_url(id: etapa.id) %>
+      <div class="logo-interior">
+      <p class="texto-sidebar"><%= link_to "Etapa#{etapa.id}", etapa_certificacion_url(id: etapa.id) %></p>
     <% end %>
-   
-  <a href="#">Chat</a>
-  <%= link_to 'Preguntas', preguntas_certs_path %>
-  <a href="#">Calendario</a>
-  <a href="#">Biblioteca</a>
-  <a href="#">Reprtes</a>
-  <a href="#">Ayuda</a>
+    </div>
+
+    <div class="logo-interior">
+      <p class="texto-sidebar"><%= link_to 'Preguntas', preguntas_certs_path %></p>
+    </div>
+
+    <div class="logo-interior">
+      <p class="texto-sidebar"><%= link_to 'Chat', etapa_certificacions_path %></p>
+    </div>
+    <div class="logo-interior">
+      <p class="texto-sidebar"><%= link_to 'Calendario', etapa_certificacions_path %></p>
+    </div>
+    <div class="logo-interior">
+      <p class="texto-sidebar"><%= link_to 'Biblioteca', etapa_certificacions_path %></p>
+    </div>
+    <div class="logo-interior">
+      <p class="texto-sidebar"><%= link_to 'Reportes', etapa_certificacions_path %></p>
+    </div>
+    <div class="logo-interior">
+      <p class="texto-sidebar"><%= link_to 'Ayuda', etapa_certificacions_path %></p>
+    </div>
+     
+  </div>
+
 </div>
-<% end %>
+</div>
+</div>
+</div>
+
+
+   
+ 
