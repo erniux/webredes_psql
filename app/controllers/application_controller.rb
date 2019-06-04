@@ -16,12 +16,14 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if current_user.has_role?(:certificador)
+    if current_user.has_role?(:cert_site_admin)
       etapa_certificacions_path
     elsif current_user.has_role?(:socio)
       recursos_path
     elsif current_user.has_role?(:escuela)
-       etapa_certificacions_path
+       escuelas_path
+    elsif current_user.has_role?(:certificador)
+       certificador_path
      else
       root_path
     end

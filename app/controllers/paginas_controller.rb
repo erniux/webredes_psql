@@ -1,4 +1,7 @@
 class PaginasController < ApplicationController
+  access [:escuela, :certificador, :cert_site_admin] => [:escuelas, :inicio, :reconocimientos, :socios, :acerca_de], 
+           all: [:inicio, :reconocimientos, :socios, :acerca_de]
+   
   def inicio
     @eventos = Evento.last
     @avisos = Aviso.last
@@ -19,14 +22,18 @@ class PaginasController < ApplicationController
   end
 
   def socios
-    @eventos = Evento.last
-    @avisos = Aviso.last
     @about = Acercade.first
   end
 
   def reconocimientos
     @acercade_certificates = AcercadeCertificate.first
-
   end
+
+  def escuelas
+  end
+
+  def certificador
+  end
+
   
 end

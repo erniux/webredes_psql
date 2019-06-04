@@ -1,6 +1,6 @@
 class AcercadeCertificatesController < ApplicationController
   before_action :set_acercade_certificate, only: [:show, :edit, :update, :destroy]
-  access site_admin: [:index, :show, :new, :edit, :create, :update, :destroy], all: [:index, :show]
+  access cert_site_admin: [:index, :show, :new, :edit, :create, :update, :destroy], all: [:index, :show]
 
   def index
     @acercade_certificates = AcercadeCertificate.all

@@ -11,7 +11,7 @@
   	<div class="col-md-8">
   		<p><h2><%= @acercade_certificates.tit_titulo_1.html_safe  %></h2> </p>
   		<% if user_signed_in? %>
-        <%= link_to 'Editar', edit_acercade_certificate_path(@acercade_certificates),class: "btn btn-default btn-lg" if logged_in?(:site_admin) %>
+        <%= link_to 'Editar', edit_acercade_certificate_path(@acercade_certificates),class: "btn btn-default btn-lg" if logged_in?(:cert_site_admin) %>
       <% end %>
 
   		<p><%= @acercade_certificates.desc_titulo_1.html_safe %></p>

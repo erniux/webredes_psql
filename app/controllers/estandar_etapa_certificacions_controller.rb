@@ -1,6 +1,6 @@
 class EstandarEtapaCertificacionsController < ApplicationController
   before_action :set_estandar_etapa_certificacion, only: [:show, :edit, :update, :destroy] 
-  access site_admin: :all, [:escuela, :certificador] => [:show, :index]
+  access cert_site_admin: :all, [:escuela, :certificador] => [:show, :index]
 
 def index
     if params[:search].blank?  
