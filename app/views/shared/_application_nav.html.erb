@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
  
       <ul class="nav navbar-nav">
-        <li id="item-rojo">
+        <li class="item-rojo">
           <% if current_user %>
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.nombre %> <span></span></a>
           <ul class="dropdown-menu">
@@ -31,17 +31,17 @@
           <% end %>
         </li>
  
-        <li id="item-manzanita">
+        <li class="item-manzanita">
           <%= link_to root_path do %>
             <%= image_tag "manzana_pequena.jpg", width: 25 %>
           <% end %>
         </li>
-        <li id="item-gris"><%= link_to "nosotros", acercades_path %></li>
-        <li id="item-gris"><%= link_to "eventos", eventos_path %></li>
-        <li id="item-gris"><%= link_to "socios", socios_path %></li> 
-        <li id="item-gris"><%= link_to "blog", avisos_path %></li>
-        <li id="item-gris"><%= link_to "certificate", reconocimientos_path %></li>
-        <li id="item-gris"><%=link_to "contacto", contacto_path  %></li>
+        <li class="item-gris"><%= link_to "nosotros", acercades_path %></li>
+        <li class="item-gris"><%= link_to "eventos", eventos_path %></li>
+        <li class="item-gris"><%= link_to "socios", socios_path %></li> 
+        <li class="item-gris"><%= link_to "blog", avisos_path %></li>
+        <li class="item-gris"><%= link_to "certificate", reconocimientos_path %></li>
+        <li class="item-gris"><%=link_to "contacto", contacto_path  %></li>
       </ul>
  
   </div>

@@ -11,6 +11,7 @@
 	<table class="table">
 		<thead>
     		<tr>
+    			<th>ID</th>
       			<th>Nombre</th>
       			<th>Descripcion</th>
       			<th>Evidencias</th>
@@ -21,6 +22,7 @@
 		<tbody>
 		<% @etapa_certificacion.estandar_etapa_certificacions.each do |estandar| %>
 			<tr>
+				<td><%= estandar.id %></td>
 				<td><%= estandar.titulo %></td>
 				<td><%= estandar.descripcion %></td> 
 				<td><%= estandar.evidencias.html_safe %></td>

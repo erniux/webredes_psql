@@ -8,6 +8,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Paso</th>
       <th>Nombre</th>
       <th>Descripcion</th>
       <th colspan="3">Acciones</th>
@@ -17,9 +18,10 @@
   <tbody>
     <% @etapa_certificacions.each do |etapa_certificacion| %>
       <tr>
+        <td><%= etapa_certificacion.id %></td>
         <td><%= etapa_certificacion.nombre %></td>
         <td class="columna-ancha"><%= etapa_certificacion.descripcion %></td>
-        <td><%= link_to 'Detalle', etapa_certificacion %></td> 
+        <td><%= link_to 'Estandares', etapa_certificacion %></td> 
         <td><%= link_to 'Modificar', edit_etapa_certificacion_path(etapa_certificacion) if logged_in?(:cert_site_admin) %></td>
         <td><%= link_to 'Eliminar', etapa_certificacion, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } if logged_in?(:cert_site_admin) %></td>
       </tr>

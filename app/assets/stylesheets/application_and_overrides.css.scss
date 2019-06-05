@@ -3,13 +3,9 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bourbon';
-
-/*#main {max-width:960px; min-width:320px; margin:0 auto;}*/
-
  
-  body {
-    padding-top: 150px;
-     
+body {
+    padding-top: 150px;     
   } 
 
 
@@ -144,9 +140,9 @@ src:url ('MYRIADPRO-BOLDIT.woff')
 }
 
 
-#item-rojo a:hover {
+.item-rojo a:hover {
   background-image: url('/assets/flecha_roja.jpg'); 
-  color: #ffffff !important;
+  color: #ffffff;
   background-color: #ffffff;
   background-position: center;
   background-repeat: no-repeat;
@@ -154,16 +150,16 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   }
  
  
-#item-gris a:hover {
+.item-gris a:hover {
   background-image: url('/assets/flecha_azul.jpg'); 
-  color: #ffffff !important;
-  background-color: #ffffff;
+  
+   
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%;
+  
   } 
 
-#item-manzanita a:hover {
+.item-manzanita a:hover {
   
   color: #ffffff !important;
   background-color: #ffffff;
@@ -186,7 +182,7 @@ src:url ('MYRIADPRO-BOLDIT.woff')
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
-  color: white !important;
+  color: black;
   
 }
 
