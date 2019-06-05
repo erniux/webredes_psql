@@ -24,6 +24,7 @@ class EtapaCertificacionsController < ApplicationController
   
   def edit
     @etapa_certificacions = EtapaCertificacion.all.order(:id)
+    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
   
