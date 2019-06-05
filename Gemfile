@@ -28,10 +28,8 @@ gem 'devise', '~> 4.6', '>= 4.6.1'
 gem 'pundit', '~> 2.0', '>= 2.0.1'
 gem 'bootstrap-sass', '3.4.1'
 gem 'gritter', '~> 1.2.0'
-gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
-
-gem 'administrate', '~> 0.11.0'
+ 
+ 
 gem 'bourbon', '~> 5.1'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'mini_magick', '~> 4.9', '>= 4.9.3'

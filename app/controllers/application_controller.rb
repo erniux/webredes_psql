@@ -3,17 +3,17 @@ class ApplicationController < ActionController::Base
 
    include DeviseWhitelist
    include AliadaCopyright
-   include Pundit
+   #include Pundit
    
 
-   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+   #rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   private
 
-  def user_not_authorized
-    flash[:notice] = "#{@user} Usted no esta autorizado para ejecutar esta función."
-    redirect_to(root_path)
-  end
+  #def user_not_authorized
+  #  flash[:notice] = "#{@user} Usted no esta autorizado para ejecutar esta función."
+  #  redirect_to(root_path)
+  #end
 
   def after_sign_in_path_for(resource)
     if current_user.has_role?(:cert_site_admin)

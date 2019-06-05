@@ -8,7 +8,6 @@ class Evento < ApplicationRecord
 	belongs_to :user
 
 	has_one_attached :foto
-	has_many_attached :uploads
 	 
 end
 

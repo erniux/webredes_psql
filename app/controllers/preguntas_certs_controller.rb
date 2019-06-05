@@ -6,23 +6,21 @@ class PreguntasCertsController < ApplicationController
   def index
     @preguntas_certs_contestadas = PreguntasCert.preguntas_contestadas 
     @preguntas_certs = PreguntasCert.all
-    @etapa_certificacions = EtapaCertificacion.all
+    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
-  # GET /preguntas_certs/1
   def show
+    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
-  # GET /preguntas_certs/new
   def new
     @preguntas_cert = PreguntasCert.new
   end
 
-  # GET /preguntas_certs/1/edit
   def edit
+    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
-  # POST /preguntas_certs
   def create
     @preguntas_cert = PreguntasCert.new(preguntas_cert_params)
 
@@ -33,7 +31,6 @@ class PreguntasCertsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /preguntas_certs/1
   def update
     if @preguntas_cert.update(preguntas_cert_params)
       redirect_to @preguntas_cert, notice: 'Registro actualizado correctamente.'
@@ -42,19 +39,18 @@ class PreguntasCertsController < ApplicationController
     end
   end
 
-  # DELETE /preguntas_certs/1
   def destroy
     @preguntas_cert.destroy
     redirect_to preguntas_certs_url, notice: 'Registro eliminado correctamente.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+ 
     def set_preguntas_cert
       @preguntas_cert = PreguntasCert.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
+ 
     def preguntas_cert_params
       params.require(:preguntas_cert).permit(:pregunta, :respuesta)
     end

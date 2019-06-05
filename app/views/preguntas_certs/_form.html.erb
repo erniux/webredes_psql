@@ -10,8 +10,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :respuesta if logged_in?(:certificador) %>
-    <%= form.trix_editor :respuesta, rows: 5, cols: 80 if logged_in?(:certificador) %>
+    <%= form.label :respuesta if logged_in?(:cert_site_admin) %>
+    <%= form.trix_editor :respuesta, rows: 5, cols: 80 if logged_in?(:cert_site_admin) %>
   </div>
 
   <div class="actions">
