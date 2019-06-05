@@ -22,7 +22,7 @@
 		<tbody>
 		<% @etapa_certificacion.estandar_etapa_certificacions.each do |estandar| %>
 			<tr>
-				<td><%= estandar.id %></td>
+				<td><%= estandar.estandar_id %></td>
 				<td><%= estandar.titulo %></td>
 				<td><%= estandar.descripcion %></td> 
 				<td><%= estandar.evidencias.html_safe %></td>
