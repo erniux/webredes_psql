@@ -6,8 +6,9 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :'paso_certificacion' %>
-    <%= form.collection_select :etapa_certificacion_id, EtapaCertificacion.order(:id), :id, :nombre, include_blank: true %>
+     
+    <h3>Paso para la Certificación:</h3>
+     <%= form.collection_select :etapa_certificacion_id, EtapaCertificacion.order(:id), :id, :nombre, include_blank: true %>
   </div>
 
   <div class="field">
@@ -51,7 +52,7 @@
       <%= form.label :apoyo %>
       <%= form.file_field :apoyo, multiple: true %>
     </div>
-    <hr>
+    
     <div class="btn btn-default btn-lg">
       <%= form.label :obligatorio %>
       <%= form.file_field :obligatorio, multiple: true %>

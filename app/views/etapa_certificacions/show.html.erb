@@ -6,7 +6,30 @@
 	<p>
 		<em><%= @etapa_certificacion.descripcion %></em>
 	</p>
+	<h3> Estandares </h3>
+
+	<table class="table">
+		<thead>
+    		<tr>
+      			<th>Nombre</th>
+      			<th>Descripcion</th>
+      			<th>Evidencias</th>
+      			<th>Puntaje Total</th>
+    		</tr>
+  		</thead>
+		
+		<tbody>
+		<% @etapa_certificacion.estandar_etapa_certificacions.each do |estandar| %>
+			<tr>
+				<td><%= estandar.titulo %></td>
+				<td><%= estandar.descripcion %></td> 
+				<td><%= estandar.evidencias.html_safe %></td>
+				<td><%= estandar.puntaje_total %></td>
+				</tr>
+		<% end %>
+		</tbody>
+	</table>
 	
-	<%= link_to 'Modificar', edit_etapa_certificacion_path(@etapa_certificacion) if logged_in?(:certificador, :admin) %> |
-	<%= link_to 'Regresar', etapa_certificacions_path %>
+	<p class="btn btn-info btn-lg"><%= link_to 'Modificar', edit_etapa_certificacion_path(@etapa_certificacion) if logged_in?(:cert_site_admin) %></p> 
+	<p class="btn btn-warning btn-lg"><%= link_to 'Regresar', etapa_certificacions_path %></p>
 </div>

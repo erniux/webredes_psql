@@ -5,7 +5,6 @@
 <p><%= link_to 'Agregar Paso para Certificacion', new_etapa_certificacion_path, class: "btn btn-default btn-lg" if logged_in?(:cert_site_admin)  %>
   <%= link_to 'Estandares', estandar_etapa_certificacions_path, class: "btn btn-default btn-lg" if logged_in?(:cert_site_admin)  %></p>
 
-
 <table class="table">
   <thead>
     <tr>
@@ -20,7 +19,7 @@
       <tr>
         <td><%= etapa_certificacion.nombre %></td>
         <td class="columna-ancha"><%= etapa_certificacion.descripcion %></td>
-        <!-- <td><%= link_to 'Detalle', etapa_certificacion %></td> -->
+        <td><%= link_to 'Detalle', etapa_certificacion %></td> 
         <td><%= link_to 'Modificar', edit_etapa_certificacion_path(etapa_certificacion) if logged_in?(:cert_site_admin) %></td>
         <td><%= link_to 'Eliminar', etapa_certificacion, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } if logged_in?(:cert_site_admin) %></td>
       </tr>
@@ -29,7 +28,4 @@
 </table>
 
 <br>
-
-
-
 </div>
