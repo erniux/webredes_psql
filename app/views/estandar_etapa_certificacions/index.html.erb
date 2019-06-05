@@ -1,9 +1,9 @@
 <%= render "shared/certificate_sidebar" %>
 <div id="body-cert">
-<h1>Estandares por Etapa de Certificación</h1>
+<h1>Estandares por Paso de Certificación</h1>
 <div class="nav-secundario">
-<%= link_to 'Agregar Estandar', new_estandar_etapa_certificacion_path, class: "btn btn-default btn-lg" if logged_in?(:cert_site_admin) %>
-<%= link_to 'Regresar al Proceso', etapa_certificacions_path, class: "btn btn-default btn-lg"  %>
+<%= link_to 'Agregar Paso Certificación', new_estandar_etapa_certificacion_path, class: "btn btn-default btn-lg" if logged_in?(:cert_site_admin) %>
+<%= link_to 'Regresar a Pasos', etapa_certificacions_path, class: "btn btn-default btn-lg"  %>
 <%= form_tag(estandar_etapa_certificacions_path, :method => "get", class: 'navbar-form navbar-left') do %>
   <div class="input-group">  
     <%= search_field_tag :search, params[:search], placeholder: "Búsqueda", class: "form-control" %>  
@@ -17,9 +17,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Estandar ID</th>
-      <th>Titulo</th>
-      <th>Descripcion</th>
+      <th>Paso ID</th>
+      <th>Título</th>
+      <th>Descripción</th>
       <th>Puntaje Total</th>
       <th colspan="3">Acciones</th>
     </tr>

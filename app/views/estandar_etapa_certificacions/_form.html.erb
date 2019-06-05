@@ -1,5 +1,3 @@
-
-
 <%= form_with(model: estandar_etapa_certificacion, local: true) do |form| %>
   <% if estandar_etapa_certificacion.errors.any? %>
       <% estandar_etapa_certificacion.errors.full_messages.each do |message| %>
@@ -13,7 +11,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :estandar %>
+    <%= form.label :"paso" %>
     <%= form.text_field :estandar_id %>
   </div>  
 
