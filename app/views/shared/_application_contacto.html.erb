@@ -1,34 +1,50 @@
-<div class="container">
-<div id="contact" class="container-fluid bg-grey">
+
+<div class="info-contacto">
   <h2 class="text-center">CONTACTO</h2>
   <div class="row">
     <div class="col-sm-5">
       <p>¿Tienes alguna duda? </p>
-      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>¿Quieres ser socio de la Red de Escuelas Seguras?</span></p>
-      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>¿Quieres participar en nuestro próximo Congreso?</span></p>
+      <p><span>¿Quieres ser socio de la Red de Escuelas Seguras?</span></p>
+      <p><span>¿Quieres participar en nuestro próximo Congreso?</span></p>
       <p>Contáctanos y en breve recibirás asistencia.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Cuauhtemoc, CDMX</p>
-      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
-      <p><span class="glyphicon glyphicon-envelope"></span> correoredes@ correo.com</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Querétaro, MX</p>
+      <p><span class="glyphicon glyphicon-phone"></span> 442 123 678</p>
+      <p><span class="glyphicon glyphicon-web"></span> www.escuelasseguras.red</p>
+      <p><span class="glyphicon glyphicon-facebook"></span> facebook</p>
+      <p><span class="glyphicon glyphicon-twitter"></span> twiteer</p>
     </div>
-    <div class="col-sm-7">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
+    
+      <%= form_with(model: @contacto, local: true) do |form| %>
+        <% if @contacto.errors.any? %>
+          <% @contacto.errors.full_messages.each do |message| %>
+            <%= js add_gritter(t(message), title: "Aviso", sticky: false) %>
+          <% end %>
+        <% end %>
+      
+      <div class="col-sm-7"> 
+        <div class="row">
+          <div class="col-sm-6 form-group">
+            <%= form.text_field :nombre, class: "form-control", placeholder: "Nombre" %>
+        
+          </div>
+          <div class="col-sm-6 form-group">
+             
+            <%= form.email_field :correo, class: "form-control", placeholder: "Correo" %>
+          </div>
         </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Correo" type="email" required>
+        <%= form.text_area :asunto, class: "form-control", placeholder: "Asunto", rows: 1 %><br>        
+        <%= form.text_area :comentarios, class: "form-control", placeholder: "Comentarios", rows: 5 %><br>
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            
+            <%= form.submit "Enviar Comentario", class: "btn btn-default pull-right" %>
+          </div>
         </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comentario" rows="5"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit">Enviar</button>
-        </div>
-      </div>
+      
     </div>
+    <% end %>
   </div>
 </div>
-</div>
+
 
 

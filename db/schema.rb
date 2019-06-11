@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_31_132204) do
+ActiveRecord::Schema.define(version: 2019_06_11_141301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,13 @@ ActiveRecord::Schema.define(version: 2019_05_31_132204) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "avisos", force: :cascade do |t|
     t.string "titulo"
     t.text "detalle"
@@ -102,6 +109,15 @@ ActiveRecord::Schema.define(version: 2019_05_31_132204) do
     t.string "slug"
     t.index ["slug"], name: "index_avisos_on_slug", unique: true
     t.index ["user_id"], name: "index_avisos_on_user_id"
+  end
+
+  create_table "contactos", force: :cascade do |t|
+    t.string "nombre"
+    t.string "correo"
+    t.text "asunto"
+    t.text "comentarios"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "estandar_etapa_certificacions", force: :cascade do |t|

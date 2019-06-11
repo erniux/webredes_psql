@@ -38,6 +38,10 @@ Rails.application.routes.draw do
   resources :precios
   resources :acercades
 
+  resources :contactos, only: [:create, :new]
+  post "contactos/new"
+  get "paginas/contacto"
+
   
 
   get 'acerca_de', to: 'paginas#acerca_de'

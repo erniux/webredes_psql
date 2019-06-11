@@ -20,6 +20,7 @@ class PaginasController < ApplicationController
   end
 
   def contacto
+    @contacto = Contacto.new
   end
 
   def socios
