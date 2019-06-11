@@ -51,5 +51,6 @@ gem 'cocoon', '~> 1.2', '>= 1.2.12'
 gem 'trix-rails', require: 'trix'
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
 gem "google-cloud-storage", "~> 1.8", require: false
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
 

@@ -1,11 +1,12 @@
 class ContactoMailer < ApplicationMailer
-	default from: 'notifications@example.com'
 
- 
-  def welcome_email
-    @user = params[:user]
-    @url  = 'http://example.com/login'
-    mail(to: "mailitia@me.com", subject: 'Welcome to My Awesome Site')
+  def form_contacto(contacto)
+  	 
+  	@saludo = "Quiere contactarse contigo #{contacto.nombre}"
+  	@comentarios = contacto.comentarios
+  	@correo = contacto.correo
+  	# =>>> to: a quien va.       de quien viene. 
+     mail(to: "desarrolloswat@gmail.com", subject: contacto.asunto)
   end
 
 

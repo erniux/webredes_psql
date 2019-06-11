@@ -7,11 +7,14 @@
       <p><span>¿Quieres ser socio de la Red de Escuelas Seguras?</span></p>
       <p><span>¿Quieres participar en nuestro próximo Congreso?</span></p>
       <p>Contáctanos y en breve recibirás asistencia.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Querétaro, MX</p>
-      <p><span class="glyphicon glyphicon-phone"></span> 442 123 678</p>
-      <p><span class="glyphicon glyphicon-web"></span> www.escuelasseguras.red</p>
-      <p><span class="glyphicon glyphicon-facebook"></span> facebook</p>
-      <p><span class="glyphicon glyphicon-twitter"></span> twiteer</p>
+      <div class="container">
+        <p><%= fa_icon "map-marker" %> Querétaro, MX</p>
+        <p><%= fa_icon "phone" %> 442 123 7893</p>
+        <p><a href="https://web.facebook.com/RedEscuelasSeguras/"><%= fa_icon "facebook-square" %> /RedEscuelasSeguras</a></p>
+        <p><a href="https://twitter.com/RedEscuelasSeg"><%= fa_icon "twitter", class: "lista-social-links" %> @RedEscuelasSeg</a></p>
+        <p><a href="https://www.escuelasseguras.red"><%= fa_icon "apple-alt" %> www.escuelasseguras.red</a></p>
+         
+      </div>
     </div>
     
       <%= form_with(model: @contacto, local: true) do |form| %>
