@@ -1,6 +1,7 @@
 class PaginasController < ApplicationController
   access [:escuela, :certificador, :cert_site_admin] => [:escuelas, :inicio, :reconocimientos, :socios, :acerca_de], 
            all: [:inicio, :reconocimientos, :socios, :acerca_de, :contacto]
+
    
   def inicio
     @eventos = Evento.last
@@ -30,6 +31,7 @@ class PaginasController < ApplicationController
   end
 
   def escuelas
+    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
   def certificador

@@ -131,12 +131,9 @@ src:url ('MYRIADPRO-BOLDIT.woff')
   color: black;
   z-index: 9999;
   border: 0;
-  line-height: 1.42857143 !important;
   letter-spacing: 1.5px;
   background-color: white; 
   text-align: -webkit-center;
-
-  
 }
 
 
@@ -152,11 +149,11 @@ src:url ('MYRIADPRO-BOLDIT.woff')
  
 .item-gris a:hover {
   background-image: url('/assets/flecha_azul.jpg'); 
-  
-   
+  color: #ffffff;
+  background-color: #ffffff;
   background-position: center;
   background-repeat: no-repeat;
-  
+  background-size: 100%;
   } 
 
 .item-manzanita a:hover {
@@ -712,8 +709,6 @@ div#body-cert {
    padding: 10px 10px;
 }
 
- 
-
 
 
 /* HACER LAS IMAGENES GRANDES EN HOVER */
@@ -737,4 +732,13 @@ div#body-cert {
     top: -220px;
     left: -75px;
     width: 300px;
+}
+
+.etapa-certificacion{
+  background-color: #C0C1C0;
+  border-radius: 8px;
+   
+  margin-top: 10px;
+
+
 }

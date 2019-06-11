@@ -13,9 +13,14 @@
     <div>
       <p class="texto-sidebar"><%= link_to 'Preguntas', preguntas_certs_path %></p>
     </div>
-  </div>
 
-</div>
+    <div>
+      <p class="texto-sidebar"><%= link_to 'Dashboard', escuelas_path if logged_in?(:escuela, :cert_site_admin) %></p>
+    </div>
+
+  </div>
+  
+  </div>
  
 
    
