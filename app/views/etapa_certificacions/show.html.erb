@@ -16,6 +16,7 @@
       			<th>Descripcion</th>
       			<th>Evidencias</th>
       			<th>Puntaje Total</th>
+      			<th>Acciones</th>
     		</tr>
   		</thead>
 		
@@ -27,6 +28,7 @@
 				<td><%= estandar.descripcion %></td> 
 				<td><%= estandar.evidencias.html_safe %></td>
 				<td><%= estandar.puntaje_total %></td>
+				<td><%= link_to "Modificar" %>
 				</tr>
 		<% end %>
 		</tbody>

@@ -1,9 +1,9 @@
 <%= render "shared/certificate_sidebar" %>
 <div id="body-cert">
-<h1>Estandares por Paso de Certificación</h1>
+<h1>Estándares por paso de certificación</h1>
 <div class="nav-secundario">
-<%= link_to 'Agregar Estandar Certificación', new_estandar_etapa_certificacion_path, class: "btn btn-default btn-lg" if logged_in?(:cert_site_admin) %>
-<%= link_to 'Regresar a Pasos', etapa_certificacions_path, class: "btn btn-default btn-lg"  %>
+<%= link_to 'Agregar estándar certificación', new_estandar_etapa_certificacion_path, class: "btn btn-default btn-lg" if logged_in?(:cert_site_admin) %>
+<%= link_to 'Regresar a pasos', etapa_certificacions_path, class: "btn btn-default btn-lg"  %>
 <%= form_tag(estandar_etapa_certificacions_path, :method => "get", class: 'navbar-form navbar-left') do %>
   <div class="input-group">  
     <%= search_field_tag :search, params[:search], placeholder: "Búsqueda", class: "form-control" %>  
@@ -30,7 +30,7 @@
     <% @results.each do |estandar_etapa_certificacion| %>
       <tr>
         <td><%= estandar_etapa_certificacion.etapa_certificacion_id %></td>
-        <td><%= estandar_etapa_certificacion.id %></td>
+        <td><%= estandar_etapa_certificacion.estandar_id %></td>
         <td><%= estandar_etapa_certificacion.titulo %></td>
         <td><%= estandar_etapa_certificacion.descripcion %></td>
         <td><%= estandar_etapa_certificacion.puntaje_total %></td>
