@@ -9,7 +9,7 @@
 
 <p>
   <strong>Estandar ID:</strong>
-  <%= @estandar_etapa_certificacion.id %>
+  <%= @estandar_etapa_certificacion.estandar_id %>
 </p>
 
 
@@ -66,7 +66,8 @@
 </p>
 
 <p>
-  <%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(@estandar_etapa_certificacion) if logged_in?(:site_admin) %> |
-  <%= link_to 'Regresar', estandar_etapa_certificacions_path %>
+  <%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(@estandar_etapa_certificacion), class: "btn btn-primary btn-lg" if logged_in?(:cert_site_admin) %> 
+  <%= link_to 'Regresar',  etapa_certificacion_url(id: @estandar_etapa_certificacion.etapa_certificacion_id), class: "btn btn-info btn-lg"   %>
+  
 </p>
 </div>

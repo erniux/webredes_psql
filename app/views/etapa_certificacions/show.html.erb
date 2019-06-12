@@ -16,7 +16,7 @@
       			<th>Descripcion</th>
       			<th>Evidencias</th>
       			<th>Puntaje Total</th>
-      			<th>Acciones</th>
+      			<th colspan="3">Acciones</th>
     		</tr>
   		</thead>
 		
@@ -28,7 +28,9 @@
 				<td><%= estandar.descripcion %></td> 
 				<td><%= estandar.evidencias.html_safe %></td>
 				<td><%= estandar.puntaje_total %></td>
-				<td><%= link_to "Modificar" %>
+				<td><%= link_to 'Detalle', estandar %></td>
+        <td><%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(estandar) if logged_in?(:cert_site_admin) %></td>
+        <td><%= link_to 'Eliminar', estandar, method: :delete, data: { confirm: '¿Confirma Eliminar el Registro?' } if logged_in?(:cert_site_admin) %></td>
 				</tr>
 		<% end %>
 		</tbody>

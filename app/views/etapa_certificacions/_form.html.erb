@@ -12,24 +12,19 @@
     </div>
 
     <div class="col-md-8">
-      <%= form.label :descripcion %>
+      <%= form.label :Descripción %>
       <%= form.text_area :descripcion, cols: 100, rows: 10 %>
     </div>
   </div>
 
-    <h2>Estandares</h2>
+    <h2>Estándares</h2>
     
     <div>
       <%= form.fields_for :estandar_etapa_certificacions do |estandar| %>
       <%= render 'estandar_etapa_certificacion_fields', f: estandar %>
       <% end %>
     </div>
-    <div>
-      <%= link_to_add_association 'Agregar Estandar', form, :estandar_etapa_certificacions %>
-    </div> 
-
-   
-
+     
   <div class="actions">
     <%= form.submit "Guardar Registro", class: "btn btn-primary btn-lg" %>
   </div>

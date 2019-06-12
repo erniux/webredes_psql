@@ -6,44 +6,60 @@
   <% end %>
 
   <div class="field">
-     
-    <h3>Paso para la Certificación:</h3>
-     <%= form.collection_select :etapa_certificacion_id, EtapaCertificacion.order(:id), :id, :nombre, include_blank: true %>
-  </div>
+     <div class="row">
+      <div class="col-md-3">
+        <%= form.label :"Seleccione Paso:" %>
+      </div>
+      <div class="col-md-3">
+        <%= form.collection_select :etapa_certificacion_id, EtapaCertificacion.order(:id), :id, :nombre, include_blank: true   %>
+      </div>
+      <div class="col-md-3">
+        <%= form.label :"estandar_id" %>
+      </div>
+      <div class="col-md-3">
+        <%= form.text_field :estandar_id %>
+      </div>
+    </div><br>
+    <div class="row">
+      <div class="col-md-2">
+        <%= form.label :"Título" %>
+      </div>
+      <div class="col-md-4">
+        <%= form.text_area :titulo, cols: 40, rows: 4 %>
+      </div>
 
-  <div class="field">
-    <%= form.label :"estandar_id" %>
-    <%= form.text_field :estandar_id %>
-  </div>  
-
-  <div class="field">
-    <%= form.label :titulo %>
-    <%= form.text_area :titulo, cols: 60, rows: 4 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :descripcion %>
-    <%= form.text_area :descripcion, cols: 60, rows: 5 %>
-  </div><br>
+      <div class="col-md-2">
+        <%= form.label :"Descripción" %>
+      </div>
+      <div class="col-md-4">
+        <%= form.text_area :descripcion, cols: 50, rows: 6 %>
+      </div><br>
+    </div>
 
   <div class="field">
     <%= form.label :evidencias %>
-    <%= form.trix_editor :evidencias, cols: 60, rows: 5 %>
+    <%= form.trix_editor :evidencias, cols: 50, rows: 6 %>
   </div><br>
 
   <div class="field">
     <%= form.label :detalle_puntaje %>
-    <%= form.trix_editor :puntaje, cols: 60, rows: 5 %>
+    <%= form.trix_editor :puntaje, cols: 50, rows: 6 %>
   </div><br>
 
-  <div class="field">
-    <%= form.label :puntaje_total %>
-    <%= form.text_field :puntaje_total %>
-  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= form.label :puntaje_total %>
+    </div>
+    <div class="col-md-4">
+      <%= form.text_field :puntaje_total %>
+    </div>
 
-  <div class="field">
-    <%= form.label :observaciones %>
-    <%= form.text_area :observaciones, cols: 60, rows: 5 %>
+    <div class="col-md-2">
+      <%= form.label :observaciones %>
+    </div>
+    <div class="col-md-4">
+      <%= form.text_area :observaciones, cols: 50, rows: 5 %>
+    </div>
   </div>
 
   <h3> MATERIAL </h3>
@@ -60,7 +76,8 @@
   <hr>
 
   <div class="actions">
-    <%= form.submit "Guardar Registro" %>
-  </div>
+    <%= form.submit "Guardar Registro", class:"btn btn-primary btn-lg" %>
+    <%= link_to 'Regresar',  etapa_certificacions_path, class:"btn btn-info btn-lg" %>
+   
 <% end %>
 

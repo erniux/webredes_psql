@@ -10,22 +10,22 @@
     	<p><%= f.text_area :titulo, cols:100 %></p>
     </div>
     <div class="row">
-    	<p><%= f.label :descripcion %></p>
+    	<p><%= f.label :Descripción %></p>
     	<p><%= f.text_area :descripcion, cols:100, rows: 5 %></p>
     </div> 
     <div class="row">
-    	<p><%= f.label :observaciones %></p>
+    	<p><%= f.label :Observaciones %></p>
     	<p><%= f.text_area :observaciones, cols:100, rows: 5 %></p>
     </div>
 
     <div class="row">
     	<p><%= f.label :detalle_para_alcanzar_el_puntaje %></p>
-    	<p><%= f.text_area :puntaje, cols:100, rows: 5 %></p>
+    	<p><%= f.trix_editor :puntaje, cols:100, rows: 5 %></p>
     </div>
 
     <div class="row">
     	<p><%= f.label :evidencias %></p>
-    	<p><%= f.text_area :evidencias, cols:100, rows: 5 %></p>
+    	<p><%= f.trix_editor :evidencias, cols:100, rows: 5 %></p>
     </div>
 
     <div class="row">
