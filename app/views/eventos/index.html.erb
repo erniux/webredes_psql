@@ -20,7 +20,7 @@
             <p><%= evento.lugar %></p>
        
             <% if evento.expositor? %>
-               <p><%= evento.expositor %></p>
+               <p><%= evento.expositor.html_safe %></p>
             <% end %>
      
           </div>

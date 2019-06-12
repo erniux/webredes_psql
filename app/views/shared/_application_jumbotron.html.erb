@@ -4,14 +4,14 @@
      <%= image_tag "redes.jpg",  class: "logo-inicial"  %> 
 </div>
 
-
    <div class="container-inicio">
       <hr>
-      <div class="col-md-8">
-         <p><%= image_tag "manzana.jpg", width: '10%', alt: "profile image" %></p> 
-         <h2><%= @about.tit_titulo_1.html_safe %></h2>
-         
-         <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-4">
+          <%= image_tag "manzana.jpg", width: '30%', class: "manzana-inicial" %>
+          <h2><%= @about.tit_titulo_1.html_safe %></h2>
+         </div>
+         <div class="col-md-8">
             <p><%= @about.desc_titulo_1.html_safe %></p>
             <p><%= link_to 'conoce más', acercades_path, class: "btn btn-default btn-lg" %></p>
          </div>
