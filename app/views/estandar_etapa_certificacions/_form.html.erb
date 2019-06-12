@@ -7,10 +7,10 @@
 
   <div class="field">
      <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-2">
         <%= form.label :"Seleccione Paso:" %>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
         <%= form.collection_select :etapa_certificacion_id, EtapaCertificacion.order(:id), :id, :nombre, include_blank: true   %>
       </div>
       <div class="col-md-3">
