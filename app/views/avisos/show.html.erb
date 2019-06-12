@@ -6,8 +6,6 @@
      <p>
        <%= link_to 'Modificar', edit_aviso_path(@aviso), class: "btn btn-success btn-lg", size: 50 if logged_in?(:site_admin) %>
      <%= link_to 'Regresar a Blog', avisos_path, class: "btn btn-default btn-lg", size: 50 %>
-
-
      </p>
      
      <p>
@@ -24,16 +22,6 @@
       <%= image_tag(@aviso.foto, width: 200) if @aviso.foto.attached? %> 
      </p>
 
-     <p>
-       <strong>Uploads:</strong> <br/>
-       <% if @aviso.uploads.attached? %>
-         <% @aviso.uploads.each do |upload| %>
-           <%= link_to upload.filename, upload, target: '_blank' %> <br/>
-           <%= image_tag(upload, width: 200) if @aviso.foto.attached? %> 
-         <% end %>
-       <% else %>
-         <p>no uploads</p>
-       <% end %>
-     </p>
+      
       
   </div>

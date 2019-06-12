@@ -1,0 +1,22 @@
+<div class="col-md-12 socios-materiales">
+   <p><h4>Accede a nuestros materiales:</h4></p>
+
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>boletín mensual</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>banco de información</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>calendario de capacitación</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>material de difusión</span></p>
+      <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>información estratégica</span></p>
+   <p>
+      <%= link_to socios_path do %>
+         <%= image_tag "circulo_mas.png", width: '8%', class: "logo-mas" %>
+      <% end %>
+   </p>
+      
+   <% if current_user %>
+      <p>¡Ingresa a nuestro sitio!</p>
+      <p><%= link_to "socios", socios_path, class: "btn btn-default btn-lg" %></p> 
+   <% else %>
+      <p>¿Aún no cuentas con tu membresía?</p>
+      <p><%= link_to "afíliate", new_user_registration_path, class: "btn btn-default btn-lg" %></p> 
+   <% end %>
+</div> 
