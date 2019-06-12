@@ -221,8 +221,10 @@
         <li><a href="#">Manual para Certificación</a></li>
         <li><a href="#">Identificación de Riesgos</a></li>
         <li><a href="#">Trabajo en Equipo</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Subir Documentos</a></li>
+        <% if current_user.has_role?(:cert_site_admin) %>
+          <li class="divider"></li>
+          <li><a href="#">Subir Documentos</a></li>
+        <% end %>
       </ul>
     </div>
   </div>
@@ -237,9 +239,11 @@
         <li><a href="#">Plantilla de registro de contacto</a></li>
         <li><a href="#">Carta de asignación </a></li>
         <li><a href="#">Carta compromiso</a></li>
-        <li><a href="#">Carta compromiso</a></li>
-        <li class="divider"></li>
-        <li><a href="#">Subir Documentos</a></li>
+        <li><a href="#">Documento valoración y selección de riesgos </a></li>
+        <% if current_user.has_role?(:cert_site_admin) %>
+          <li class="divider"></li>
+          <li><a href="#">Subir Documentos</a></li>
+          <% end %>
       </ul>
     </div>
   </div>
