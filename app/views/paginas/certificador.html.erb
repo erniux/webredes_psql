@@ -1,4 +1,81 @@
-<h1>este es el sitio de DAshboard de los certificadores</h1>
+ <%= render 'shared/certificate_sidebar' %>
+ <div id="body-cert">
+ <h1>Dashboard Certificador</h1>
 
-<p> verificar si se pueden agregar las escuelas y ver los avances </p>
-<p> al dar click sobre la escuela se vera el avance y los pendientes por revisar  </p>
+<% if current_user.has_role?(:cert_site_admin, :certificador) %>
+<div class="row">
+	<%= form_tag(escuelas_path, :method => "get", class: 'navbar-form navbar-left') do %>
+	  <div class="input-group">  
+	    <%= search_field_tag :search, params[:search], placeholder: "Escuela", class: "form-control" %>  
+	    <div class="input-group-btn">  
+	      <%= button_tag "", class: "btn btn-info glyphicon glyphicon-search", :name => nil%>  
+	    </div>  
+	  </div>  
+	<% end %>
+</div>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Escuela</th>
+      <th>Paso</th>
+      <th>Estandar</th>
+      <th>Avance</th>
+      <th>Puntaje Total</th>
+      <th colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td>Asunción</td>
+        <td>2</td>
+        <td>3</td>
+        <td>85%</td>
+        <td>450 pts</td>
+        <td><a href="#">Detalle</a></td>
+        <td><a href="#">Modificar</a></td>
+      </tr>
+      <tr>
+        <td>Queretano</td>
+        <td>2</td>
+        <td>1</td>
+        <td>75%</td>
+        <td>250 pts</td>
+        <td><a href="#">Detalle</a></td>
+        <td><a href="#">Modificar</a></td>
+      </tr>
+      <tr>
+        <td>Plancarte</td>
+        <td>2</td>
+        <td>6</td>
+        <td>95%</td>
+        <td>750 pts</td>
+        <td><a href="#">Detalle</a></td>
+        <td><a href="#">Modificar</a></td>
+      </tr>
+      <tr>
+        <td>La Paz</td>
+        <td>1</td>
+        <td>2</td>
+        <td>2%</td>
+        <td>20 pts</td>
+        <td><a href="#">Detalle</a></td>
+        <td><a href="#">Modificar</a></td>
+      </tr>
+      <tr>
+        <td>La Salle</td>
+        <td>2</td>
+        <td>3</td>
+        <td>85%</td>
+        <td>450 pts</td>
+        <td><a href="#">Detalle</a></td>
+        <td><a href="#">Modificar</a></td>
+      </tr>
+    
+  </tbody>
+</table>
+
+ </div>
+

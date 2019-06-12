@@ -641,7 +641,7 @@ footer .glyphicon {
 
 
 div#menu-side-bar {
-  position: absolute;
+  position: fixed;
   width: 65px;
   height: 100%;
   background-color: #2f3030;
@@ -650,7 +650,7 @@ div#menu-side-bar {
 }
 
 div#menu-side-bar:hover{
-  width: 170px;
+  width: 250px;
 }
 
 
@@ -688,7 +688,7 @@ p.texto-sidebar {
 /* Cuerpo de CERTIFICACIONES */
 
 div#body-cert {
-  margin-left: 15%;
+  margin-left: 20%;
    margin-right: 5%;
    padding: 10px 10px;
 }
