@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_141301) do
+ActiveRecord::Schema.define(version: 2019_06_17_164921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,16 @@ ActiveRecord::Schema.define(version: 2019_06_11_141301) do
     t.string "slug"
     t.index ["slug"], name: "index_avisos_on_slug", unique: true
     t.index ["user_id"], name: "index_avisos_on_user_id"
+  end
+
+  create_table "cert_escolars", force: :cascade do |t|
+    t.integer "paso"
+    t.integer "estandar"
+    t.text "observaciones"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cert_escolars_on_user_id"
   end
 
   create_table "contactos", force: :cascade do |t|
@@ -249,6 +259,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_141301) do
   add_foreign_key "acercades", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "avisos", "users"
+  add_foreign_key "cert_escolars", "users"
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
   add_foreign_key "eventos", "users"
   add_foreign_key "precios", "users"

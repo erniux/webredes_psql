@@ -1,0 +1,2 @@
+class CertEscolarsController < ApplicationController
+end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :cert_escolars
   resources :acercade_certificates
   resources :preguntas_certs
   resources :estandar_etapa_certificacions

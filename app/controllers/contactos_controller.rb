@@ -8,9 +8,8 @@ def create
 
 	respond_to do |format|
 		if @contacto.save
-
 			ContactoMailer.form_contacto(@contacto).deliver
-			format.html { redirect_to root_path, notice: 'Su mensaje se ha enviado con èxito.' }
+			format.html { redirect_to paginas_contacto_path, notice: 'Su mensaje se ha enviado con éxito.' }
 		else
 			format.html { redirect_to paginas_contacto_path, notice: 'Verifique los campos, todos son obligatorios.' }
 		end
