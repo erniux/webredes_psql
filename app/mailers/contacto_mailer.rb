@@ -6,7 +6,8 @@ class ContactoMailer < ApplicationMailer
   	@comentarios = contacto.comentarios
   	@correo = contacto.correo
   	# =>>> to: a quien va.       de quien viene. 
-     mail(to: "desarrolloswat@gmail.com", subject: contacto.asunto)
+     mail(to: 'desarrolloswat@gmail.com', subject: contacto.asunto)
+      
   end
 
 
