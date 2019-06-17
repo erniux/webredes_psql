@@ -108,7 +108,7 @@ Rails.application.configure do
      domain: "gmail.com",
      authentication: "plain",
      enable_starttls_auto: true,
-     user_name: "info@escuelasseguras.red",
-     password: "vovfeb-vahfog-safFi3"
+     user_name: "desarrolloswat@gmail.com",
+     password: "fevza0-gybdef-cAjniq"
    }
 end
