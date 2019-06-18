@@ -12,5 +12,6 @@ class User < ApplicationRecord
   
     has_many :eventos
     has_many :avisos
+    has_many :cert_escolars
 
 end
