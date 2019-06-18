@@ -51,8 +51,6 @@ class AcercadeCertificateDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :foto_attachment,
-    :foto_blob,
     :id,
     :tit_titulo_1,
     :tit_titulo_2,
@@ -83,8 +81,6 @@ class AcercadeCertificateDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :foto_attachment,
-    :foto_blob,
     :tit_titulo_1,
     :tit_titulo_2,
     :tit_titulo_3,

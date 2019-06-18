@@ -14,6 +14,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     id: Field::Number,
     email: Field::String,
     encrypted_password: Field::String,
+    password: Field::String,
     nombre: Field::String,
     appaterno: Field::String,
     rfc: Field::String,
@@ -49,21 +50,25 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :id,
+    :nombre,
     :eventos,
     :avisos,
     :cert_escolars,
-    :id,
+    :type,
+    :roles,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :eventos,
-    :avisos,
-    :cert_escolars,
+    #:eventos,
+    #:avisos,
+    #:cert_escolars,
     :id,
     :email,
     :encrypted_password,
+    :password,
     :nombre,
     :appaterno,
     :rfc,
@@ -97,11 +102,12 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :eventos,
-    :avisos,
-    :cert_escolars,
+    #:eventos,
+    #:avisos,
+    #:cert_escolars,
     :email,
     :encrypted_password,
+    :password,
     :nombre,
     :appaterno,
     :rfc,
