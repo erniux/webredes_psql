@@ -1,41 +1,36 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+      resources :users
+      resources :acercades
+      resources :acercade_certificates
+      resources :avisos
+      resources :cert_escolars
+      resources :contactos
+      resources :estandar_etapa_certificacions
+      resources :etapa_certificacions
+      resources :eventos
+      resources :precios
+      resources :preguntas_certs
+      resources :reconocimiento_redes
+      resources :recursos
+      resources :admin_users
+  
+      root to: "users#index"
+    end
   resources :cert_escolars
   resources :acercade_certificates
   resources :preguntas_certs
   resources :estandar_etapa_certificacions
   resources :etapa_certificacions
   resources :reconocimiento_redes
-  namespace :admin do
-      resources :users
-      resources :acercades
-      resources :avisos
-      resources :eventos
-      resources :precios
-      resources :recursos
-      resources :servicios
-      resources :admin_users
-
-      root to: "users#index"
-    end
-  namespace :admin do
-      resources :users
-      resources :acercades
-      resources :avisos
-      resources :eventos
-      resources :precios
-      resources :recursos
-      resources :servicios
-
-      root to: "users#index"
-    end
+   
     
   devise_for :users, path: '',path_names: {sign_in: 'ingresar', sign_out: 'salir', sign_up: 'registro'}
 
   resources :avisos 
   resources :eventos
   resources :recursos
-  resources :servicios
   resources :precios
   resources :acercades
 
@@ -46,7 +41,6 @@ Rails.application.routes.draw do
   
 
   get 'acerca_de', to: 'paginas#acerca_de'
-  get 'servicios', to: 'paginas#servicios'
   get 'socios', to: 'paginas#socios'
   get 'precios', to: 'paginas#precios'
   get 'contacto', to: 'paginas#contacto'
