@@ -32,7 +32,7 @@ class PaginasController < ApplicationController
   end
 
   def escuelas
-    @sidebar = EtapaCertificacion.all.order(:id)
+     
   end
 
   def certificador

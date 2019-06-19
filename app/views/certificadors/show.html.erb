@@ -1,0 +1,46 @@
+<%= render 'shared/certificate_sidebar' %>
+<div id="body-cert">
+	<p>
+	  <h3><%= @certificador.nombre %></h3>
+	</p>
+	<p>
+		<strong>Teléfono:&nbsp;<em><%= @certificador.telefono %></em></strong>
+		<strong>Correo:&nbsp; <em><%= @certificador.correo %></em></strong>
+	</p>
+	<br>
+	<h3> Escuelas Asignadas</h3>
+
+	<table class="table">
+		<thead>
+    		<tr>
+    			
+      			<th>Nombre</th>
+      			<th>Paso</th>
+      			<th>Estandar</th>
+      			<th>Avance Paso</th>
+      			<th>Avance Total</th>
+      			<th>Puntos Acumulados</th>
+
+      			<th colspan="3">Acciones</th>
+    		</tr>
+  		</thead>
+		
+		<tbody>
+		<% @certificador.escuelas.each do |escuela| %>
+			<tr>
+				<td><%= escuela.nombre %></td>
+				<td>1</td>
+				<td>4</td> 
+				<td>85%</td>
+				<td>20%</td>
+				<td>350</td>
+				<td><%= link_to 'Detalle', cert_escolars_path %></td>
+        <td><%= link_to 'Modificar', edit_escuela_path(escuela) %></td>         
+				</tr>
+		<% end %>
+		</tbody>
+	</table>
+	
+	<p class="btn btn-info btn-lg"><%= link_to 'Modificar', edit_certificador_path(@certificador)  %></p> 
+	<p class="btn btn-warning btn-lg"><%= link_to 'Regresar', certificadors_path %></p>
+</div>

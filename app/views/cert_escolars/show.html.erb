@@ -1,0 +1,32 @@
+<div class="container-fluid-crud">
+
+  <p><%= link_to 'Modificar', edit_cert_escolar_path(@cert_escolar), class: "btn btn-success btn-lg", size: 50 %>
+  <%= link_to 'Dashboard', cert_escolars_path, class: "btn btn-default btn-lg", size: 50 %></p>
+  
+  <div class="row">
+    <% @estandar = EstandarEtapaCertificacion.find_by(etapa_certificacion_id: @cert_escolar.paso, estandar_id: @cert_escolar.estandar) %>
+     <h4><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo %></h4>
+     <div class="col-md-4">
+      <strong>Observaciones:&nbsp;</strong> <em><%= @cert_escolar.observaciones %></em>
+     </div>
+     <div class="col-md-4">
+      <strong>Avance:&nbsp;</strong><%= @cert_escolar.puntaje.to_s + " de " + @estandar.puntaje_total.to_s %>
+    </div>
+    <div class="col-md-4">
+      <strong>Estatus:&nbsp;</strong><%= @cert_escolar.status %>
+  </div>
+  
+  <p>
+  <strong>Evidencias:</strong> <br/>
+  <% if @cert_escolar.evidencias.attached? %>
+    <% @cert_escolar.evidencias.each do |upload| %>
+      <%= link_to upload.filename, upload, target: '_blank' %> <br/>
+    <% end %>
+  <% else %>
+    <p>sin evidencias</p>
+  <% end %>
+</p>
+
+  
+  </div>
+</div>

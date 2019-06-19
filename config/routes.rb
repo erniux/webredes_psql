@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :escuelas
+  resources :certificadors
   namespace :admin do
       resources :users
       resources :acercades
@@ -45,8 +47,9 @@ Rails.application.routes.draw do
   get 'precios', to: 'paginas#precios'
   get 'contacto', to: 'paginas#contacto'
   get 'reconocimientos', to: 'paginas#reconocimientos'
+  get 'certificador_dashboard', to: 'paginas#certificador'
   get 'escuelas', to: 'paginas#escuelas'
-  get 'certificador', to: 'paginas#certificador'
+  
 
 root  'paginas#inicio'
   
