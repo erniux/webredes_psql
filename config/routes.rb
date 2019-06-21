@@ -2,6 +2,18 @@ Rails.application.routes.draw do
 
   resources :escuelas
   resources :certificadors
+  resources :cert_escolars
+  resources :acercade_certificates
+  resources :preguntas_certs
+  resources :estandar_etapa_certificacions
+  resources :etapa_certificacions
+  resources :reconocimiento_redes
+  resources :avisos 
+  resources :eventos
+  resources :recursos
+  resources :precios
+  resources :acercades
+  
   namespace :admin do
       resources :users
       resources :acercades
@@ -20,21 +32,11 @@ Rails.application.routes.draw do
   
       root to: "users#index"
     end
-  resources :cert_escolars
-  resources :acercade_certificates
-  resources :preguntas_certs
-  resources :estandar_etapa_certificacions
-  resources :etapa_certificacions
-  resources :reconocimiento_redes
+  
    
     
   devise_for :users, path: '',path_names: {sign_in: 'ingresar', sign_out: 'salir', sign_up: 'registro'}
 
-  resources :avisos 
-  resources :eventos
-  resources :recursos
-  resources :precios
-  resources :acercades
 
   resources :contactos, only: [:create, :new]
   post "contactos/new"

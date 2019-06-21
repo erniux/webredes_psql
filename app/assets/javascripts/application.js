@@ -14,6 +14,7 @@
 //= require trix
 //= require activestorage
 //= require gritter
+//= require cocoon
 //= require turbolinks
 //= require moment
 //= require bootstrap-datetimepicker

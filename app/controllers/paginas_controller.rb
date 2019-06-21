@@ -36,8 +36,7 @@ class PaginasController < ApplicationController
   end
 
   def certificador
-    @sidebar = EtapaCertificacion.all.order(:id)
-
+    @escuelas = Escuela.where(user_id: current_user.id)
   end
 
   

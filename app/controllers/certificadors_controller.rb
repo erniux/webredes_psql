@@ -4,20 +4,20 @@ class CertificadorsController < ApplicationController
 
 	def index
 		@certificadores = Certificador.all
-		@sidebar = EtapaCertificacion.all.order(:id)
+		
 	end
 
 	def show
-		@sidebar = EtapaCertificacion.all.order(:id)
+		
   	end
 
   	def new
   	  @certificador = Certificador.new
-  	  @sidebar = EtapaCertificacion.all.order(:id)
+  	  
   	end
 
   	def edit
-  		@sidebar = EtapaCertificacion.all.order(:id)
+  	
   	end
 
   def create
@@ -57,8 +57,8 @@ class CertificadorsController < ApplicationController
 
 
 	def certificador_params
-		params.require(:certificador).permit( :nombre, :correo, :telefono,
-                                  escuelas_attributes: [:id, :nombre, :user_id, :certificador_id,  :_destroy ])
+		params.require(:certificador).permit(:id, :user_id,
+                                  escuelas_attributes: [:id, :user_id, :certificador_id, :_destroy ])
 	end
 
 end

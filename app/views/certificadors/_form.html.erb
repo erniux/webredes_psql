@@ -8,38 +8,38 @@
 <div class="container-fluid-crud form-group">
   <div class="row">
     <div class="col-md-2">
-      <%= form.label :Nombre %>
+      Certificador
     </div>
     <div class="col-md-10">
-      <%= form.text_field :nombre, size: 80 %>
+       <%= collection_select(:nombre, :id, User.where(roles: "certificador"), :id, :nombre ) %>
     </div>
   </div><br>
 
-  <div class="row">
-    <div class="col-md-2">
-      <%= form.label :Teléfono %>
-    </div>
-    <div class="col-md-10">
-      <%= form.text_field :telefono, size: 10 %>
-    </div>
-  </div><br>
+
+
+  <h2>Escuelas Asignadas</h2>
 
   <div class="row">
-    <div class="col-md-2">
-      <%= form.label :correo %>
+    <div class="col-md-6">
+      Razon Social
     </div>
-    <div class="col-md-10">
-      <%= form.text_field :correo, size: 50 %>
+    <div class="col-md-3">
+      Certificador
+    </div>
+    <div class="col-md-3">
+      Acciones
     </div>
   </div>
-
-    <h2>Escuelas Asignadas</h2>
     
     <div>
       <%= form.fields_for :escuelas do |escuela| %>
-      <%= render 'escuelas_fields', f: escuela %>
+      <%= render 'escuela_fields', f: escuela %>
       <% end %>
-    </div>
+    </div><br>
+    <p>
+    <div>
+    <%= link_to_add_association 'Agregar Escuela', form, :escuelas, class: "btn btn-success btn-lg" %>
+  </div></p>
      
   <div class="actions">
     <%= form.submit "Guardar Registro", class: "btn btn-primary btn-lg" %>

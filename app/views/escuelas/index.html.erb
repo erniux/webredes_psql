@@ -1,0 +1,44 @@
+<div id="body-cert">
+	<h1>Catálogo de Escuelas</h1>
+ <p><%= link_to 'Agregar Escuela', new_escuela_path, class: "btn btn-default btn-lg" %></p> 
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Razón Social</th>
+      <th>Contacto</th>
+      <th>Teléfono</th>
+      <th>Correo</th>
+      <th>Certificador</th>
+
+       
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @escuelas.each do |escuela| %>
+      <tr>
+        <td><%= escuela.id %></td>
+        <td><%= escuela.user.razon_social %></td>
+        <td><%= escuela.user.nombre_completo %></td>
+        <td><%= escuela.user.telefono_enlace %></td>
+        <td><%= escuela.user.correo_enlace %></td>
+        <% nombre_certificador = User.find(escuela.certificador.user_id) %>
+        <td><%= nombre_certificador.nombre_certificador %></td>
+
+        
+        <td><%= link_to 'Dashboard', cert_escolar_path(escuela.user_id) %></td>
+        <td><%= link_to 'Modificar', edit_escuela_path(escuela) %></td>
+         
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+</div>
+</div>
+
+
+ 

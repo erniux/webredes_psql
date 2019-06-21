@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_19_172922) do
+ActiveRecord::Schema.define(version: 2019_06_20_155140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -120,15 +120,16 @@ ActiveRecord::Schema.define(version: 2019_06_19_172922) do
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
     t.float "puntaje"
+    t.bigint "certificador_id"
+    t.index ["certificador_id"], name: "index_cert_escolars_on_certificador_id"
     t.index ["user_id"], name: "index_cert_escolars_on_user_id"
   end
 
   create_table "certificadors", force: :cascade do |t|
-    t.string "nombre"
-    t.string "correo"
-    t.string "telefono"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_certificadors_on_user_id"
   end
 
   create_table "contactos", force: :cascade do |t|
@@ -141,7 +142,6 @@ ActiveRecord::Schema.define(version: 2019_06_19_172922) do
   end
 
   create_table "escuelas", force: :cascade do |t|
-    t.string "nombre"
     t.bigint "user_id"
     t.bigint "certificador_id"
     t.datetime "created_at", null: false
@@ -271,6 +271,7 @@ ActiveRecord::Schema.define(version: 2019_06_19_172922) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "avisos", "users"
   add_foreign_key "cert_escolars", "users"
+  add_foreign_key "certificadors", "users"
   add_foreign_key "escuelas", "certificadors"
   add_foreign_key "escuelas", "users"
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"

@@ -6,25 +6,20 @@ class EtapaCertificacionsController < ApplicationController
   
   def index
     @etapa_certificacions = EtapaCertificacion.all.order(:id)
-    @sidebar = EtapaCertificacion.all.order(:id)
-
   end
 
   
   def show
-    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
   
   def new
-    @sidebar = EtapaCertificacion.all.order(:id)
     @etapa_certificacion = EtapaCertificacion.new
   end
 
   
   def edit
     @etapa_certificacions = EtapaCertificacion.all.order(:id)
-    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
   

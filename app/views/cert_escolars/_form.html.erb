@@ -6,33 +6,36 @@
   <% end %>
 
 
-  <% if logged_in?(:certificador)  %>
-  <div class="field">
-    <%= form.label :paso %>
-    <%= form.text_field :paso, size: 10 %>
-  </div>
-  <div class="field">
-    <%= form.label :estandar %>
-    <%= form.text_field :estandar, size: 10 %>
+  <% if logged_in?(:certificador, :cert_site_admin)  %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= form.label :'Escuela' %>
+    </div>
+
+    <div class="col-md-4">
+      <%= collection_select(:cert_escolar, :user_id, CertEscolar.nombre_escuela, :id, :razon_social, prompt: true) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :puntaje %>
-    <%= form.text_field :puntaje, size: 10 %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= form.label :paso %>
+    </div>
+    <div class="col-md-4">
+      <%= form.text_field :paso, size: 10 %>
+    </div>
+    <div class="field">
+      <%= form.label :estandar %>
+      <%= form.text_field :estandar, size: 10 %>
+    </div>
   </div>
+   
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status, size: 10 %>
-  </div>
   <% else %>
     <% @estandar = EstandarEtapaCertificacion.find_by(etapa_certificacion_id: cert_escolar.paso, estandar_id: cert_escolar.estandar) %>
      <h4><%= cert_escolar.paso.to_s + "." + cert_escolar.estandar.to_s + " " + @estandar.titulo %></h4>
      <h3>Status: &nbsp;<%= cert_escolar.status %></h3>
-  <% end %>
-
   
-
   <div class="row">
     <div class="col-md-2">
       <%= form.label :observaciones %>
@@ -41,6 +44,7 @@
       <%= form.text_area :observaciones, cols: 85, rows: 10 %>
     </div>
   </div><hr>
+
   
   <div class="row">
     <div class="btn btn-default btn-lg">
@@ -48,6 +52,7 @@
       <%= form.file_field :evidencias, multiple: true %>
     </div>
   </div> <hr>
+  <% end %><hr>
 
   <div class="actions">
     <%= form.submit "Guardar", class: "btn btn-primary btn-lg", size: 50 %>
