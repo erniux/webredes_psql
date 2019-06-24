@@ -16,7 +16,10 @@
 
   <div class="container etapa-certificacion">
     <div class="col-md-12">
-      <h3><%= @results.first.user.razon_social %></h3>
+      <% if @results.empty? %>
+        <h1 id="no-results">No Existen Certificaciones Creadas</h1>
+      <% else %>
+        <h3><%= @results.first.user.razon_social %></h3>
     </div>
     <% @results.each do |estandar| %>
     <p></p>
@@ -75,6 +78,7 @@
 <% end %>
  
  </div>
+ <% end %>
 
  <div class="container-fluid-crud">
 <div class="row">

@@ -15,7 +15,9 @@
        
     </tr>
   </thead>
-
+<% if @escuelas.empty? %>
+  <h1 id="no-escuelas">No existen escuelas</h1>
+ <% else %>
   <tbody>
     <% @escuelas.each do |escuela| %>
       <tr>
@@ -34,6 +36,7 @@
       </tr>
     <% end %>
   </tbody>
+  <% end %>
 </table>
 
 <br>
