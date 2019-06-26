@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_20_155140) do
+ActiveRecord::Schema.define(version: 2019_06_18_154612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,17 +119,7 @@ ActiveRecord::Schema.define(version: 2019_06_20_155140) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
-    t.float "puntaje"
-    t.bigint "certificador_id"
-    t.index ["certificador_id"], name: "index_cert_escolars_on_certificador_id"
     t.index ["user_id"], name: "index_cert_escolars_on_user_id"
-  end
-
-  create_table "certificadors", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_certificadors_on_user_id"
   end
 
   create_table "contactos", force: :cascade do |t|
@@ -139,15 +129,6 @@ ActiveRecord::Schema.define(version: 2019_06_20_155140) do
     t.text "comentarios"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "escuelas", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "certificador_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["certificador_id"], name: "index_escuelas_on_certificador_id"
-    t.index ["user_id"], name: "index_escuelas_on_user_id"
   end
 
   create_table "estandar_etapa_certificacions", force: :cascade do |t|
@@ -233,6 +214,15 @@ ActiveRecord::Schema.define(version: 2019_06_20_155140) do
     t.index ["user_id"], name: "index_recursos_on_user_id"
   end
 
+  create_table "servicios", force: :cascade do |t|
+    t.string "nombre"
+    t.text "caracteristicas"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_servicios_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -271,11 +261,9 @@ ActiveRecord::Schema.define(version: 2019_06_20_155140) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "avisos", "users"
   add_foreign_key "cert_escolars", "users"
-  add_foreign_key "certificadors", "users"
-  add_foreign_key "escuelas", "certificadors"
-  add_foreign_key "escuelas", "users"
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
   add_foreign_key "eventos", "users"
   add_foreign_key "precios", "users"
   add_foreign_key "recursos", "users"
+  add_foreign_key "servicios", "users"
 end

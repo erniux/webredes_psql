@@ -6,9 +6,11 @@ class PreguntasCertsController < ApplicationController
   def index
     @preguntas_certs_contestadas = PreguntasCert.preguntas_contestadas 
     @preguntas_certs = PreguntasCert.all
+    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
   def show
+    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
   def new
@@ -16,6 +18,7 @@ class PreguntasCertsController < ApplicationController
   end
 
   def edit
+    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
   def create

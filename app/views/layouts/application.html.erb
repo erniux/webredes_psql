@@ -18,9 +18,9 @@
 
   <body>
     <%= render 'shared/application_nav' %>
-    <% @sidebar = EtapaCertificacion.all.order(:id) %>
-     
-   
+
+    
+
     <div class="container"> 
     <div class="row">
       <div class="col-md-12">
@@ -29,11 +29,6 @@
             <%= message %> 
           </div>
         <% end %>
-        
-        <% if logged_in?(:cert_site_admin, :escuela, :certificador) %>
-          <%= render 'shared/certificate_sidebar' %>
-        <% end %>
-
         <%= yield %> 
       </div>
     </div> 

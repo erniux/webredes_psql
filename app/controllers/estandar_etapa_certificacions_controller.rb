@@ -9,18 +9,22 @@ def index
         @parameter = params[:search]
         @results = EstandarEtapaCertificacion.all.where("etapa_certificacion_id = :search", search: @parameter).order("id ASC")
        end 
+       @sidebar = EtapaCertificacion.all.order(:id)
   end
 
   def show
+    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
 
   def new
     @estandar_etapa_certificacion = EstandarEtapaCertificacion.new
+    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
 
   def edit
+    @sidebar = EtapaCertificacion.all.order(:id)
   end
 
 

@@ -1,3 +1,4 @@
+ <%= render 'shared/certificate_sidebar' %>
  <div id="body-cert">
  <h1>Dashboard Certificador</h1>
 
@@ -5,7 +6,7 @@
 <div class="row">
 	<%= form_tag(escuelas_path, :method => "get", class: 'navbar-form navbar-left') do %>
 	  <div class="input-group">  
-	    <%= search_field_tag :search, params[:search], placeholder: "Buscar Escuela ...", class: "form-control" %>  
+	    <%= search_field_tag :search, params[:search], placeholder: "Escuela", class: "form-control" %>  
 	    <div class="input-group-btn">  
 	      <%= button_tag "", class: "btn btn-info glyphicon glyphicon-search", :name => nil%>  
 	    </div>  
@@ -28,10 +29,50 @@
 
   <tbody>
       <tr>
-        <%= @escuelas.inspect %>
-         
+        <td>Asunción</td>
+        <td>2</td>
+        <td>3</td>
+        <td>85%</td>
+        <td>450 pts</td>
+        <td><a href="#">Detalle</a></td>
+        <td><a href="#">Modificar</a></td>
       </tr>
-       
+      <tr>
+        <td>Queretano</td>
+        <td>2</td>
+        <td>1</td>
+        <td>75%</td>
+        <td>250 pts</td>
+        <td><a href="#">Detalle</a></td>
+        <td><a href="#">Modificar</a></td>
+      </tr>
+      <tr>
+        <td>Plancarte</td>
+        <td>2</td>
+        <td>6</td>
+        <td>95%</td>
+        <td>750 pts</td>
+        <td><a href="#">Detalle</a></td>
+        <td><a href="#">Modificar</a></td>
+      </tr>
+      <tr>
+        <td>La Paz</td>
+        <td>1</td>
+        <td>2</td>
+        <td>2%</td>
+        <td>20 pts</td>
+        <td><a href="#">Detalle</a></td>
+        <td><a href="#">Modificar</a></td>
+      </tr>
+      <tr>
+        <td>La Salle</td>
+        <td>2</td>
+        <td>3</td>
+        <td>85%</td>
+        <td>450 pts</td>
+        <td><a href="#">Detalle</a></td>
+        <td><a href="#">Modificar</a></td>
+      </tr>
     
   </tbody>
 </table>

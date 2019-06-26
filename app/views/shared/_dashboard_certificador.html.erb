@@ -1,0 +1,37 @@
+<div class="container etapa-certificacion">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Razón Social</th>
+          <th>Certificador </th>
+          <th> Puntos Acumulados</th>
+          <th> Avance Paso </th>
+          <th> Avance Total </th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @calificacion_por_paso = EstandarEtapaCertificacion.group(:etapa_certificacion_id).sum(:puntaje_total) %>
+      <%= @calificacion_por_paso.inspect %>
+      <% @calificacion_total = EstandarEtapaCertificacion.all.sum(:puntaje_total) %>
+      <%= @calificacion_total.inspect %>
+          <% @resultados.each do |escuela| %>
+            <tr>
+              <td><%= escuela.id %></td> 
+              <td><%= escuela.user.razon_social %></td>
+              <% nombre_certificador = User.find(escuela.certificador_id) %>
+              <td><%= nombre_certificador.nombre_certificador %></td>
+              <% @avance_certificacion = CertEscolar.where(user_id: escuela.user_id, status: 'aceptada').sum(:puntaje) %>
+              <td><%= @avance_certificacion %></td>
+              <% @avance_paso = CertEscolar.where(user_id: escuela.user_id, status: ['aceptada','activa']).last %>
+              <td><%= @avance_paso.paso.to_s + "." + @avance_paso.estandar.to_s %></td>
+              <td><%= number_to_percentage((@avance_certificacion.to_f / @calificacion_total.to_f)*100) %></td>
+              <td><%= link_to 'Dashboard', cert_escolar_path(escuela.user_id) %></td>
+              <td><%= link_to 'Modificar', edit_escuela_path(escuela) %></td>
+            </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -21,9 +21,9 @@ class ApplicationController < ActionController::Base
     elsif current_user.has_role?(:socio)
       recursos_path
     elsif current_user.has_role?(:escuela)
-       cert_escolars_path
+       escuelas_path
     elsif current_user.has_role?(:certificador)
-       certificador_dashboard_path
+       certificador_path
      else
       root_path
     end
