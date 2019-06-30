@@ -14,6 +14,9 @@
   </thead>
 
   <tbody>
+    <% if @certificadores.empty? %>
+  <h1 id="no-certificadores">No Existend Certificadores</h1>
+ <% else %>
     <% @certificadores.each do |certificador| %>
       <tr>
         <td><%= certificador.id %></td>
@@ -26,6 +29,7 @@
       </tr>
     <% end %>
   </tbody>
+  <% end %>
 </table>
 
 <br>

@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: webredes_psql_development
+  database: dcq1gsrggmavli
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

@@ -15,11 +15,19 @@
     </div>
 
     <div>
-      <p class="texto-sidebar"><%= link_to 'Dashboard Escuela', escuelas_path if logged_in?(:escuela, :cert_site_admin) %></p>
+      <p class="texto-sidebar"><%= link_to 'Dashboard Escuela', cert_escolars_path if logged_in?(:escuela, :cert_site_admin) %></p>
     </div>
 
     <div>
-      <p class="texto-sidebar"><%= link_to 'Dashboard Certificador', certificador_path if logged_in?(:certificador, :cert_site_admin) %></p>
+      <p class="texto-sidebar"><%= link_to 'Dashboard Certificador', certificador_dashboard_path if logged_in?(:certificador, :cert_site_admin) %></p>
+    </div>
+
+    <div>
+      <p class="texto-sidebar"><%= link_to 'Catálogo Escuelas', escuelas_path if logged_in?( :cert_site_admin) %></p>
+    </div>
+
+    <div>
+      <p class="texto-sidebar"><%= link_to 'Catálogo Certificadores', certificadors_path if logged_in?( :cert_site_admin) %></p>
     </div>
 
   </div>

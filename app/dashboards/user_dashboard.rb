@@ -54,7 +54,7 @@ class UserDashboard < Administrate::BaseDashboard
     :eventos,
     :avisos,
     :cert_escolars,
-    :type,
+    :roles,
     
   ].freeze
 

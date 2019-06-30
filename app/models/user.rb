@@ -13,5 +13,31 @@ class User < ApplicationRecord
     has_many :eventos
     has_many :avisos
     has_many :cert_escolars
+    has_many :escuelas
+    has_many :certificadors
+
+    validates_presence_of :nombre, :ap_paterno, :email, :rfc, :razon_social, :domicilio_fiscal, :nombre_enlace, 
+                          :appaterno_enlace, :apmaterno_enlace, :cargo_enlace, :correo_enlace, :telefono_enlace  
+
+
+    def nombre_completo
+      "#{nombre_enlace} #{appaterno_enlace} #{apmaterno_enlace} "
+    end 
+
+    def nombre_certificador
+      "#{nombre} #{appaterno} "
+    end  
+
+    def self.nuevas_escuelas
+      find_by_sql("SELECT t1.razon_social, t1.id, t1.roles FROM users t1 WHERE t1.roles = 'escuela' AND NOT EXISTS (SELECT NULL FROM escuelas t2 WHERE t2.user_id = t1.id)")
+    end                          
+
+    def self.certificadores
+      find_by_sql("SELECT t1.nombre, t1.appaterno, t1.id, t1.roles FROM users t1 WHERE t1.roles = 'certificador'")
+    end               
+
+              
 
 end
+
+
