@@ -59,9 +59,10 @@ class CertEscolarsController < ApplicationController
 
 	private
     
-    def set_cert_escolar
-      @cert_escolar = CertEscolar.find(params[:id])
+    def set_cert_escolar   
+      @cert_escolar = CertEscolar.find_by(user_id: params[:id])
     end
+    
 
 
 	def cert_escolar_params

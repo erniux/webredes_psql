@@ -1,8 +1,5 @@
 class PaginasController < ApplicationController
-  access [:escuela, :certificador, :cert_site_admin] => [:escuelas, :inicio, :reconocimientos, :socios, :acerca_de, :certificador], 
-           all: [:inicio, :reconocimientos, :socios, :acerca_de, :contacto]
-
-   
+  
   def inicio
     @eventos = Evento.last
     @avisos = Aviso.last
@@ -36,7 +33,7 @@ class PaginasController < ApplicationController
   end
 
   def certificador
-    @escuelas = Escuela.where(user_id: current_user.id)
+     
   end
 
   
