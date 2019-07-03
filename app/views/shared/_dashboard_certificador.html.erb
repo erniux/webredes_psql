@@ -13,10 +13,8 @@
     </thead>
     <tbody>
       <% @calificacion_por_paso = EstandarEtapaCertificacion.group(:etapa_certificacion_id).sum(:puntaje_total) %>
-      <%= @calificacion_por_paso.inspect %>
       <% @calificacion_total = EstandarEtapaCertificacion.all.sum(:puntaje_total) %>
-      <%= @calificacion_total.inspect %>
-          <% @resultados.each do |escuela| %>
+          <% @escuelas.each do |escuela| %>
             <tr>
               <td><%= escuela.id %></td> 
               <td><%= escuela.user.razon_social %></td>
@@ -26,9 +24,8 @@
               <td><%= @avance_certificacion %></td>
               <% @avance_paso = CertEscolar.where(user_id: escuela.user_id, status: ['aceptada','activa']).last %>
               <td><%= @avance_paso.paso.to_s + "." + @avance_paso.estandar.to_s %></td>
-              <td><%= number_to_percentage((@avance_certificacion.to_f / @calificacion_total.to_f)*100) %></td>
-              <td><%= link_to 'Dashboard', cert_escolar_path(escuela.user_id) %></td>
-              <td><%= link_to 'Modificar', edit_escuela_path(escuela) %></td>
+              <td><%= number_to_percentage((@avance_certificacion.to_f / @calificacion_total.to_f)*100, precision: 2) %></td>
+              <td><%= link_to 'Dashboard', cert_escolars_path %></td>
             </tr>
           <% end %>
       </tbody>

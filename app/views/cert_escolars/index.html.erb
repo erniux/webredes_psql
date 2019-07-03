@@ -2,7 +2,7 @@
   <h3> Seguimiento Certificación</h3>
   <br> 
   <div class="input-group">  
-  <% if logged_in?(:cert_site_admin) %>
+  <% if logged_in?(:cert_site_admin, :certificador) %>
     <%= link_to 'Agregar Estandar', new_cert_escolar_path, class: "btn btn-default btn-lg"  %>
 
     <%= form_tag(cert_escolars_path, :method => "get", class: 'navbar-form navbar-left') do %>

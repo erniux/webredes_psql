@@ -1,6 +1,6 @@
 class EscuelasController < ApplicationController
 before_action :set_escuela, only: [:show, :edit, :update, :destroy]
-	access  cert_site_admin: :all 
+	access  certificador: :all, cert_site_admin: :all 
 
 	def index
 		@escuelas = Escuela.all		

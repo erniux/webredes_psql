@@ -1,8 +1,8 @@
 class CertEscolarsController < ApplicationController
   before_action :set_cert_escolar, only: [:show, :edit, :update, :destroy]
-	access escuela: [:show, :index, :update, :edit] , cert_site_admin: :all, certificador: :all
+  access escuela: [:show, :index, :update, :edit] , cert_site_admin: :all, certificador: :all
 
-	def index
+  def index
     if current_user.has_role?(:cert_site_admin, :certificador) 
       if params[:search].blank?  
           @results = CertEscolar.all.order(:user_id, :paso, :estandar)
@@ -10,22 +10,23 @@ class CertEscolarsController < ApplicationController
           @parameter = params[:search].downcase  
           @results = CertEscolar.all.where("user_id = :search", search: @parameter) 
       end 
-		else
-		 @results = CertEscolar.where(user_id: current_user.id).all.order(:paso, :estandar)
-		end
-	end
+    else
+     @results = CertEscolar.where(user_id: current_user.id).all.order(:paso, :estandar)
+    end
+  end
 
-	def show
-     
-  	end
+  def show
+  end
 
-  	def new
-  	  @cert_escolar = CertEscolar.new
-  	
-  	end
+  def show_escuela #este es el show 
+    @cert_escolar = CertEscolar.find(params[:id])
+  end
+
+  def new
+    @cert_escolar = CertEscolar.new  
+  end
 
   def edit
-  	 
   end
 
   def create
@@ -57,16 +58,14 @@ class CertEscolarsController < ApplicationController
     end
   end
 
-	private
+  private
     
-    def set_cert_escolar   
-      @cert_escolar = CertEscolar.find_by(user_id: params[:id])
+    def set_cert_escolar
+        @cert_escolar = CertEscolar.find(params[:id])
     end
-    
 
-
-	def cert_escolar_params
-		params.require(:cert_escolar).permit( :id, :user_id, :certificador_id, :paso, :estandar, :observaciones, :status, :puntaje, evidencias: [])
-	end
+  def cert_escolar_params
+    params.require(:cert_escolar).permit( :id, :user_id, :certificador_id, :paso, :estandar, :observaciones, :status, :puntaje, evidencias: [])
+  end
 
 end

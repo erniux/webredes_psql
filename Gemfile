@@ -41,7 +41,6 @@ gem 'gritter', '~> 1.2.0'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 	
-gem 'administrate', '~> 0.11.0' 
 gem 'bourbon', '~> 5.1'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'mini_magick', '~> 4.9', '>= 4.9.3'
@@ -52,5 +51,6 @@ gem 'trix-rails', require: 'trix'
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
 gem "google-cloud-storage", "~> 1.8", require: false
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+gem 'rails_admin', '~> 1.4', '>= 1.4.2'
 
 

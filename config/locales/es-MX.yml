@@ -1,5 +1,37 @@
 ---
 es-MX:
+  admin:
+    table_headers:
+      model_name: "Modelo"
+      last_created: "Ultima actualización"
+      records: "Registros"
+    misc:
+      ago: "hace"
+      navigation: "Navegación"
+      navigation_static_label: "etiqueta estática"
+      bulk_menu_title: "Menú"
+      add_filter: "agregar búsqueda"
+      filter: "busqueda"
+      refresh: "Actualizar"
+
+    loading: "Cargando"
+    toggle_navigation: "Barra Navegación"
+    home:
+      name: "Inicio"
+    actions:
+      dashboard:
+        title: "dashboard Administrador"
+        breadcrumb: "Detalle"
+        menu: "menú"  
+        index:
+          menu: "menú"
+        new:
+          menu: "Nuevo Menú"
+        export:
+          menu: "exportar Menú"
+
+
+
 
   errors:
     messages:

@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+  
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
   resources :escuelas
   resources :certificadors
   resources :cert_escolars
+  get 'escuela_dashboard', to: 'cert_escolars#show_escuela'
   resources :acercade_certificates
   resources :preguntas_certs
   resources :estandar_etapa_certificacions
@@ -13,27 +17,6 @@ Rails.application.routes.draw do
   resources :recursos
   resources :precios
   resources :acercades
-  
-  namespace :admin do
-      resources :users
-      resources :acercades
-      resources :acercade_certificates
-      resources :avisos
-      resources :cert_escolars
-      resources :contactos
-      resources :estandar_etapa_certificacions
-      resources :etapa_certificacions
-      resources :eventos
-      resources :precios
-      resources :preguntas_certs
-      resources :reconocimiento_redes
-      resources :recursos
-      resources :admin_users
-  
-      root to: "users#index"
-    end
-  
-   
     
   devise_for :users, path: '',path_names: {sign_in: 'ingresar', sign_out: 'salir', sign_up: 'registro'}
 
