@@ -15,8 +15,8 @@
 
   	  <div class="field-group">
   	    <%= form.label :certificador_id %>
-  	    <%= collection_select(:escuela, :certificador_id, User.certificadores, :id, :nombre_certificador, prompt: true) %>
-  	  </div>
+  	    <%= collection_select(:escuela, :certificador_id , Certificador.all, :id, :id, prompt: true) %>
+  	  </div> 
 
 		<hr>
   

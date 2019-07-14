@@ -61,5 +61,6 @@ class AcercadesController < ApplicationController
                                        :desc_titulo_6, :desc_titulo_7, :desc_titulo_8, :desc_titulo_9, :desc_titulo_10,
                                         :foto)
     end
+
 end
 

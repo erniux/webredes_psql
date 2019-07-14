@@ -20,12 +20,18 @@
               <td><%= escuela.user.razon_social %></td>
               <% nombre_certificador = User.find(escuela.certificador_id) %>
               <td><%= nombre_certificador.nombre_certificador %></td>
-              <% @avance_certificacion = CertEscolar.where(user_id: escuela.user_id, status: 'aceptada').sum(:puntaje) %>
+              <% @avance_certificacion = CertEscolar.where(user_id: escuela.user_id, status: 'cumplido').sum(:puntaje) %>
               <td><%= @avance_certificacion %></td>
-              <% @avance_paso = CertEscolar.where(user_id: escuela.user_id, status: ['aceptada','activa']).last %>
-              <td><%= @avance_paso.paso.to_s + "." + @avance_paso.estandar.to_s %></td>
-              <td><%= number_to_percentage((@avance_certificacion.to_f / @calificacion_total.to_f)*100, precision: 2) %></td>
-              <td><%= link_to 'Dashboard', cert_escolars_path %></td>
+              <% @avance_paso = CertEscolar.where(user_id: escuela.user_id, status: ['cumplido','revision']).last %>
+               
+              <% if not(@avance_paso == nil) %>
+                <td><%= @avance_paso.paso.to_s + "." + @avance_paso.estandar.to_s %></td>
+                <td><%= number_to_percentage((@avance_certificacion.to_f / @calificacion_total.to_f)*100, precision: 2) %></td>
+                <td><%= link_to 'Dashboard', cert_escolars_path(search: escuela.user_id) %></td>
+                <% else %>
+                <td>Aún no inicia su certificación</td>
+                <td><%= link_to 'Dashboard', cert_escolars_path(search: escuela.user_id) %></td>
+                <% end %>
             </tr>
           <% end %>
       </tbody>

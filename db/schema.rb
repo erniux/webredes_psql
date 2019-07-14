@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_30_003842) do
+ActiveRecord::Schema.define(version: 2019_06_20_155140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,12 +108,14 @@ ActiveRecord::Schema.define(version: 2019_06_30_003842) do
     t.integer "paso"
     t.integer "estandar"
     t.text "observaciones"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
     t.float "puntaje"
     t.bigint "certificador_id"
     t.index ["certificador_id"], name: "index_cert_escolars_on_certificador_id"
+    t.index ["user_id"], name: "index_cert_escolars_on_user_id"
   end
 
   create_table "certificadors", force: :cascade do |t|
@@ -238,6 +240,18 @@ ActiveRecord::Schema.define(version: 2019_06_30_003842) do
     t.string "encrypted_password", default: "", null: false
     t.string "nombre"
     t.string "appaterno"
+    t.string "rfc"
+    t.string "razon_social"
+    t.string "domicilio_fiscal"
+    t.string "domicilio_fisico"
+    t.string "sucursal"
+    t.string "telefono_oficina"
+    t.string "nombre_enlace"
+    t.string "appaterno_enlace"
+    t.string "apmaterno_enlace"
+    t.string "cargo_enlace"
+    t.string "correo_enlace"
+    t.string "telefono_enlace"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -258,6 +272,7 @@ ActiveRecord::Schema.define(version: 2019_06_30_003842) do
   add_foreign_key "acercades", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "avisos", "users"
+  add_foreign_key "cert_escolars", "users"
   add_foreign_key "certificadors", "users"
   add_foreign_key "escuelas", "certificadors"
   add_foreign_key "escuelas", "users"

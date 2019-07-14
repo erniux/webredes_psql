@@ -1,13 +1,8 @@
 class CertEscolar < ApplicationRecord
 
-  enum status: {activa: 0, aceptada: 1, rechazada: 2}		
+  enum status: {creado: 0, revision: 1, revisado_con_comentarios: 2, cumplido: 3}
   
   belongs_to :user
-
   has_many_attached :evidencias
-
-  def self.nombre_escuela(escuela_id)
-  	User.where(id: :escuela_id) 
-  end
 
 end

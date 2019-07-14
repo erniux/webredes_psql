@@ -3,14 +3,16 @@ before_action :set_escuela, only: [:show, :edit, :update, :destroy]
 	access  certificador: :all, cert_site_admin: :all 
 
 	def index
-		@escuelas = Escuela.all		
+		@escuelas = Escuela.all	
+    @estandares = EstandarEtapaCertificacion.all
+
 	end
 
 	def show
   end
 
   def new
-    @escuela = Escuela.new	  
+    @escuela = Escuela.new	
   end
 
 	def edit		 
@@ -18,11 +20,18 @@ before_action :set_escuela, only: [:show, :edit, :update, :destroy]
 
   def create
     @escuela = Escuela.new(escuela_params)
+    @estandares = EstandarEtapaCertificacion.all
 
     respond_to do |format|
       if @escuela.save
+        @estandares.each  do |estandar|
+          CertEscolar.create!(estandar: estandar.estandar_id, paso: estandar.etapa_certificacion_id, 
+                              user_id: @escuela.user_id, puntaje: 0, certificador_id: @escuela.certificador_id)
+
+        end
         format.html { redirect_to escuelas_path, notice: 'Registro creado con éxito.' }
       else
+        byebug
         format.html { render :new }
       end
     end
@@ -53,7 +62,10 @@ before_action :set_escuela, only: [:show, :edit, :update, :destroy]
 
 
 	def escuela_params
-		params.require(:escuela).permit( :id, :user_id, :certificador_id)
+		params.require(:escuela).permit( :id, :user_id, :certificador_id,
+      cert_escolars_attributes: [:id, :user_id, :paso, :estandar, :observaciones, :status , :puntaje, :certificador_id,  :_destroy ])
 	end
 
 end
+
+

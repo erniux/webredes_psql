@@ -5,10 +5,10 @@ class CertEscolarsController < ApplicationController
   def index
     if current_user.has_role?(:cert_site_admin, :certificador) 
       if params[:search].blank?  
-          @results = CertEscolar.all.order(:user_id, :paso, :estandar)
+          @results = CertEscolar.all.where("user_id = :search", search: @parameter)
       else  
           @parameter = params[:search].downcase  
-          @results = CertEscolar.all.where("user_id = :search", search: @parameter) 
+          @results = CertEscolar.all.where("user_id = :search", search: @parameter)
       end 
     else
      @results = CertEscolar.where(user_id: current_user.id).all.order(:paso, :estandar)

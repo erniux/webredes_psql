@@ -13,7 +13,7 @@
     </div>
 
     <div class="col-md-4">
-      <%= collection_select(:cert_escolar, :user_id, CertEscolar.nombre_escuela, :id, :razon_social, prompt: true) %>
+      <%= collection_select(:cert_escolar, :user_id, User.nombre_escuela, :id, :razon_social, prompt: true) %>
     </div>
   </div>
 
