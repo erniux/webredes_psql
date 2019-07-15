@@ -2,15 +2,13 @@
   <h3> Seguimiento Certificación</h3>
   <br> 
   <div class="input-group">  
-  <% if logged_in?(:cert_site_admin, :certificador) %>
-    <%= link_to 'Agregar Estandar', new_cert_escolar_path, class: "btn btn-default btn-lg"  %>
-
-    <%= form_tag(cert_escolars_path, :method => "get", class: 'navbar-form navbar-left') do %>
-      <%= search_field_tag :search, params[:search], placeholder: "Búsqueda", class: "form-control" %>  
-      <div class="input-group-btn">  
-        <%= button_tag " Buscar ", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
-      </div>  
-    <% end %>
+    <% if logged_in?(:cert_site_admin, :certificador) %>
+      <%= form_tag(cert_escolars_path, :method => "get", class: 'navbar-form navbar-left') do %>
+        <%= search_field_tag :search, params[:search], placeholder: "Búsqueda", class: "form-control" %>  
+        <div class="input-group-btn">  
+          <%= button_tag " Buscar ", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+        </div>  
+      <% end %>
     <% end %>
   </div> 
 
@@ -35,32 +33,32 @@
 		<div class="col-md-3">
  			<div class="progress">
 
- 				<%= avance = ((estandar.puntaje.to_f/@nombre_estandar.puntaje_total)*100).to_i %>&nbsp;%
+ 				<% avance = ((estandar.puntaje.to_f/@nombre_estandar.puntaje_total)*100).to_i %> <!-- &nbsp;% -->
  				
  				<% if avance == 0 %>
-  					<div class="progress-bar cero" role="progressbar"></div>
+  					<div class="progress-bar cero" role="progressbar"><%= avance %>%</div>           
   				<% elsif avance > 0 && avance < 10 %>
-  					<div class="progress-bar cinco" role="progressbar"></div>
+  					<div class="progress-bar cinco" role="progressbar"><%= avance %>%</div>            
   				<% elsif avance >= 10 && avance < 20 %>
-  					<div class="progress-bar diez" role="progressbar"></div>
+  					<div class="progress-bar diez" role="progressbar"><%= avance %>%</div>           
   				<% elsif avance >= 20 && avance < 30 %>
-  					<div class="progress-bar veinte" role="progressbar"></div>
+  					<div class="progress-bar veinte" role="progressbar"><%= avance %>%</div>           
   				<% elsif avance >= 30 && avance < 40 %>
-  					<div class="progress-bar treinta" role="progressbar"></div> 						
+  					<div class="progress-bar treinta" role="progressbar"><%= avance %>%</div>            
   				<% elsif avance >= 40 && avance < 50 %>
-  					<div class="progress-bar cuarenta" role="progressbar"></div>
+  					<div class="progress-bar cuarenta" role="progressbar"><%= avance %>%</div>           
   				<% elsif avance >= 50 && avance < 60 %>
-  					<div class="progress-bar cincuenta" role="progressbar"></div>
+  					<div class="progress-bar cincuenta" role="progressbar"><%= avance %>%</div>            
   				<% elsif avance >= 60 && avance < 70 %>
-  					<div class="progress-bar sesenta" role="progressbar"></div>
+  					<div class="progress-bar sesenta" role="progressbar"><%= avance %>%</div>            
   				<% elsif avance >= 70 && avance < 80 %>
-  					<div class="progress-bar setenta" role="progressbar"></div>
+  					<div class="progress-bar setenta" role="progressbar"><%= avance %>%</div>            
   				<% elsif avance >= 80 && avance < 90 %>
-  					<div class="progress-bar ochenta" role="progressbar"></div>
-  				<% elsif avance >= 90 && avance < 100 %>
-  					<div class="progress-bar noventa" role="progressbar"></div>
+  					<div class="progress-bar ochenta" role="progressbar"><%= avance %>%</div>            
+  				<% elsif avance >= 90 && avance < 99 %>
+  					<div class="progress-bar noventa" role="progressbar"><%= avance %>%</div>            
   				<% elsif avance == 100  %>
-  					<div class="progress-bar cien" role="progressbar"></div>						
+  					<div class="progress-bar cien" role="progressbar"><%= avance %>%</div>						
   				<% end %> 
   			</div>
 		</div>
