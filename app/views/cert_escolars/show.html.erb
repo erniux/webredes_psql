@@ -20,14 +20,15 @@
       <div class="col-md-4">
        <h4><strong>Avance:&nbsp;</strong><%= @cert_escolar.puntaje.to_s + " de " + @estandar.puntaje_total.to_s + " = " + ((@cert_escolar.puntaje.to_f/@estandar.puntaje_total.to_f)*100).to_s + "%"  %></h4>
       </div>
-      <div class="col-md-4">
-        <h4>Estatus:&nbsp;</h4>
-      </div>
-      <div class="col-md-6">
-        <%= @cert_escolar.status %>
+        <div class="col-md-2">
+          <h4>Estatus:&nbsp;</h4>
+        </div>
+        <div class="col-md-6">
+          <h4 class="estatus"><%= @cert_escolar.status %></h4>
+        </div>
       </div>
     </div>
-  </div>
+   
   
   <p>
   <h2>Evidencias:</h2> <br/>

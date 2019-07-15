@@ -65,59 +65,19 @@
   			</div>
 		</div>
 
-		<div class="col-md-3">
- 			Puntos Cumplidos:&nbsp;<%= estandar.puntaje %>&nbsp;de:&nbsp;<%= @nombre_estandar.puntaje_total.to_f %>
+		<div class="col-md-2">
+ 			<small>Puntos Cumplidos:&nbsp;<strong><%= estandar.puntaje %>&nbsp;de:&nbsp;<%= @nombre_estandar.puntaje_total.to_f %></strong></small>
  		</div>
- 		<div class="col-md-2">
- 			<%= estandar.status %>
+ 		<div class="col-md-3">
+ 			<small><strong><%= estandar.status %></strong></small>
  		</div>
-
-
-
-</div>
+  </div>
 <% end %>
  
  </div>
  <% end %>
 
- <div class="container-fluid-crud">
-<div class="row">
-  <div class="col-md-6">
-    <div class="btn-group">
-      <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
-        Material de Apoyo <span class="caret"></span>
-      </button>
-
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#">Manual para Certificación</a></li>
-        <li><a href="#">Identificación de Riesgos</a></li>
-        <li><a href="#">Trabajo en Equipo</a></li>
-        <% if current_user.has_role?(:cert_site_admin) %>
-          <li class="divider"></li>
-          <li><a href="#">Subir Documentos</a></li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
-  <div class="col-md-6">
-    <div class="btn-group">
-      <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
-        Material Obligatorio <span class="caret"></span>
-      </button>
-
-      <ul class="dropdown-menu" role="menu">
-        <li><a href="#">Plantilla de registro de contacto</a></li>
-        <li><a href="#">Carta de asignación </a></li>
-        <li><a href="#">Carta compromiso</a></li>
-        <li><a href="#">Documento valoración y selección de riesgos </a></li>
-        <% if current_user.has_role?(:cert_site_admin) %>
-          <li class="divider"></li>
-          <li><a href="#">Subir Documentos</a></li>
-          <% end %>
-      </ul>
-    </div>
-  </div>
+ 
 
 
 
