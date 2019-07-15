@@ -10,6 +10,15 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
+
+  config.authorize_with do 
+    respond_to do |format|
+      unless logged_in?( :cert_site_admin)
+        format.html { redirect_to main_app.root_path, notice: 'Usuario no autorizado.' }
+      end
+    end
+  end
+ 
   # config.authenticate_with do
   #   warden.authenticate! scope: :user
   # end

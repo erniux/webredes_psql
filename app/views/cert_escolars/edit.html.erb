@@ -22,20 +22,34 @@
       <%= form.label :puntaje %>
       <%= form.text_field :puntaje, size: 10 %>
     </div>
-  
-    <div class="field">
-      <%= form.label :status %>
-      <%= form.text_field :status, size: 10 %>
-    </div>
   <% else %>
     <% @estandar = EstandarEtapaCertificacion.find_by(etapa_certificacion_id: @cert_escolar.paso, estandar_id: @cert_escolar.estandar) %>
      <h4><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo %></h4>
      <h3>Status: &nbsp;<%= @cert_escolar.status %></h3>
-  <% end %>
+  <% end %><hr>
+ 
+    <div class="row">
+    <div class="container">
+      <h3><%= form.label :evidencias %></h3>
+      <% if @cert_escolar.evidencias.attached? %>
+        <% @cert_escolar.evidencias.each do |upload| %>
+        <div class="row">
+          <div class="col-md-9">
+            <%= upload.filename %>
+          </div>
+          <div class="col-md-1">
+            <small><%= link_to 'Eliminar', cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, :evidencias_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } %></small><br/>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+      <div class="row">
+        <h3>Agregar Evidencias</h3>
+        <%= form.file_field :evidencias, multiple: true %>
+      </div>
+    </div> <hr>
 
-  
-
-  <div class="row">
+    <div class="row">
     <div class="col-md-2">
       <%= form.label :observaciones %>
     </div>
@@ -43,13 +57,18 @@
       <%= form.text_area :observaciones, cols: 85, rows: 10 %>
     </div>
   </div><hr>
+
   
   <div class="row">
-    <div class="btn btn-default btn-lg">
-      <%= form.label :evidencias %>
-      <%= form.file_field :evidencias, multiple: true %>
+    <div class="field">
+      <%= form.label :actualizar_status %>
+      <%= form.select :status, options_for_select(CertEscolar.statuses.keys.to_a), size: 10 %>
     </div>
-  </div> <hr>
+  </div></br>
+
+  
+  
+
 
   <div class="actions">
     <%= form.submit "Guardar", class: "btn btn-primary btn-lg", size: 50 %>

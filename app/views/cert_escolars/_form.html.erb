@@ -49,7 +49,15 @@
   <div class="row">
     <div class="btn btn-default btn-lg">
       <%= form.label :evidencias %>
-      <%= form.file_field :evidencias, multiple: true %>
+      <% if cert_escolar.uploads.attached? %>
+        <% @cert_escolar.uploads.each do |upload| %>
+          <%= upload.filename %>
+          <small><%= link_to 'Eliminar Archivo', cert_escolars_delete_upload_attachment_path(:todo_id => @cert_escolar.id, :upload_id => upload.id),
+          method: :delete, data: { confirm: '¿Confirma Eliminar el Archivo?' } %></small><br/>
+        <% end %>
+      <% end %>
+      <%= form.file_field :uploads, multiple: true %>
+
     </div>
   </div> <hr>
   <% end %><hr>

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   
   resources :escuelas
   resources :certificadors
-  resources :cert_escolars
+  resources :cert_escolars do
+    delete :delete_upload_attachment
+  end
   get 'escuela_dashboard', to: 'cert_escolars#show_escuela'
   resources :acercade_certificates
   resources :preguntas_certs

@@ -1,6 +1,6 @@
 class CertEscolar < ApplicationRecord
 
-  enum status: {creado: 0, revision: 1, revisado_con_comentarios: 2, cumplido: 3}
+  enum status: {sin_avance: 0, en_desarrollo: 1, revision: 2, revisado_con_comentarios: 3, cumplido: 4}
   
   belongs_to :user
   has_many_attached :evidencias

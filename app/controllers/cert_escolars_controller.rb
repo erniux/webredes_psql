@@ -1,6 +1,6 @@
 class CertEscolarsController < ApplicationController
   before_action :set_cert_escolar, only: [:show, :edit, :update, :destroy]
-  access escuela: [:show, :index, :update, :edit] , cert_site_admin: :all, certificador: :all
+  access escuela: [:show, :index, :update, :edit, :delete_upload_attachment] , cert_site_admin: :all, certificador: :all
 
   def index
     if current_user.has_role?(:cert_site_admin, :certificador) 
@@ -27,6 +27,7 @@ class CertEscolarsController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
@@ -56,6 +57,12 @@ class CertEscolarsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to cert_escolars_url, notice: 'Registro eliminado éxito.' }
     end
+  end
+
+  def delete_upload_attachment
+    @cert_escolar=CertEscolar.find(params[:cert_escolar_id])
+    @cert_escolar.evidencias.find_by_id(params[:evidencias_id]).purge
+    redirect_back(fallback_location: request.referer)
   end
 
   private

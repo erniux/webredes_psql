@@ -22,7 +22,7 @@
               <td><%= nombre_certificador.nombre_certificador %></td>
               <% @avance_certificacion = CertEscolar.where(user_id: escuela.user_id, status: 'cumplido').sum(:puntaje) %>
               <td><%= @avance_certificacion %></td>
-              <% @avance_paso = CertEscolar.where(user_id: escuela.user_id, status: ['cumplido','revision']).last %>
+              <% @avance_paso = CertEscolar.where(user_id: escuela.user_id, status: ['cumplido').last %>
                
               <% if not(@avance_paso == nil) %>
                 <td><%= @avance_paso.paso.to_s + "." + @avance_paso.estandar.to_s %></td>
