@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  resources :audit_logs
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   resources :escuelas
