@@ -12,7 +12,7 @@ before_action :set_escuela, only: [:show, :edit, :update, :destroy]
   end
 
   def new
-    @escuela = Escuela.new	
+    @escuela = Escuela.new
   end
 
 	def edit		 
@@ -29,6 +29,8 @@ before_action :set_escuela, only: [:show, :edit, :update, :destroy]
                               user_id: @escuela.user_id, puntaje: 0, certificador_id: @escuela.certificador_id)
 
         end
+        AuditLog.create!(user_id: @escuela.user_id, comentarios: 'Creación del Proceso de Certificación', status_certificacion: 0)
+         
         format.html { redirect_to escuelas_path, notice: 'Registro creado con éxito.' }
       else
         byebug

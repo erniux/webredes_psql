@@ -45,6 +45,7 @@ class CertEscolarsController < ApplicationController
   def update
     respond_to do |format|
       if @cert_escolar.update(cert_escolar_params)
+        AuditLog.create!(user_id: current_user.id, comentarios: @cert_escolar.inspect)
         format.html { redirect_to @cert_escolar, notice: 'Registro actualizado con éxito.' }
       else
         format.html { render :edit }

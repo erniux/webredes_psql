@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  
-  resources :audit_logs
+  resources :audit_logs, except: [:new, :edit, :destroy]
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   resources :escuelas

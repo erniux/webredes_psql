@@ -46,7 +46,6 @@ src:url ('MYRIADPRO-BOLDIT.woff')
 
 */
 
-
 .jumbotron {
   color: black;
   margin-bottom: -135px;
@@ -181,9 +180,15 @@ src:url ('MYRIADPRO-BOLDIT.woff')
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
   color: black;
-  
 }
 
+.navbar-nav > li > .dropdown-menu {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: white; 
+    width: 254px !important;
+}
 
 .navbar-default .navbar-toggle {
   border-color: white;
