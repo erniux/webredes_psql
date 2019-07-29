@@ -1,1 +1,33 @@
-<%= @audit_logs.inspect %>
+<div id="body-cert">
+	<table class="table">
+		<thead>
+	    	<tr>
+	    		<th>Usuario</th>
+	      		<th>Estatus</th>
+	      		<th>Comentarios</th>
+	      		<th>Paso</th>
+	      		<th>Estandar</th>
+	      		<th>Puntaje</th>
+	      		<th>Certificador</th>
+	      		<th>Escuela</th>
+	      		<th colspan="3">Acciones</th>
+	    	</tr>
+	  	</thead>
+			
+		<tbody>
+			<% @audit_logs.each do |log| %>
+			<tr>
+				<td><%= log.user_id %></td>
+				<td><%= log.status %></td>
+				<td><%= log.comentarios %></td>
+				<td><%= log.paso %></td>
+				<td><%= log.estandar %></td>
+				<td><%= log.puntaje %></td>
+				<td><%= log.certificador_id %></td>
+				<td><%= log.escuela_id %></td>
+				<td><%= link_to "Mostrar Log", log %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>

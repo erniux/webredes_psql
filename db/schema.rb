@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_145459) do
+ActiveRecord::Schema.define(version: 2019_07_17_171842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,12 +94,14 @@ ActiveRecord::Schema.define(version: 2019_07_16_145459) do
   create_table "audit_logs", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "status", default: 0
-    t.date "start_date"
-    t.date "end_date"
     t.text "comentarios"
-    t.integer "status_certificacion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "paso"
+    t.integer "estandar"
+    t.float "puntaje"
+    t.integer "certificador_id"
+    t.integer "escuela_id"
     t.index ["user_id"], name: "index_audit_logs_on_user_id"
   end
 

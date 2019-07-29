@@ -1,13 +1,5 @@
 class AuditLog < ApplicationRecord
 	belongs_to :user
 
-	validates_presence_of :user_id, :status, :start_date, :comentarios #, :status_certificacion
-
-	after_initialize :set_defaults
-
-	private
-	def set_defaults
-		self.start_date ||= Date.today     #conditional operator ||= si no se cumple con la primera, hace la segunda
-	end
-
+	enum status: {sin_avance: 0, en_desarrollo: 1, revision: 2, revisado_con_comentarios: 3, cumplido: 4}
 end

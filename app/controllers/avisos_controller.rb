@@ -17,7 +17,6 @@ class AvisosController < ApplicationController
   end
 
   def create
-    #@aviso = Aviso.new(aviso_params)
     @aviso = current_user.avisos.new(aviso_params)
 
     respond_to do |format|

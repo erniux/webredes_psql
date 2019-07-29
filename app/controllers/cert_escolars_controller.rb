@@ -4,11 +4,10 @@ class CertEscolarsController < ApplicationController
 
   def index
     if current_user.has_role?(:cert_site_admin, :certificador) 
-      if params[:search].blank?  
-          @results = CertEscolar.all.where("user_id = :search", search: @parameter).all.order(:paso, :estandar)
-      else  
-          @parameter = params[:search].downcase  
-          @results = CertEscolar.all.where("user_id = :search", search: @parameter).all.order(:paso, :estandar)
+      if params[:term]
+        @results = CertEscolar.search_by_full_escuela(params[:term]).order(paso: 'ASC', estandar: 'ASC')
+      else 
+        @results = CertEscolar.all.order(user_id: 'ASC', paso: 'ASC', estandar: 'ASC')
       end 
     else
      @results = CertEscolar.where(user_id: current_user.id).all.order(:paso, :estandar)
@@ -45,13 +44,17 @@ class CertEscolarsController < ApplicationController
   def update
     respond_to do |format|
       if @cert_escolar.update(cert_escolar_params)
-        AuditLog.create!(user_id: current_user.id, comentarios: @cert_escolar.inspect)
+        AuditLog.create!(user_id: current_user.id, escuela_id: @cert_escolar.user_id, status: @cert_escolar.status,
+                         paso: @cert_escolar.paso, estandar: @cert_escolar.estandar,
+                         comentarios: @cert_escolar.observaciones, puntaje: @cert_escolar.puntaje,
+                         certificador_id: @cert_escolar.certificador_id)
         format.html { redirect_to @cert_escolar, notice: 'Registro actualizado con éxito.' }
       else
         format.html { render :edit }
       end
     end
   end
+ 
 
   def destroy
     @cert_escolar.destroy

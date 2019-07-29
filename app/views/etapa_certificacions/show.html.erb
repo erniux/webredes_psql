@@ -34,7 +34,8 @@
 		<% end %>
 		</tbody>
 	</table>
-	
-	<p class="btn btn-info btn-lg"><%= link_to 'Modificar', edit_etapa_certificacion_path(@etapa_certificacion) if logged_in?(:cert_site_admin) %></p> 
-	<p class="btn btn-warning btn-lg"><%= link_to 'Regresar', etapa_certificacions_path %></p>
+	<% if logged_in?(:cert_site_admin) %>
+		<p><%= link_to 'Modificar', edit_etapa_certificacion_path(@etapa_certificacion), class: "btn btn-info btn-lg" %></p> 
+	<% end %>
+	<p><%= link_to 'Regresar', etapa_certificacions_path, class: "btn btn-warning btn-lg" %></p>
 </div>

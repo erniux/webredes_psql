@@ -1,0 +1,12 @@
+<div id="body-cert">
+ 
+	<p><strong>USUARIO REALIZA EL CAMBIO: </strong><%= @usuario_nombre + " " + @usuario_appaterno.to_s %> </p>
+	<p><strong>ESCUELA: </strong><%= @escuela %></p>
+	<p><strong>ESTANDAR: </strong><%= + " " + @audit_log.paso.to_s + "." + @audit_log.estandar.to_s + " " + @estandar.to_s %></p>
+	<p><strong>ESTATUS: </strong><%= @audit_log.status %></p>
+	<p><strong>COMENTARIOS: </strong><%= @audit_log.comentarios %></p>
+	<p><strong>FECHA DEL CAMBIO: </strong><%= @audit_log.created_at.strftime("%F %T") %></p>
+
+	<%= link_to "Regresar a Log", audit_logs_path, class: "btn btn-primary btn-lg" %>
+ 
+</div>

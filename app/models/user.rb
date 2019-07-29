@@ -37,10 +37,11 @@ class User < ApplicationRecord
 
     def self.nombre_escuela
       find_by_sql("SELECT t1.razon_social, t1.id, t1.roles FROM users t1 WHERE t1.roles = 'escuela' AND EXISTS (SELECT NULL FROM escuelas t2 WHERE t2.user_id = t1.id)")
-    end    
+    end  
 
-              
-
+    def  usuario(usuario_id)
+      User.where("id = ?", usuario_id)
+    end  
 end
 
 

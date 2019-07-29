@@ -1,44 +1,21 @@
 RailsAdmin.config do |config|
 
-  #require 'i18n'
-  #I18n.default_locale = 'es-MX'
   config.main_app_name = ["Escuelas Seguras", "" ]
   config.included_models = ["Acercade certificates", "CertEscolar", "Certificador", "Escuela", "EstandarEtapaCertificacion", 
                             "EtapaCertificacion", "PreguntasCert", "User" ]
 
-
-  ### Popular gems integration
-
   ## == Devise ==
 
-  config.authorize_with do 
-    respond_to do |format|
-      unless logged_in?( :cert_site_admin)
-        format.html { redirect_to main_app.root_path, notice: 'Usuario no autorizado.' }
+  config.authorize_with do |controller|
+    if user_signed_in?
+      unless current_user.has_role?(:cert_site_admin)  
+        redirect_to main_app.root_path 
       end
+    else
+      redirect_to main_app.root_path 
     end
   end
  
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
-
-  ## == Cancan ==
-  # config.authorize_with :cancan
-
-  ## == Pundit ==
-  # config.authorize_with :pundit
-
-  ## == PaperTrail ==
-  # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
-
-  ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-
-  ## == Gravatar integration ==
-  ## To disable Gravatar integration in Navigation Bar set to false
-  # config.show_gravatar = true
-
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
@@ -50,8 +27,5 @@ RailsAdmin.config do |config|
     delete
     show_in_app
 
-    ## With an audit adapter, you can add:
-    # history_index
-    # history_show
   end
 end

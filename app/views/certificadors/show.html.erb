@@ -1,15 +1,9 @@
 
 <div id="body-cert">
 	<p>
-	  <h3><%= @certificador.inspect %></h3>
-	  <% @usuario = User.find(@certificador.user_id) %>
-	  <%= @usuario.inspect %>
-	   
-
+	  <h3><%= @certificador.user.nombre_certificador %></h3>
 	</p>
-	<p>
-		
-	</p>
+	 
 	<br>
 	<h3> Escuelas Asignadas</h3>
 
@@ -31,14 +25,16 @@
 		<tbody>
 		<% @certificador.escuelas.each do |escuela| %>
 			<tr>
-				<td><%= escuela.id %></td>
+				<% paso = CertEscolar.find_by(user_id: escuela.user_id)  %>
+				<td><%= paso.paso %></td>
 				<td>1</td>
 				<td>4</td> 
 				<td>85%</td>
 				<td>20%</td>
 				<td>350</td>
 				<td><%= link_to 'Detalle', cert_escolars_path %></td>
-        		<td><%= link_to 'Modificar', edit_escuela_path(escuela) %></td>         
+        		<td><%= link_to 'Modificar', edit_escuela_path(escuela) %></td>  
+        		  
 			</tr>
 		<% end %>
 		</tbody>

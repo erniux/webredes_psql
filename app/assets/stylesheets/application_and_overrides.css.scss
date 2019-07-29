@@ -693,7 +693,7 @@ p.texto-sidebar {
 /* Cuerpo de CERTIFICACIONES */
 
 div#body-cert {
-  margin-left: 20%;
+  margin-left: 5%;
    margin-right: 5%;
    padding: 10px 10px;
 }
@@ -738,48 +738,66 @@ div#body-cert {
 
 .cero {
  width: 0%;
+ background-color: #DF0101;
+ color: black;
 }
 
 .cinco {
   width: 5%;
+  background-color: #DF3A01;
+  color: black;
 }
 
 .diez {
  width: 10%;
+ background-color: #DF7401;
+ color: black;
 }
 
 .veinte {
  width: 20%;
+ background-color: #DBA901;
+ color: black;
 }
 
 .treinta {
  width: 30%;
+ background-color: #D7DF01;
+ color: black;
 }
 
 .cuarenta {
  width: 40%;
+ background-color: #D7DF01;
+ color: black;
 }
 
 .cincuenta {
  width: 50%;
+ background-color: #31B404;
 }
 
 .sesenta {
  width: 60%;
+ background-color: #088A85;
 }
 
 .setenta {
  width: 70%;
+ background-color: #086A87;
 }
 
 .ochenta {
  width: 80%;
+ background-color: #084B8A;
 }
 
 .noventa {
  width: 90%;
+ background-color: #08088A;
 }
 
 .cien {
  width: 100%;
+ background-color: #000000;
 }

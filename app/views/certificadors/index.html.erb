@@ -20,7 +20,8 @@
     <% @certificadores.each do |certificador| %>
       <tr>
         <td><%= certificador.id %></td>
-        <td><%= certificador.user_id %></td>
+        <td><%= certificador.user.nombre_certificador  %></td>
+        
          
         
         <td><%= link_to 'Mostrar', certificador_path(certificador) %></td>
