@@ -3,31 +3,33 @@
   <p><%= link_to 'Modificar', edit_cert_escolar_path(@cert_escolar), class: "btn btn-success btn-lg", size: 50 %>
   <%= link_to 'Dashboard', cert_escolars_path, class: "btn btn-default btn-lg", size: 50 %></p>
   
-  
-  <div class="row">
-    <h2><%= User.find_by(id: @cert_escolar.user_id).razon_social %></h2> 
-    <h3>Estandar:<% @estandar = EstandarEtapaCertificacion.find_by(etapa_certificacion_id: @cert_escolar.paso, estandar_id: @cert_escolar.estandar) %></h3>
-     <h4><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo %></h4>
-     <div class="row">
-      <div class="col-md-4">
-       <strong><h3>Observaciones:&nbsp;</h3></strong> 
-      </div>
-      <div class="col-md-8">
-        <em><h3><%= @cert_escolar.observaciones %></h3></em>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-       <h4><strong>Avance:&nbsp;</strong><%= @cert_escolar.puntaje.to_s + " de " + @estandar.puntaje_total.to_s + " = " + ((@cert_escolar.puntaje.to_f/@estandar.puntaje_total.to_f)*100).to_s + "%"  %></h4>
-      </div>
-        <div class="col-md-2">
-          <h4>Estatus:&nbsp;</h4>
-        </div>
-        <div class="col-md-6">
-          <h4 class="estatus"><%= @cert_escolar.status %></h4>
-        </div>
-      </div>
-    </div>
+  <table class="table">
+  <thead>
+    <tr>
+      <th>Escuela</th>
+      <th>Estandar</th>
+      <th>Descripción</th>
+      <th>Observaciones</th>
+      <th>Avance</th>
+      <th>Puntos Cumplidos</th>
+      <th>%</th>
+      <th>Estatus Estandar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><%= User.find_by(id: @cert_escolar.user_id).razon_social %></td> 
+    <% @estandar = EstandarEtapaCertificacion.find_by(etapa_certificacion_id: @cert_escolar.paso, estandar_id: @cert_escolar.estandar) %>
+     <td><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo %></td>
+     <td><%= @estandar.descripcion %></td>
+     <td><%= @cert_escolar.observaciones %></td>
+     <td><strong><%= @cert_escolar.puntaje %>
+     <td><strong><%= @estandar.puntaje_total %></strong></td>
+     <td><strong><small><%= ((@cert_escolar.puntaje.to_f/@estandar.puntaje_total.to_f)*100).to_s + "%"  %></small></strong></td>
+     <td><%= @cert_escolar.status %></td>
+      </tr>
+    </tbody>
+  </table>
    
   <p>
   <h2>Evidencias:</h2> <br/>
