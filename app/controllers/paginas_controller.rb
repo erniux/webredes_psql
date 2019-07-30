@@ -33,7 +33,7 @@ class PaginasController < ApplicationController
   end
 
   def certificador
-    @escuelas = Escuela.where(certificador_id: 1)
+    
   end
 
 end
