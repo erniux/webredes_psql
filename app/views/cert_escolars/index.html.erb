@@ -17,70 +17,106 @@
       </div>
     <% end %>
   <% end %><br>
-
-   <table class="table">
-  <thead>
-    <tr>
-      <th>Estandar</th>
-      <th>Descripción</th>
-      <th>Evidencias</th>
-      <th>Puntaje Total</th>
-      <th>Avance</th>
-      <th>Puntos Cumplidos</th>
-      <th>Estatus</th>
-    </tr>
-  </thead>
-  <tbody>
-
+     
     <% if @results.nil? %>
     <% else %>
-      <% escuela = "" %>
-      <% @results.each do |estandar| %>
-        <% if !(escuela == estandar.user.razon_social) %>
-          <% escuela = estandar.user.razon_social %>
-          <td><strong><%= escuela %></strong></td>
-        <% end %>
-        <tr>
-        <% @nombre_estandar = EstandarEtapaCertificacion.find_by(etapa_certificacion_id: estandar.paso, estandar_id: estandar.estandar) %>
- 		     <% link = estandar.paso.to_s + "." + estandar.estandar.to_s + " " + @nombre_estandar.titulo %>
- 			    <td><small><%=  link_to link, estandar %></small></td>
-          <td><small><%= @nombre_estandar.descripcion %></small></td>
-          <td><small><%= @nombre_estandar.evidencias.html_safe %></small></td>
-          <td><small><strong><%= @nombre_estandar.puntaje_total %></strong></small></td>
- 				  <% avance = ((estandar.puntaje.to_f/@nombre_estandar.puntaje_total)*100).to_i %> <!-- &nbsp;% -->
- 				
- 				  <% if avance == 0 %>
-  			  		<td class="progress-bar cero" role="progressbar"><%= avance %>%</td>           
-  			  	<% elsif avance > 0 && avance < 10 %>
-  			  		<td class="progress-bar cinco" role="progressbar"><%= avance %>%</td>            
-  			  	<% elsif avance >= 10 && avance < 20 %>
-  			  		<td class="progress-bar diez" role="progressbar"><%= avance %>%</td>           
-  			  	<% elsif avance >= 20 && avance < 30 %>
-  			  		<td class="progress-bar veinte" role="progressbar"><%= avance %>%</td>           
-  			  	<% elsif avance >= 30 && avance < 40 %>
-  			  		<td class="progress-bar treinta" role="progressbar"><%= avance %>%</td>            
-  			  	<% elsif avance >= 40 && avance < 50 %>
-  			  		<td class="progress-bar cuarenta" role="progressbar"><%= avance %>%</td>           
-  			  	<% elsif avance >= 50 && avance < 60 %>
-  			  		<td class="progress-bar cincuenta" role="progressbar"><%= avance %>%</td>            
-  			  	<% elsif avance >= 60 && avance < 70 %>
-  			  		<td class="progress-bar sesenta" role="progressbar"><%= avance %>%</td>            
-  			  	<% elsif avance >= 70 && avance < 80 %>
-  			  		<td class="progress-bar setenta" role="progressbar"><%= avance %>%</td>            
-  			  	<% elsif avance >= 80 && avance < 90 %>
-  			  		<td class="progress-bar ochenta" role="progressbar"><%= avance %>%</td>            
-  			  	<% elsif avance >= 90 && avance < 99 %>
-  			  		<td class="progress-bar noventa" role="progressbar"><%= avance %>%</td>            
-  			  	<% elsif avance == 100  %>
-  			  		<td class="progress-bar cien" role="progressbar"><%= avance %>%</td>						
-  			  <% end %> 
-  			  
- 			    <td><small><strong><%= estandar.puntaje %></strong></small></td>
- 			    <td><small><strong><%= estandar.status %></strong></small></td>
-        </tr>
+       
+      <% @estandar_escuela = CertEscolar.select('DISTINCT user_id') %>
+      <% nombre_escuela = "" %> 
+      <% @results.each do |escuela| %>
+      <% if !(nombre_escuela == escuela.user.razon_social) %>
+        <% nombre_escuela = escuela.user.razon_social %>
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                  <a role="button" data-toggle="collapse" 
+                                   data-parent="#accordion" 
+                                   href="#collapse<%= escuela.user_id %>" 
+                                   aria-expanded="true" 
+                                   aria-controls="collapseOne">
+                        <h4><%= escuela.user.razon_social %></h4>
+                     </a>
+                </h4>
+              </div>
+            </div>
+          </div>
       <% end %>
-    <% end %>
- 	</tbody>
 
-  </table>
-</div>
+        <div class="collapse" id="<%= "collapse#{escuela.user_id}" %>">
+            <div class="panel-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Estandar</th>
+                    <th>Descripción</th>
+                    <th>Evidencias</th>
+                    <th>Puntaje Total</th>
+                    <th>Avance</th>
+                    <th>Puntos Cumplidos</th>
+                    <th>Estatus</th>
+                  </tr>
+                </thead>
+            
+             <% @results.each do |estandar| %>
+             <% if escuela.user.razon_social ==   estandar.user.razon_social %>
+             
+                <% @nombre_estandar = EstandarEtapaCertificacion.find_by(etapa_certificacion_id: estandar.paso, estandar_id: estandar.estandar) %>
+                <% link = estandar.paso.to_s + "." + estandar.estandar.to_s + " " + @nombre_estandar.titulo %>
+                <% avance = ((estandar.puntaje.to_f/@nombre_estandar.puntaje_total)*100).to_i %> <!-- &nbsp;% -->
+                <tbody>
+                  <tr>
+                    <td><small><%=  link_to link, estandar %></small></td>
+                    <td><small><%= @nombre_estandar.descripcion %></small></td>
+                    <td><small><%= @nombre_estandar.evidencias.html_safe %></small></td>
+                    <td><small><strong><%= @nombre_estandar.puntaje_total %></strong></small></td>
+                    <% if avance == 0 %>
+                      <td class="progress-bar cero" role="progressbar"><%= avance %>%</td>           
+                    <% elsif avance > 0 && avance < 10 %>
+                      <td class="progress-bar cinco" role="progressbar"><%= avance %>%</td>            
+                    <% elsif avance >= 10 && avance < 20 %>
+                      <td class="progress-bar diez" role="progressbar"><%= avance %>%</td>           
+                    <% elsif avance >= 20 && avance < 30 %>
+                      <td class="progress-bar veinte" role="progressbar"><%= avance %>%</td>           
+                    <% elsif avance >= 30 && avance < 40 %>
+                      <td class="progress-bar treinta" role="progressbar"><%= avance %>%</td>            
+                    <% elsif avance >= 40 && avance < 50 %>
+                      <td class="progress-bar cuarenta" role="progressbar"><%= avance %>%</td>           
+                    <% elsif avance >= 50 && avance < 60 %>
+                      <td class="progress-bar cincuenta" role="progressbar"><%= avance %>%</td>            
+                    <% elsif avance >= 60 && avance < 70 %>
+                      <td class="progress-bar sesenta" role="progressbar"><%= avance %>%</td>            
+                    <% elsif avance >= 70 && avance < 80 %>
+                      <td class="progress-bar setenta" role="progressbar"><%= avance %>%</td>            
+                    <% elsif avance >= 80 && avance < 90 %>
+                      <td class="progress-bar ochenta" role="progressbar"><%= avance %>%</td>            
+                    <% elsif avance >= 90 && avance < 99 %>
+                      <td class="progress-bar noventa" role="progressbar"><%= avance %>%</td>            
+                    <% elsif avance == 100  %>
+                      <td class="progress-bar cien" role="progressbar"><%= avance %>%</td>            
+                    <% end %> 
+                    <td><small><strong><%= estandar.puntaje %></strong></small></td>
+                    <td><small><strong><%= estandar.status %></strong></small></td>
+                  </tr>
+                </tbody>
+              <% end %>
+             <% end %>
+           </table>
+                
+            </div>
+        </div>
+        <% end %>
+    <% end %>
+       
+     
+   </div>
+
+  
+
+ 
+   
+       
+         
+
+
+ 

@@ -13,6 +13,7 @@ class User < ApplicationRecord
     has_many :eventos
     has_many :avisos
     has_many :audit_logs
+    belongs_to :escuelas
      
 
     validates_presence_of :nombre, :appaterno, :email, :rfc, :razon_social, :domicilio_fiscal, :nombre_enlace, 

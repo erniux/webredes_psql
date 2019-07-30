@@ -19,5 +19,27 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require moment/es
-
 //= require_tree .
+
+
+
+
+// NOTAS PARA INCLUIR FUNCIONES PROPIAS 
+//function MostrarCertEscuela() {
+//  $('.collapsible').on('click', function() {
+//    alert("Esto es una prueba de js");
+//  });
+//}
+// EN VIEWS SOLO AL FINAL ANOTAR 
+//<script type="text/javascript">
+//new MostrarCertEscuela();
+//</script>
+ 
+  
+
+ 
+
+ 
+	
+
+
