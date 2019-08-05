@@ -1,18 +1,10 @@
 <hr>
 <li><%= link_to "proceso", etapa_certificacions_path %></li>
-<% @sidebar.each do |etapa| %>
-	<% if logged_in?(:escuela) %>
-		<li><%= link_to "Paso #{etapa.id}", cert_escolars_path(id: etapa.id) %></li> 
-	 
-	<% else %>
-		<li><%= link_to "Paso #{etapa.id}", etapa_certificacion_url(id: etapa.id) %></li> 
-	<% end %> 
-<% end %>
-   <li class="texto-sidebar"><%= link_to 'Preguntas', preguntas_certs_path %></li>
-   <li class="texto-sidebar"><%= link_to 'Dashboard Escuela', cert_escolars_path if logged_in?(:escuela, :cert_site_admin) %></li>
-   <li class="texto-sidebar"><%= link_to 'Dashboard Certificador', certificador_dashboard_path if logged_in?(:certificador, :cert_site_admin) %></li>
-   <li class="texto-sidebar"><%= link_to 'Catálogo Escuelas', escuelas_path if logged_in?( :cert_site_admin) %></li>
-   <li class="texto-sidebar"><%= link_to 'Catálogo Certificadores', certificadors_path if logged_in?( :cert_site_admin) %></li>
-   <li class="texto-sidebar"><%= link_to 'Dashboard Administrador', rails_admin_path if logged_in?( :cert_site_admin) %></li>
-   <li class="texto-sidebar"><%= link_to 'Bitácora', audit_logs_path if logged_in?( :cert_site_admin) %></li>
+<li class="texto-sidebar"><%= link_to 'Preguntas', preguntas_certs_path %></li>
+<li class="texto-sidebar"><%= link_to 'Dashboard Escuela', cert_escolars_path if logged_in?(:escuela, :cert_site_admin) %></li>
+<li class="texto-sidebar"><%= link_to 'Dashboard Certificador', certificador_dashboard_path if logged_in?(:certificador, :cert_site_admin) %></li>
+<li class="texto-sidebar"><%= link_to 'Catálogo Escuelas', escuelas_path if logged_in?( :cert_site_admin) %></li>
+<li class="texto-sidebar"><%= link_to 'Catálogo Certificadores', certificadors_path if logged_in?( :cert_site_admin) %></li>
+<li class="texto-sidebar"><%= link_to 'Dashboard Administrador', rails_admin_path if logged_in?( :cert_site_admin) %></li>
+<li class="texto-sidebar"><%= link_to 'Bitácora', audit_logs_path if logged_in?( :cert_site_admin) %></li>
     
