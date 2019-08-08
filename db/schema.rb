@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_171842) do
+ActiveRecord::Schema.define(version: 2019_08_07_190354) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -176,6 +176,7 @@ ActiveRecord::Schema.define(version: 2019_07_17_171842) do
     t.text "descripcion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "num_etapa"
   end
 
   create_table "eventos", force: :cascade do |t|
@@ -222,6 +223,19 @@ ActiveRecord::Schema.define(version: 2019_07_17_171842) do
     t.text "respuesta", default: "Respuesta Pendiente"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "puntos_estandars", force: :cascade do |t|
+    t.integer "paso"
+    t.integer "estandar"
+    t.integer "puntos"
+    t.text "descripcion"
+    t.bigint "estandar_etapa_certificacion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "etapa_certificacion_id"
+    t.index ["estandar_etapa_certificacion_id"], name: "index_puntos_estandars_on_estandar_etapa_certificacion_id"
+    t.index ["etapa_certificacion_id"], name: "index_puntos_estandars_on_etapa_certificacion_id"
   end
 
   create_table "reconocimiento_redes", force: :cascade do |t|
@@ -294,6 +308,8 @@ ActiveRecord::Schema.define(version: 2019_07_17_171842) do
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
   add_foreign_key "eventos", "users"
   add_foreign_key "precios", "users"
+  add_foreign_key "puntos_estandars", "estandar_etapa_certificacions"
+  add_foreign_key "puntos_estandars", "etapa_certificacions"
   add_foreign_key "recursos", "users"
   add_foreign_key "servicios", "users"
 end

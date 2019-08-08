@@ -5,34 +5,26 @@
       <% end %>
   <% end %>
 
-  <div class="row">
-    <div class="col-md-2">
-      <%= form.label :Nombre_paso %>
-    </div>
-    <div lass="col-md-4">
-      <%= form.text_area :nombre, cols: 50 %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2">
-      <%= form.label :Descripción %>
-    </div>
-    <div class="col-md-4">
-      <%= form.text_area :descripcion, cols: 50, rows: 10 %>
-    </div>
-  </div>
-
-    <h2>Estándares</h2>
-    
-    <div>
-      <%= form.fields_for :estandar_etapa_certificacions do |estandar| %>
-      <%= render 'estandar_etapa_certificacion_fields', f: estandar %>
-      <% end %>
-    </div>
-     
   <div class="actions">
     <%= form.submit "Guardar Registro", class: "btn btn-primary btn-lg" %>
+    <%= link_to "Regresar a Proceso", etapa_certificacions_path, class: "btn btn-success btn-lg" %>
   </div>
+
+   <div class="row">
+        <div class="col-md-2"><%= form.text_field :num_etapa, placeholder: 'Num. Paso' %></div>
+        <div class="col-md-5"><%= form.text_area :nombre, cols: 50, placeholder: 'Nombre o Título' %></div>  
+        <div class="col-md-5"><%= form.text_area :descripcion, cols: 50, placeholder: 'Descripción' %></div> 
+       </div>
+          <%= form.fields_for :estandar_etapa_certificacions do |estandar| %>
+            <%= render 'estandar_etapa_certificacion_fields', f: estandar %>
+          <% end %>
+      
+       
+   <div><%= link_to_add_association "Agregar estandar", form, :estandar_etapa_certificacions, class: "btn btn-warning btn-sm" %></div>
+ 
+ 
+
 <% end %>
+
+
 

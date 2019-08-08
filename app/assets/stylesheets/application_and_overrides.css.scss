@@ -19,7 +19,7 @@ font-weight: normal;
 src:url('MYRIADPRO-REGULAR.woff')
 }
 
-@font-face {
+@font-face { 
 font-family: 'Myriad Pro Light'; 
 font-style: normal;
 font-weight: normal;
@@ -474,7 +474,11 @@ footer .glyphicon {
 }
 
 .columna-ancha {
-  width: 800px;
+  width: 500px;
+}
+
+.columna-media {
+  width: 350px;
 }
 
 .imagen-inicial {

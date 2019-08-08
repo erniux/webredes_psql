@@ -1,36 +1,18 @@
-<div class="nested-fields">
-	<div class="row">
-		<p><%= f.label :"Paso Certificación" %>
-		<%= f.text_field :estandar_id, size: 10  %>
-		<%= f.label :"Estandar ID" %>
-		<%= f.text_field :estandar_id, size: 10  %></p>
-	</div>
-	<div class="row">
-		<p><%= f.label :"Título" %></p>
-    	<p><%= f.text_area :titulo, cols:100 %></p>
-    </div>
+<span class="nested-fields">
     <div class="row">
-    	<p><%= f.label :Descripción %></p>
-    	<p><%= f.text_area :descripcion, cols:100, rows: 5 %></p>
-    </div> 
-    <div class="row">
-    	<p><%= f.label :Observaciones %></p>
-    	<p><%= f.text_area :observaciones, cols:100, rows: 5 %></p>
-    </div>
-
-    <div class="row">
-    	<p><%= f.label :detalle_para_alcanzar_el_puntaje %></p>
-    	<p><%= f.trix_editor :puntaje, cols:100, rows: 5 %></p>
-    </div>
-
-    <div class="row">
-    	<p><%= f.label :evidencias %></p>
-    	<p><%= f.trix_editor :evidencias, cols:100, rows: 5 %></p>
-    </div>
-
-    <div class="row">
-    	<p><%= f.label :puntaje_total %></p>
-    	<p><%= f.text_area :puntaje_total, cols:100, rows: 5 %></p>
-    </div>
-
-</div>
+	<%= f.text_field :estandar_id, placeholder: 'num. estandar' %>
+    <%= f.text_field :titulo, placeholder: 'Tìtulo' %>
+    <%= f.text_field :descripcion, placeholder: 'Descripción' %>
+    <%= f.text_field :observaciones, placeholder: 'Observaciones' %>
+    <%= f.text_field :evidencias, placeholder: 'Evidencias' %>
+    <%= f.text_field :puntaje_total, placeholder: 'Puntaje Total' %>
+    <%= f.file_field :apoyo, multiple: true %>
+    <%= f.file_field :obligatorio, multiple: true %>
+    <%= link_to_remove_association "Eliminar Estandar", f, class: "btn btn-danger btn-sm" %>
+         
+    <%= f.fields_for :puntos_estandars do |puntos| %>
+        <%= render 'puntos_estandar_fields', f: puntos %>
+    <% end %>
+     <%= link_to_add_association "Agregar Puntos", f, :puntos_estandars, class: "btn btn-warning btn-sm" %>
+ </div>
+</span>

@@ -34,8 +34,7 @@
         <td><%= estandar_etapa_certificacion.descripcion %></td>
         <td><%= estandar_etapa_certificacion.puntaje_total %></td>
         <td><%= link_to 'Detalle', estandar_etapa_certificacion %></td>
-        <td><%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(estandar_etapa_certificacion) if logged_in?(:cert_site_admin) %></td>
-        <td><%= link_to 'Eliminar', estandar_etapa_certificacion, method: :delete, data: { confirm: '¿Confirma Eliminar el Registro?' } if logged_in?(:cert_site_admin) %></td>
+        <td><%= link_to 'Eliminar', etapa_certificacion, method: :delete, data: { confirm: '¿Confirma Eliminar el Registro?' } if logged_in?(:cert_site_admin) %></td>
       </tr>
     <% end %>
   </tbody>

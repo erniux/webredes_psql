@@ -1,6 +1,5 @@
 <div id="body-cert">
 
-
 <p>
   <strong>Paso:</strong>
   <%= @estandar_etapa_certificacion.etapa_certificacion_id %>
@@ -24,7 +23,7 @@
 
 <p>
   <strong>Puntaje:</strong>
-  <%= @estandar_etapa_certificacion.puntaje.html_safe %>
+  <%= @estandar_etapa_certificacion %>
 </p>
 
 <p>
@@ -39,7 +38,7 @@
 
 <p>
   <strong>Evidencias:</strong>
-  <%= @estandar_etapa_certificacion.evidencias.html_safe %>
+  <%= @estandar_etapa_certificacion.evidencias %>
 </p>
 
 <p>
@@ -65,8 +64,8 @@
 </p>
 
 <p>
-  <%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(@estandar_etapa_certificacion), class: "btn btn-primary btn-lg" if logged_in?(:cert_site_admin) %> 
-  <%= link_to 'Regresar',  etapa_certificacion_url(id: @estandar_etapa_certificacion.etapa_certificacion_id), class: "btn btn-info btn-lg"   %>
+
+  <%= link_to 'Regresar',  etapa_certificacion_url(id: @estandar_etapa_certificacion.etapa_certificacion_id), class: "btn btn-info btn-lg" %>
   
 </p>
 </div>
