@@ -8,8 +8,10 @@
     <tr>
       <th>Paso</th>
       <th>Nombre</th>
-      <th>Descripcion</th>
-      <th colspan="3">Acciones</th>
+      <th>Descripción</th>
+      <th>Total Estandares</th>
+      <th>Total Puntos</th>
+      <th colspan="4">Acciones</th>
     </tr>
   </thead>
 
@@ -19,6 +21,8 @@
         <td><%= etapa_certificacion.num_etapa %></td>
         <td class="columna-media"><%= etapa_certificacion.nombre %></td>
         <td class="columna-ancha"><%= etapa_certificacion.descripcion %></td>
+        <td><%= etapa_certificacion.estandar_etapa_certificacions.count %></td>
+         <td><%= etapa_certificacion.total_puntos(etapa_certificacion.num_etapa) %></td>
         <td><%= link_to 'Estandares', etapa_certificacion %></td> 
         <td><%= link_to 'Eliminar', etapa_certificacion, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } if logged_in?(:cert_site_admin) %></td>
       </tr>

@@ -4,31 +4,22 @@
       <%= render "devise/shared/error_messages", resource: resource %>
       
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-4 form-group">
           <h2>Datos Usuario</h2>
-
           <div class="field">
-             <%= f.label :'institución' %><br />
-             <%= f.text_field :sucursal, autofocus: true, placeholder: "institución", size: 50 %>
-           </div>
-
-          <div class="field">
-              <%= f.label :'nombre' %><br />
-              <%= f.text_field :nombre,  placeholder: "nombre", size: 50 %>
+              <%= f.label :'nombre'  %><br />
+              <%= f.text_field :nombre,  placeholder: "nombre", class: "form-control" %>
           </div>
           <div class="field">
             <%= f.label :'apellido paterno' %><br />
-            <%= f.text_field :appaterno_enlace,  placeholder: "apellido paterno", size: 50 %>
+            <%= f.text_field :appaterno,  placeholder: "apellido paterno", class: "form-control" %>
           </div>
 
-          <div class="field">
-            <%= f.label :'cargo' %><br />
-            <%= f.text_field :cargo_enlace, placeholder: "cargo", size: 50 %>
-          </div>
+           
 
           <div class="field">
             <%= f.label :Correo_electronico %><br />
-            <%= f.email_field :email, autofocus: true, placeholder: "correo electrónico", size: 50 %>
+            <%= f.email_field :email, autofocus: true, placeholder: "correo electrónico", class: "form-control" %>
           </div>
 
           <div class="field">
@@ -36,45 +27,23 @@
             <% if @minimum_password_length %>
             <em>(mínimo <%= @minimum_password_length %> caracteres)</em>
             <% end %><br />
-            <%= f.password_field :password, placeholder: "contraseña", size: 50 %>
+            <%= f.password_field :password, placeholder: "contraseña", class: "form-control" %>
           </div>
 
           <div class="field">
             <%= f.label :confirmar_contraseña %><br />
-            <%= f.password_field :password_confirmation, placeholder: "confirmar contraseña", size: 50 %>
-          </div>
-        </div>
-
-        <div class="col-sm-4">
-          <h2>Datos Fiscales</h2>
-          <div class="field">
-            <%= f.label :'RFC' %><br />
-            <%= f.text_field :rfc, placeholder: "RFC", size: 50 %>
-          </div>
-
-          <div class="field">
-            <%= f.label :razon_social %><br />
-            <%= f.text_field :razon_social, placeholder: "razón social", size: 50 %>
-          </div>
-
-          <div class="field">
-            <%= f.label :domicilio_fiscal %><br />
-            <%= f.text_area :domicilio_fiscal, placeholder: "domicilio fiscal", rows: 10, cols: 50 %>
-          </div>
-
-          <div class="field">
-            <%= f.label :'Teléfono' %><br />
-            <%= f.text_field :telefono_oficina, placeholder: "teléfono", size: 50 %>
+            <%= f.password_field :password_confirmation, placeholder: "confirmar contraseña", class: "form-control" %>
           </div>
             
           <div class="actions">
-            <%= f.submit "Enviar", class: "btn btn-primary", size: 50 %>
+            <%= f.submit "Enviar", class: "btn btn-primary", class: "form-group" %>
             <%= render "devise/shared/links" %>
-            <%= link_to "Regresar", root_path, class: 'btn btn-info', size: 20 %>
+            <%= link_to "Regresar", root_path, class: 'btn btn-info', class: "form-group" %>
           </div>
         </div>
-
-        <div class="col-sm-4">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-6">
           <strong><em>¿Aún no cuentas con tu membresía?</em></strong>
           <p> Conoce los beneficios: </p>
           <p><%= image_tag "manzana_pequena.jpg", width: 14 %> <span>Acceso a una base de conocimiento en constante actualización con la contribución de colegas y expertos en distintos aspectos de la seguridad escolar, a través de artículos, conferencias, podcasts, foros, repositorios, etc.</span></p>

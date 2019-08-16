@@ -7,12 +7,9 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Razón Social</th>
+      <th>Nombre</th>
       <th>Contacto</th>
-      <th>Teléfono</th>
-      <th>Correo</th>
-      <th>Certificador</th>
-
+      <th>Cargo</th>
        
     </tr>
   </thead>
@@ -23,15 +20,12 @@
     <% @escuelas.each do |escuela| %>
       <tr>
         <td><%= escuela.id %></td>
-        <% escuela_datos = User.find(escuela.user_id) %>
-        <td><%= escuela_datos.razon_social %></td>
-        <td><%= escuela_datos.nombre_completo %></td>
-        <td><%= escuela_datos.telefono_enlace %></td>
-        <td><%= escuela_datos.correo_enlace %></td>
-        <% nombre_certificador = User.find(escuela.certificador.user_id) %>
-        <td><%= nombre_certificador.nombre_certificador %></td>
-
+        <td><%= escuela.nombre %></td>
+        <td><%= escuela.nombre_enlace + " " + escuela.appaterno_enlace + " " + escuela.apmaterno_enlace %></td>
+        <td><%= escuela.cargo_enlace %></td>
+ 
         <td><%= link_to 'Modificar', edit_escuela_path(escuela) %></td>
+        <td><%= link_to 'Eliminar', escuela, method: :delete, data: { confirm: '¿Confirma Eliminar la Escuela?' } %></td>
          
       </tr>
     <% end %>

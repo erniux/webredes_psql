@@ -1,28 +1,123 @@
 <div id="body-cert">
-	<h1>Actualizar Datos Escuela</h1><hr>  
-	<%= form_with(model: @escuela, local: true) do |form| %>
-  <% if @escuela.errors.any? %>
-      <% @escuela.errors.full_messages.each do |message| %>
-         <%= js add_gritter(message, title: "Aviso", sticky: false) %>
-      <% end %>
+  <h1>Agregar Escuela</h1>
+
+  <%= form_with(model: @escuela, local: true) do |form| %>
+    <% if @escuela.errors.any? %>
+        <% @escuela.errors.full_messages.each do |message| %>
+           <%= js add_gritter(message, title: "Aviso", sticky: false) %>
+        <% end %>
+    <% end %>
+
+<div class="form-group">
+  <div class="row">
+      <div class="col-md-4">
+
+        <label>Nombre</label>
+        <%= form.text_field :nombre, class: "form-control" %>
+
+        <label>Razón Social</label>
+        <%= form.text_field :razon_social, class: "form-control" %>
+
+        <label>RFC</label>
+        <%= form.text_field :rfc, class: "form-control" %>
+
+        <label>Calle</label>
+        <%= form.text_field :calle, class: "form-control" %>
+
+        <label>Número Interior-Exterior</label>
+        <%= form.text_field :numero, class: "form-control" %>
+
+        <label>Colonia</label>
+        <%= form.text_field :colonia, class: "form-control" %>
+
+        <label>Municipio</label>
+        <%= form.text_field :municipio, class: "form-control" %>
+
+        <label>Delegación</label>
+        <%= form.text_field :delegacion, class: "form-control" %>
+
+        <label>Ciudad</label>
+        <%= form.text_field :ciudad, class: "form-control" %>
+
+        <label>Estado</label>
+        <%= form.text_field :estado, class: "form-control" %>
+
+        <label>Código Postal</label>
+        <%= form.text_field :cp, class: "form-control" %>
+
+        <label>Correo Escolar</label>
+        <%= form.email_field :correo, class: "form-control" %>
+
+        <label>Teléfono Oficina</label>
+        <%= form.text_field :telefono_oficina, class: "form-control" %>
+
+      </div>
+      <div class="col-md-4">
+        <label>Sector</label>
+        <%= form.text_field :sector, class: "form-control" %>
+
+        <label>Nivel Básico</label>
+        <%= form.check_box :nivel_basico, class: "form-control" %>
+
+        <label>Nivel Medio Superior</label>
+        <%= form.check_box :nivel_media_superior, class: "form-control" %>
+
+        <label>Nivel Superior</label>
+        <%= form.check_box :nivel_superior, class: "form-control" %>
+
+        <label>Nivel Capacitación</label>
+        <%= form.check_box :nivel_capacitacion, class: "form-control" %>
+
+        <label>Nivel Escolar Específico</label>
+        <%= form.text_field :nivel_escolar_especifico, class: "form-control" %>
+
+        <label>Número de Grupos</label>
+        <%= form.number_field :num_grupos, class: "form-control" %>
+
+        <label>Número promedio de Alumnos</label>
+        <%= form.number_field :num_promedio_alumnos, class: "form-control" %>
+
+        <label>Número promedio de personal</label>
+        <%= form.number_field :num_promedio_personal, class: "form-control" %>
+
+        <label>Número de promedio de docentes</label>
+        <%= form.number_field :num_promedio_docentes, class: "form-control" %>
+
+         
+     
+      </div>
+      <div class="col-md-4">
+
+        <label>Nombre Persona de Enlace</label>
+        <%= form.text_field :nombre_enlace, class: "form-control" %>
+
+        <label>Apellido paterno</label>
+        <%= form.text_field :appaterno_enlace, class: "form-control" %>
+
+        <label>Apellido materno</label>
+        <%= form.text_field :apmaterno_enlace, class: "form-control" %>
+
+        <label>Cargo</label>
+        <%= form.text_field :cargo_enlace, class: "form-control" %>
+
+        <label>Asignación</label>
+        <%= form.text_field :asignacion_actual_enlace, class: "form-control" %>
+
+        <label>Correo</label>
+        <%= form.text_field :correo_enlace, class: "form-control" %>
+
+        <label>Teléfono</label>
+        <%= form.text_field :telefono_enlace, class: "form-control" %>
+      </div>
+
+    </div><br>
+  
+      <div class="actions">
+        <%= form.submit "Guardar", class: "btn btn-primary btn-lg", size: 50 %>
+        <%= link_to 'Mostrar', @escuela, class: "btn btn-success btn-lg", size: 50 %> 
+        <%= link_to 'Regresar', escuelas_path, class: "btn btn-info btn-lg", size: 50 %>
+      </div>
+
   <% end %>
-
-  <div class="field-group">
-    <% @nombre_escuela = User.find_by(id: @escuela.user_id) %>
-    <h3>Escuela:&nbsp;<%= @nombre_escuela.razon_social %> </h3>
-  </div>
-
-  <div class="field-group">
-    
-    <h3>Certificador:&nbsp;<%= collection_select(:escuela, :certificador_id, User.certificadores, :id, :nombre_certificador, prompt: true) %></h3>
-    
-  </div><br>
-
-<p></p>
-  <div class="actions">
-    <%= form.submit "Guardar", class: "btn btn-primary btn-lg", size: 50 %>
-    <%= link_to 'Regresar', escuelas_path, class: "btn btn-info btn-lg", size: 50 %>
-  </div>
-
-<% end %>
+</div>
 </div>

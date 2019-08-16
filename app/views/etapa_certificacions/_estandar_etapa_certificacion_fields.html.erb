@@ -1,18 +1,79 @@
 <span class="nested-fields">
     <div class="row">
-	<%= f.text_field :estandar_id, placeholder: 'num. estandar' %>
-    <%= f.text_field :titulo, placeholder: 'Tìtulo' %>
-    <%= f.text_field :descripcion, placeholder: 'Descripción' %>
-    <%= f.text_field :observaciones, placeholder: 'Observaciones' %>
-    <%= f.text_field :evidencias, placeholder: 'Evidencias' %>
-    <%= f.text_field :puntaje_total, placeholder: 'Puntaje Total' %>
-    <%= f.file_field :apoyo, multiple: true %>
-    <%= f.file_field :obligatorio, multiple: true %>
-    <%= link_to_remove_association "Eliminar Estandar", f, class: "btn btn-danger btn-sm" %>
+        <div class="col-md-2">
+            <label>Paso ID</label>
+        </div>
+        <div class="col-md-2">
+            <label>Estandar ID</label>
+        </div>
+        <div class="col-md-2">
+            <label>Puntaje Total</label>
+        </div>
+        <div class="col-md-6">
+            <label>Archivos</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <%= f.text_field :etapa_certificacion_id, placeholder: 'num. estandar' %>
+        </div>
+        <div class="col-md-2">
+            <%= f.text_field :estandar_id, placeholder: 'num. estandar' %>
+        </div>
+        <div class="col-md-2">
+            <%= f.text_field :puntaje_total, placeholder: 'Puntaje Total' %>
+        </div>
+        <div class="col-md-4">
+            <span class="btn btn-large btn-warning btn-file">
+                Elegir Archivos de Apoyo
+                <%= file_field_tag :apoyo, multiple: true %>
+            </span>
+        </div>
+        <div class="col-md-4">
+            <span class="btn btn-large btn-info btn-file">
+                Elegir Archivos Obligatorios
+                <%= file_field_tag :obligatorio, multiple: true %>
+            </span>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-md-3">
+            <label>Título</label>
+        </div>
+        <div class="col-md-3">
+            <label>Descripción</label>
+        </div>
+        <div class="col-md-3">
+            <label>Observaciones</label>
+        </div>
+        <div class="col-md-3">
+            <label>Evidencias</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <%= f.text_area :titulo, placeholder: 'Tìtulo', cols: 50, rows: 3 %>
+        </div>
+        <div class="col-md-3">
+            <%= f.text_area :descripcion, placeholder: 'Descripción', cols: 50, rows: 3 %>
+        </div>
+        <div class="col-md-3">
+            <%= f.text_area :observaciones, placeholder: 'Observaciones', cols: 50, rows: 3 %>
+        </div>
+        <div class="col-md-3">
+            <%= f.text_area :evidencias, placeholder: 'Evidencias',cols: 50, rows: 3 %> 
+        </div>
+    </div>
+      
+    <p><%= link_to_remove_association "Eliminar Estandar", f, class: "btn btn-danger btn-sm" %></p>
          
-    <%= f.fields_for :puntos_estandars do |puntos| %>
-        <%= render 'puntos_estandar_fields', f: puntos %>
-    <% end %>
-     <%= link_to_add_association "Agregar Puntos", f, :puntos_estandars, class: "btn btn-warning btn-sm" %>
- </div>
+    <div class="row">     
+        <%= f.fields_for :puntos_estandars do |puntos| %>
+            <%= render 'puntos_estandar_fields', f: puntos %>
+        <% end %>
+    </div>
+    
+     <pr><%= link_to_add_association "Agregar Puntos", f, :puntos_estandars, class: "btn btn-warning btn-sm", size: 120 %></pr>
+  <hr>
+   
 </span>

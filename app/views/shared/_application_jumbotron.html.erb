@@ -24,6 +24,7 @@
   <div class="row">
     <div class="col-md-4">
       <h2>eventos</h2>
+      <% if !@eventos.blank? %>
       <p><%= @eventos.titulo.html_safe %></p>
       <p><%= @eventos.detalle.html_safe %></p>
       <p><%= @eventos.lugar %></p>
@@ -31,13 +32,16 @@
       <p>del: <%= @eventos.fecha_inicio.strftime('%d / %B / %Y') %> al: <%= @eventos.fecha_fin.strftime('%d /%B/%Y') %> </p>
       <p><%= image_tag(@eventos.foto, width: '100%') if @eventos.foto.attached? %> </p>
       <p><%= link_to 'asiste', eventos_path, class: "btn btn-default btn-lg" %></p>
+      <% end %>
    </div>
    <div class="col-md-4">
-      <h2>blog</h2>
+      <h2>blog</h2
+      <% if !@avisos.blank? %>
       <p><em><%= @avisos.titulo.html_safe %></em></p>
       <p><%= @avisos.detalle.html_safe %></p>
       <p><%= image_tag(@avisos.foto, width: '100%') if @avisos.foto.attached? %> </p>
       <p><%= link_to 'escribe tu blog', avisos_path, class: "btn btn-default btn-lg" %></p>
+      <% end %>
    </div>
 
    <div class="col-md-4">

@@ -1,3 +1,4 @@
+<div id="body-cert">
 <%= form_with(model: etapa_certificacion, local: true) do |form| %>
   <% if etapa_certificacion.errors.any? %>
       <% etapa_certificacion.errors.full_messages.each do |message| %>
@@ -8,23 +9,44 @@
   <div class="actions">
     <%= form.submit "Guardar Registro", class: "btn btn-primary btn-lg" %>
     <%= link_to "Regresar a Proceso", etapa_certificacions_path, class: "btn btn-success btn-lg" %>
+  </div><br>
+
+  <div class="row">
+    <div class="col-md-2">
+      <label>Num. Paso</label>
+    </div>
+    <div class="col-md-4">
+      <label>Título Paso</label>
+    </div>
+    <div class="col-md-6">
+      <label>Descripción</label>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-md-2">
+      <%= form.text_field :num_etapa, placeholder: 'Num. Paso' %>
+    </div>
+    <div class="col-md-4">
+      <%= form.text_area :nombre, cols: 50, rows: 5, placeholder: 'Nombre o Título' %>
+    </div>  
+    <div class="col-md-6">
+      <%= form.text_area :descripcion, cols: 50, rows: 5, placeholder: 'Descripción' %>
+    </div> 
+  </div>
+  <hr>
+  <h3>Estandares</h3>
+  <hr>
 
-   <div class="row">
-        <div class="col-md-2"><%= form.text_field :num_etapa, placeholder: 'Num. Paso' %></div>
-        <div class="col-md-5"><%= form.text_area :nombre, cols: 50, placeholder: 'Nombre o Título' %></div>  
-        <div class="col-md-5"><%= form.text_area :descripcion, cols: 50, placeholder: 'Descripción' %></div> 
-       </div>
-          <%= form.fields_for :estandar_etapa_certificacions do |estandar| %>
-            <%= render 'estandar_etapa_certificacion_fields', f: estandar %>
-          <% end %>
-      
-       
-   <div><%= link_to_add_association "Agregar estandar", form, :estandar_etapa_certificacions, class: "btn btn-warning btn-sm" %></div>
+  <div class="row">
+    <%= form.fields_for :estandar_etapa_certificacions do |estandar| %>
+      <%= render 'estandar_etapa_certificacion_fields', f: estandar %>
+    <% end %>
+  </div> <hr>
+   <p><%= link_to_add_association "Agregar estandar", form, :estandar_etapa_certificacions, class: "btn btn-primary btn-lg" %></p>
  
  
-
 <% end %>
+</div>
 
 
 

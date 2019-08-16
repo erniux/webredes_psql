@@ -10,9 +10,11 @@ class EstandarEtapaCertificacion < ApplicationRecord
 	has_many_attached :apoyo
 
 	def no_referenced_puntos_estandars
-    return if puntos_estandars.empty?
-    errors.add :base,  "No se permite hay ..."
-    false # If you return anything else, the callback will not stop the destroy from happening
-  end
+    	return if puntos_estandars.empty?
+    	errors.add :base,  "No se permite hay ..."
+    	false # If you return anything else, the callback will not stop the destroy from happening
+  	end
+
+  	
 
 end

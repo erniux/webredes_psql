@@ -1,5 +1,117 @@
 <div class="container-fluid-crud">
-     <h2>ESTE ES EL SHOW DE LAS ESCUELAS </h2>
+	<div class="form-group">
+  		<div class="row">
+      		<div class="col-md-4">
+
+        <label>Nombre</label>
+        <p><%= @escuela.nombre %></p>
+
+        <label>Razón Social</label>
+        <p><%= @escuela.razon_social %></p>
+
+        <label>RFC</label>
+        <p><%= @escuela.rfc  %></p>
+
+        <label>Calle</label>
+        <p><%= @escuela.calle  %></p>
+
+        <label>Número Interior-Exterior</label>
+        <p><%= @escuela.numero  %></p>
+
+        <label>Colonia</label>
+        <p><%= @escuela.colonia  %></p>
+
+        <label>Municipio</label>
+        <p><%= @escuela.municipio  %></p>
+
+        <label>Delegación</label>
+        <p><%= @escuela.delegacion  %></p>
+
+        <label>Ciudad</label>
+        <p><%= @escuela.ciudad  %></p>
+
+        <label>Estado</label>
+        <p><%= @escuela.estado  %></p>
+
+        <label>Código Postal</label>
+        <p><%= @escuela.cp  %></p>
+
+        <label>Correo Escolar</label>
+        <p><%= @escuela.correo  %></p>
+
+        <label>Teléfono Oficina</label>
+        <p><%= @escuela.telefono_oficina %></p>
+
+      </div>
+      <div class="col-md-4">
+        <label>Sector</label>
+        <p><%= @escuela.sector %></p>
+
+        <label>Nivel Básico</label>
+        <p><%= @escuela.nivel_basico %></p>
+
+        <label>Nivel Medio Superior</label>
+        <p><%= @escuela.nivel_media_superior %></p>
+
+        <label>Nivel Superior</label>
+        <p><%= @escuela.nivel_superior %></p>
+
+        <label>Nivel Capacitación</label>
+        <p><%= @escuela.nivel_capacitacion %></p>
+
+        <label>Nivel Escolar Específico</label>
+        <p><%= @escuela.nivel_escolar_especifico %></p>
+
+        <label>Número de Grupos</label>
+        <p><%= @escuela.num_grupos %></p>
+
+        <label>Número promedio de Alumnos</label>
+        <p><%= @escuela.num_promedio_alumnos %></p>
+
+        <label>Número promedio de personal</label>
+        <p><%= @escuela.num_promedio_personal %></p>
+
+        <label>Número de promedio de docentes</label>
+        <p><%= @escuela.num_promedio_docentes %></p>
+
+         
+     
+      </div>
+      <div class="col-md-4">
+
+        <label>Nombre Persona de Enlace</label>
+        <p><%= @escuela.nombre_enlace  %></p>
+
+        <label>Apellido paterno</label>
+        <p><%= @escuela.appaterno_enlace  %></p>
+
+        <label>Apellido materno</label>
+        <p><%= @escuela.apmaterno_enlace  %></p>
+
+        <label>Cargo</label>
+        <p><%= @escuela.cargo_enlace  %></p>
+
+        <label>Asignación</label>
+        <p><%= @escuela.asignacion_actual_enlace  %></p>
+
+        <label>Correo</label>
+        <p><%= @escuela.correo_enlace  %></p>
+
+        <label>Teléfono</label>
+        <p><%= @escuela.telefono_enlace  %></p>
+      </div>
+
+    </div><br>
+  
+      <div class="actions">
+        
+        
+        <%= link_to 'Regresar', escuelas_path, class: "btn btn-info btn-lg", size: 50 %>
+      </div>
+
+   
+</div>
+</div>
 
       
       

@@ -26,14 +26,10 @@ before_action :set_escuela, only: [:show, :edit, :update, :destroy]
       if @escuela.save
         @estandares.each  do |estandar|
           CertEscolar.create!(estandar: estandar.estandar_id, paso: estandar.etapa_certificacion_id, 
-                              user_id: @escuela.user_id, puntaje: 0, certificador_id: @escuela.certificador_id)
-
+                              escuela_id: @escuela.id, puntaje: 0, observaciones: "inicial")
         end
-        AuditLog.create!(user_id: @escuela.user_id, comentarios: 'Creación del Proceso de Certificación', status_certificacion: 0)
-         
         format.html { redirect_to escuelas_path, notice: 'Registro creado con éxito.' }
       else
-        byebug
         format.html { render :new }
       end
     end
@@ -64,10 +60,17 @@ before_action :set_escuela, only: [:show, :edit, :update, :destroy]
 
 
 	def escuela_params
-		params.require(:escuela).permit( :id, :user_id, :certificador_id,
+    params.require(:escuela).permit( :id,  :nombre, :razon_social, :rfc, :calle, :numero, :colonia, 
+      :municipio, :delegacion, :ciudad, :estado, :cp, :correo, :telefono_oficina, :sector, 
+      :nivel_basico, :nivel_media_superior, :nivel_superior, :nivel_capacitacion, :nivel_escolar_especifico, 
+      :num_grupos, :num_promedio_alumnos, :num_promedio_personal, :num_promedio_docentes, :nombre_enlace, 
+      :appaterno_enlace, :apmaterno_enlace, :cargo_enlace, :asignacion_actual_enlace, :correo_enlace, 
+      :telefono_enlace,
       cert_escolars_attributes: [:id, :user_id, :paso, :estandar, :observaciones, :status , :puntaje, :certificador_id,  :_destroy ])
-	end
+  end
 
 end
+
+
 
 

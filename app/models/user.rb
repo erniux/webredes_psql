@@ -10,39 +10,15 @@ class User < ApplicationRecord
   
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
   
-    has_many :eventos
-    has_many :avisos
-    has_many :audit_logs
-    belongs_to :escuelas
+      has_many :eventos
+      has_many :avisos
+      has_many :audit_logs
+     
      
 
-    validates_presence_of :nombre, :appaterno, :email, :rfc, :razon_social, :domicilio_fiscal, :nombre_enlace, 
-                          :appaterno_enlace, :apmaterno_enlace, :cargo_enlace, :correo_enlace, :telefono_enlace  
+    validates_presence_of :nombre, :appaterno, :email
 
-
-    def nombre_completo
-      "#{nombre_enlace} #{appaterno_enlace} #{apmaterno_enlace} "
-    end 
-
-    def nombre_certificador
-      "#{nombre} #{appaterno} "
-    end  
-
-    def self.nuevas_escuelas
-      find_by_sql("SELECT t1.razon_social, t1.id, t1.roles FROM users t1 WHERE t1.roles = 'escuela' AND NOT EXISTS (SELECT NULL FROM escuelas t2 WHERE t2.user_id = t1.id)")
-    end                          
-
-    def self.certificadores
-      find_by_sql("SELECT t1.nombre, t1.appaterno, t1.id, t1.roles FROM users t1 WHERE t1.roles = 'certificador'")
-    end           
-
-    def self.nombre_escuela
-      find_by_sql("SELECT t1.razon_social, t1.id, t1.roles FROM users t1 WHERE t1.roles = 'escuela' AND EXISTS (SELECT NULL FROM escuelas t2 WHERE t2.user_id = t1.id)")
-    end  
-
-    def  usuario(usuario_id)
-      User.where("id = ?", usuario_id)
-    end  
+ 
 end
 
 
