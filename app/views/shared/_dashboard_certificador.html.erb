@@ -12,29 +12,7 @@
         </tr>
     </thead>
     <tbody>
-      <% @escuelas = Escuela.joins("INNER JOIN certificadors ON escuelas.certificador_id = certificadors.id and certificadors.id = 1") %>
-      <% @calificacion_por_paso = EstandarEtapaCertificacion.group(:etapa_certificacion_id).sum(:puntaje_total) %>
-      <% @calificacion_total = EstandarEtapaCertificacion.all.sum(:puntaje_total) %>
-          <% @escuelas.each do |escuela| %>
-            <tr>
-              <td><%= escuela.id %></td> 
-              <% nombre_escuela = User.find(escuela.user_id) %>
-              <td><%= nombre_escuela.razon_social %></td>
-
-              <% nombre_certificador = User.find(escuela.certificador_id) %>
-              <td><%= nombre_certificador.nombre_certificador %></td>
-              <% @avance_certificacion = CertEscolar.where(user_id: escuela.user_id, status: 'cumplido').sum(:puntaje) %>
-              <td><%= @avance_certificacion %></td>
-              <% @avance_paso = CertEscolar.where(user_id: escuela.user_id, status: ['cumplido']).last %>
-               
-              <% if not(@avance_paso == nil) %>
-                <td><%= @avance_paso.paso.to_s + "." + @avance_paso.estandar.to_s %></td>
-                <td><%= number_to_percentage((@avance_certificacion.to_f / @calificacion_total.to_f)*100, precision: 2) %></td>
-              <% else %>
-                <td>Aún no inicia su certificación</td>
-              <% end %>
-            </tr>
-          <% end %>
+       
       </tbody>
     </table>
   </div>

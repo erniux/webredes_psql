@@ -8,7 +8,9 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>USER ID</th>
+      <th>Nombre</th>
+      <th>Departamento</th>
+      <th>Especialidad</th>
       
       <th colspan="3">Acciones</th>
     </tr>
@@ -21,7 +23,9 @@
     <% @certificadores.each do |certificador| %>
       <tr>
         <td><%= certificador.id %></td>
-        <td><%= certificador.user.nombre_certificador  %></td>
+        <td><%= certificador.nombre.to_s + " " + certificador.appaterno.to_s %></td>
+        <td><%= certificador.departamento %></td>
+        <td><%= certificador.especialidad %></td>
         <td><%= link_to 'Modificar', edit_certificador_path(certificador) %></td>
         <td><%= link_to 'Eliminar', certificador, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } %></td>
       </tr>

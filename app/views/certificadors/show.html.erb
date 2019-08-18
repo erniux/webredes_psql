@@ -1,44 +1,32 @@
 
 <div id="body-cert">
 	<p>
-	  <h3><%= @certificador.user.nombre_certificador %></h3>
+	  <h3><%= @certificador.nombre %></h3>
 	</p>
 	 
 	<br>
-	<h3> Escuelas Asignadas</h3>
+	<h3> Datos Certificador</h3>
 
 	<table class="table">
 		<thead>
     		<tr>
-    			
       			<th>Nombre</th>
-      			<th>Paso</th>
-      			<th>Estandar</th>
-      			<th>Avance Paso</th>
-      			<th>Avance Total</th>
-      			<th>Puntos Acumulados</th>
-
-      			<th colspan="3">Acciones</th>
+      			<th>Departamento</th>
+      			<th>Especialidad</th>
     		</tr>
   		</thead>
 		
 		<tbody>
-		<% @certificador.escuelas.each do |escuela| %>
-			<tr>
-				<% paso = CertEscolar.find_by(user_id: escuela.user_id)  %>
-				<td><%= paso.paso %></td>
-				<td>1</td>
-				<td>4</td> 
-				<td>85%</td>
-				<td>20%</td>
-				<td>350</td>
-				<td><%= link_to 'Detalle', cert_escolars_path %></td>
-        		<td><%= link_to 'Modificar', edit_escuela_path(escuela) %></td>  
-        		  
-			</tr>
-		<% end %>
+		 <tr>
+		 	<td><%= @certificador.nombre.to_s + " " + @certificador.appaterno.to_s %></td>
+		 	<td><%= @certificador.departamento %></td>
+		 	<td><%= @certificador.especialidad %></td>
+
+		 </tr>
 		</tbody>
 	</table>
+
+	<h4>Escuelas asignadas</h4>
 	
 	<p class="btn btn-info btn-lg"><%= link_to 'Modificar', edit_certificador_path(@certificador)  %></p> 
 	<p class="btn btn-warning btn-lg"><%= link_to 'Regresar', certificadors_path %></p>

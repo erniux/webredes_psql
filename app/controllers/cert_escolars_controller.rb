@@ -4,12 +4,13 @@ class CertEscolarsController < ApplicationController
 
   def index
     if current_user.has_role?(:cert_site_admin, :certificador) 
-      if params[:term]
-        @results = CertEscolar.search_by_full_escuela(params[:term]).order(paso: 'DESC', estandar: 'DESC')
-       
-      end 
+      if params[:term].present?
+        @results = CertEscolar.search_by_full_escuela(params[:term]).order(paso: 'ASC', estandar: 'ASC')
+      else
+        @results = CertEscolar.all.order(escuela_id: 'ASC', paso: 'ASC', estandar: 'ASC')
+      end
     else
-     #@results = CertEscolar.where(escuela_id: current_user.id).all.order(paso: 'ASC', estandar: 'ASC')
+      @results = CertEscolar.where(escuela_id: current_user.escuela_id).all.order(paso: 'ASC', estandar: 'ASC')
     end
   end
 

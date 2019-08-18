@@ -222,7 +222,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2018.0812)
     mimemagic (0.3.3)
-    mini_magick (4.9.3)
+    mini_magick (4.9.5)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -427,7 +427,7 @@ DEPENDENCIES
   guard-rspec (~> 4.7, >= 4.7.3)
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
-  mini_magick (~> 4.9, >= 4.9.3)
+  mini_magick (>= 4.9.4)
   momentjs-rails (>= 2.9.0)
   petergate (~> 2.0, >= 2.0.1)
   pg (>= 0.18, < 2.0)
@@ -452,4 +452,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   2.0.1
+   2.0.2

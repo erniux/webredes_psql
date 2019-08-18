@@ -18,3 +18,5 @@ class EstandarEtapaCertificacion < ApplicationRecord
   	
 
 end
+
+

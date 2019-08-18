@@ -22,7 +22,7 @@
         <td class="columna-media"><%= etapa_certificacion.nombre %></td>
         <td class="columna-ancha"><%= etapa_certificacion.descripcion %></td>
         <td><%= etapa_certificacion.estandar_etapa_certificacions.count %></td>
-         <td><%= etapa_certificacion.total_puntos(etapa_certificacion.num_etapa) %></td>
+         <td><%= etapa_certificacion.total_puntos(etapa_certificacion.num_etapa).sum %></td>
         <td><%= link_to 'Estandares', etapa_certificacion %></td> 
         <td><%= link_to 'Eliminar', etapa_certificacion, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } if logged_in?(:cert_site_admin) %></td>
       </tr>

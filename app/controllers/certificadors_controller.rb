@@ -57,8 +57,7 @@ class CertificadorsController < ApplicationController
 
 
 	def certificador_params
-		params.require(:certificador).permit(:id, :user_id,
-                                  escuelas_attributes: [:id, :user_id, :certificador_id, :_destroy ])
+		params.require(:certificador).permit(:id, :nombre, :appaterno, :departamento, :especialidad)
 	end
 
 end

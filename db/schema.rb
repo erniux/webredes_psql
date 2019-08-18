@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_231954) do
+ActiveRecord::Schema.define(version: 2019_08_18_201344) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -308,7 +308,9 @@ ActiveRecord::Schema.define(version: 2019_08_15_231954) do
     t.integer "permission_level", default: 0, null: false
     t.string "type"
     t.string "roles"
+    t.bigint "escuela_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["escuela_id"], name: "index_users_on_escuela_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -324,4 +326,5 @@ ActiveRecord::Schema.define(version: 2019_08_15_231954) do
   add_foreign_key "puntos_estandars", "etapa_certificacions"
   add_foreign_key "recursos", "users"
   add_foreign_key "servicios", "users"
+  add_foreign_key "users", "escuelas"
 end

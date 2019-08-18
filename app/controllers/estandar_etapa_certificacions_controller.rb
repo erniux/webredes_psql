@@ -8,7 +8,18 @@ class EstandarEtapaCertificacionsController < ApplicationController
     @estandar_etapa_certificacion = EstandarEtapaCertificacion.find(params[:id])
   end
 
- 
+  def edit
+  	@estandar_etapa_certificacion = EstandarEtapaCertificacion.find(params[:id])
+  end
+
+  def update
+  	@estandar_etapa_certificacion = EstandarEtapaCertificacion.find(params[:id])
+  	if @estandar_etapa_certificacion.update(estandar_etapa_certificacion_params)
+      redirect_to @estandar_etapa_certificacion, notice: 'Registro actualizado correctamente.'
+    else
+      render :edit
+    end
+  end
 
   private
     def estandar_etapa_certificacion_params

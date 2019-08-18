@@ -27,6 +27,7 @@
 				<td><%= estandar.evidencias.html_safe %></td>
 				<td><%= estandar.puntaje_total %></td>
 				<td><%= link_to 'Detalle', estandar %></td>
+				<td><%= link_to 'Modificar', edit_estandar_etapa_certificacion_path(estandar) %></td>
 			</tr>
 		<% end %>
 		</tbody>

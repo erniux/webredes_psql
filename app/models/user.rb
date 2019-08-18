@@ -15,7 +15,6 @@ class User < ApplicationRecord
       has_many :audit_logs
      
      
-
     validates_presence_of :nombre, :appaterno, :email
 
  

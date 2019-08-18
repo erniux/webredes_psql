@@ -5,43 +5,28 @@
       <% end %>
   <% end %>
 
-<div class="container-fluid-crud form-group">
+<div class="form-group">
   <div class="row">
-    <div class="col-md-2">
-      Certificador
-    </div>
-    <div class="col-md-10">
-       <%= collection_select(:nombre, :id, User.where(roles: "certificador"), :id, :nombre ) %>
-    </div>
-  </div><br>
+      <div class="col-md-4">
 
+        <label>Nombre</label>
+        <%= form.text_field :nombre, class: "form-control" %>
 
+        <label>Apellido Paterno</label>
+        <%= form.text_field :appaterno, class: "form-control" %>
 
-  <h2>Escuelas Asignadas</h2>
+        <label>Departamento</label>
+        <%= form.text_field :departamento, class: "form-control" %>
 
-  <div class="row">
-    <div class="col-md-6">
-      Razon Social
+        <label>Especialidad</label>
+        <%= form.text_field :especialidad, class: "form-control" %>
+      </div>
     </div>
-    <div class="col-md-3">
-      Certificador
-    </div>
-    <div class="col-md-3">
-      Acciones
-    </div>
-  </div>
-    
-    <div>
-      <%= form.fields_for :escuelas do |escuela| %>
-      <%= render 'escuela_fields', f: escuela %>
-      <% end %>
-    </div><br>
-    <p>
-    <div>
-    <%= link_to_add_association 'Agregar Escuela', form, :escuelas, class: "btn btn-success btn-lg" %>
-  </div></p>
+ 
      
-  <div class="actions">
-    <%= form.submit "Guardar Registro", class: "btn btn-primary btn-lg" %>
+    <div class="actions">
+      <%= form.submit "Guardar Registro", class: "btn btn-primary btn-lg" %>
+    </div>
+
   </div>
 <% end %>

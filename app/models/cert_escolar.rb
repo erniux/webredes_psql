@@ -3,6 +3,8 @@ class CertEscolar < ApplicationRecord
 
 	belongs_to :escuela
 
+	has_many_attached :evidencias
+
   	enum status: {sin_avance: 0, en_desarrollo: 1, revision: 2, revisado_con_comentarios: 3, cumplido: 4}
 
   	validates_presence_of :observaciones
@@ -12,6 +14,6 @@ class CertEscolar < ApplicationRecord
   					order_within_rank: " paso ASC,  estandar ASC"
 
 
-  	has_many_attached :evidencias
+  	
 
 end

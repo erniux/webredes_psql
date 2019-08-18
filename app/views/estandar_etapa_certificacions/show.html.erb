@@ -1,19 +1,10 @@
 <div id="body-cert">
 
 <p>
-  <strong>Paso:</strong>
-  <%= @estandar_etapa_certificacion.etapa_certificacion_id %>
-</p>
-
-<p>
-  <strong>Estandar ID:</strong>
-  <%= @estandar_etapa_certificacion.estandar_id %>
-</p>
-
-
-<p>
-  <strong>Titulo:</strong>
-  <%= @estandar_etapa_certificacion.titulo %>
+  <h3>
+      <%= @estandar_etapa_certificacion.etapa_certificacion_id.to_s + "." + @estandar_etapa_certificacion.estandar_id.to_s + " " +
+      @estandar_etapa_certificacion.titulo  %>
+  </h3>
 </p>
 
 <p>
@@ -22,18 +13,38 @@
 </p>
 
 <p>
-  <strong>Puntaje:</strong>
-  <%= @estandar_etapa_certificacion %>
+<% if !@estandar_etapa_certificacion.puntos_estandars.blank? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Puntos</th>
+        <th>Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+      <% @estandar_etapa_certificacion.puntos_estandars.each do |puntos| %> 
+      <tr>
+        <td><%= puntos.puntos %></td>
+        <td><%= puntos.descripcion %></td>
+      </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+<% end %>
 </p>
 
 <p>
-  <strong>Puntaje:</strong>
+  <strong>Puntaje Total:</strong>
   <%= @estandar_etapa_certificacion.puntaje_total %>
 </p>
 
 <p>
-  <strong>Observaciones:</strong>
-  <%= @estandar_etapa_certificacion.observaciones %>
+  <% if !@estandar_etapa_certificacion.observaciones.blank? %>
+    <strong>Observaciones:</strong >
+    <%= @estandar_etapa_certificacion.observaciones %>
+  <% end %>
 </p>
 
 <p>
@@ -41,31 +52,30 @@
   <%= @estandar_etapa_certificacion.evidencias %>
 </p>
 
-<p>
-  <strong>Apoyo:</strong> <br/>
-  <% if @estandar_etapa_certificacion.apoyo.attached? %>
-    <% @estandar_etapa_certificacion.apoyo.each do |apoyo| %>
-      <%= link_to apoyo.filename, apoyo, target: '_blank' %> <br/>
-    <% end %>
-  <% else %>
-    <p>no uploads</p>
-  <% end %>
-</p>
-
-<p>
-  <strong>Obligatorio:</strong> <br/>
-  <% if @estandar_etapa_certificacion.obligatorio.attached? %>
-    <% @estandar_etapa_certificacion.obligatorio.each do |obligatorio| %>
-      <%= link_to obligatorio.filename, obligatorio, target: '_blank' %> <br/>
-    <% end %>
-  <% else %>
-    <p>no uploads</p>
-  <% end %>
-</p>
-
-<p>
-
+<h3>Documentos</h3>
+ 
+  <div class="row">
+    <div class="col-md-6">
+      <strong>Apoyo:</strong> <br/>
+        <% if @estandar_etapa_certificacion.apoyo.attached? %>
+          <% @estandar_etapa_certificacion.apoyo.each do |apoyo| %>
+            <%= link_to apoyo.filename, apoyo, target: '_blank' %> <br/>
+          <% end %>
+        <% else %>
+          <p>No existen documentos</p>
+        <% end %>
+    </div>
+    <div class="col-md-6">
+      <strong>Obligatorio:</strong> <br/>
+      <% if @estandar_etapa_certificacion.obligatorio.attached? %>
+        <% @estandar_etapa_certificacion.obligatorio.each do |obligatorio| %>
+          <%= link_to obligatorio.filename, obligatorio, target: '_blank' %> <br/>
+        <% end %>
+      <% else %>
+        <p>No existen documentos</p>
+      <% end %>
+    </div>
+  </div>
+<br>
   <%= link_to 'Regresar',  etapa_certificacion_url(id: @estandar_etapa_certificacion.etapa_certificacion_id), class: "btn btn-info btn-lg" %>
-  
-</p>
 </div>

@@ -33,6 +33,12 @@
           <div class="field">
             <%= f.label :confirmar_contraseña %><br />
             <%= f.password_field :password_confirmation, placeholder: "confirmar contraseña", class: "form-control" %>
+          </div><br>
+
+          <div class="field">
+            <%= f.label :escuela %><brs>
+            <%= f.collection_select(:escuela_id, Escuela.all, :id, :nombre, html_options: {class: "form-control"}) %>
+             
           </div>
             
           <div class="actions">

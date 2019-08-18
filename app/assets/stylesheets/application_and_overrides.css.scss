@@ -492,6 +492,22 @@ footer .glyphicon {
   
 }
 
+.avance {
+  width: 150px;
+ }
+
+.estandar {
+  width: 350px;
+ }
+
+.descripcion {
+  width: 450px;
+ }
+
+ .puntaje {
+  width: 150px;
+
+ }
  
 
 .logo-inicial {
@@ -699,7 +715,7 @@ p.texto-sidebar {
 div#body-cert {
   margin-left: 5%;
    margin-right: 5%;
-   padding: 10px 10px;
+   padding: 30px 10px;
 }
 
 
@@ -804,6 +820,80 @@ div#body-cert {
 .cien {
  width: 100%;
  background-color: #000000;
+}
+
+.descripcion-etapa {
+  background-color: white;
+  color: black;
+  padding: 10px 10px;
+}
+
+.titulo-etapa {
+  background-color: #9CD8E5;
+  color: black;
+  padding: 10px 10px;
+}
+
+.container-etapa {  
+  padding: 10px 10px;
+  background-color: #53AAC4;
+  color: white;
+  border-radius: 21px 21px 21px 21px;
+  -moz-border-radius: 21px 21px 21px 21px;
+  -webkit-border-radius: 21px 21px 21px 21px;
+  border: 0px solid #000000;
+
+}
+
+.container-evidencias {
+  padding: 10px 10px;
+  width: 50;
+  height: 550px;
+  background-color: #DAD9DA;
+  border-radius: 21px 21px 21px 21px;
+  -moz-border-radius: 21px 21px 21px 21px;
+  -webkit-border-radius: 21px 21px 21px 21px;
+  border: 0px solid #000000;
+}
+
+.titulo-evidencias {
+  font-size: 2em;
+  text-align: center;
+  background: grey;
+  color: white;text-size: 10em;
+  border-radius: 21px 21px 21px 21px;
+  -moz-border-radius: 21px 21px 21px 21px;
+  -webkit-border-radius: 21px 21px 21px 21px;
+  border: 0px solid #000000;
+}
+
+.container-evidencias-subidas {
+  width: 40;
+  height: 400px;
+  margin-left: 10px;
+}
+
+.puntos-etiqueta {
+  width: 100px; 
+  height: 100px; 
+  border: 3px solid #fff;
+  padding: 5px 10px;
+}
+
+.modificar-puntos {
+    background-color: grey;
+    padding: 30px 30px;
+    margin-left: auto;
+    width: 90%;
+    color: black;
+  border-radius: 20px 20px 20px 20px;
+  -moz-border-radius: 20px 20px 20px 20px;
+  -webkit-border-radius: 20px 20px 20px 20px;
+  border: 0px solid #000000;
+}
+
+.puntos-lista {
+  color: black;
 }
 
 
