@@ -795,6 +795,9 @@ div#body-cert {
 .cincuenta {
  width: 50%;
  background-color: #31B404;
+ aria-valuemin: 0; 
+ aria-valuemax: 100;
+   
 }
 
 .sesenta {

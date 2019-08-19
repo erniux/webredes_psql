@@ -30,10 +30,6 @@
           <% if !@puntos.blank? %>
             <%= form.collection_select("", @puntos, :id, :truncated_content, html_options: {class: "form-control"}) %>
               
-
-
-            
-
           <!-- AQUI PONER LO DE LOS PUNTOS --> 
           <% end %>
         </div>
@@ -70,13 +66,82 @@
               </div>
   		      <% end %>
           </div>
-       
     </div>
     <br>
-       
-  		 
+       	 
 		<%= form.label :observaciones %>
-      	<%= form.text_area :observaciones, class: "form-control" %>
+    <%= form.text_area :observaciones, class: "form-control" %>
+
+    <br>
+    <!--- DOCUMENTACION DE APOYO Y MATERIAL OBLIGATORIO -->
+
+  
+  <div class="col-md-4">
+  <div class="btn-group">
+    <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
+      Material Obligatorio <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <% if @estandar.obligatorio.attached? %>
+        <% @estandar.obligatorio.each do |upload| %>
+          <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<div class="col-md-4">
+  <div class="btn-group">
+    <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
+      Material Apoyo <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <% if @estandar.apoyo.attached? %>
+        <% @estandar.apoyo.each do |upload| %>
+          <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="col-md-4 progressbar">
+    <h5>AVANCE</h5>
+    <% puntos_obtenidos =@cert_escolar.puntaje %> 
+    <% puntos_totales = @estandar.puntaje_total %>
+    <% avance = (puntos_obtenidos.to_f/ puntos_totales.to_f)*100  %>
+    <div class="progress">
+    <% if avance == 0 %>
+        <span class="progress-bar cero" role="progressbar"><%=  avance %>%</span>           
+      <% elsif avance > 0 && avance < 10 %>
+        <span class="progress-bar cinco" role="progressbar"><%= avance %>%</span>            
+      <% elsif avance >= 10 && avance < 20 %>
+        <span class="progress-bar diez" role="progressbar"><%= avance %>%</span>           
+      <% elsif avance >= 20 && avance < 30 %>
+        <span class="progress-bar veinte" role="progressbar"><%= avance %>%</span>           
+      <% elsif avance >= 30 && avance < 40 %>
+        <span class="progress-bar treinta" role="progressbar"><%= avance %>%</span>            
+      <% elsif avance >= 40 && avance < 50 %>
+        <span class="progress-bar cuarenta" role="progressbar"><%= avance %>%</span>           
+      <% elsif avance >= 50 && avance < 60 %>
+        <span class="progress-bar cincuenta" role="progressbar"><%= avance %>%</span>            
+      <% elsif avance >= 60 && avance < 70 %>
+        <span class="progress-bar sesenta" role="progressbar"><%= avance %>%</span>            
+      <% elsif avance >= 70 && avance < 80 %>
+        <span class="progress-bar setenta" role="progressbar"><%= avance %>%</span>            
+      <% elsif avance >= 80 && avance < 90 %>
+        <span class="progress-bar ochenta" role="progressbar"><%= avance %>%</span>            
+      <% elsif avance >= 90 && avance < 99 %>
+        <span class="progress-bar noventa" role="progressbar"><%= avance %>%</span>            
+      <% elsif avance == 100  %>
+        <span class="progress-bar cien" role="progressbar"><%= avance %>%</span>            
+      <% end %> 
+    </div>
+  </div>
+</div>
+  
+
+
    	</div>
    </div> <!-- div-class-8 -->
 
@@ -105,38 +170,8 @@
         <h3>Agregar Evidencias</h3>
         <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" %>
        </span>
-    </div>  
-  </div> <!-- div-class-4 --><hr>
- 
-
-<!--- DOCUMENTACION DE APOYO Y MATERIAL OBLIGATORIO -->
-
-  <div class="btn-group">
-    <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
-      Material Obligatorio <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-      <% if @estandar.obligatorio.attached? %>
-        <% @estandar.obligatorio.each do |upload| %>
-          <li><%= link_to upload.filename, upload, target: '_blank' %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-        
-  <div class="btn-group">
-    <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
-      Material Apoyo <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-      <% if @estandar.apoyo.attached? %>
-        <% @estandar.apoyo.each do |upload| %>
-          <li><%= link_to upload.filename, upload, target: '_blank' %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-    </div>
-  </div>
+      </div>  
+    </div> <!-- div-class-4 --><hr>
+ </div>
  <% end %>
 </div>
