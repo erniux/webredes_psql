@@ -9,7 +9,7 @@
 
   <div class="actions">
     <%= form.submit "Guardar", class: "btn btn-primary btn-lg" %>
-     
+    <%= link_to "Regresar", @cert_escolar, class: "btn btn-info btn-lg" %>
   </div>
   <hr>
 
@@ -28,7 +28,12 @@
         <div class="col-md-10 puntos-lista">
           <% @puntos = PuntosEstandar.where(estandar_etapa_certificacion_id: @cert_escolar.estandar) %>
           <% if !@puntos.blank? %>
-            <%= form.collection_select("", @puntos, :id, :descripcion, html_options: {class: "form-control"}) %>
+            <%= form.collection_select("", @puntos, :id, :truncated_content, html_options: {class: "form-control"}) %>
+              
+
+
+            
+
           <!-- AQUI PONER LO DE LOS PUNTOS --> 
           <% end %>
         </div>
@@ -100,43 +105,37 @@
         <h3>Agregar Evidencias</h3>
         <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" %>
        </span>
-    </div> <hr>
+    </div>  
   </div> <!-- div-class-4 --><hr>
-<br>
+ 
 
 <!--- DOCUMENTACION DE APOYO Y MATERIAL OBLIGATORIO -->
-<hr>
-	<div class="col-md-12"></div>
-      <div class="col-md-3">
-        <div class="btn-group">
-          <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
-            Material Obligatorio <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <% if @estandar.obligatorio.attached? %>
-              <% @estandar.obligatorio.each do |upload| %>
-                <li><%= link_to upload.filename, upload, target: '_blank' %></li>
-              <% end %>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-  
-      <div class="col-md-3">
-        
-        <div class="btn-group">
-          <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
-            Material Apoyo <span class="caret"></span>
-          </button>
 
-          <ul class="dropdown-menu" role="menu">
-          <% if @estandar.apoyo.attached? %>
-            <% @estandar.apoyo.each do |upload| %>
-              <li><%= link_to upload.filename, upload, target: '_blank' %></li>
-            <% end %>
-          <% end %>
-        </ul>
-      </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
+      Material Obligatorio <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <% if @estandar.obligatorio.attached? %>
+        <% @estandar.obligatorio.each do |upload| %>
+          <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+        
+  <div class="btn-group">
+    <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
+      Material Apoyo <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <% if @estandar.apoyo.attached? %>
+        <% @estandar.apoyo.each do |upload| %>
+          <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
     </div>
   </div>
  <% end %>
