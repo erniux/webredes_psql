@@ -3,6 +3,7 @@
     <h3> Seguimiento Certificación </h3>
   <% elsif current_user.has_roles?(:escuela) %>  
     <h3> Seguimiento Certificación <%= @results.first.escuela.razon_social %></h3><br> 
+    
   <% end %>
   
   <% if logged_in?(:cert_site_admin, :certificador) %>

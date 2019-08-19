@@ -44,7 +44,6 @@ class CertEscolarsController < ApplicationController
   def update
     respond_to do |format|
       if @cert_escolar.update(cert_escolar_params)
- 
         format.html { redirect_to @cert_escolar, notice: 'Registro actualizado con éxito.' }
       else
         format.html { render :edit }

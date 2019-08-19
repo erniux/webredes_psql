@@ -17,7 +17,8 @@ class EtapaCertificacion < ApplicationRecord
   	end
 
     def total_puntos(paso)
-      EstandarEtapaCertificacion.group(:etapa_certificacion_id).having("etapa_certificacion_id = ?", paso).sum(:puntaje_total).sum
+      total = EstandarEtapaCertificacion.group(:etapa_certificacion_id).having("etapa_certificacion_id = ?", paso).sum(:puntaje_total)
+      return total[paso]
     end
   		
 end

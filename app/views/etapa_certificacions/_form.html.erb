@@ -44,6 +44,11 @@
   </div> <hr>
    <p><%= link_to_add_association "Agregar estandar", form, :estandar_etapa_certificacions, class: "btn btn-primary btn-lg" %></p>
  
+<br>
+ <div class="actions">
+    <%= form.submit "Guardar Registro", class: "btn btn-primary btn-lg" %>
+    <%= link_to "Regresar a Proceso", etapa_certificacions_path, class: "btn btn-success btn-lg" %>
+  </div><br>
  
 <% end %>
 </div>

@@ -43,7 +43,9 @@
               <td><small><%= link_to link, edit_cert_escolar_path(estandar) %></small></td>
               <td><small><%= @nombre_estandar.descripcion %></small></td>
               <td><small><strong><%= @nombre_estandar.puntaje_total %></strong></small></td>
+               
               <% if avance == 0 %>
+
                 <td class="progress-bar cero" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>           
               <% elsif avance > 0 && avance < 10 %>
                 <td class="progress-bar cinco" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
@@ -66,8 +68,9 @@
               <% elsif avance >= 90 && avance < 99 %>
                 <td class="progress-bar noventa" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
               <% elsif avance == 100  %>
-                <td class="progress-bar cien" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
+                <td class="progressbar progress-bar cien" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
               <% end %> 
+             
               <td><small><strong><%= estandar.puntaje %></strong></small></td>
               <td><small><strong><%= estandar.status %></strong></small></td>
             </tr>
