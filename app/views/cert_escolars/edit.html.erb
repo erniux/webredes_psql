@@ -28,8 +28,20 @@
         <div class="col-md-10 puntos-lista">
           <% @puntos = PuntosEstandar.where(estandar_etapa_certificacion_id: @cert_escolar.estandar) %>
           <% if !@puntos.blank? %>
-              
-           AQUI PONER LO DE LOS PUNTOS 
+
+          <table class="table">
+            <thead>
+               
+            </thead>
+            <% @puntos.each do |puntos| %>
+              <tbody>
+                <tr>
+                  <td><%= puntos.puntos %></td>
+                  <td><%= puntos.descripcion %></td>
+                </tr>
+            </tbody>
+            <% end %>
+          </table>
           <% end %>
         </div>
    		</div><br>
