@@ -28,9 +28,8 @@
         <div class="col-md-10 puntos-lista">
           <% @puntos = PuntosEstandar.where(estandar_etapa_certificacion_id: @cert_escolar.estandar) %>
           <% if !@puntos.blank? %>
-            <%= form.collection_select("", @puntos, :id, :truncated_content + ' ' + :puntos.to_s, html_options: {class: "form-control"}) %>
               
-          <!-- AQUI PONER LO DE LOS PUNTOS --> 
+           AQUI PONER LO DE LOS PUNTOS 
           <% end %>
         </div>
    		</div><br>
