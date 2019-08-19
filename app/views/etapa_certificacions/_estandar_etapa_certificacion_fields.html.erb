@@ -1,5 +1,5 @@
 <span class="nested-fields">
-    <div class="row">
+    <div class="row form-group">
         <div class="col-md-2">
             <label>Paso ID</label>
         </div>
@@ -14,14 +14,14 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-2">
-            <%= f.text_field :etapa_certificacion_id, placeholder: 'num. estandar' %>
+        <div class="col-md-1">
+            <%= f.text_field :etapa_certificacion_id, placeholder: 'num. estandar', class: "form-control" %>
+        </div>
+        <div class="col-md-1">
+            <%= f.text_field :estandar_id, placeholder: 'num. estandar', class: "form-control" %>
         </div>
         <div class="col-md-2">
-            <%= f.text_field :estandar_id, placeholder: 'num. estandar' %>
-        </div>
-        <div class="col-md-2">
-            <%= f.text_field :puntaje_total, placeholder: 'Puntaje Total' %>
+            <%= f.text_field :puntaje_total, placeholder: 'Puntaje Total', class: "form-control" %>
         </div>
         <div class="col-md-4">
             <span class="btn btn-large btn-warning btn-file">
@@ -52,19 +52,19 @@
     </div>
     <div class="row">
         <div class="col-md-3">
-            <%= f.text_area :titulo, placeholder: 'Tìtulo', cols: 50, rows: 3 %>
+            <%= f.text_area :titulo, placeholder: 'Tìtulo', class: "form-control" %>
         </div>
         <div class="col-md-3">
-            <%= f.text_area :descripcion, placeholder: 'Descripción', cols: 50, rows: 3 %>
+            <%= f.text_area :descripcion, placeholder: 'Descripción', class: "form-control" %>
         </div>
         <div class="col-md-3">
-            <%= f.text_area :observaciones, placeholder: 'Observaciones', cols: 50, rows: 3 %>
+            <%= f.text_area :observaciones, placeholder: 'Observaciones', class: "form-control" %>
         </div>
         <div class="col-md-3">
-            <%= f.text_area :evidencias, placeholder: 'Evidencias',cols: 50, rows: 3 %> 
+            <%= f.text_area :evidencias, placeholder: 'Evidencias', class: "form-control" %> 
         </div>
     </div>
-      
+      <br>
     <p><%= link_to_remove_association "Eliminar Estandar", f, class: "btn btn-danger btn-sm" %></p>
          
     <div class="row">     

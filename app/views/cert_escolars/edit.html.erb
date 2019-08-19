@@ -45,10 +45,9 @@
    		 <div class="col-md-4">
     		  Estatus Actual: <%=  @cert_escolar.status %>
     	 </div>
-    </div><br>
+      </div><br>
 
-    <div class="row">
-      
+      <div class="row">
         <div class="container modificar-puntos">
     	     <% if logged_in?(:certificador, :cert_site_admin)  %>
            <div class="col-md-3">
@@ -66,112 +65,107 @@
               </div>
   		      <% end %>
           </div>
-    </div>
-    <br>
+        </div>
+        <br>
        	 
-		<%= form.label :observaciones %>
-    <%= form.text_area :observaciones, class: "form-control" %>
+		    <%= form.label :observaciones %>
+        <%= form.text_area :observaciones, class: "form-control" %>
 
-    <br>
+        <br>
     <!--- DOCUMENTACION DE APOYO Y MATERIAL OBLIGATORIO -->
 
   
-  <div class="col-md-4">
-  <div class="btn-group">
-    <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
-      Material Obligatorio <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-      <% if @estandar.obligatorio.attached? %>
-        <% @estandar.obligatorio.each do |upload| %>
-          <li><%= link_to upload.filename, upload, target: '_blank' %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-</div>
+        <div class="col-md-4">
+          <div class="btn-group">
+            <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
+              Material Obligatorio <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <% if @estandar.obligatorio.attached? %>
+                <% @estandar.obligatorio.each do |upload| %>
+                  <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
 
-<div class="col-md-4">
-  <div class="btn-group">
-    <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
-      Material Apoyo <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu">
-      <% if @estandar.apoyo.attached? %>
-        <% @estandar.apoyo.each do |upload| %>
-          <li><%= link_to upload.filename, upload, target: '_blank' %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-</div>
-<div class="col-md-4 progressbar">
-    <h5>AVANCE</h5>
-    <% puntos_obtenidos =@cert_escolar.puntaje %> 
-    <% puntos_totales = @estandar.puntaje_total %>
-    <% avance = (puntos_obtenidos.to_f/ puntos_totales.to_f)*100  %>
-    <div class="progress">
-    <% if avance == 0 %>
-        <span class="progress-bar cero" role="progressbar"><%=  avance %>%</span>           
-      <% elsif avance > 0 && avance < 10 %>
-        <span class="progress-bar cinco" role="progressbar"><%= avance %>%</span>            
-      <% elsif avance >= 10 && avance < 20 %>
-        <span class="progress-bar diez" role="progressbar"><%= avance %>%</span>           
-      <% elsif avance >= 20 && avance < 30 %>
-        <span class="progress-bar veinte" role="progressbar"><%= avance %>%</span>           
-      <% elsif avance >= 30 && avance < 40 %>
-        <span class="progress-bar treinta" role="progressbar"><%= avance %>%</span>            
-      <% elsif avance >= 40 && avance < 50 %>
-        <span class="progress-bar cuarenta" role="progressbar"><%= avance %>%</span>           
-      <% elsif avance >= 50 && avance < 60 %>
-        <span class="progress-bar cincuenta" role="progressbar"><%= avance %>%</span>            
-      <% elsif avance >= 60 && avance < 70 %>
-        <span class="progress-bar sesenta" role="progressbar"><%= avance %>%</span>            
-      <% elsif avance >= 70 && avance < 80 %>
-        <span class="progress-bar setenta" role="progressbar"><%= avance %>%</span>            
-      <% elsif avance >= 80 && avance < 90 %>
-        <span class="progress-bar ochenta" role="progressbar"><%= avance %>%</span>            
-      <% elsif avance >= 90 && avance < 99 %>
-        <span class="progress-bar noventa" role="progressbar"><%= avance %>%</span>            
-      <% elsif avance == 100  %>
-        <span class="progress-bar cien" role="progressbar"><%= avance %>%</span>            
-      <% end %> 
-    </div>
-  </div>
-</div>
-  
+        <div class="col-md-4">
+          <div class="btn-group">
+            <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
+              Material Apoyo <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <% if @estandar.apoyo.attached? %>
+                <% @estandar.apoyo.each do |upload| %>
+                  <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 progressbar">
+          <h5>AVANCE</h5>
+          <% puntos_obtenidos =@cert_escolar.puntaje %> 
+          <% puntos_totales = @estandar.puntaje_total %>
+          <% avance = (puntos_obtenidos.to_f/ puntos_totales.to_f)*100  %>
+          <div class="progress">
+          <% if avance == 0 %>
+              <span class="progress-bar cero" role="progressbar"><%=  number_with_precision(avance, precision: 2) %>%</span>           
+            <% elsif avance > 0 && avance < 10 %>
+              <span class="progress-bar cinco" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>            
+            <% elsif avance >= 10 && avance < 20 %>
+              <span class="progress-bar diez" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>           
+            <% elsif avance >= 20 && avance < 30 %>
+              <span class="progress-bar veinte" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>           
+            <% elsif avance >= 30 && avance < 40 %>
+              <span class="progress-bar treinta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>            
+            <% elsif avance >= 40 && avance < 50 %>
+              <span class="progress-bar cuarenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>           
+            <% elsif avance >= 50 && avance < 60 %>
+              <span class="progress-bar cincuenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>            
+            <% elsif avance >= 60 && avance < 70 %>
+              <span class="progress-bar sesenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>            
+            <% elsif avance >= 70 && avance < 80 %>
+              <span class="progress-bar setenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>            
+            <% elsif avance >= 80 && avance < 90 %>
+              <span class="progress-bar ochenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>            
+            <% elsif avance >= 90 && avance < 99 %>
+              <span class="progress-bar noventa" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>            
+            <% elsif avance == 100  %>
+              <span class="progress-bar cien" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>            
+            <% end %> 
+          </div>
+        </div>
+      </div>
+    </div> <!-- div-class-8 -->
 
 
-   	</div>
-   </div> <!-- div-class-8 -->
-
-   <!-- Aqui empieza Evidencias que si funcionan -->
-
-   <div class="row">
-    <div class="col-md-4">
-      <p class="titulo-evidencias">Evidencias</p>
-      <div class="container container-evidencias">
-        <% if @cert_escolar.evidencias.attached? %>
-          <% @cert_escolar.evidencias.each do |upload| %>
-            <div class="row">
-              <div class="col-md-9">
-                <%= upload.filename %>
+    <div class="row">
+     <div class="col-md-4">
+       <p class="titulo-evidencias">Evidencias</p>
+       <div class="container container-evidencias">
+         <% if @cert_escolar.evidencias.attached? %>
+           <% @cert_escolar.evidencias.each do |upload| %>
+             <div class="row">
+               <div class="col-md-9">
+                 <%= upload.filename %>
+               </div>
+               <div class="col-md-1">
+                 <small><%= link_to 'Eliminar', cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, :evidencias_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } %></small><br/>
+                </div>
               </div>
-              <div class="col-md-1">
-                <small><%= link_to 'Eliminar', cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, :evidencias_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } %></small><br/>
-              </div>
-            </div>
-          <% end %>
-        <% else %>
+            <% end %>
+          <% else %>
           <small>Sin evidencias anexas</small>
         <% end %>
       
         <span class="agregar-evidencias">
-        <h3>Agregar Evidencias</h3>
-        <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" %>
-       </span>
+          <h3>Agregar Evidencias</h3>
+          <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" %>
+        </span>
       </div>  
     </div> <!-- div-class-4 --><hr>
- </div>
+  </div>
  <% end %>
 </div>

@@ -1,8 +1,14 @@
 <span class="nested-fields">
   <p>
-   <%= f.text_field :puntos, placeholder: 'puntos' %>
-   <%= f.text_field :descripcion, placeholder: 'descripción' %>
-   <%= link_to_remove_association "Eliminar Puntos", f, class: 'btn alert-danger btn-sm' %>  
+  	<div class="col-md-2">
+   	<%= f.text_field :puntos, placeholder: 'puntos', class: "form-control" %>
+   </div>
+   <div class="col-md-7">
+   	<%= f.text_field :descripcion, placeholder: 'descripción', class: "form-control" %>
+   	</div>
+   	<div class="co-md-3">
+   	<%= link_to_remove_association "Eliminar Puntos", f, class: 'btn alert-danger btn-sm'  %>  
+   </div>
   </p>
 </span>
  

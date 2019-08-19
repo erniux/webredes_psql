@@ -25,7 +25,8 @@
      <td><%= @cert_escolar.observaciones %></td>
      <td><strong><%= @cert_escolar.puntaje %>
      <td><strong><%= @estandar.puntaje_total %></strong></td>
-     <td><strong><small><%= ((@cert_escolar.puntaje.to_f/@estandar.puntaje_total.to_f)*100).to_s + "%"  %></small></strong></td>
+     <% avance = ((@cert_escolar.puntaje.to_f/@estandar.puntaje_total.to_f)*100).to_s %>
+     <td><strong><small><%= number_with_precision(avance, precision: 2).to_s + "%"  %></small></strong></td>
      <td><%= @cert_escolar.status %></td>
       </tr>
     </tbody>

@@ -22,15 +22,15 @@
       <label>Descripción</label>
     </div>
   </div>
-  <div class="row">
+  <div class="row form-group">
     <div class="col-md-2">
-      <%= form.text_field :num_etapa, placeholder: 'Num. Paso' %>
+      <%= form.text_field :num_etapa, placeholder: 'Num. Paso', class: "form_control" %>
     </div>
     <div class="col-md-4">
-      <%= form.text_area :nombre, cols: 50, rows: 5, placeholder: 'Nombre o Título' %>
+      <%= form.text_area :nombre, cols: 50, rows: 5, placeholder: 'Nombre o Título', class: "form_control" %>
     </div>  
     <div class="col-md-6">
-      <%= form.text_area :descripcion, cols: 50, rows: 5, placeholder: 'Descripción' %>
+      <%= form.text_area :descripcion, cols: 50, rows: 5, placeholder: 'Descripción', class: "form_control" %>
     </div> 
   </div>
   <hr>

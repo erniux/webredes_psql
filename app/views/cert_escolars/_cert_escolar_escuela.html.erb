@@ -20,29 +20,29 @@
         <td><small><%= @nombre_estandar.descripcion %></small></td>
         <td><small><strong><%= @nombre_estandar.puntaje_total %></strong></small></td>
         <% if avance == 0 %>
-          <td class="progress-bar cero" role="progressbar"><%= avance %>%</td>           
+          <td class="progress-bar cero" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>           
         <% elsif avance > 0 && avance < 10 %>
-          <td class="progress-bar cinco" role="progressbar"><%= avance %>%</td>            
+          <td class="progress-bar cinco" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
         <% elsif avance >= 10 && avance < 20 %>
-          <td class="progress-bar diez" role="progressbar"><%= avance %>%</td>           
+          <td class="progress-bar diez" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
         <% elsif avance >= 20 && avance < 30 %>
-          <td class="progress-bar veinte" role="progressbar"><%= avance %>%</td>           
+          <td class="progress-bar veinte" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
         <% elsif avance >= 30 && avance < 40 %>
-          <td class="progress-bar treinta" role="progressbar"><%= avance %>%</td>            
+          <td class="progress-bar treinta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
         <% elsif avance >= 40 && avance < 50 %>
-          <td class="progress-bar cuarenta" role="progressbar"><%= avance %>%</td>           
+          <td class="progress-bar cuarenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
         <% elsif avance >= 50 && avance < 60 %>
-          <td class="progress-bar cincuenta" role="progressbar"><%= avance %>%</td>            
+          <td class="progress-bar cincuenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
         <% elsif avance >= 60 && avance < 70 %>
-          <td class="progress-bar sesenta" role="progressbar"><%= avance %>%</td>            
+          <td class="progress-bar sesenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
         <% elsif avance >= 70 && avance < 80 %>
-          <td class="progress-bar setenta" role="progressbar"><%= avance %>%</td>            
+          <td class="progress-bar setenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
         <% elsif avance >= 80 && avance < 90 %>
-          <td class="progress-bar ochenta" role="progressbar"><%= avance %>%</td>            
+          <td class="progress-bar ochenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
         <% elsif avance >= 90 && avance < 99 %>
-          <td class="progress-bar noventa" role="progressbar"><%= avance %>%</td>            
+          <td class="progress-bar noventa" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
         <% elsif avance == 100  %>
-          <td class="progress-bar cien" role="progressbar"><%= avance %>%</td>            
+          <td class="progress-bar cien" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
         <% end %> 
         <td><small><strong><%= estandar.puntaje %></strong></small></td>
         <td><small><strong><%= estandar.status %></strong></small></td>
