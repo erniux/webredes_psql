@@ -27,8 +27,10 @@
         </div>
         <div class="col-md-10 puntos-lista">
           <% @puntos = PuntosEstandar.where(estandar_etapa_certificacion_id: @cert_escolar.estandar) %>
-          <%= form.collection_select("", @puntos, :id, :descripcion, html_options: {class: "form-control"}) %>
+          <% if !@puntos.blank? %>
+            <%= form.collection_select("", @puntos, :id, :descripcion, html_options: {class: "form-control"}) %>
           <!-- AQUI PONER LO DE LOS PUNTOS --> 
+          <% end %>
         </div>
    		</div><br>
 
@@ -73,28 +75,32 @@
    	</div>
    </div> <!-- div-class-8 -->
 
-   <div class="col-md-4">
-   	<div class="container container-evidencias">
+   <!-- Aqui empieza Evidencias que si funcionan -->
+
+   <div class="row">
+    <div class="col-md-4">
       <p class="titulo-evidencias">Evidencias</p>
-      <div class="container-evidencias-subidas">
-   		<% if @cert_escolar.evidencias.attached? %>
-   			<% @cert_escolar.evidencias.each do |upload| %>
-   				 <div class="col-sm-9">
-            	<%= upload.filename %>
-        	 </div>
-        	<div class="col-md-3">
-            	<small><%= link_to 'Eliminar', cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, :evidencias_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } %></small>
-        	</div>
+      <div class="container container-evidencias">
+        <% if @cert_escolar.evidencias.attached? %>
+          <% @cert_escolar.evidencias.each do |upload| %>
+            <div class="row">
+              <div class="col-md-9">
+                <%= upload.filename %>
+              </div>
+              <div class="col-md-1">
+                <small><%= link_to 'Eliminar', cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, :evidencias_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } %></small><br/>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <small>Sin evidencias anexas</small>
         <% end %>
-      <% end %>
-    </div>
-  		
-        <span class="btn btn-large btn-warning btn-file">
-          Elegir Archivos de Apoyo
-          <%= file_field_tag :evidencias, multiple: true %>
-        </span>
-       
-    </div>
+      
+        <span class="agregar-evidencias">
+        <h3>Agregar Evidencias</h3>
+        <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" %>
+       </span>
+    </div> <hr>
   </div> <!-- div-class-4 --><hr>
 <br>
 
