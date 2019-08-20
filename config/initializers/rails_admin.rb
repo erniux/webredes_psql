@@ -26,6 +26,42 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+  end
 
+  config.model 'User' do
+    list do
+      field :email
+      field :nombre
+      field :appaterno
+      field :escuela_id
+    end
+
+    edit do
+      field :email do
+        label "Correo"
+      end
+      field :password do
+        label "contraseña"
+      end
+      field :password_confirmation do
+        label "Confirmar Contraseña"
+      end
+      field :nombre do
+        label "Nombre"
+      end
+      field :appaterno do
+        label "Apellido Paterno"
+      end
+      
+      field :escuela_id do
+        label "Escuela"
+        partial "nombre_escuela"
+      end 
+      field :roles do
+        label "Perfil Usuario"
+        partial "perfil_usuario"
+       end
+    end
   end
 end
+

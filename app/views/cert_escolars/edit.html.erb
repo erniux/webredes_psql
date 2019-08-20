@@ -61,60 +61,60 @@
       <div class="row">
         <div class="container modificar-puntos">
     	     <% if logged_in?(:certificador, :cert_site_admin)  %>
-           <div class="col-md-3">
-    	       Puntos del Estandar: 
-           </div>
-           <div class="col-md-3">
-             <%= form.text_field :puntaje, class: "form-control" %>
-          </div>
-          <div class="col-md-6">
-    	      Estatus: <%= form.select :status, options_for_select(CertEscolar.statuses.keys.to_a, @cert_escolar.status), class: "form-control" %>
-          </div>
-  		      <% else %>
+            <div class="col-md-3">
+    	         Puntos del Estandar: 
+            </div>
+            <div class="col-md-3">
+              <%= form.text_field :puntaje, class: "form-control" %>
+            </div>
             <div class="col-md-6">
-            		<%= form.select :status, options_for_select(CertEscolar.statuses.keys.to_a, @cert_escolar.status) , size: 10, class: "form-control" %>
-              </div>
-  		      <% end %>
-          </div>
+    	       Estatus: <%= form.select :status, options_for_select(CertEscolar.statuses.keys.to_a, @cert_escolar.status), class: "form-control" %>
+            </siv>
+  		    <% else %>
+            <div class="col-md-6">
+            	<%= form.select :status, options_for_select(CertEscolar.statuses.keys.to_a, @cert_escolar.status) , size: 10, class: "form-control" %>
+            </div>
+  		    <% end %>
         </div>
-        <br>
+      </div>
+      <br>
        	 
-		    <%= form.label :observaciones %>
-        <%= form.text_area :observaciones, class: "form-control" %>
+		  <%= form.label :observaciones %>
+      <%= form.text_area :observaciones, class: "form-control" %>
 
         <br>
     <!--- DOCUMENTACION DE APOYO Y MATERIAL OBLIGATORIO -->
 
   
-        <div class="col-md-4">
-          <div class="btn-group">
-            <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
-              Material Obligatorio <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <% if @estandar.obligatorio.attached? %>
-                <% @estandar.obligatorio.each do |upload| %>
-                  <li><%= link_to upload.filename, upload, target: '_blank' %></li>
-                <% end %>
+      <div class="col-md-4">
+        <div class="btn-group">
+          <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
+            Material Obligatorio <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <% if @estandar.obligatorio.attached? %>
+              <% @estandar.obligatorio.each do |upload| %>
+                <li><%= link_to upload.filename, upload, target: '_blank' %></li>
               <% end %>
-            </ul>
-          </div>
+            <% end %>
+          </ul>
         </div>
+      </div>
 
-        <div class="col-md-4">
-          <div class="btn-group">
-            <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
-              Material Apoyo <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <% if @estandar.apoyo.attached? %>
-                <% @estandar.apoyo.each do |upload| %>
-                  <li><%= link_to upload.filename, upload, target: '_blank' %></li>
-                <% end %>
+      <div class="col-md-4">
+        <div class="btn-group">
+          <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
+            Material Apoyo <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <% if @estandar.apoyo.attached? %>
+              <% @estandar.apoyo.each do |upload| %>
+                <li><%= link_to upload.filename, upload, target: '_blank' %></li>
               <% end %>
-            </ul>
-          </div>
+            <% end %>
+          </ul>
         </div>
+      </div>
         <div class="col-md-4 progressbar">
           <h5>AVANCE</h5>
           <% puntos_obtenidos =@cert_escolar.puntaje %> 

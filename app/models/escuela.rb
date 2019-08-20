@@ -1,5 +1,6 @@
 class Escuela < ApplicationRecord
   has_many :cert_escolars
+  belongs_to :certificador
 
   accepts_nested_attributes_for :cert_escolars, allow_destroy: true
 

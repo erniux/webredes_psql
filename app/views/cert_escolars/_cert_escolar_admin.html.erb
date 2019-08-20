@@ -1,4 +1,5 @@
  <% escuela_name = "" %>
+ 
  <% @results.each do |escuela| %>
    <% if escuela_name == escuela.escuela.nombre %>
     
@@ -45,7 +46,6 @@
               <td><small><strong><%= @nombre_estandar.puntaje_total %></strong></small></td>
                
               <% if avance == 0 %>
-
                 <td class="progress-bar cero" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>           
               <% elsif avance > 0 && avance < 10 %>
                 <td class="progress-bar cinco" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>

@@ -33,6 +33,8 @@ class PaginasController < ApplicationController
   end
 
   def certificador
+    @escuelas = Escuela.all.order('certificador_id ASC')
+    @puntos = EstandarEtapaCertificacion.all
     
   end
 

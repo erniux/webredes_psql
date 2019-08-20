@@ -54,7 +54,7 @@
   	  </div>
       <div class="col-md-4">
         <label>Sector</label>
-        <%= form.text_field :sector, class: "form-control" %>
+        <%= form.select(:sector, [['Publico', 'publico'], ['Privado', 'privado']], include_blank: true)  %><br>
 
         <label>Nivel Básico</label>
         <%= form.check_box :nivel_basico, class: "form-control" %>
@@ -108,7 +108,11 @@
 
         <label>Teléfono</label>
         <%= form.text_field :telefono_enlace, class: "form-control" %>
-      </div>
+       
+        <hr>
+        <label>Asignar Certificador</label>
+            <%= form.collection_select :certificador_id, Certificador.order(:nombre),:id,:nombre_completo, include_blank: true, class: "form-control" %>
+    </div>
 
 		</div><br>
   

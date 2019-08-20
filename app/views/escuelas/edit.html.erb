@@ -108,6 +108,10 @@
 
         <label>Teléfono</label>
         <%= form.text_field :telefono_enlace, class: "form-control" %>
+
+        <hr>
+        <label>Asignar Certificador</label>
+        <%= form.collection_select :certificador_id, Certificador.order(:nombre),:id,:nombre_completo, include_blank: true, class: "form-control" %>
       </div>
 
     </div><br>

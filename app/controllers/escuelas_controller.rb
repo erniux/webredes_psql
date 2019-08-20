@@ -65,7 +65,7 @@ before_action :set_escuela, only: [:show, :edit, :update, :destroy]
       :nivel_basico, :nivel_media_superior, :nivel_superior, :nivel_capacitacion, :nivel_escolar_especifico, 
       :num_grupos, :num_promedio_alumnos, :num_promedio_personal, :num_promedio_docentes, :nombre_enlace, 
       :appaterno_enlace, :apmaterno_enlace, :cargo_enlace, :asignacion_actual_enlace, :correo_enlace, 
-      :telefono_enlace,
+      :telefono_enlace, :certificador_id,
       cert_escolars_attributes: [:id, :user_id, :paso, :estandar, :observaciones, :status , :puntaje, :certificador_id,  :_destroy ])
   end
 

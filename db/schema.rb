@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_201344) do
+ActiveRecord::Schema.define(version: 2019_08_20_135442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,8 +136,10 @@ ActiveRecord::Schema.define(version: 2019_08_18_201344) do
     t.datetime "updated_at", null: false
     t.string "nombre"
     t.string "appaterno"
-    t.string "departamento"
     t.string "especialidad"
+    t.string "email"
+    t.string "telefono"
+    t.string "domicilio"
   end
 
   create_table "contactos", force: :cascade do |t|
@@ -182,6 +184,8 @@ ActiveRecord::Schema.define(version: 2019_08_18_201344) do
     t.string "asignacion_actual_enlace"
     t.string "correo_enlace"
     t.string "telefono_enlace"
+    t.bigint "certificador_id"
+    t.index ["certificador_id"], name: "index_escuelas_on_certificador_id"
   end
 
   create_table "estandar_etapa_certificacions", force: :cascade do |t|
@@ -319,6 +323,7 @@ ActiveRecord::Schema.define(version: 2019_08_18_201344) do
   add_foreign_key "audit_logs", "users"
   add_foreign_key "avisos", "users"
   add_foreign_key "cert_escolars", "escuelas"
+  add_foreign_key "escuelas", "certificadors"
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
   add_foreign_key "eventos", "users"
   add_foreign_key "precios", "users"

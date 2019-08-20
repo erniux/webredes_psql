@@ -7,17 +7,14 @@ class User < ApplicationRecord
   ############################################################################################ 
     petergate(roles: [:admin, :editor, :socio, :certificador, :escuela, :site_admin, :cert_site_admin], multiple: false)                                      
   
-  
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
   
-      has_many :eventos
-      has_many :avisos
-      has_many :audit_logs
-     
+    has_many :eventos
+    has_many :avisos
+    has_many :audit_logs
+   
      
     validates_presence_of :nombre, :appaterno, :email
-
- 
 end
 
 

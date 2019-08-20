@@ -25,6 +25,8 @@ class CertificadorsController < ApplicationController
 
     respond_to do |format|
       if @certificador.save
+        User.create!(email: @certificador.email, password: '123456', password_confirmation: '123456', 
+                    nombre: @certificador.nombre, appaterno: @certificador.appaterno, roles: 'certificador', escuela_id: '')
         format.html { redirect_to certificadors_path, notice: 'Registro creado con éxito.' }
       else
         format.html { render :new }
@@ -57,7 +59,7 @@ class CertificadorsController < ApplicationController
 
 
 	def certificador_params
-		params.require(:certificador).permit(:id, :nombre, :appaterno, :departamento, :especialidad)
+		params.require(:certificador).permit(:id, :nombre, :appaterno, :especialidad, :email, :telefono, :domicilio)
 	end
 
 end

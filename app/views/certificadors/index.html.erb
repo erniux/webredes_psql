@@ -2,16 +2,16 @@
 <div id="body-cert">
 	<h1>Catálogo de Certificadores</h1>
 <p><%= link_to 'Agregar certificador', new_certificador_path, class: "btn btn-default btn-lg" %>
- <%= link_to 'Dashboard', cert_escolars_path, class: "btn btn-success btn-lg" %> </p>
+ <%= link_to 'Dashboard', certificador_dashboard_path, class: "btn btn-success btn-lg" %> </p>
 
 <table class="table">
   <thead>
     <tr>
       <th>ID</th>
       <th>Nombre</th>
-      <th>Departamento</th>
       <th>Especialidad</th>
-      
+      <th>Correo</th>
+      <th>Teléfono</th>
       <th colspan="3">Acciones</th>
     </tr>
   </thead>
@@ -24,8 +24,9 @@
       <tr>
         <td><%= certificador.id %></td>
         <td><%= certificador.nombre.to_s + " " + certificador.appaterno.to_s %></td>
-        <td><%= certificador.departamento %></td>
         <td><%= certificador.especialidad %></td>
+        <td><%= certificador.email %></td>
+        <td><%= certificador.telefono %></td>
         <td><%= link_to 'Modificar', edit_certificador_path(certificador) %></td>
         <td><%= link_to 'Eliminar', certificador, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } %></td>
       </tr>
