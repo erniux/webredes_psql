@@ -12,6 +12,7 @@
         </tr>
     </thead>
     <tbody>
+      <% if !(@escuelas.nil) %>
       <% @escuelas.each do |escuela| %>
         <tr>
           <td><%= escuela.certificador.nombre_completo  %></td>
@@ -26,7 +27,9 @@
           <td style="text-align: -webkit-center;"><%= number_with_precision(avance*100, precision: 2).to_s + "%" %></td>
         </tr>
       <% end %>
-       
+      <% else %>
+         <h4>No existen datos</h4>
+       <% end %>
       </tbody>
     </table>
   </div>
