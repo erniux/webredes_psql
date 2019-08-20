@@ -12,7 +12,7 @@
         </tr>
     </thead>
     <tbody>
-      <% if !(@escuelas.nil) %>
+      <% if !(@escuelas.blank) %>
       <% @escuelas.each do |escuela| %>
         <tr>
           <td><%= escuela.certificador.nombre_completo  %></td>
