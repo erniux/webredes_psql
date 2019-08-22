@@ -15,18 +15,12 @@
 //= require activestorage
 //= require gritter
 //= require cocoon
-//= require turbolinks
-//= require moment
-//= require bootstrap-datetimepicker
-//= require moment/es
-//= require jquery
-//= require jquery_ujs
+//=require jquery3
+//= require popper
+//= require bootstrap-sprockets
 //= require_tree .
 
-
-
-
-
+ 
 
 // NOTAS PARA INCLUIR FUNCIONES PROPIAS 
 //function MostrarCertEscuela() {

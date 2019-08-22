@@ -6,4 +6,6 @@ class Certificador < ApplicationRecord
 		self.nombre + ' ' + self.appaterno
 	end
 
+	validates_presence_of :nombre, :appaterno, :especialidad, :email, :telefono, :domicilio
+
 end

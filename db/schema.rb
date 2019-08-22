@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_173230) do
+ActiveRecord::Schema.define(version: 2019_08_22_183040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -286,6 +286,23 @@ ActiveRecord::Schema.define(version: 2019_08_22_173230) do
     t.index ["user_id"], name: "index_recursos_on_user_id"
   end
 
+  create_table "room_messages", force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "user_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_messages_on_room_id"
+    t.index ["user_id"], name: "index_room_messages_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name_string"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name_string"], name: "index_rooms_on_name_string", unique: true
+  end
+
   create_table "servicios", force: :cascade do |t|
     t.string "nombre"
     t.text "caracteristicas"
@@ -331,6 +348,8 @@ ActiveRecord::Schema.define(version: 2019_08_22_173230) do
   add_foreign_key "puntos_estandars", "estandar_etapa_certificacions"
   add_foreign_key "puntos_estandars", "etapa_certificacions"
   add_foreign_key "recursos", "users"
+  add_foreign_key "room_messages", "rooms"
+  add_foreign_key "room_messages", "users"
   add_foreign_key "servicios", "users"
   add_foreign_key "users", "escuelas"
 end

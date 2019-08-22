@@ -3,8 +3,8 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 @import 'bourbon';
-@import "font-awesome";
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import "font-awesome"; 
+@import "rails-chat-tutorial";
  
 body {
     padding-top: 150px;     
@@ -902,33 +902,5 @@ div#body-cert {
 .puntos-lista {
   color: black;
 }
-
-
-input.form-control.sidebar-form {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  border: 0;
-  border-radius: 0;
-}
-
-.chat-box {
-  height: 94vh;
-  overflow: scroll;
-}
-
-.chat {
-  border-radius: 3px;
-  padding: 0rem 2rem 0 1rem;
-}
-
-.chat-username {
-  font-size: 0.7rem;
-}
-
-.chat-message {
-  font-size: 0.85rem;
-}
-
 
  

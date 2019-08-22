@@ -6,8 +6,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
+#gem 'coffee-rails', '~> 4.2'
+#gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -53,6 +53,10 @@ gem "google-cloud-storage", "~> 1.8", require: false
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'rails_admin', '~> 1.4', '>= 1.4.2'
 gem 'pg_search', '~> 2.3'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'simple_form'
+gem 'redis'
 
 
 
