@@ -19,7 +19,7 @@
   		</thead>
 		
 		<tbody>
-		<% @etapa_certificacion.estandar_etapa_certificacions.each do |estandar| %>
+		<% @etapa_certificacion.estandar_etapa_certificacions.order('estandar_id ASC').each do |estandar| %>
 			<tr>
 				<td><%= estandar.estandar_id %></td>
 				<td><%= estandar.titulo %></td>

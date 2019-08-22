@@ -55,3 +55,4 @@ gem 'rails_admin', '~> 1.4', '>= 1.4.2'
 gem 'pg_search', '~> 2.3'
 
 
+

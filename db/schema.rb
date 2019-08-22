@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_20_135442) do
+ActiveRecord::Schema.define(version: 2019_08_22_173230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -199,6 +199,7 @@ ActiveRecord::Schema.define(version: 2019_08_20_135442) do
     t.text "evidencias"
     t.integer "puntaje_total"
     t.integer "estandar_id"
+    t.integer "etapa_id"
     t.index ["etapa_certificacion_id"], name: "index_estandar_etapa_certificacions_on_etapa_certificacion_id"
   end
 

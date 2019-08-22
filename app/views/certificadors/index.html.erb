@@ -18,23 +18,22 @@
 
   <tbody>
     <% if @certificadores.empty? %>
-  <h1 id="no-certificadores">No Existend Certificadores</h1>
- <% else %>
-    <% @certificadores.each do |certificador| %>
-      <tr>
-        <td><%= certificador.id %></td>
-        <td><%= certificador.nombre.to_s + " " + certificador.appaterno.to_s %></td>
-        <td><%= certificador.especialidad %></td>
-        <td><%= certificador.email %></td>
-        <td><%= certificador.telefono %></td>
-        <td><%= link_to 'Modificar', edit_certificador_path(certificador) %></td>
-        <td><%= link_to 'Eliminar', certificador, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } %></td>
-      </tr>
+      <h1 id="no-certificadores">No Existend Certificadores</h1>
+    <% else %>
+      <% @certificadores.each do |certificador| %>
+        <tr>
+          <td><%= certificador.id %></td>
+          <td><%= certificador.nombre.to_s + " " + certificador.appaterno.to_s %></td>
+          <td><%= certificador.especialidad %></td>
+          <td><%= certificador.email %></td>
+          <td><%= certificador.telefono %></td>
+          <td><%= link_to 'Modificar', edit_certificador_path(certificador) %></td>
+          <td><%= link_to 'Eliminar', certificador, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
-  <% end %>
 </table>
-
 <br>
 </div>
 </div>

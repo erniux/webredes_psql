@@ -52,7 +52,7 @@ class EtapaCertificacionsController < ApplicationController
       params.require(:etapa_certificacion).permit(:id, :num_etapa, :nombre, :descripcion, 
                      estandar_etapa_certificacions_attributes: [:id, :titulo, :descripcion, :observaciones, :puntaje, 
                                                                :evidencias, :puntaje_total, :estandar_id, 
-                                                               :etapa_certificacion_id, apoyo: [], obligatorio: [],
+                                                               :etapa_certificacion_id, :etapa_id, apoyo: [], obligatorio: [],
                       puntos_estandars_attributes: [:id, :paso, :estandar, :puntos, :descripcion, :estandar_etapa_certificacions_id, :etapa_certificacion_id, :_destroy ]])
 
 

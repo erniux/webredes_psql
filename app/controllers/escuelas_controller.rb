@@ -25,7 +25,7 @@ before_action :set_escuela, only: [:show, :edit, :update, :destroy]
     respond_to do |format|
       if @escuela.save
         @estandares.each  do |estandar|
-          CertEscolar.create!(estandar: estandar.estandar_id, paso: estandar.etapa_certificacion_id, 
+          CertEscolar.create!(estandar: estandar.estandar_id, paso: estandar.etapa_id, 
                               escuela_id: @escuela.id, puntaje: 0, observaciones: "inicial")
         end
         format.html { redirect_to escuelas_path, notice: 'Registro creado con éxito.' }

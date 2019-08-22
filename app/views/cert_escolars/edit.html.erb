@@ -1,11 +1,11 @@
 <div id="body-cert">
 	<h1>Seguimiento Certificación</h1>
 	<%= form_with(model: @cert_escolar, local: true) do |form| %>
-  <% if @cert_escolar.errors.any? %>
-      <% @cert_escolar.errors.full_messages.each do |message| %>
-        <%= js add_gritter(message, title: "Aviso", sticky: false) %>
-      <% end %>
-  <% end %>
+    <% if @cert_escolar.errors.any? %>
+        <% @cert_escolar.errors.full_messages.each do |message| %>
+          <%= js add_gritter(message, title: "Aviso", sticky: false) %>
+        <% end %>
+    <% end %>
 
   <div class="actions">
     <%= form.submit "Guardar", class: "btn btn-primary btn-lg" %>
@@ -22,10 +22,10 @@
    		<p class="descripcion-etapa"><%= @paso.descripcion %></p>
    		
       <div class="row"><br>
-        <div class="col-md-2">
+        <div class="col-md-3">
    			  <span class="puntos-etiqueta">Puntos Posibles: </span><br>
         </div>
-        <div class="col-md-10 puntos-lista">
+        <div class="col-md-9 puntos-lista">
           <% @puntos = PuntosEstandar.where(estandar_etapa_certificacion_id: @cert_escolar.estandar) %>
           <% if !@puntos.blank? %>
 
@@ -69,18 +69,24 @@
             </div>
             <div class="col-md-6">
     	       Estatus: <%= form.select :status, options_for_select(CertEscolar.statuses.keys.to_a, @cert_escolar.status), class: "form-control" %>
-            </siv>
+            </div>
   		    <% else %>
             <div class="col-md-6">
             	<%= form.select :status, options_for_select(CertEscolar.statuses.keys.to_a, @cert_escolar.status) , size: 10, class: "form-control" %>
             </div>
   		    <% end %>
+        </div><hr>
+      
+      
+        <div class="col-md-2">
+		      <%= form.label :observaciones %>
+        </div>
+        <div class="col-md-10">
+          <%= form.text_area :observaciones, class: "form-control" %>
         </div>
       </div>
+     
       <br>
-       	 
-		  <%= form.label :observaciones %>
-      <%= form.text_area :observaciones, class: "form-control" %>
 
         <br>
     <!--- DOCUMENTACION DE APOYO Y MATERIAL OBLIGATORIO -->
@@ -115,7 +121,7 @@
           </ul>
         </div>
       </div>
-        <div class="col-md-4 progressbar">
+        <div class="col-md-3">
           <h5>AVANCE</h5>
           <% puntos_obtenidos =@cert_escolar.puntaje %> 
           <% puntos_totales = @estandar.puntaje_total %>
@@ -146,14 +152,12 @@
             <% elsif avance == 100  %>
               <span class="progress-bar cien" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</span>            
             <% end %> 
-          </div>
+          </div> <!-- div-class-progressbar -->
         </div>
       </div>
     </div> <!-- div-class-8 -->
 
-
-    <div class="row">
-     <div class="col-md-4">
+    <div class="col-md-4">
        <p class="titulo-evidencias">Evidencias</p>
        <div class="container container-evidencias">
          <% if @cert_escolar.evidencias.attached? %>
@@ -177,6 +181,6 @@
         </span>
       </div>  
     </div> <!-- div-class-4 --><hr>
-  </div>
+  
  <% end %>
 </div>
