@@ -15,10 +15,13 @@
 //= require activestorage
 //= require gritter
 //= require cocoon
-//= require jquery3
-//= require popper
-//= require bootstrap-sprockets
+//= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
+//= require moment/es
+//= require jquery
 //= require_tree .
+
 
  
 

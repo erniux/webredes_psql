@@ -3,48 +3,12 @@
 @import 'bootstrap';
 @import 'bourbon';
 @import "font-awesome"; 
-@import "rails-chat-tutorial";
+
  
 body {
     padding-top: 150px;     
   } 
 
-
-/* QUITANDO EL TIPO DE FUENTE PARA VER EL RENDIMINETO
-
-@font-face {
-font-family: 'Myriad Pro Regular'; 
-font-style: normal;
-font-weight: normal;
-src:url('MYRIADPRO-REGULAR.woff')
-}
-
-@font-face { 
-font-family: 'Myriad Pro Light'; 
-font-style: normal;
-font-weight: normal;
-src:url('MyriadPro-Light.woff')
-//src: local('Myriad Pro Light'), url('fonts/MyriadPro-Light.woff') format('woff');
-}
-
-@font-face {
-font-family: 'Myriad Pro Bold';
-font-style: normal;
-font-weight: normal;
-src:url ('MYRIADPRO-BOLD.woff')
-//src: local('Myriad Pro Bold'), url('fonts/MYRIADPRO-BOLD.woff') format('woff');
-}
-
-
-@font-face {
-font-family: 'Myriad Pro Bold Italic';
-font-style: normal;
-font-weight: normal;
-src:url ('MYRIADPRO-BOLDIT.woff')
-//src: local('Myriad Pro Bold Italic'), url('fonts/MYRIADPRO-BOLDIT.woff') format('woff');
-}
-
-*/
 
 .jumbotron {
   color: black;

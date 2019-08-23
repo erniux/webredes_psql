@@ -10,7 +10,7 @@
     <%= form.submit "Guardar Registro", class: "btn btn-primary btn-lg" %>
     <%= link_to "Regresar a Proceso", etapa_certificacions_path, class: "btn btn-success btn-lg" %>
   </div><br>
-  <% if !(etapa_certificacion.blank?) %>
+  
   <div class="row">
     <div class="col-md-2">
       <label>Num. Paso</label>
@@ -36,7 +36,7 @@
   <hr>
   <h3>Estandares</h3>
   <hr>
-<% end %>
+
   <div class="row">
     <%= form.fields_for :estandar_etapa_certificacions do |estandar| %>
       <%= render 'estandar_etapa_certificacion_fields', f: estandar %>
