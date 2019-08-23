@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
     @room = Room.new permitted_parameters
 
     if @room.save
-      flash[:success] = "Room #{@room.name_string} was created successfully"
+      flash[:success] = "Sala #{@room.name_string} se ha creado"
       redirect_to rooms_path
     else
       render :new
@@ -33,7 +33,7 @@ class RoomsController < ApplicationController
 
   def update
     if @room.update_attributes(permitted_parameters)
-      flash[:success] = "Room #{@room.name_string} was updated successfully"
+      flash[:success] = "Sala #{@room.name_string} se ha actualizado"
       redirect_to rooms_path
     else
       render :new

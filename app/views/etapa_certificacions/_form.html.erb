@@ -10,7 +10,7 @@
     <%= form.submit "Guardar Registro", class: "btn btn-primary btn-lg" %>
     <%= link_to "Regresar a Proceso", etapa_certificacions_path, class: "btn btn-success btn-lg" %>
   </div><br>
-
+  <% if !(etapa_certificacion.blank?) %>
   <div class="row">
     <div class="col-md-2">
       <label>Num. Paso</label>
@@ -49,7 +49,7 @@
     <%= form.submit "Guardar Registro", class: "btn btn-primary btn-lg" %>
     <%= link_to "Regresar a Proceso", etapa_certificacions_path, class: "btn btn-success btn-lg" %>
   </div><br>
- 
+ <% end %>
 <% end %>
 </div>
 
