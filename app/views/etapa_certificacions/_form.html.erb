@@ -36,7 +36,7 @@
   <hr>
   <h3>Estandares</h3>
   <hr>
-
+<% end %>
   <div class="row">
     <%= form.fields_for :estandar_etapa_certificacions do |estandar| %>
       <%= render 'estandar_etapa_certificacion_fields', f: estandar %>
@@ -50,7 +50,6 @@
     <%= link_to "Regresar a Proceso", etapa_certificacions_path, class: "btn btn-success btn-lg" %>
   </div><br>
  <% end %>
-<% end %>
 </div>
 
 
