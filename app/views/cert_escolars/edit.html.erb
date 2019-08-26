@@ -26,7 +26,7 @@
    			  <span class="puntos-etiqueta">Puntos Posibles: </span><br>
         </div>
         <div class="col-md-9 puntos-lista">
-          <% @puntos = PuntosEstandar.where(etapa_id: @cert_escolar.estandar) %>
+          <% @puntos = PuntosEstandar.where(estandar_etapa_certificacion_id: @cert_escolar.estandar) %>
           <% if !@puntos.blank? %>
 
           <table class="table">
