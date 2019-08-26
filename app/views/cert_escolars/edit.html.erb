@@ -17,7 +17,7 @@
   	<div class="container container-etapa">
   		<% @estandar = EstandarEtapaCertificacion.find_by(etapa_id: @cert_escolar.paso, estandar_id: @cert_escolar.estandar) %>
    		<% @paso = EtapaCertificacion.find_by(num_etapa: @cert_escolar.paso) %>
-   		<h3>Etapa <%= @paso.id.to_s + ": " + @paso.nombre %></h3>
+   		<h3>Paso <%= @paso.num_etapa.to_s + ": " + @paso.nombre %></h3>
    		<h4 class="titulo-etapa"><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo  %></h4>
    		<p class="descripcion-etapa"><%= @paso.descripcion %></p>
    		
@@ -185,7 +185,7 @@
     
     <div class="actions">
     <%= form.submit "Guardar", class: "btn btn-primary btn-lg" %>
-    <%= link_to "Regresar", @cert_escolar, class: "btn btn-info btn-lg" %>
+    <%= link_to "Regresar", @cert_escolars, class: "btn btn-info btn-lg" %>
   </div>
 
  <% end %>
