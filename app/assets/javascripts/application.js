@@ -16,12 +16,8 @@
 //= require gritter
 //= require cocoon
 //= require turbolinks
-//= require moment
-//= require bootstrap-datetimepicker
-//= require moment/es
-//= require jquery
 //= require_tree .
-
+ 
 
  
 
