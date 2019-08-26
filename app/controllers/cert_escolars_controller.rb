@@ -39,7 +39,7 @@ class CertEscolarsController < ApplicationController
 
     respond_to do |format|
       if @cert_escolar.save
-        format.html { redirect_to @cert_escolar, notice: 'Registro creado con éxito.' }
+        format.html { redirect_to cert_escolars_path, notice: 'Registro creado con éxito.' }
       else
         format.html { render :new }
       end
@@ -49,7 +49,7 @@ class CertEscolarsController < ApplicationController
   def update
     respond_to do |format|
       if @cert_escolar.update(cert_escolar_params)
-        format.html { redirect_to @cert_escolar, notice: 'Registro actualizado con éxito.' }
+        format.html { redirect_to cert_escolars_path, notice: 'Registro actualizado con éxito.' }
       else
         format.html { render :edit }
       end

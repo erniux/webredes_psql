@@ -9,7 +9,7 @@
 
   <div class="actions">
     <%= form.submit "Guardar", class: "btn btn-primary btn-lg" %>
-    <%= link_to "Regresar", @cert_escolar, class: "btn btn-info btn-lg" %>
+    <%= link_to "Regresar", cert_escolars_path, class: "btn btn-info btn-lg" %>
   </div>
   <hr>
 
@@ -17,43 +17,48 @@
   	<div class="container container-etapa">
   		<% @estandar = EstandarEtapaCertificacion.find_by(etapa_id: @cert_escolar.paso, estandar_id: @cert_escolar.estandar) %>
    		<% @paso = EtapaCertificacion.find_by(num_etapa: @cert_escolar.paso) %>
-   		<h3>Paso <%= @paso.num_etapa.to_s + ": " + @paso.nombre %></h3>
+      <div class="row">
+        <div class="col-md-9">
+   		   <h3>Paso <%= @paso.num_etapa.to_s + ": " + @paso.nombre %></h3>
+        </div>
+        <div class="col-md-3">
+          <h3>Puntaje Total: <%=  @estandar.puntaje_total %></h3>
+        </div>
+      </div>
    		<h4 class="titulo-etapa"><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo  %></h4>
    		<p class="descripcion-etapa"><%= @paso.descripcion %></p>
+      <p class="descripcion-etapa"><%= @estandar.observaciones %></p>
    		
       <div class="row"><br>
-        <div class="col-md-3">
-   			  <span class="puntos-etiqueta">Puntos Posibles: </span><br>
+        <% if !@puntos.blank? %>
+          <div class="col-md-3">
+   			    <span class="puntos-etiqueta">Puntos Posibles: </span><br>
+          </div>
+          <div class="col-md-9 puntos-lista">
+            <% @puntos = PuntosEstandar.where(estandar_etapa_certificacion_id: @cert_escolar.estandar) %>
+              <table class="table">
+                <thead>
+                </thead>
+                <% @puntos.each do |puntos| %>
+                  <tbody>
+                    <tr>
+                      <td><%= puntos.puntos %></td>
+                      <td><%= puntos.descripcion %></td>
+                    </tr>
+                  </tbody>
+                <% end %>
+              </table>
         </div>
-        <div class="col-md-9 puntos-lista">
-          <% @puntos = PuntosEstandar.where(estandar_etapa_certificacion_id: @cert_escolar.estandar) %>
-          <% if !@puntos.blank? %>
-
-          <table class="table">
-            <thead>
-               
-            </thead>
-            <% @puntos.each do |puntos| %>
-              <tbody>
-                <tr>
-                  <td><%= puntos.puntos %></td>
-                  <td><%= puntos.descripcion %></td>
-                </tr>
-            </tbody>
-            <% end %>
-          </table>
-          <% end %>
-        </div>
+        <% end %>
    		</div><br>
 
+
       <div class="row">
-   		 <div class="col-md-4">
+   		 <div class="col-md-6">
    			Puntos Obtenidos: <%= @cert_escolar.puntaje.to_s %> 
    		 </div>
-   		 <div class="col-md-4">
-   			  Puntaje Total: <%=  @estandar.puntaje_total %>
-   		 </div>
-   		 <div class="col-md-4">
+   		 
+   		 <div class="col-md-6">
     		  Estatus Actual: <%=  @cert_escolar.status %>
     	 </div>
       </div><br>
@@ -76,14 +81,6 @@
             </div>
   		    <% end %>
         </div><hr>
-      
-      
-        <div class="col-md-2">
-		      <%= form.label :observaciones %>
-        </div>
-        <div class="col-md-10">
-          <%= form.text_area :observaciones, class: "form-control" %>
-        </div>
       </div>
      
       <br>
@@ -156,7 +153,7 @@
         </div>
       </div>
     </div> <!-- div-class-8 -->
-
+    <!-- EVIDENCIAS -->
     <div class="col-md-4">
        <p class="titulo-evidencias">Evidencias</p>
        <div class="container container-evidencias">
@@ -164,7 +161,7 @@
            <% @cert_escolar.evidencias.each do |upload| %>
              <div class="row">
                <div class="col-md-9">
-                 <%= upload.filename %>
+                 <%= link_to upload.filename, upload, target: '_blank' %> <br/>
                </div>
                <div class="col-md-1">
                  <small><%= link_to 'Eliminar', cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, :evidencias_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } %></small><br/>
@@ -176,8 +173,10 @@
         <% end %>
       
         <span class="agregar-evidencias">
-          <h3>Agregar Evidencias</h3>
-          <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" %>
+          <% if logged_in?(:escuela) %>
+            <h3>Agregar Evidencias</h3>
+              <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" %>
+          <% end %>
         </span>
       </div>  
     </div> <!-- div-class-4 --><hr>
@@ -185,7 +184,7 @@
     
     <div class="actions">
     <%= form.submit "Guardar", class: "btn btn-primary btn-lg" %>
-    <%= link_to "Regresar", @cert_escolars, class: "btn btn-info btn-lg" %>
+    <%= link_to "Regresar", cert_escolars_path, class: "btn btn-info btn-lg" %>
   </div>
 
  <% end %>
