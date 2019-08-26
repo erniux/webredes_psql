@@ -1,7 +1,18 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.1'
-gem 'rails', '~> 5.2.2'
+#gem 'rails', '~> 5.2.2'
+gem "activerecord"
+gem "activestorage"
+gem "activemodel"
+#gem "actionpack"
+gem "actionview"
+gem "actionmailer"
+gem "activejob"
+gem "activesupport"
+gem "railties"
+gem "sprockets-rails"
+
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
