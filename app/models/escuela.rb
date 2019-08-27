@@ -23,11 +23,11 @@ class Escuela < ApplicationRecord
 
 	validates_format_of :telefono_oficina, :telefono_enlace,
   						:with => /\(?[0-9]{3}\)?-[0-9]{3}-[0-9]{4}/,
-  						:message => "- Formato debe ser xxx-xxx-xxxx."	
+  						:message => "- Formato: XXX-XXX-XXXX."	
 
 	validates :nombre, length: { in: 6..100 }
 	validates :razon_social, length: { in: 6..200 }
-	validates :rfc, length: { in: 14..15 , message: "Formato debe ser XXX-XXXXXX-XXX o XXXX-XXXXXX-XXX" }
+	validates :rfc, length: { in: 14..15 , message: "Formato: XXX-XXXXXX-XXX o XXXX-XXXXXX-XXX." }
 	 
 
 
