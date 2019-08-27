@@ -15,7 +15,7 @@ class CertEscolarsController < ApplicationController
       @certificador = Certificador.where(email: current_user.email)
       id = @certificador.ids
       @escuelas = Escuela.where(certificador_id: id)
-      @results = CertEscolar.where(escuela_id: @escuelas).order(paso: 'ASC', estandar: 'ASC')
+      @results = CertEscolar.where(escuela_id: @escuelas).order(escuela_id: 'ASC', paso: 'ASC', estandar: 'ASC')
     end
   end
 

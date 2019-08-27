@@ -24,6 +24,7 @@
         <%= render 'cert_escolar_admin', escuela: @results %> 
       <% elsif logged_in?(:escuela) %>
         <%= render 'cert_escolar_escuela', escuela: @results %> 
+         
       <% end %>
     <% end %>
 
