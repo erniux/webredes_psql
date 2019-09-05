@@ -1,0 +1,88 @@
+<%= form_with(model: cert_escolar, local: true) do |form| %>
+  <% if cert_escolar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cert_escolar.errors.count, "error") %> prohibited this cert_escolar from being saved:</h2>
+
+      <ul>
+      <% cert_escolar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="container modificar-puntos">
+      <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
+
+      
+      <div class="form-group">
+            <br>
+            <em>Estatus:</em>&nbsp;
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                 <% if @cert_escolar.sin_avance? %>
+                  <label class="btn btn-primary active">
+                    <%=form.label :status, "Sin Avance" %>
+                    <%=form.radio_button :status, "sin_avance" %>
+                  </label>
+                <% else %>
+                  <label class="btn btn-secondary">
+                    <%=form.label :status, "Sin Avance" %>
+                    <%=form.radio_button :status, "sin_avance" %>
+                  </label>
+                <% end %>
+
+              <% if @cert_escolar.en_desarrollo? %> 
+                <label class="btn btn-primary active">
+                  <%=form.label :status, "En desarrollo" %>
+                  <%=form.radio_button :status, "en_desarrollo" %>
+                </label>
+              <% else %>
+                <label class="btn btn-secondary">
+                  <%=form.label :status, "En desarrollo" %>
+                  <%=form.radio_button :status, "en_desarrollo" %>
+                </label>
+              <% end %>
+
+              <% if @cert_escolar.revision? %>
+                <label class="btn btn-primary active" >
+                  <%=form.label :status, "Revisión" %>
+                  <%=form.radio_button :status, "revision" %>
+                </label>
+              <% else %>
+                <label class="btn btn-secondary" >  
+                  <%=form.label :status, "Revisión" %>
+                  <%=form.radio_button :status, "revision" %>
+                </label>
+              <% end %>    
+              
+                <% if @cert_escolar.revisado_con_comentarios? %>
+                  <label class="btn btn-primary active">
+                    <%=form.label :status, "Revisado con comentarios" %>
+                    <%=form.radio_button :status, "revisado_con_comentarios" %>
+                  </label>
+                <% else %>
+                  <label class="btn btn-secondary"  >
+                    <%=form.label :status, "Revisado con comentarios" %>
+                    <%=form.radio_button :status, "revisado_con_comentarios" %>
+                  </label>
+                <% end %>    
+                
+                <% if @cert_escolar.cumplido? %>
+                  <label class="btn btn-primary active">
+                    <%=form.label :status, "cumplido" %>
+                    <%=form.radio_button :status, "cumplido" %>
+                  </label>
+                <% else %>
+                  <label class="btn btn-secondary">
+                    <%=form.label :status, "cumplido" %>
+                    <%=form.radio_button :status, "cumplido" %>
+                  </label>
+                <% end %>
+            </div>
+        </div>
+    </div>
+  </div>
+
+   
+<% end %>
