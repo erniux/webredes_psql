@@ -5,6 +5,7 @@
 !/tmp/.keep
 /storage/*
 !/storage/.keep
+/.env
 
 #Upload from local machine to upload eventos & avisos
 /config/secrets/*

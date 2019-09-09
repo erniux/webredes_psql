@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  resources :tokens, only: [:create]
  
   resources :audit_logs, except: [:new, :edit, :destroy]
 
@@ -29,8 +29,6 @@ Rails.application.routes.draw do
   post "contactos/new"
   get "paginas/contacto"
 
-  
-
   get 'acerca_de', to: 'paginas#acerca_de'
   get 'socios', to: 'paginas#socios'
   get 'precios', to: 'paginas#precios'
@@ -38,6 +36,7 @@ Rails.application.routes.draw do
   get 'reconocimientos', to: 'paginas#reconocimientos'
   get 'certificador_dashboard', to: 'paginas#certificador'
   get 'escuelas', to: 'paginas#escuelas'
+  get 'chat', to: 'paginas#chat'
   
 
 root  'paginas#inicio'

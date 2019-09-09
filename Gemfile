@@ -25,6 +25,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.8', '>= 3.8.2'
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'
 end
 
 group :development do
@@ -55,7 +56,6 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'bourbon', '~> 5.1'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem "mini_magick", ">= 4.9.4"
-gem 'dotenv-rails', '~> 2.7', '>= 2.7.2'
 gem 'petergate', '~> 2.0', '>= 2.0.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.12'
 gem 'trix-rails', require: 'trix'

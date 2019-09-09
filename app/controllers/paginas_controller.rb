@@ -38,4 +38,7 @@ class PaginasController < ApplicationController
     
   end
 
+  def chat
+  end
+
 end

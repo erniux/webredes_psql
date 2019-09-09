@@ -7,8 +7,6 @@ namespace :notification do
   desc "Send mail notificacion to site_admin to inform new contact"
   task admin_email: :environment do
   	ContactoMailer.form_contacto(Contacto.last).deliver_now
-
-
   end
 
 end
