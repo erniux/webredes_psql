@@ -56,10 +56,11 @@
    		</div><br>
       
       <% if logged_in?(:escuela) %>
-         
         <%= render 'seguimiento_escuela', cert_escolar: @cert_escolar %>
-      <% elsif logged_in?(:certificador, :cert_site_admin) %>
+      <% elsif logged_in?(:cert_site_admin) %>
         <%= render 'seguimiento_admins', cert_escolar: @cert_escolar %>
+      <% elsif logged_in?(:certificador) %>
+        <%= render 'seguimiento_certificador', cert_escolar: @cert_escolar %>
       <% end %>     
   
     <br>

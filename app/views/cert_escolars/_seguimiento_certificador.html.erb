@@ -18,76 +18,75 @@
       
       <div class="form-group">
         <br>
-        <% if !cert_escolar.revision? && !cert_escolar.cumplido? %>
           <em>Estatus:</em>&nbsp;
           <div class="btn-group btn-group-toggle" data-toggle = "buttons">
             <!-- *** BOTON SIN AVANCE *** -->
             <% if @cert_escolar.sin_avance? %>
-              <label class="btn btn-primary active">
+              <label class="btn btn-primary active" disabled>
                 <%=form.label :status, "Sin Avance" %>
-                <%=form.radio_button :status, "sin_avance" %>
+                <%=form.radio_button :status, "sin_avance", disabled: true %>
               </label>
             <% else %>
-              <label class="btn btn-secondary">
+              <label class="btn btn-secondary" disabled>
                 <%=form.label :status, "Sin Avance" %>
-                <%=form.radio_button :status, "sin_avance" %>
+                <%=form.radio_button :status, "sin_avance", disabled: true %>
               </label>
             <% end %>
 
             <!-- *** BOTON EN DESARROLLO *** -->
             <% if @cert_escolar.en_desarrollo? %> 
-              <label class="btn btn-primary active">
+              <label class="btn btn-primary active" disabled>
                 <%=form.label :status, "En desarrollo" %>
-                <%=form.radio_button :status, "en_desarrollo" %>
+                <%=form.radio_button :status, "en_desarrollo", disabled: true %>
               </label>
             <% else %>
-              <label class="btn btn-secondary">
+              <label class="btn btn-secondary" disabled>
                 <%=form.label :status, "En desarrollo" %>
-                <%=form.radio_button :status, "en_desarrollo" %>
+                <%=form.radio_button :status, "en_desarrollo", disabled: true %>
               </label>
             <% end %>
 
             <!-- *** BOTON REVISION *** -->
             <% if @cert_escolar.revision? %>
-              <label class="btn btn-primary active">
+              <label class="btn btn-primary active" disabled>
                 <%=form.label :status, "Revisión" %>
-                <%=form.radio_button :status, "revision" %>
+                <%=form.radio_button :status, "revision", disabled: true %>
               </label>
             <% else %>
-              <label class="btn btn-secondary ">  
+              <label class="btn btn-secondary " disabled>  
                 <%=form.label :status, "Revisión" %>
-                <%=form.radio_button :status, "revision" %>
+                <%=form.radio_button :status, "revision", disabled: true %>
               </label>
             <% end %>    
               
             <!-- *** BOTON REVISADO CON COMENTARIOS *** -->
             <% if @cert_escolar.revisado_con_comentarios? %>
-              <label class="btn btn-primary active" disabled>
+              <label class="btn btn-primary active" >
                 <%=form.label :status, "Revisado con comentarios" %>
-                <%=form.radio_button :status, "revisado_con_comentarios", disabled: true %>
+                <%=form.radio_button :status, "revisado_con_comentarios" %>
               </label>
             <% else %>
-              <label class="btn btn-secondary" disabled>
+              <label class="btn btn-secondary" >
                 <%=form.label :status, "Revisado con comentarios" %>
-                <%=form.radio_button :status, "revisado_con_comentarios", disabled: true %>
+                <%=form.radio_button :status, "revisado_con_comentarios" %>
               </label>
             <% end %>    
                 
             <!-- *** BOTON CUMPLIDO *** -->
             <% if @cert_escolar.cumplido? %>
-              <label class="btn btn-primary active" disabled>
+              <label class="btn btn-primary active" >
                 <%=form.label :status, "cumplido" %>
-                <%=form.radio_button :status, "cumplido", disabled: true %>
+                <%=form.radio_button :status, "cumplido"  %>
               </label>
             <% else %>
-              <label class="btn btn-secondary" disabled>
+              <label class="btn btn-secondary" >
                 <%=form.label :status, "cumplido" %>
-                <%=form.radio_button :status, "cumplido", disabled: true %>  
+                <%=form.radio_button :status, "cumplido" %>  
               </label>
             <% end %>
 
           </div>
-        <% end %> <!-- END DEL IF DEL ESTATUS QUE NO PUEDE CAMBIAR EL USUARIO (ESCUELA) -->
+         
       </div>
     </div>
   </div>
