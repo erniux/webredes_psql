@@ -1,0 +1,43 @@
+<div class="container-chat">
+  <div class="chat">
+  	<div class="col-md-9">
+  		<div class="container text-center" >
+			<%= image_tag "manzana.jpg", width: 40 %>
+			<h4>Chat Room</h4>
+		</div>
+    	<div class="messages">
+    		 <%= render @mensajes %>
+    	</div>
+    	<br>
+    	
+    	<%= form_for(@mensaje, html: { class: "input-group", role: "form"}, url: messages_create_path, remote: true) do |f| %>	
+    		<%= f.text_field :message, class: "form-control" %>
+    		<span class="input-group-btn">
+    	 		<%= button_tag( :class => "btn btn-primary") do %>
+  			  		<i class="fa fa-edit"></i>
+				<% end %>
+    		</span>
+    	<% end %>
+
+    </div><br>
+    <div class="col-md-3">
+    	<div class="card usuarios-chat">
+  			<ul class="list-group">
+    			<li class="list-group-item">Usuario Escuela Uno</li>
+    			<li class="list-group-item">Usuario Escuela Dos</li>
+    			<li class="list-group-item">Usuario Escuela Tres</li>
+    			<li class="list-group-item">Certificador Escuela Uno</li>
+  			</ul>
+		</div>
+	</div>
+  </div>
+</div>
+</div>
+
+
+ 
+
+
+
+
+ 

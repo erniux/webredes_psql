@@ -1,7 +1,7 @@
-.container-chat {
-  margin: 0 auto;
-  max-width: 36em;
-  padding: 2em 0 0;
+ .container-chat {
+  max-width: 80em;
+  margin-right: 50px;
+  margin-top: 5%;
 }
 
 .header-chat {
@@ -19,16 +19,31 @@
 .messages {
   border: 1px solid rgba(0, 0, 0, .1);
   border-radius: 3px;
-  height: 10em;
+  height: 25em;
   margin: 0 0 .5em;
   overflow-y: scroll;
   padding: .5em;
+  -webkit-box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
+
+.chat-hora {
+   font-size: smaller;
+   text-align: right;
+}
+
+.usuarios-chat {
+  margin-top: 65px;
+  -webkit-box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+}
+
 
 .message {
   .user {
     font-weight: bold;
-
     &.me {
       color: #b6191e;
     }

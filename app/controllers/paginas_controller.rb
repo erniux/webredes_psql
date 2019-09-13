@@ -1,5 +1,5 @@
 class PaginasController < ApplicationController
-  
+    access [:cert_site_admin, :escuela, :certificador] => [:chat, :certificador]
   def inicio
     @eventos = Evento.last
     @avisos = Aviso.last
@@ -39,6 +39,8 @@ class PaginasController < ApplicationController
   end
 
   def chat
+    @mensaje = Message.new
+    @mensajes = Message.all 
   end
 
 end

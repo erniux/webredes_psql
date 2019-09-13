@@ -12,12 +12,10 @@ class User < ApplicationRecord
     has_many :eventos
     has_many :avisos
     has_many :audit_logs
-   
-     
+    has_many :messages
+        
     validates_presence_of :nombre, :appaterno, :email
     validates :email, uniqueness: true 
-
-     
 
 end
 

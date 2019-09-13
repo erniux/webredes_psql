@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_22_183040) do
+ActiveRecord::Schema.define(version: 2019_09_12_120928) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -239,6 +239,16 @@ ActiveRecord::Schema.define(version: 2019_08_22_183040) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "messages", id: :bigint, default: -> { "nextval('room_messages_id_seq'::regclass)" }, force: :cascade do |t|
+    t.bigint "room_id"
+    t.bigint "user_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_room_messages_on_room_id"
+    t.index ["user_id"], name: "index_room_messages_on_user_id"
+  end
+
   create_table "precios", force: :cascade do |t|
     t.string "plan"
     t.string "descripcion"
@@ -286,21 +296,11 @@ ActiveRecord::Schema.define(version: 2019_08_22_183040) do
     t.index ["user_id"], name: "index_recursos_on_user_id"
   end
 
-  create_table "room_messages", force: :cascade do |t|
-    t.bigint "room_id"
-    t.bigint "user_id"
-    t.text "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_room_messages_on_room_id"
-    t.index ["user_id"], name: "index_room_messages_on_user_id"
-  end
-
   create_table "rooms", force: :cascade do |t|
-    t.string "name_string"
+    t.string "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name_string"], name: "index_rooms_on_name_string", unique: true
+    t.index ["nombre"], name: "index_rooms_on_nombre", unique: true
   end
 
   create_table "servicios", force: :cascade do |t|
@@ -344,12 +344,12 @@ ActiveRecord::Schema.define(version: 2019_08_22_183040) do
   add_foreign_key "escuelas", "certificadors"
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
   add_foreign_key "eventos", "users"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "precios", "users"
   add_foreign_key "puntos_estandars", "estandar_etapa_certificacions"
   add_foreign_key "puntos_estandars", "etapa_certificacions"
   add_foreign_key "recursos", "users"
-  add_foreign_key "room_messages", "rooms"
-  add_foreign_key "room_messages", "users"
   add_foreign_key "servicios", "users"
   add_foreign_key "users", "escuelas"
 end

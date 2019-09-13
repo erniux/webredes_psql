@@ -46,7 +46,7 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'stripe', '~> 4.9'
-gem 'devise', '~> 4.6', '>= 4.6.1'
+gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'pundit', '~> 2.0', '>= 2.0.1'
 gem 'bootstrap-sass', '3.4.1'
 gem 'gritter', '~> 1.2.0'
@@ -65,6 +65,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'rails_admin', '~> 1.4', '>= 1.4.2'
 gem 'pg_search', '~> 2.3'
 gem 'twilio-ruby', '~> 5.26'
+gem 'redis'
  
  
 
