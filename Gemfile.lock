@@ -304,7 +304,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
-    redis (4.1.2)
     regexp_parser (1.5.1)
     remotipart (1.4.3)
     representable (3.0.4)
@@ -385,10 +384,6 @@ GEM
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    twilio-ruby (5.26.0)
-      faraday (~> 0.9)
-      jwt (>= 1.5, <= 2.5)
-      nokogiri (>= 1.6, < 2.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uber (0.1.0)
@@ -448,7 +443,6 @@ DEPENDENCIES
   pundit (~> 2.0, >= 2.0.1)
   rails_admin (~> 1.4, >= 1.4.2)
   railties
-  redis
   rspec-rails (~> 3.8, >= 3.8.2)
   sass-rails (~> 5.0)
   selenium-webdriver
@@ -458,7 +452,6 @@ DEPENDENCIES
   stripe (~> 4.9)
   trix-rails
   turbolinks (~> 5)
-  twilio-ruby (~> 5.26)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
