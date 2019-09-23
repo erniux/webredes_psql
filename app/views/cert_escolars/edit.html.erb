@@ -127,7 +127,7 @@
       <span class="agregar-evidencias">
         <% if logged_in?(:escuela) %>
           <h3>Agregar Evidencias</h3>
-            <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" if (@cert_escolar.en_desarrollo? || @cert_escolar.sin_avance?) %>
+            <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" if (@cert_escolar.en_desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.revisado_con_comentarios?) %>
         <% end %>
       </span>
     </div>  

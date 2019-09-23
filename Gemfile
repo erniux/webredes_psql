@@ -64,8 +64,8 @@ gem "google-cloud-storage", "~> 1.8", require: false
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'rails_admin', '~> 1.4', '>= 1.4.2'
 gem 'pg_search', '~> 2.3'
-gem 'twilio-ruby', '~> 5.26'
-gem 'redis'
+#gem 'twilio-ruby', '~> 5.26'
+#gem 'redis'
  
  
 

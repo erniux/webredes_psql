@@ -13,13 +13,14 @@
 
   <div class="row">
     <div class="container modificar-puntos">
-      <em>Puntos Obtenidos:</em>&nbsp;<input type="text" class= "detalle" value="<%= @cert_escolar.puntaje %>" disabled > 
+      <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
 
       
       <div class="form-group">
         <br>
           <em>Estatus:</em>&nbsp;
           <div class="btn-group btn-group-toggle" data-toggle = "buttons">
+            
             <!-- *** BOTON SIN AVANCE *** -->
             <% if @cert_escolar.sin_avance? %>
               <label class="btn btn-primary active" disabled>
