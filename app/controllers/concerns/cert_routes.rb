@@ -7,7 +7,7 @@ module CertRoutes
     	if current_user.has_role?(:socio)
     	  recursos_path
         elsif current_user.has_role?(:cert_site_admin)
-          etapa_certificacions_path
+          rails_admin_path
     	elsif current_user.has_role?(:escuela)
     	   cert_escolars_path
     	elsif current_user.has_role?(:certificador)

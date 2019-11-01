@@ -14,9 +14,6 @@ class EstandarEtapaCertificacion < ApplicationRecord
     	errors.add :base,  "No se permite hay ..."
     	false # If you return anything else, the callback will not stop the destroy from happening
   	end
-
-  	
-
 end
 
 

@@ -1,6 +1,6 @@
 class Escuela < ApplicationRecord
   has_many :cert_escolars
-  belongs_to :certificador
+  #belongs_to :certificador
 
   before_validation :to_upper
 
@@ -28,9 +28,8 @@ class Escuela < ApplicationRecord
 	validates :nombre, length: { in: 6..100 }
 	validates :razon_social, length: { in: 6..200 }
 	validates :rfc, length: { in: 14..15 , message: "Formato: XXX-XXXXXX-XXX o XXXX-XXXXXX-XXX." }
+	
 	 
-
-
 end
 
 #Validar RFC

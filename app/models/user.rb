@@ -17,6 +17,13 @@ class User < ApplicationRecord
     validates_presence_of :nombre, :appaterno, :email
     validates :email, uniqueness: true 
 
+    def nombre_escuela 
+      if !self.escuela_id.blank?
+        nombre_escuela = Escuela.where(id: self.escuela_id).first.nombre.compact.join(',')
+      end
+
+    end
+
 end
 
 
