@@ -132,8 +132,13 @@ RailsAdmin.config do |config|
         visible(true)
       end
     end
+  end
 
-
+  config.model 'PuntosEstandar' do
+    edit do
+      field :puntos
+      field :descripcion
+    end
   end
 end
 
