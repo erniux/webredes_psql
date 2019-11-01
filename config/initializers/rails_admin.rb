@@ -1,6 +1,6 @@
 RailsAdmin.config do |config|
 
-  config.main_app_name = ["Escuelas Seguras", "Que pex" ]
+  config.main_app_name = ["Escuelas Seguras", "" ]
   config.included_models = [ "Certificador", "Escuela", "EtapaCertificacion", "EstandarEtapaCertificacion", 
                              "PuntosEstandar",   "User", "CertEscolar", ]
 
