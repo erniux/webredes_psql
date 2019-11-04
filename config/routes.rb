@@ -47,6 +47,6 @@ Rails.application.routes.draw do
   
    
 
-root  'paginas#inicio'  
+root  'paginas#reconocimientos'  
   
 end

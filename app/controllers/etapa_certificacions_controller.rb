@@ -3,7 +3,7 @@ class EtapaCertificacionsController < ApplicationController
   access cert_site_admin: :all, [:escuela, :certificador] => [:show, :index]
   
   def index
-    @etapa_certificacions = EtapaCertificacion.all.order(:id)
+    @etapa_certificacions = EtapaCertificacion.all.order(:num_etapa)
   end
   
   def show
