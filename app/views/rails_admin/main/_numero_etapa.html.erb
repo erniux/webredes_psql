@@ -1,1 +1,2 @@
-<%= form.collection_select :etapa_certificacion_id, EtapaCertificacion.order(:num_etapa),:id,:num_etapa, include_blank: true, class: 'form-control' %>
+<%= form.collection_select :etapa_certificacion_id, EtapaCertificacion.order(:num_etapa, :proceso_id),
+							:id, :etapa_periodo, include_blank: true, class: 'form-control' %>

@@ -29,6 +29,11 @@ class EtapaCertificacion < ApplicationRecord
     total = EstandarEtapaCertificacion.sum(:puntaje_total)
     return total
   end 
+
+  def etapa_periodo
+    etapa_periodo = self.num_etapa.to_s + '-' + self.proceso.periodo.to_s
+    return etapa_periodo
+  end
   		
 end
 
