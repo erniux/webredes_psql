@@ -91,9 +91,13 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Proceso' do
-      field :periodo
+      field :periodo do
+        label 'Periódo'
+      end
       field :estatus
-      field :titulo
+      field :titulo do
+        label 'Título'
+      end
   end
 
   config.model 'EtapaCertificacion' do
@@ -102,7 +106,7 @@ RailsAdmin.config do |config|
       field :proceso_id do
         label 'Proceso'
         def value
-          bindings[:object].proceso.titulo
+          bindings[:object].proceso.periodo
         end
       end
       field :num_etapa do
@@ -131,13 +135,10 @@ RailsAdmin.config do |config|
   config.model 'EstandarEtapaCertificacion' do
     label 'Estandares'
     list do
-      field :etapa_id do
-        label 'Paso'
+      field :num_etapa do
+        label 'Paso-Periódo'
         def value  
           bindings[:object].etapa_certificacion.etapa_periodo
-        end
-        def value  
-          bindings[:object].etapa_certificacion.proceso_id
         end
       end
       field :estandar_id
