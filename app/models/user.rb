@@ -8,20 +8,23 @@ class User < ApplicationRecord
     petergate(roles: [:admin, :editor, :socio, :certificador, :escuela, :site_admin, :cert_site_admin], multiple: false)                                      
   
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
-  
-    has_many :eventos
-    has_many :avisos
-    has_many :audit_logs
-    has_many :messages
         
     validates_presence_of :nombre, :appaterno, :email
     validates :email, uniqueness: true 
+
+    after_save do |user|
+      if user.has_roles?(:certificador)
+        puts 'AQUI ESTOY PARA CREAR UN CERTIFICADOR'
+      else
+        puts 'PS COMO QUE NO LO VALIDA' + user.roles.to_s
+      end
+
+    end
 
     def nombre_escuela 
       if !self.escuela_id.blank?
         nombre_escuela = Escuela.where(id: self.escuela_id).first.nombre.compact.join(',')
       end
-
     end
 
 end

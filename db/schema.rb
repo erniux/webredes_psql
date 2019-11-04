@@ -241,16 +241,6 @@ ActiveRecord::Schema.define(version: 2019_11_04_165704) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "messages", id: :bigint, default: -> { "nextval('room_messages_id_seq'::regclass)" }, force: :cascade do |t|
-    t.bigint "room_id"
-    t.bigint "user_id"
-    t.text "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_room_messages_on_room_id"
-    t.index ["user_id"], name: "index_room_messages_on_user_id"
-  end
-
   create_table "precios", force: :cascade do |t|
     t.string "plan"
     t.string "descripcion"
@@ -306,13 +296,6 @@ ActiveRecord::Schema.define(version: 2019_11_04_165704) do
     t.index ["user_id"], name: "index_recursos_on_user_id"
   end
 
-  create_table "rooms", force: :cascade do |t|
-    t.string "nombre"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["nombre"], name: "index_rooms_on_nombre", unique: true
-  end
-
   create_table "servicios", force: :cascade do |t|
     t.string "nombre"
     t.text "caracteristicas"
@@ -355,8 +338,6 @@ ActiveRecord::Schema.define(version: 2019_11_04_165704) do
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
   add_foreign_key "etapa_certificacions", "procesos"
   add_foreign_key "eventos", "users"
-  add_foreign_key "messages", "rooms"
-  add_foreign_key "messages", "users"
   add_foreign_key "precios", "users"
   add_foreign_key "puntos_estandars", "estandar_etapa_certificacions"
   add_foreign_key "puntos_estandars", "etapa_certificacions"
