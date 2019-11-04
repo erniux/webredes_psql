@@ -1,11 +1,15 @@
 class EtapaCertificacion < ApplicationRecord
 	before_destroy :no_referenced_estandar_etapa_certificacions 
 
-
-	has_many :estandar_etapa_certificacions, :dependent => :destroy  
+  belongs_to :proceso
+	
+  has_many :estandar_etapa_certificacions, :dependent => :destroy  
 	has_many :puntos_estandars, :dependent => :destroy 
 
-  validates_presence_of :num_etapa, :nombre, :descripcion
+  validates_presence_of :num_etapa, :nombre, :descripcion, :proceso_id
+  
+  validates_uniqueness_of :proceso_id, :scope => :num_etapa
+   
 
 	accepts_nested_attributes_for :estandar_etapa_certificacions, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :puntos_estandars, reject_if: :all_blank, allow_destroy: true

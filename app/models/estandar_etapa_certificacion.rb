@@ -2,7 +2,12 @@ class EstandarEtapaCertificacion < ApplicationRecord
 	before_destroy :no_referenced_puntos_estandars 
 	belongs_to :etapa_certificacion 
 
-	has_many :puntos_estandars, :dependent => :destroy  
+	has_many :puntos_estandars, :dependent => :destroy 
+
+	validates_presence_of :titulo, :descripcion, :observaciones, :etapa_certificacion_id, :puntaje_total, :estandar_id 
+  
+  	validates_uniqueness_of :etapa_id, :scope => :estandar_id 
+
 
 	accepts_nested_attributes_for :puntos_estandars, reject_if: :all_blank, allow_destroy: true
 

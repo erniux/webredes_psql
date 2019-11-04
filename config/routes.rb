@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :procesos
   mount ActionCable.server, at: '/cable'
   resources :audit_logs, except: [:new, :edit, :destroy]
 

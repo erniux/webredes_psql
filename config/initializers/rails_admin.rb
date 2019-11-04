@@ -2,7 +2,7 @@ RailsAdmin.config do |config|
 
   config.main_app_name = ["Escuelas Seguras", "" ]
   config.included_models = [ "Certificador", "Escuela", "EtapaCertificacion", "EstandarEtapaCertificacion", 
-                             "PuntosEstandar",   "User", "CertEscolar", ]
+                             "PuntosEstandar",   "User", "CertEscolar", "Proceso" ]
 
   ## == Devise ==
 
@@ -90,15 +90,42 @@ RailsAdmin.config do |config|
      end
   end
 
+  config.model 'Proceso' do
+      field :periodo
+      field :estatus
+      field :titulo
+
+
+  end
+
   config.model 'EtapaCertificacion' do
     label 'Pasos'
+    list do
+      field :proceso_id do
+        label 'Proceso'
+        def value
+          bindings[:object].proceso.titulo
+        end
+      end
       field :num_etapa do
-        label 'Etapa'
+        label 'Paso'
       end  
       field :nombre
       field :descripcion do
         label 'Descripción'
       end
+    end
+
+    edit do
+      field :proceso_id
+      field :num_etapa do
+        label 'Paso'
+      end
+      field :nombre
+      field :descripcion do
+        label 'Descripción'
+      end
+    end
   end
 
   config.model 'EstandarEtapaCertificacion' do
@@ -106,8 +133,11 @@ RailsAdmin.config do |config|
     list do
       field :etapa_id do
         label 'Paso'
-        def value
+        def value  
           bindings[:object].etapa_certificacion.num_etapa
+        end
+        def value  
+          bindings[:object].etapa_certificacion.proceso_id
         end
       end
       field :estandar_id
@@ -122,13 +152,18 @@ RailsAdmin.config do |config|
       end
        
       field :estandar_id
-      field :titulo
-      field :descripcion
+      field :titulo do
+        label 'Título'
+      end
+      field :descripcion do
+        label 'Descripción'
+      end
       field :observaciones
-      field :puntaje
-      field :evidencias
-      field :puntaje_total
+      field :puntaje_total do 
+        label 'Puntaje máximo'
+      end
       field :puntos_estandars do
+        label 'Detalle Puntaje'
         visible(true)
       end
     end
@@ -137,7 +172,9 @@ RailsAdmin.config do |config|
   config.model 'PuntosEstandar' do
     edit do
       field :puntos
-      field :descripcion
+      field :descripcion do 
+        label 'Descripción'
+      end
     end
   end
 end
