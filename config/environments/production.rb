@@ -46,8 +46,8 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
   # config.action_cable.url = 'wss://example.com/cable'
-   config.action_cable.allowed_request_origins = [ 'http://webredes.herokuapp.com/', /http:\/\/webredes.*/ ]
-   config.action_cable.disable_request_forgery_protection = true 
+   #config.action_cable.allowed_request_origins = [ 'http://webredes.herokuapp.com/', /http:\/\/webredes.*/ ]
+   #config.action_cable.disable_request_forgery_protection = true 
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
@@ -103,8 +103,8 @@ Rails.application.configure do
   
    config.action_mailer.delivery_method = :smtp
  
- config.web_socket_server_url = "wss://webredes.herokuapp.com/cable" 
- config.action_cable.allowed_request_origins = ['https://webredes.herokuapp.com', 'http://webredes.herokuapp.com']
+ #config.web_socket_server_url = "wss://webredes.herokuapp.com/cable" 
+ #config.action_cable.allowed_request_origins = ['https://webredes.herokuapp.com', 'http://webredes.herokuapp.com']
 
    config.action_mailer.smtp_settings = {
      address: "smtp.gmail.com",
