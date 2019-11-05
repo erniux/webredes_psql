@@ -1,6 +1,5 @@
 class Escuela < ApplicationRecord
   has_many :cert_escolars
-  #belongs_to :certificador
 
   before_validation :to_upper
 

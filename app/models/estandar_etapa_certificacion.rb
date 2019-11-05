@@ -1,5 +1,6 @@
 class EstandarEtapaCertificacion < ApplicationRecord
 	before_destroy :no_referenced_puntos_estandars 
+	
 	belongs_to :etapa_certificacion 
 
 	has_many :puntos_estandars, :dependent => :destroy 

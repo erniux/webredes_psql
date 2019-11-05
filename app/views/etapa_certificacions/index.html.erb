@@ -16,15 +16,15 @@
   </thead>
 
   <tbody>
-    <% @etapa_certificacions.each do |etapa_certificacion| %>
+    <% @paso_certificacions.each do |paso_certificacion| %>
       <tr>
-        <td><%= etapa_certificacion.num_etapa %></td>
-        <td class="columna-media"><%= etapa_certificacion.nombre %></td>
-        <td class="columna-ancha"><%= etapa_certificacion.descripcion %></td>
-        <td><%= etapa_certificacion.estandar_etapa_certificacions.count %></td>
-         <td><%= etapa_certificacion.total_puntos(etapa_certificacion.num_etapa)  %></td>
-        <td><%= link_to 'Estandares', etapa_certificacion %></td> 
-        <td><%= link_to 'Eliminar', etapa_certificacion, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } if logged_in?(:cert_site_admin) %></td>
+        <td><%= paso_certificacion.num_etapa %></td>
+        <td class="columna-media"><%= paso_certificacion.nombre %></td>
+        <td class="columna-ancha"><%= paso_certificacion.descripcion %></td>
+        <td><%= paso_certificacion.estandar_etapa_certificacions.count %></td>
+         <td><%= paso_certificacion.total_puntos(paso_certificacion.num_etapa)  %></td>
+        <td><%= link_to 'Estandares', paso_certificacion %></td> 
+        <td><%= link_to 'Eliminar', paso_certificacion, method: :delete, data: { confirm: '¿Confirma eliminar el registro?' } if logged_in?(:cert_site_admin) %></td>
       </tr>
     <% end %>
   </tbody>

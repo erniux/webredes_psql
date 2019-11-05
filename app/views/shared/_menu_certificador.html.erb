@@ -1,11 +1,7 @@
 <hr>
-<li><%= link_to "Proceso", etapa_certificacions_path if logged_in?(:cert_site_admin)  %></li>
 <li class="texto-sidebar"><%= link_to 'Preguntas', preguntas_certs_path %></li>
 <li class="texto-sidebar"><%= link_to 'Dashboard Escuela', cert_escolars_path if logged_in?(:escuela, :cert_site_admin) %></li>
 <li class="texto-sidebar"><%= link_to 'Dashboard Certificador', certificador_dashboard_path if logged_in?(:certificador, :cert_site_admin) %></li>
-<li class="texto-sidebar"><%= link_to 'Catálogo Escuelas', escuelas_path if logged_in?( :cert_site_admin) %></li>
-<li class="texto-sidebar"><%= link_to 'Catálogo Certificadores', certificadors_path if logged_in?( :cert_site_admin) %></li>
 <li class="texto-sidebar"><%= link_to 'Dashboard Administrador', rails_admin_path if logged_in?( :cert_site_admin) %></li>
-<li class="texto-sidebar"><%= link_to 'Bitácora', audit_logs_path if logged_in?( :cert_site_admin) %></li>
-<li class="texto-sidebar"><%= link_to 'Chat Room', paginas_chat_path if logged_in?( :cert_site_admin, :certificador, :escuela) %></li>
+ 
     

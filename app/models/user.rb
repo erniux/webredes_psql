@@ -12,13 +12,17 @@ class User < ApplicationRecord
     validates_presence_of :nombre, :appaterno, :email
     validates :email, uniqueness: true 
 
-    after_save do |user|
-      if user.has_roles?(:certificador)
-        puts 'AQUI ESTOY PARA CREAR UN CERTIFICADOR'
-      else
-        puts 'PS COMO QUE NO LO VALIDA' + user.roles.to_s
+    before_validation do |user|
+      if user.has_roles?(:escuela)
+        validates_presence_of :escuela_id
       end
 
+    end
+
+    after_create do |user|
+      if user.has_roles?(:certificador)
+        certificador = Certificador.create!(nombre: user.nombre, appaterno: user.appaterno, email: user.email)
+      end
     end
 
     def nombre_escuela 

@@ -1,4 +1,4 @@
-class EtapaCertificacionsController < ApplicationController
+class PasoCertificacionsController < ApplicationController
   before_action :set_etapa_certificacion, only: [:show, :edit, :update, :destroy]
   access cert_site_admin: :all, [:escuela, :certificador] => [:show, :index]
   
@@ -53,7 +53,7 @@ class EtapaCertificacionsController < ApplicationController
                      estandar_etapa_certificacions_attributes: [:id, :titulo, :descripcion, :observaciones, :puntaje, 
                                                                :evidencias, :puntaje_total, :estandar_id, 
                                                                :etapa_certificacion_id, :etapa_id, apoyo: [], obligatorio: [],
-                      puntos_estandars_attributes: [:id, :paso, :estandar, :puntos, :descripcion, :estandar_etapa_certificacions_id, :etapa_certificacion_id, :_destroy ]])
+                      puntos_estandars_attributes: [:id, :etapa, :estandar, :puntos, :descripcion, :estandar_etapa_certificacions_id, :etapa_certificacion_id, :_destroy ]])
 
 
     end

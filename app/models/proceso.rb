@@ -1,6 +1,6 @@
 class Proceso < ApplicationRecord
-	has_many :etapa_certificacions, :dependent => :destroy  
-	accepts_nested_attributes_for :etapa_certificacions, reject_if: :all_blank, allow_destroy: true
+	has_many :paso_certificacions, :dependent => :destroy  
+	accepts_nested_attributes_for :paso_certificacions, reject_if: :all_blank, allow_destroy: true
 	 
 	enum estatus: {inicial: 0, en_proceso: 1, cerrado: 2} 
 

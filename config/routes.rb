@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
   
-  resources :procesos
-  mount ActionCable.server, at: '/cable'
-  resources :audit_logs, except: [:new, :edit, :destroy]
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   resources :escuelas
@@ -13,6 +9,7 @@ Rails.application.routes.draw do
     delete :delete_upload_attachment
   end
   
+  resources :procesos
   resources :acercade_certificates
   resources :preguntas_certs
   resources :estandar_etapa_certificacions
@@ -24,10 +21,13 @@ Rails.application.routes.draw do
   resources :precios
   resources :acercades
   resources :contactos, only: [:create, :new]
+  resources :audit_logs, except: [:new, :edit, :destroy]
     
   devise_for :users, path: '',path_names: {sign_in: 'ingresar', sign_out: 'salir', sign_up: 'registro'}
 
 
+  get '/estandar_paso_certificacions', to: 'estandar_etapa_certificacions#index'
+  get '/paso_certificacions', to: 'etapa_certificacions#index'
 
   get "paginas/contacto"
   get "paginas/chat"

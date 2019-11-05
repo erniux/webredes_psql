@@ -1,1 +1,1 @@
-json.partial! "etapa_certificacions/etapa_certificacion", etapa_certificacion: @etapa_certificacion
+json.partial! "paso_certificacions/paso_certificacion", paso_certificacion: @paso_certificacion

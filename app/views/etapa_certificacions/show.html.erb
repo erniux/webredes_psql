@@ -1,9 +1,9 @@
 <div id="body-cert">
 	<p>
-	  <h3>Paso: <%= @etapa_certificacion.num_etapa %>&nbsp;<%= @etapa_certificacion.nombre %></h3>
+	  <h3>Paso: <%= @paso_certificacion.num_etapa %>&nbsp;<%= @paso_certificacion.nombre %></h3>
 	</p>
 	<p>
-		<em><%= @etapa_certificacion.descripcion %></em>
+		<em><%= @paso_certificacion.descripcion %></em>
 	</p>
 	<h3> Estandares </h3>
 
@@ -19,7 +19,7 @@
   		</thead>
 		
 		<tbody>
-		<% @etapa_certificacion.estandar_etapa_certificacions.order('estandar_id ASC').each do |estandar| %>
+		<% @paso_certificacion.estandar_etapa_certificacions.order('estandar_id ASC').each do |estandar| %>
 			<tr>
 				<td><%= estandar.estandar_id %></td>
 				<td><%= estandar.titulo %></td>
@@ -33,7 +33,7 @@
 		</tbody>
 	</table>
 	<% if logged_in?(:cert_site_admin) %>
-		<%= link_to 'Modificar', edit_etapa_certificacion_path(@etapa_certificacion), class: "btn btn-info btn-lg" %>
+		<%= link_to 'Modificar', edit_etapa_certificacion_path(@paso_certificacion), class: "btn btn-info btn-lg" %>
 	<% end %>
 	<%= link_to 'Regresar', etapa_certificacions_path, class: "btn btn-warning btn-lg" %>
 </div>

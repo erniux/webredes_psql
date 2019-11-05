@@ -151,7 +151,7 @@ RailsAdmin.config do |config|
         label 'Paso'
         partial 'numero_etapa'
       end
-       
+
       field :estandar_id
       field :titulo do
         label 'Título'
@@ -159,6 +159,7 @@ RailsAdmin.config do |config|
       field :descripcion do
         label 'Descripción'
       end
+      field :evidencias
       field :observaciones
       field :puntaje_total do 
         label 'Puntaje máximo'
@@ -176,6 +177,16 @@ RailsAdmin.config do |config|
       field :descripcion do 
         label 'Descripción'
       end
+    end
+  end
+
+  config.model 'Certificador' do
+    list do
+      field :nombre
+      field :appaterno do
+        label 'Apellido Paterno'
+      end
+      field :email
     end
   end
 end
