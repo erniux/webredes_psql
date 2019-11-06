@@ -34,6 +34,7 @@ RailsAdmin.config do |config|
   config.model 'User' do
     label "Usuarios"
     list do
+      sort_by :email
       field :email do
         label "Correo"
       end
@@ -98,18 +99,23 @@ RailsAdmin.config do |config|
       field :titulo do
         label 'Título'
       end
+      list do
+        sort_by :periodo
+      end
   end
 
   config.model 'EtapaCertificacion' do
     label 'Pasos'
     list do
+      sort_by :proceso_id, :num_paso
+
       field :proceso_id do
         label 'Proceso'
         def value
           bindings[:object].proceso.periodo
         end
       end
-      field :num_etapa do
+      field :num_paso do
         label 'Paso'
       end  
       field :nombre
@@ -122,7 +128,7 @@ RailsAdmin.config do |config|
       field :proceso_id do
         partial 'numero_proceso'
       end
-      field :num_etapa do
+      field :num_paso do
         label 'Paso'
       end
       field :nombre
@@ -135,24 +141,27 @@ RailsAdmin.config do |config|
   config.model 'EstandarEtapaCertificacion' do
     label 'Estandares'
     list do
-      field :num_etapa do
+      sort_by :etapa_certificacion_id, :num_paso
+      field :num_paso do
         label 'Paso-Periódo'
         def value  
           bindings[:object].etapa_certificacion.etapa_periodo
         end
       end
-      field :estandar_id
+      field :num_estandar
       field :titulo
       field :puntaje_total
     end
 
     edit do
+       
+
       field :etapa_certificacion_id do
         label 'Paso'
         partial 'numero_etapa'
       end
 
-      field :estandar_id
+      field :num_estandar
       field :titulo do
         label 'Título'
       end

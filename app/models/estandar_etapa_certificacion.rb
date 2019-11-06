@@ -2,12 +2,13 @@ class EstandarEtapaCertificacion < ApplicationRecord
 	before_destroy :no_referenced_puntos_estandars 
 	
 	belongs_to :etapa_certificacion 
+	 
 
 	has_many :puntos_estandars, :dependent => :destroy 
 
-	validates_presence_of :titulo, :descripcion, :observaciones, :etapa_certificacion_id, :puntaje_total, :estandar_id 
+	validates_presence_of :titulo, :descripcion, :observaciones, :evidencias, :etapa_certificacion_id, :puntaje_total, :num_estandar
   
-  	validates_uniqueness_of :etapa_id, :scope => :estandar_id 
+  	validates_uniqueness_of :num_estandar, :scope => :num_etapa
 
 
 	accepts_nested_attributes_for :puntos_estandars, reject_if: :all_blank, allow_destroy: true
@@ -20,9 +21,7 @@ class EstandarEtapaCertificacion < ApplicationRecord
     	errors.add :base,  "No se permite hay ..."
     	false # If you return anything else, the callback will not stop the destroy from happening
   	end
-
-  	
-  	 
+ 
 end
 
 

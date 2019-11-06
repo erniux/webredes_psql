@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_05_171427) do
+ActiveRecord::Schema.define(version: 2019_11_06_155210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -198,17 +198,17 @@ ActiveRecord::Schema.define(version: 2019_11_05_171427) do
     t.text "puntaje"
     t.text "evidencias"
     t.integer "puntaje_total"
-    t.integer "estandar_id"
-    t.integer "etapa_id"
+    t.integer "num_estandar"
+    t.integer "num_etapa"
     t.index ["etapa_certificacion_id"], name: "index_estandar_etapa_certificacions_on_etapa_certificacion_id"
   end
 
-  create_table "etapa_certificacions", force: :cascade do |t|
+  create_table "etapa_certificacions", id: :bigint, default: -> { "nextval('paso_certificacions_id_seq'::regclass)" }, force: :cascade do |t|
     t.text "nombre"
     t.text "descripcion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "num_etapa"
+    t.integer "num_paso"
     t.bigint "proceso_id"
     t.index ["proceso_id"], name: "index_etapa_certificacions_on_proceso_id"
   end

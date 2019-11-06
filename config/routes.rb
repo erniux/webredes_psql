@@ -25,10 +25,6 @@ Rails.application.routes.draw do
     
   devise_for :users, path: '',path_names: {sign_in: 'ingresar', sign_out: 'salir', sign_up: 'registro'}
 
-
-  get '/estandar_paso_certificacions', to: 'estandar_etapa_certificacions#index'
-  get '/paso_certificacions', to: 'etapa_certificacions#index'
-
   get "paginas/contacto"
   get "paginas/chat"
 
