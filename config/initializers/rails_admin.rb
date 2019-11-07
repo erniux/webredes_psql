@@ -19,7 +19,9 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
+    new do
+      except ['Certificador']
+    end
     export
     bulk_delete
     show
@@ -64,14 +66,15 @@ RailsAdmin.config do |config|
         label "Apellido Paterno"
       end
       
-      field :escuela_id do
-        label "Escuela"
-        partial "nombre_escuela"
-      end 
       field :roles do
         label "Perfil Usuario"
         partial "perfil_usuario"
-       end
+      end
+
+      field :escuela_id do
+        label "Escuela"
+        partial "nombre_escuela"
+      end   
     end
   end
 
