@@ -71,12 +71,13 @@ RailsAdmin.config do |config|
         partial "perfil_usuario"
       end
 
-      field :escuela_id do
-        label "Escuela"
+      field :escuela_id do 
         partial "nombre_escuela"
-      end   
+      end 
+       
     end
   end
+
 
   config.model 'CertEscolar' do
     label "Certificaciones"
