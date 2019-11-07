@@ -157,8 +157,6 @@ RailsAdmin.config do |config|
     end
 
     edit do
-       
-
       field :etapa_certificacion_id do
         label 'Paso'
         partial 'numero_etapa'
@@ -176,6 +174,9 @@ RailsAdmin.config do |config|
       field :puntaje_total do 
         label 'Puntaje máximo'
       end
+
+      field :obligatorio
+      field :apoyo
       field :puntos_estandars do
         label 'Detalle Puntaje'
         visible(true)
