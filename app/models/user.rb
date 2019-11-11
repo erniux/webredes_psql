@@ -25,6 +25,8 @@ class User < ApplicationRecord
       end
     end
 
+     
+
     def nombre_escuela 
       if !self.escuela_id.blank?
         nombre_escuela = Escuela.where(id: self.escuela_id).first.nombre.compact.join(',')

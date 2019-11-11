@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :procesos
   resources :acercade_certificates
   resources :preguntas_certs
-  resources :estandar_etapa_certificacions
+  resources :estandar_etapa_certificacions  
   resources :etapa_certificacions
   resources :reconocimiento_redes
   resources :avisos 
@@ -38,12 +38,8 @@ Rails.application.routes.draw do
   get 'escuelas', to: 'paginas#escuelas'
   get 'chat', to: 'paginas#chat'
 
-  post 'messages/create'
   post "contactos/new"
-
   
-   
-
-root  'paginas#reconocimientos'  
+  root  'paginas#reconocimientos'  
   
 end

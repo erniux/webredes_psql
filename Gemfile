@@ -62,7 +62,7 @@ gem 'trix-rails', require: 'trix'
 gem 'friendly_id', '~> 5.2', '>= 5.2.5'
 gem "google-cloud-storage", "~> 1.8", require: false
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
-gem 'rails_admin', '~> 1.4', '>= 1.4.2'
+gem 'rails_admin' 
 gem 'pg_search', '~> 2.3'
   
  

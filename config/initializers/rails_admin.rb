@@ -23,10 +23,12 @@ RailsAdmin.config do |config|
       except ['Certificador']
     end
     export
-    bulk_delete
+    bulk_delete 
     show
     edit
-    delete
+    delete do
+      except ['Certificador']
+    end
   end
 
   config.model "PuntosEstandar" do
@@ -176,8 +178,16 @@ RailsAdmin.config do |config|
         label 'Puntaje máximo'
       end
 
-      field :obligatorio
-      field :apoyo
+      field :obligatorio, :multiple_active_storage   do
+        pretty_value do
+          if value
+            path = Rails.application.routes.url_helpers.rails_blob_path(value, only_path: true)
+            bindings[:view].content_tag(:a, value.filename, href: path)
+          end
+        end
+      end
+        
+
       field :puntos_estandars do
         label 'Detalle Puntaje'
         visible(true)

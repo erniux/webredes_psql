@@ -1,4 +1,8 @@
 class EstandarEtapaCertificacion < ApplicationRecord
+	attr_accessor :remove_file
+                   
+
+
 	before_destroy :no_referenced_puntos_estandars 
 	
 	belongs_to :etapa_certificacion 
