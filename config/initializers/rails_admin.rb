@@ -1,6 +1,6 @@
 RailsAdmin.config do |config|
-
-  config.main_app_name = ["Escuelas Seguras", "" ]
+ 
+  config.main_app_name = Proc.new { |controller| [ "Escuelas seguras", "-#{controller.params[:action].try(:titleize)}" ] }
   config.included_models = [ "Certificador", "Escuela", "EtapaCertificacion", "EstandarEtapaCertificacion", 
                              "PuntosEstandar",   "User", "CertEscolar", "Proceso" ]
 
@@ -178,15 +178,12 @@ RailsAdmin.config do |config|
         label 'Puntaje máximo'
       end
 
-      field :obligatorio, :multiple_active_storage   do
-        pretty_value do
-          if value
-            path = Rails.application.routes.url_helpers.rails_blob_path(value, only_path: true)
-            bindings[:view].content_tag(:a, value.filename, href: path)
-          end
-        end
-      end
-        
+      field :obligatorio, :multiple_active_storage do
+        label 'Documentos Obligatorios'
+         partial 'archivo_obligatorio'
+      end 
+       
+      field :apoyo 
 
       field :puntos_estandars do
         label 'Detalle Puntaje'
