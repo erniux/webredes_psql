@@ -183,7 +183,10 @@ RailsAdmin.config do |config|
          partial 'archivo_obligatorio'
       end 
        
-      field :apoyo 
+      field :apoyo, :multiple_active_storage do
+        label 'Documentos de Apoyo'
+         partial 'archivo_apoyo'
+       end 
 
       field :puntos_estandars do
         label 'Detalle Puntaje'

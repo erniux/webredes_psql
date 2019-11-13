@@ -22,9 +22,7 @@ class EstandarEtapaCertificacion < ApplicationRecord
 		Array(remove_apoyo).each { |id| apoyo.find_by_id(id).try(:purge) }
 	end
 
-	def obligatorio_filename
-		obligatorio.map {|p| p.filename.to_s}
-	end
+	 
 
 	def no_referenced_puntos_estandars
     	return if puntos_estandars.empty?
