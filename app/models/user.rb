@@ -13,20 +13,10 @@ class User < ApplicationRecord
     validates :email, uniqueness: true 
 
     before_validation do |user|
-      puts "*******************+ BEFORE VALIDATION **************** ROL DEL USUARIO EXISTENTE *************=========== " + user.roles.to_s
-      :validates_user_roles
       if user.has_roles?(:escuela)
         validates_presence_of :escuela_id
       end
-
     end
-
-    #after_create do |user|
-    #  puts '************** after create ************** '
-    #  if user.has_roles?(:certificador)
-    #    certificador = Certificador.create!(nombre: user.nombre, appaterno: user.appaterno, email: user.email)
-    #  end
-    #end
 
     before_destroy do |user|
       puts '************** before destroy ************** '
@@ -37,7 +27,6 @@ class User < ApplicationRecord
         end
       end
     end
-
 
     before_save do |user|
       puts '************** before save ************** '
@@ -56,6 +45,9 @@ class User < ApplicationRecord
       end
     end
 
+    def nombre_usuario
+      nombre_usuario = nombre.to_s + ' ' + appaterno.to_s
+    end
 
     def nombre_escuela 
       if !self.escuela_id.blank?

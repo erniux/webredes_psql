@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   resources :procesos
   resources :acercade_certificates
   resources :preguntas_certs
-  resources :estandar_etapa_certificacions  
+  resources :estandar_etapa_certificacions do
+    delete :delete_obligatorio 
+    delete :delete_apoyo
+  end  
   resources :etapa_certificacions
   resources :reconocimiento_redes
   resources :avisos 

@@ -1,9 +1,8 @@
 RailsAdmin.config do |config|
- 
-  config.main_app_name = Proc.new { |controller| [ "Escuelas seguras", "-#{controller.params[:action].try(:titleize)}" ] }
+  
+  config.main_app_name = Proc.new { |controller| [ "Escuelas seguras", "" ] }
   config.included_models = [ "Certificador", "Escuela", "EtapaCertificacion", "EstandarEtapaCertificacion", 
                              "PuntosEstandar",   "User", "CertEscolar", "Proceso" ]
-
   ## == Devise ==
 
   config.authorize_with do |controller|
@@ -37,6 +36,9 @@ RailsAdmin.config do |config|
 
   config.model 'User' do
     label "Usuarios"
+    object_label_method do
+      :nombre_usuario
+    end
     list do
       sort_by :email
       field :email do
@@ -83,6 +85,7 @@ RailsAdmin.config do |config|
 
   config.model 'CertEscolar' do
     label "Certificaciones"
+
      list do
       field :nombre_escuela do
         label "Escuela"
@@ -95,9 +98,14 @@ RailsAdmin.config do |config|
       field :status
       field :puntaje
      end
+    edit do
+    end 
   end
 
   config.model 'Proceso' do
+    object_label_method do
+      :periodo
+    end
       field :periodo do
         label 'Periódo'
       end
@@ -111,6 +119,10 @@ RailsAdmin.config do |config|
   end
 
   config.model 'EtapaCertificacion' do
+    object_label_method do
+      :titulo_modelo
+    end 
+
     label 'Pasos'
     list do
       sort_by :proceso_id, :num_paso
@@ -145,6 +157,9 @@ RailsAdmin.config do |config|
   end
 
   config.model 'EstandarEtapaCertificacion' do
+     object_label_method do
+      :titulo_modelo
+    end 
     label 'Estandares'
     list do
       sort_by :etapa_certificacion_id, :num_paso
@@ -179,13 +194,13 @@ RailsAdmin.config do |config|
       end
 
       field :obligatorio, :multiple_active_storage do
-        label 'Documentos Obligatorios'
-         partial 'archivo_obligatorio'
-      end 
+        label 'Documentos obligatorios'
+        delete_method :remove_obligatorio
+      end
        
       field :apoyo, :multiple_active_storage do
         label 'Documentos de Apoyo'
-         partial 'archivo_apoyo'
+        delete_method :remove_apoyo
        end 
 
       field :puntos_estandars do
@@ -196,6 +211,9 @@ RailsAdmin.config do |config|
   end
 
   config.model 'PuntosEstandar' do
+    object_label_method do
+      :puntos
+    end
     edit do
       field :puntos
       field :descripcion do 
@@ -205,12 +223,37 @@ RailsAdmin.config do |config|
   end
 
   config.model 'Certificador' do
+    object_label_method do
+      :nombre_completo
+    end 
     list do
       field :nombre
       field :appaterno do
         label 'Apellido Paterno'
       end
       field :email
+    end
+  end
+
+  config.model 'Escuela' do
+    object_label_method do
+      :nombre 
+    end 
+
+    list do
+      field :nombre do
+        label 'Nombre escuela'
+      end
+      field :rfc do
+        label 'R.F.C.'
+      end
+      field :estado
+      field :nombre_completo_enlace do
+        label 'Enlace escolar'
+      end
+      field :correo_enlace
+      field :telefono_enlace
+       
     end
   end
 end

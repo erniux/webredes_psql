@@ -34,6 +34,10 @@ class EtapaCertificacion < ApplicationRecord
     etapa_periodo = self.num_paso.to_s + '-' + self.proceso.periodo.to_s
     return etapa_periodo
   end
+
+  def titulo_modelo
+      self.nombre.truncate(25) + '...' if !nombre.blank?
+    end
   		
 end
 

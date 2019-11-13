@@ -2,8 +2,6 @@ class EstandarEtapaCertificacionsController < ApplicationController
  
   access cert_site_admin: :all, certificador: :all, :escuela => [:show, :index]
    
-
-
   def show
     @estandar_etapa_certificacion = EstandarEtapaCertificacion.find(params[:id])
   end
@@ -19,6 +17,18 @@ class EstandarEtapaCertificacionsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def delete_obligatorio
+    @archivo=EstandarEtapaCertificacion.find(params[:estandar_etapa_id])
+    @archivo.obligatorio.find_by_id(params[:obligatorio_id]).purge
+    redirect_back(fallback_location: request.referer)
+  end
+
+  def delete_apoyo
+    @archivo=EstandarEtapaCertificacion.find(params[:estandar_etapa_id])
+    @archivo.apoyo.find_by_id(params[:apoyo_id]).purge
+    redirect_back(fallback_location: request.referer)
   end
 
   private

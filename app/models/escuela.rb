@@ -28,7 +28,9 @@ class Escuela < ApplicationRecord
 	validates :razon_social, length: { in: 6..200 }
 	validates :rfc, length: { in: 14..15 , message: "Formato: XXX-XXXXXX-XXX o XXXX-XXXXXX-XXX." }
 	
-	 
+	def nombre_completo_enlace
+		nombre_enlace = (nombre_enlace.to_s + appaterno_enlace.to_s + apmaterno_enlace.to_s) if !nombre_enlace.blank?
+	end 
 end
 
 #Validar RFC

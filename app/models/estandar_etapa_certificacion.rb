@@ -3,7 +3,6 @@ class EstandarEtapaCertificacion < ApplicationRecord
 	
 	belongs_to :etapa_certificacion 
 	 
-
 	has_many :puntos_estandars, :dependent => :destroy 
 
 	validates_presence_of :titulo, :descripcion, :observaciones, :evidencias, :etapa_certificacion_id, :puntaje_total, :num_estandar
@@ -22,12 +21,18 @@ class EstandarEtapaCertificacion < ApplicationRecord
 		Array(remove_apoyo).each { |id| apoyo.find_by_id(id).try(:purge) }
 	end
 
-	 
+	def nombre_archivo(archivo) 
+		nombre_archivo = archivo.filename 
+	end
 
 	def no_referenced_puntos_estandars
     	return if puntos_estandars.empty?
     	errors.add :base,  "No se permite hay ..."
     	false # If you return anything else, the callback will not stop the destroy from happening
+  	end
+
+  	def titulo_modelo
+  		self.titulo.truncate(25) + '...' if !titulo.blank?
   	end
  
 end

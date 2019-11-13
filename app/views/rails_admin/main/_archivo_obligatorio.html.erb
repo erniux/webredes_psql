@@ -1,23 +1,23 @@
 <div class='col-sm-10 controls ui-sortable'>
 <% if @object.obligatorio.attached? %>
-
 	<% @object.obligatorio.map do |archivo| %>
 		<div class="row">
 		   <div class="col-md-4">	
 		      <%= link_to archivo.filename, Rails.application.routes.url_helpers.rails_blob_path(archivo, only_path: true), target: '_blank' %>
 		   </div>
 		   <div class="col-md-2">
-			   <%= link_to @object.remove_obligatorio,  class: "btn btn-danger btn-remove-image" do %>
-  				  <i class="icon-white icon-trash"> </i>
-			   <% end %>
+		   	<small><%= link_to 'Eliminar Archivo', estandar_etapa_certificacion_delete_obligatorio_path(:todo_id => @object.id, :upload_id => archivo.id),
+          method: :delete, data: { confirm: '¿Confirma Eliminar el Archivo?' } %></small><br/> 
+
+			    
+			       
 		   </div> 
-		</div><br>
+		   
+		</div>
 	<% end %>
 <% end %>
-	<div class="row">
-		<p><%= form.file_field :obligatorio, multiple: true %></p>
-	</div>
+<div class="row">
+	<p><%= form.file_field :obligatorio, multiple: true %></p>
 </div>
 
-
-  
+ 

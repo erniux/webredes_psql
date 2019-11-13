@@ -18,15 +18,16 @@ Bundler.require(*Rails.groups)
 module WebredesPsql
   class Application < Rails::Application
     config.load_defaults 5.2
-
     config.time_zone = 'Mexico City'
     config.i18n.default_locale = 'es-MX'
     config.generators.system_tests = nil
     config.middleware.use Rack::MethodOverride
     config.autoload_paths << Rails.root.join("lib")
     config.session_store :cookie_store
-	config.middleware.use ActionDispatch::Cookies
-	config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
+	  config.middleware.use ActionDispatch::Cookies
+	  config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
+     
+
 
   end
 end
