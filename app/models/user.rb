@@ -19,17 +19,14 @@ class User < ApplicationRecord
         validates_presence_of :escuela_id
       end
 
-      def validates_user_roles
-      end
-
     end
 
-    after_create do |user|
-      puts '************** after create ************** '
-      if user.has_roles?(:certificador)
-        certificador = Certificador.create!(nombre: user.nombre, appaterno: user.appaterno, email: user.email)
-      end
-    end
+    #after_create do |user|
+    #  puts '************** after create ************** '
+    #  if user.has_roles?(:certificador)
+    #    certificador = Certificador.create!(nombre: user.nombre, appaterno: user.appaterno, email: user.email)
+    #  end
+    #end
 
     before_destroy do |user|
       puts '************** before destroy ************** '
