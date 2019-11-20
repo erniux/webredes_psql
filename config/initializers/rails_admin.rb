@@ -249,6 +249,12 @@ RailsAdmin.config do |config|
       end
       field :email
     end
+    edit do
+      field :escuelas do
+        inline_add false
+        #inline_edit false
+      end
+    end
   end
 
   config.model 'Escuela' do
