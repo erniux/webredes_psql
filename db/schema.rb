@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_155210) do
+ActiveRecord::Schema.define(version: 2019_11_19_172222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_155210) do
     t.float "puntaje"
     t.bigint "certificador_id"
     t.bigint "escuela_id"
+    t.string "proceso"
     t.index ["escuela_id"], name: "index_cert_escolars_on_escuela_id"
   end
 
@@ -200,7 +201,9 @@ ActiveRecord::Schema.define(version: 2019_11_06_155210) do
     t.integer "puntaje_total"
     t.integer "num_estandar"
     t.integer "num_etapa"
+    t.bigint "proceso_id"
     t.index ["etapa_certificacion_id"], name: "index_estandar_etapa_certificacions_on_etapa_certificacion_id"
+    t.index ["proceso_id"], name: "index_estandar_etapa_certificacions_on_proceso_id"
   end
 
   create_table "etapa_certificacions", id: :bigint, default: -> { "nextval('paso_certificacions_id_seq'::regclass)" }, force: :cascade do |t|
@@ -259,8 +262,17 @@ ActiveRecord::Schema.define(version: 2019_11_06_155210) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "proceso_certificacions", force: :cascade do |t|
+    t.bigint "escuela_id"
+    t.bigint "proceso_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["escuela_id"], name: "index_proceso_certificacions_on_escuela_id"
+    t.index ["proceso_id"], name: "index_proceso_certificacions_on_proceso_id"
+  end
+
   create_table "procesos", force: :cascade do |t|
-    t.integer "periodo"
+    t.string "periodo"
     t.integer "estatus"
     t.string "titulo"
     t.datetime "created_at", null: false
@@ -336,9 +348,12 @@ ActiveRecord::Schema.define(version: 2019_11_06_155210) do
   add_foreign_key "cert_escolars", "escuelas"
   add_foreign_key "escuelas", "certificadors"
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
+  add_foreign_key "estandar_etapa_certificacions", "procesos"
   add_foreign_key "etapa_certificacions", "procesos"
   add_foreign_key "eventos", "users"
   add_foreign_key "precios", "users"
+  add_foreign_key "proceso_certificacions", "escuelas"
+  add_foreign_key "proceso_certificacions", "procesos"
   add_foreign_key "puntos_estandars", "estandar_etapa_certificacions"
   add_foreign_key "puntos_estandars", "etapa_certificacions"
   add_foreign_key "recursos", "users"

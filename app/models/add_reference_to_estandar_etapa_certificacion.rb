@@ -1,0 +1,2 @@
+class AddReferenceToEstandarEtapaCertificacion < ApplicationRecord
+end

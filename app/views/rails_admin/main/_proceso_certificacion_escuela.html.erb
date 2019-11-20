@@ -1,0 +1,1 @@
+<%= form.select(:proceso_id, Proceso.all.collect {|p| [p.periodo, p.id]}, {include_blank: true}) %>

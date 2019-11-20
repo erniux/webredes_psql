@@ -16,11 +16,11 @@
 
   <div class="col-md-8">
   	<div class="container container-etapa">
-  		<% @estandar = EstandarEtapaCertificacion.find_by(etapa_id: @cert_escolar.paso, estandar_id: @cert_escolar.estandar) %>
-   		<% @paso = PasoCertificacion.find_by(num_etapa: @cert_escolar.paso) %>
+  		<% @estandar = EstandarEtapaCertificacion.find_by(num_etapa: @cert_escolar.paso, num_estandar: @cert_escolar.estandar) %>
+   		<% @paso = EtapaCertificacion.find_by(num_paso: @cert_escolar.paso) %>
       <div class="row">
         <div class="col-md-8">
-   		   <h4>Paso <%= @paso.num_etapa.to_s + ": " + @paso.nombre %></h4>
+   		   <h4>Paso <%= @paso.num_paso.to_s + ": " + @paso.nombre %></h4>
          <h3>Estatus:&nbsp;<%= @cert_escolar.status %>
         </div>
         <div class="col-md-4">

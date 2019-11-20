@@ -17,7 +17,7 @@
     <tbody>
       <% @escuelas.each do |escuela| %>
         <tr>
-          <td><%= escuela.certificador.nombre_completo  %></td>
+          <td><%= escuela.certificador_id  %></td>
           <td><%= escuela.nombre %></td>
            <td style="text-align: -webkit-center;"><%= escuela.cert_escolars.select("estandar").where(status: 'cumplido').count %></td>
            <td style="text-align: -webkit-center;"><%= escuela.cert_escolars.select("estandar").where(status: 'revision').count %></td>

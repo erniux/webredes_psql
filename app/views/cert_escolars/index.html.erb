@@ -2,7 +2,7 @@
   <% if current_user.has_roles?(:certificador, :cert_site_admin)  %>
     <h3> Seguimiento Certificación </h3>
   <% elsif current_user.has_roles?(:escuela) %>  
-    <h3> Seguimiento Certificación <%= @results.first.escuela.razon_social %></h3><br> 
+    <h3> Seguimiento Certificación <%= @results.first.escuela_id %></h3><br> 
      
   <% end %>
   
