@@ -1,13 +1,13 @@
 class CertEscolar < ApplicationRecord
 	include PgSearch::Model
     
-  belongs_to :proceso_certificacion
+  #belongs_to :proceso_certificacion
 
 	has_many_attached :evidencias
 
   	enum status: {sin_avance: 0, en_desarrollo: 1, revision: 2, revisado_con_comentarios: 3, cumplido: 4}
 
-  	validates_uniqueness_of :proceso, :scope => [:escuela_id, :paso, :estandar]
+  	#validates_uniqueness_of :proceso, :scope => [:escuela_id, :paso, :estandar]
 
     before_update do |proceso| 
   		validates_presence_of :observaciones

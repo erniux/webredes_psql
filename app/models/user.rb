@@ -21,9 +21,17 @@ class User < ApplicationRecord
     before_destroy do |user|
       puts '************** before destroy ************** '
       if user.has_roles?(:certificador)
-        certificador = Certificador.where(email: user.email) 
-        if !certificador.blank?
-          certificador.first.destroy
+        certificador = Certificador.where(email: user.email).first 
+        if (validate! :escuelas)
+          escuela = Escuela.find_by(certificador_id: certificador.id)
+          escuela.each do |e|
+            e.certificador_id = ''
+            e.save
+          end
+          puts "la escuela se ha actualizado, pendiente borrar certificador de la tabla certificador ****************"
+          certificador.destroy
+        else
+
         end
       end
     end
