@@ -3,7 +3,7 @@ class Certificador < ApplicationRecord
 
 	def cert_nombre_completo
 		nombre_completo = User.where(email: self.email).first
-		cert_nombre_completo = nombre_completo.nombre + ' ' + nombre_appaterno.appaterno
+		cert_nombre_completo = nombre_completo.nombre + ' ' + nombre_completo.appaterno
 	end
  
 	validates_uniqueness_of :email

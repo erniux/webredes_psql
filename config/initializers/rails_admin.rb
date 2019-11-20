@@ -240,7 +240,7 @@ RailsAdmin.config do |config|
     label 'Certificador'
     label_plural 'Certificadores'
     object_label_method do
-      :nombre_completo
+      :cert_nombre_completo
     end 
     list do
       field :nombre

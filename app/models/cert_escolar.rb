@@ -1,7 +1,7 @@
 class CertEscolar < ApplicationRecord
 	include PgSearch::Model
     
-    belongs_to :proceso_certificacion
+  belongs_to :proceso_certificacion
 
 	has_many_attached :evidencias
 
