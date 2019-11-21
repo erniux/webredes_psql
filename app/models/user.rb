@@ -19,34 +19,31 @@ class User < ApplicationRecord
     end
 
     before_destroy do |user|
-      puts '************** before destroy ************** '
       if user.has_roles?(:certificador)
         certificador = Certificador.where(email: user.email).first 
         if (validate! :escuelas)
           escuela = Escuela.where(certificador_id: certificador.id)
-
           escuela.each do |e|
             e.certificador_id = ''
             e.save
           end
-          puts "la escuela se ha actualizado, pendiente borrar certificador de la tabla certificador ****************"
           certificador.destroy
         else
-
         end
       end
     end
 
     before_save do |user|
-      puts '************** before save ************** '
       if user.roles_changed?
-        puts '************** before.roles_changed  ************** '
         if user.has_roles?(:certificador)
-          puts '************** valida si el nuevo rol es certificador ************** '
           certificador = Certificador.create!(nombre: user.nombre, appaterno: user.appaterno, email: user.email)
-          puts '************** before save se crea el certificador en la tabla ' + user.inspect.to_s + certificador.inspect.to_s
         elsif 
-          escuela = Escuela.find_by(certificador_id: certificador.id)
+        #buscar primero el id a traves del correo 
+        correo = user.email
+        #buscar correo en tabla de certificadores para obtener el id
+        certificador = Certificador.where(email: correo).first
+        #eliminar el certificador de la tabla de escuelas
+          escuela = Escuela.where(certificador_id: certificador.id)
           if !escuela.nil?
             escuela.each do |e|
               e.certificador_id = ''
