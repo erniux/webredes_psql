@@ -1,1 +1,26 @@
-<%= form.grouped_collection_select :etapa_certificacion_id, Proceso.all, :etapa_certificacions, :periodo, :id, :num_paso  %>
+<%= form.grouped_collection_select :etapa_certificacion_id, Proceso.all, :etapa_certificacions, :periodo, :id, :num_paso, include_blank: true  %>
+
+
+<script>
+	$(document).ready(function() {
+  console.log("It works on each visit!")
+  
+     var etapa;
+     etapa = $('#estandar_etapa_certificacion_etapa_certificacion_id').html();
+     console.log(etapa);
+     return $('#estandar_etapa_certificacion_proceso_id').change(function() {
+       var departamento, options;
+       departamento = $('#estandar_etapa_certificacion_proceso_id :selected').text();
+       options = $(etapa).filter("optgroup[label='" + departamento + "']").html();
+       if (options) {
+         return $('#estandar_etapa_certificacion_etapa_certificacion_id').html(options);
+       } else {
+         return $('#estandar_etapa_certificacion_etapa_certificacion_id').empty();
+       }
+     });
+  });
+
+
+
+			
+</script> 

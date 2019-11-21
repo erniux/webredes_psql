@@ -23,7 +23,8 @@ class User < ApplicationRecord
       if user.has_roles?(:certificador)
         certificador = Certificador.where(email: user.email).first 
         if (validate! :escuelas)
-          escuela = Escuela.find_by(certificador_id: certificador.id)
+          escuela = Escuela.where(certificador_id: certificador.id)
+
           escuela.each do |e|
             e.certificador_id = ''
             e.save
@@ -45,10 +46,18 @@ class User < ApplicationRecord
           certificador = Certificador.create!(nombre: user.nombre, appaterno: user.appaterno, email: user.email)
           puts '************** before save se crea el certificador en la tabla ' + user.inspect.to_s + certificador.inspect.to_s
         elsif 
+          escuela = Escuela.find_by(certificador_id: certificador.id)
+          if !escuela.nil?
+            escuela.each do |e|
+              e.certificador_id = ''
+              e.save
+            end
+          end
           certificador = Certificador.where(email: user.email) 
           if !certificador.blank?
             certificador.first.destroy
           end 
+
         end
       end
     end

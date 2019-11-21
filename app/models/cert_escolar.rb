@@ -24,7 +24,7 @@ class CertEscolar < ApplicationRecord
 		return puntos_totales_estandar
 	end  
 
-  def self.nombre_escuela
+  def nombre_escuela
     nombre_escuela = Escuela.where(id: self.escuela_id).first.nombre
   end					
 

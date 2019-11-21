@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-ruby '2.4.1'
+ruby '2.5.2'
 #gem 'rails', '~> 5.2.2'
 gem "activerecord"
 gem "activestorage"
@@ -64,6 +64,7 @@ gem "google-cloud-storage", "~> 1.8", require: false
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'rails_admin', '~> 2.0'
 gem 'pg_search', '~> 2.3'
+gem 'jquery-turbolinks'
   
  
 

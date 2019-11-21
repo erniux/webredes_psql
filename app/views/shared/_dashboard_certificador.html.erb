@@ -17,12 +17,13 @@
     <tbody>
       <% @escuelas.each do |escuela| %>
         <tr>
-          <td><%= escuela.certificador_id  %></td>
+          <td><%= escuela.nombre_certificador  %></td>
           <td><%= escuela.nombre %></td>
-           <td style="text-align: -webkit-center;"><%= escuela.cert_escolars.select("estandar").where(status: 'cumplido').count %></td>
-           <td style="text-align: -webkit-center;"><%= escuela.cert_escolars.select("estandar").where(status: 'revision').count %></td>
+           
+           <td><%= escuela.certificaciones.select("estandar").where(status: 'cumplido').count %></td>
+           <td><%= escuela.certificaciones.select("estandar").where(status: 'revision').count %></td>
 
-          <% puntos_escuela = escuela.cert_escolars.sum(:puntaje)  %>
+          <% puntos_escuela = escuela.certificaciones.sum(:puntaje)  %>
           <td style="text-align: -webkit-center;"><%= number_with_precision(puntos_escuela, precision: 0) %></td>
           <% puntos_certificacion = @puntos.sum(:puntaje_total) %>
           <% avance = puntos_escuela / puntos_certificacion.to_f %>

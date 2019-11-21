@@ -1,6 +1,10 @@
 <hr>
-<li class="texto-sidebar"><%= link_to 'Escuelas', cert_escolars_path if logged_in?(:escuela, :cert_site_admin) %></li>
-<li class="texto-sidebar"><%= link_to 'Certificadores', certificador_dashboard_path if logged_in?(:certificador, :cert_site_admin) %></li>
-<li class="texto-sidebar"><%= link_to 'Aplicación', rails_admin_path if logged_in?( :cert_site_admin) %></li>
+<% if current_user.has_role?(:escuela) %>
+	<li class="texto-sidebar"><%= link_to 'Mi Dashboard', cert_escolars_path if logged_in?(:escuela, :cert_site_admin) %></li>
+<% else %>
+	<li class="texto-sidebar"><%= link_to 'Escuelas', cert_escolars_path if logged_in?(:escuela, :cert_site_admin) %></li>
+	<li class="texto-sidebar"><%= link_to 'Certificadores', certificador_dashboard_path if logged_in?(:certificador, :cert_site_admin) %></li>
+	<li class="texto-sidebar"><%= link_to 'Aplicación', rails_admin_path if logged_in?( :cert_site_admin) %></li>
+<% end %>
  
     

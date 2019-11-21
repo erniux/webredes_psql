@@ -152,19 +152,16 @@ RailsAdmin.config do |config|
     end 
     
     list do
-      sort_by :proceso_id, :num_etapa, :num_estandar 
+      sort_by  'proceso_id ASC,  estandar_etapa_certificacions.num_etapa ASC,  estandar_etapa_certificacions.num_estandar ASC, estandar_etapa_certificacions.id'
+       
+       
       field :proceso_id do
         label 'Proceso'
         def value
           bindings[:object].proceso.periodo
         end
       end
-      field :etapa_certificacion_id  do
-        label 'Paso'
-        def value
-          bindings[:object].etapa_certificacion.num_paso
-        end
-      end
+      field :num_etapa
        
       field :num_estandar do
         label 'Estandar'
@@ -174,12 +171,13 @@ RailsAdmin.config do |config|
     end
     edit do
       field :proceso_id do
-        label 'periodo'
+        label 'periodo/paso'
         partial 'numero_proceso'
       end
       field :etapa_certificacion_id do
         label 'Paso'
         partial 'periodo_paso'
+        #visible(false)
       end
 
       field :num_estandar
@@ -196,7 +194,6 @@ RailsAdmin.config do |config|
       end
       field :obligatorio, :multiple_active_storage do
         label 'Documentos obligatorios'
-         
         delete_method :remove_obligatorio
       end
       field :apoyo, :multiple_active_storage do

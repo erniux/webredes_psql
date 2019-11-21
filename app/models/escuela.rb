@@ -34,7 +34,14 @@ class Escuela < ApplicationRecord
   	nombre_enlace = (nombre_enlace.to_s + appaterno_enlace.to_s + apmaterno_enlace.to_s) if !nombre_enlace.blank?
   end 
 
+  def nombre_certificador
+    nombre  = Certificador.find_by_id(certificador_id)
+    nombre_certificador = nombre.nombre + ' ' + nombre.appaterno
+  end
 
+  def certificaciones
+    certificaciones = CertEscolar.where(escuela_id: id)
+  end
 
   private
   def to_upper

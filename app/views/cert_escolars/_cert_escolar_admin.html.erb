@@ -1,6 +1,6 @@
  <% escuela_name = "" %>
  <% @results.each do |escuela| %>
-   <% if escuela_name == escuela.escuela.nombre %>
+   <% if escuela_name == escuela.nombre_escuela %>
     <% else %>
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
         <div class="panel panel-default">
@@ -11,7 +11,7 @@
                                href="#collapse<%= escuela.escuela_id %>" 
                                aria-expanded="true" 
                                aria-controls="collapseOne">
-                    <h4><%= escuela.escuela.nombre %></h4>
+                    <h4><%= escuela.nombre_escuela %></h4>
                  </a>
             </h4>
           </div>
@@ -32,8 +32,8 @@
           </tr>
         </thead>
       <% @results.each do |estandar| %>
-        <% if escuela.escuela.razon_social ==   estandar.escuela.razon_social %>
-          <% @nombre_estandar = EstandarEtapaCertificacion.find_by(etapa_id: estandar.paso, estandar_id: estandar.estandar) %>
+        <% if escuela.nombre_escuela ==   estandar.nombre_escuela %>
+          <% @nombre_estandar = EstandarEtapaCertificacion.find_by(num_etapa: estandar.paso, num_estandar: estandar.estandar) %>
           <% link = estandar.paso.to_s + "." + estandar.estandar.to_s + " " + @nombre_estandar.titulo %>
           <% avance = ((estandar.puntaje.to_f/@nombre_estandar.puntaje_total)*100).to_i %> <!-- &nbsp;% -->
           <tbody>
@@ -78,6 +78,6 @@
 
     </div>
   </div>
-   <% escuela_name = escuela.escuela.nombre %>
+   <% escuela_name = escuela.nombre_escuela %>
   <% end %> <!-- end del for_eacg de la escuela -->
    
