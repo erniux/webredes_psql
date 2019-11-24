@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_172222) do
+ActiveRecord::Schema.define(version: 2019_11_23_230634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,7 +129,9 @@ ActiveRecord::Schema.define(version: 2019_11_19_172222) do
     t.bigint "certificador_id"
     t.bigint "escuela_id"
     t.string "proceso"
+    t.bigint "proceso_certificacion_id"
     t.index ["escuela_id"], name: "index_cert_escolars_on_escuela_id"
+    t.index ["proceso_certificacion_id"], name: "index_cert_escolars_on_proceso_certificacion_id"
   end
 
   create_table "certificadors", force: :cascade do |t|
@@ -346,6 +348,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_172222) do
   add_foreign_key "audit_logs", "users"
   add_foreign_key "avisos", "users"
   add_foreign_key "cert_escolars", "escuelas"
+  add_foreign_key "cert_escolars", "proceso_certificacions"
   add_foreign_key "escuelas", "certificadors"
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
   add_foreign_key "estandar_etapa_certificacions", "procesos"

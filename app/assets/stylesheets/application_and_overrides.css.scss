@@ -738,61 +738,74 @@ div#body-cert {
   width: 5%;
   background-color: #DF3A01;
   color: black;
+  border-radius: 21px 21px 21px 21px;
 }
 
 .diez {
  width: 10%;
  background-color: #DF7401;
  color: black;
+ border-radius: 21px 21px 21px 21px;
 }
 
 .veinte {
  width: 20%;
  background-color: #DBA901;
  color: black;
+ border-radius: 21px 21px 21px 21px;
 }
 
 .treinta {
  width: 30%;
  background-color: #D7DF01;
  color: black;
+ border-radius: 21px 21px 21px 21px;
 }
 
 .cuarenta {
  width: 40%;
- background-color: #D7DF01;
+ background-color: #CCFF66;
  color: black;
+ border-radius: 21px 21px 21px 21px;
 }
 
 .cincuenta {
  width: 50%;
  background-color: #31B404;
+ border-radius: 21px 21px 21px 21px;
    
 }
 
 .sesenta {
  width: 60%;
  background-color: #088A85;
+ border-radius: 21px 21px 21px 21px;
 }
 
 .setenta {
  width: 70%;
  background-color: #086A87;
+ border-radius: 21px 21px 21px 21px;
 }
 
 .ochenta {
  width: 80%;
  background-color: #084B8A;
+ border-radius: 21px 21px 21px 21px;
 }
 
 .noventa {
  width: 90%;
  background-color: #08088A;
+ border-radius: 21px 21px 21px 21px;
 }
 
 .cien {
  width: 100%;
- background-color: #000000;
+ background-color: #21FF06;
+ border-radius: 21px 21px 21px 21px;
+ color: black;
+
 }
 
 .descripcion-etapa {
@@ -821,7 +834,7 @@ div#body-cert {
 .container-evidencias {
   padding: 10px 10px;
   width: 50;
-  height: 550px;
+  //height: 550px;
   background-color: #DAD9DA;
   border-radius: 21px 21px 21px 21px;
   -moz-border-radius: 21px 21px 21px 21px;
@@ -857,7 +870,7 @@ div#body-cert {
     background-color: grey;
     padding: 30px 30px;
     margin-left: auto;
-    width: 90%;
+    width: 100%;
     color: black;
   border-radius: 20px 20px 20px 20px;
   -moz-border-radius: 20px 20px 20px 20px;

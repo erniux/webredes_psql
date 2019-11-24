@@ -1,5 +1,4 @@
-<div id="body-cert">
-	<h3>Seguimiento Certificación</h3>
+<div class="container">
 	<%= form_with(model: @cert_escolar, local: true) do |form| %>
     <% if @cert_escolar.errors.any? %>
         <% @cert_escolar.errors.full_messages.each do |message| %>
@@ -8,104 +7,78 @@
     <% end %>
 
   <div class="actions">
-    <%= form.submit "Guardar", class: "btn btn-primary btn-md" %>
-    <%= link_to "Regresar", cert_escolars_path, class: "btn btn-info btn-md" %>
-    <%= link_to "Chat Room", paginas_chat_path, class: "btn btn-success btn-md" %>
+    <p><%= form.submit "Guardar", class: "btn btn-primary btn-md" %>
+    <%= link_to "Regresar", cert_escolars_path, class: "btn btn-info btn-md"  %></p>
   </div>
-  <hr>
-
+  
   <div class="col-md-8">
-  	<div class="container container-etapa">
-  		<% @estandar = EstandarEtapaCertificacion.find_by(num_etapa: @cert_escolar.paso, num_estandar: @cert_escolar.estandar) %>
-   		<% @paso = EtapaCertificacion.find_by(num_paso: @cert_escolar.paso) %>
+    <div class="container container-etapa">
+      <% @estandar = @cert_escolar.det_estandar(@cert_escolar.paso, @cert_escolar.estandar) %>
+      <% @paso = @cert_escolar.det_paso(@cert_escolar.paso) %>
       <div class="row">
         <div class="col-md-8">
-   		   <h4>Paso <%= @paso.num_paso.to_s + ": " + @paso.nombre %></h4>
-         <h3>Estatus:&nbsp;<%= @cert_escolar.status %>
-        </div>
-        <div class="col-md-4">
-          Puntaje Total:&nbsp;<span id="puntaje_total"><%= @estandar.puntaje_total %></span>
+         <p>Paso <%= @paso.num_paso.to_s + ": " + @paso.nombre %></p>
         </div>
       </div>
-   		<h4 class="titulo-etapa"><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo %></h4>
+      <h4 class="titulo-etapa"><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo %> </h4>
       <p>Descripción:</p>
-   		<p class="descripcion-etapa"><%= @paso.descripcion %></p>
+      <p class="descripcion-etapa"><%= @paso.descripcion %></p>
       <p>Observaciones:</p>
       <p class="descripcion-etapa"><%= @estandar.observaciones %></p>
-   		
-      <div class="row"><br>
-        <% if !@puntos.blank? %>
-          <div class="col-md-3">
-   			    <span class="puntos-etiqueta">Puntos Posibles: </span><br>
-          </div>
-          <div class="col-md-9 puntos-lista">
-            <% @puntos = PuntosEstandar.where(estandar_etapa_certificacion_id: @cert_escolar.estandar) %>
-              <table class="table">
-                <thead>
-                </thead>
-                <% @puntos.each do |puntos| %>
-                  <tbody>
-                    <tr>
-                      <td><%= puntos.puntos %></td>
-                      <td><%= puntos.descripcion %></td>
-                    </tr>
-                  </tbody>
-                <% end %>
-              </table>
-        </div>
-        <% end %>
-   		</div><br>
-      
+    
+    <div class="container modificar-puntos">
       <% if logged_in?(:escuela) %>
-        <%= render 'seguimiento_escuela', cert_escolar: @cert_escolar %>
-      <% elsif logged_in?(:cert_site_admin) %>
-        <%= render 'seguimiento_admins', cert_escolar: @cert_escolar %>
-      <% elsif logged_in?(:certificador) %>
-        <%= render 'seguimiento_certificador', cert_escolar: @cert_escolar %>
-      <% end %>     
-  
-    <br>
-    <!--- DOCUMENTACION DE APOYO Y MATERIAL OBLIGATORIO -->
-
-      <div class="col-md-4">
-        <div class="btn-group">
-          <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
-            Material Obligatorio <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <% if @estandar.obligatorio.attached? %>
-              <% @estandar.obligatorio.each do |upload| %>
-                <li><%= link_to upload.filename, upload, target: '_blank' %></li>
-              <% end %>
-            <% end %>
-          </ul>
+        <div class="col-md-7">
+          <em>Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class= "detalle" value="<%= @cert_escolar.puntaje %>" disabled > 
+          <span class="container-etapa">Puntaje máximo:&nbsp;<span id="puntaje_total"><%= @estandar.puntaje_total %></span></span>
         </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="btn-group">
-          <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
-            Material Apoyo <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">
-            <% if @estandar.apoyo.attached? %>
-              <% @estandar.apoyo.each do |upload| %>
-                <li><%= link_to upload.filename, upload, target: '_blank' %></li>
-              <% end %>
-            <% end %>
-          </ul>
+        <div class="col-md-5">
+          <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision']] ) %>
         </div>
+      <% elsif logged_in?(:cert_site_admin, :certificador)    %>
+        <div class="col-md-7">
+          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
+          <span class="container-etapa">Puntaje máximo:&nbsp;<span id="puntaje_total"><%= @estandar.puntaje_total %></span></span>
+        </div>
+        <div class="col-md-5">
+          <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision'], ['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
+        </div>
+      <% end %> 
+    </div>
+   
+    <p><div class="col-md-4">
+      <div class="btn-group">
+        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
+          Material Obligatorio <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <% if @estandar.obligatorio.attached? %>
+            <% @estandar.obligatorio.each do |upload| %>
+              <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+            <% end %>
+          <% end %>
+        </ul>
       </div>
-      
+    </div>
 
-      <div class="col-md-4">
-        <%= render 'avance', cert_escolar: @cert_escolar %>
-      </div> <!-- div-class-progressbar -->
+    <div class="col-md-4">
+      <div class="btn-group">
+        <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
+          Material Apoyo <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <% if @estandar.apoyo.attached? %>
+            <% @estandar.apoyo.each do |upload| %>
+              <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-</div> <!-- div-class-8 -->
-    <!-- EVIDENCIAS -->
-  <div class="col-md-4">
+  </div></p>
+  
+  <div class="col-md-4"> <!-- evidencias subidas y subir mas -->
     <p class="titulo-evidencias">Evidencias</p>
     <div class="container container-evidencias">
       <% if @cert_escolar.evidencias.attached? %>
@@ -118,19 +91,22 @@
               <small><%= link_to 'Eliminar', cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, :evidencias_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } %></small><br/>
             </div>
           </div>
+
         <% end %>
       <% else %>
         <small>Sin evidencias anexas</small>
       <% end %>
-      
 
       <span class="agregar-evidencias">
         <% if logged_in?(:escuela) %>
           <h3>Agregar Evidencias</h3>
-            <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" if (@cert_escolar.en_desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.revisado_con_comentarios?) %>
+             <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %>
         <% end %>
       </span>
-    </div>  
-  </div> <!-- div-class-4 --><hr>
+    </div> 
+     
+  </div> 
  <% end %>
 </div>
+
+

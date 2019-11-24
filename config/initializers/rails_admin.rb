@@ -2,7 +2,7 @@ RailsAdmin.config do |config|
   
   config.main_app_name = Proc.new { |controller| [ "Escuelas seguras", "" ] }
   config.included_models = [ "Certificador", "Escuela", "EtapaCertificacion", "EstandarEtapaCertificacion", 
-                             "PuntosEstandar",   "User", "Proceso", "ProcesoCertificacion" ]
+                             "PuntosEstandar",   "User", "Proceso", "ProcesoCertificacion"]
 
   ## == Devise ==
 
@@ -154,15 +154,16 @@ RailsAdmin.config do |config|
     list do
       sort_by  'proceso_id ASC,  estandar_etapa_certificacions.num_etapa ASC,  estandar_etapa_certificacions.num_estandar ASC, estandar_etapa_certificacions.id'
        
-       
       field :proceso_id do
         label 'Proceso'
         def value
           bindings[:object].proceso.periodo
         end
       end
-      field :num_etapa
-       
+      field :num_etapa do
+        label 'Paso'
+      end
+
       field :num_estandar do
         label 'Estandar'
       end

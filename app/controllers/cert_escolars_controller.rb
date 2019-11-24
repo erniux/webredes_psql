@@ -51,7 +51,7 @@ class CertEscolarsController < ApplicationController
     respond_to do |format|
       if (cert_escolar_params[:puntaje].to_i <= @cert_escolar.puntos_objetivo) 
         if @cert_escolar.update(cert_escolar_params)
-          format.html { redirect_to cert_escolars_path, notice: 'Registro actualizado con éxito.' }
+          format.html { redirect_to edit_cert_escolar_url, notice: 'Registro actualizado con éxito.' }
         else
           format.html { render :edit }
         end
