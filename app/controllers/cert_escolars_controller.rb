@@ -17,6 +17,9 @@ class CertEscolarsController < ApplicationController
       @escuelas = Escuela.where(certificador_id: id)
       @results = CertEscolar.where(escuela_id: @escuelas).order(escuela_id: 'ASC', paso: 'ASC', estandar: 'ASC')
     end
+    if @results.blank?
+      flash.now[:notice] = 'No existen registros!'
+    end
   end
 
   def show

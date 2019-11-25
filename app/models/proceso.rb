@@ -14,6 +14,7 @@ class Proceso < ApplicationRecord
 
 	validates :periodo, length: { is: 6 , message: "Formato: AAAA-PP" }
 
+	
   	def etapa_periodo
     etapa_periodo =  self.periodo.to_s
     puts '*************+ etapa_periodo de etapa_certificacion.rb ***** ' + etapa_periodo

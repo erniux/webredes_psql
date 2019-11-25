@@ -1,6 +1,8 @@
 class CertEscolar < ApplicationRecord
 	include PgSearch::Model
 
+  #belongs_to :proceso_certificacion
+  belongs_to :escuela
 	has_many_attached :evidencias
 
   enum status: {sin_avance: 0, desarrollo: 1, revision: 2, comentarios: 3, cumplido: 4}
