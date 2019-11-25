@@ -38,26 +38,27 @@ class User < ApplicationRecord
         if user.has_roles?(:certificador)
           certificador = Certificador.create!(nombre: user.nombre, appaterno: user.appaterno, email: user.email)
         elsif 
-        #buscar primero el id a traves del correo 
-        correo = user.email
-        #buscar correo en tabla de certificadores para obtener el id
-        certificador = Certificador.where(email: correo).first
-        #eliminar el certificador de la tabla de escuelas
-          escuela = Escuela.where(certificador_id: certificador.id)
-          if !escuela.nil?
-            escuela.each do |e|
-              e.certificador_id = ''
-              e.save
-            end
+          #buscar primero el id a traves del correo 
+          correo = user.email
+          #buscar correo en tabla de certificadores para obtener el id
+          certificador = Certificador.where(email: correo).first
+          #eliminar el certificador de la tabla de escuelas
+          if !certificador.nil?
+            escuela = Escuela.where(certificador_id: certificador.id)
+              if !escuela.nil?
+                escuela.each do |e|
+                  e.certificador_id = ''
+                  e.save
+                end
+              end
+              certificador = Certificador.where(email: user.email) 
+              if !certificador.blank?
+                certificador.first.destroy
+              end 
+            end  
           end
-          certificador = Certificador.where(email: user.email) 
-          if !certificador.blank?
-            certificador.first.destroy
-          end 
-
         end
       end
-    end
 
     def nombre_usuario
       nombre_usuario = nombre.to_s + ' ' + appaterno.to_s
