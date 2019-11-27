@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   resources :cert_escolars do
     delete :delete_upload_attachment
+    delete :delete_upload_revisiones
   end
   
   resources :procesos

@@ -79,6 +79,12 @@ end #metodo
     redirect_back(fallback_location: request.referer)
   end
 
+  def delete_upload_revisiones
+    @cert_escolar=CertEscolar.find(params[:cert_escolar_id])
+    @cert_escolar.revisiones.find_by_id(params[:revisiones_id]).purge
+    redirect_back(fallback_location: request.referer)
+  end
+
   private
     
     def set_cert_escolar
@@ -86,7 +92,7 @@ end #metodo
     end
 
   def cert_escolar_params
-    params.require(:cert_escolar).permit( :id, :escuela_id, :paso, :estandar, :observaciones, :status, :puntaje, evidencias: [])
+    params.require(:cert_escolar).permit( :id, :escuela_id, :paso, :estandar, :observaciones, :status, :puntaje, evidencias: [], revisiones: [])
   end
 
 end

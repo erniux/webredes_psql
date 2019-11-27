@@ -4,6 +4,7 @@ class CertEscolar < ApplicationRecord
   #belongs_to :proceso_certificacion
   belongs_to :escuela
 	has_many_attached :evidencias
+  has_many_attached :revisiones
 
   enum status: {sin_avance: 0, desarrollo: 1, revision: 2, comentarios: 3, cumplido: 4}
 

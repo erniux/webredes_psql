@@ -20,33 +20,14 @@
          <p>Paso <%= @paso.num_paso.to_s + ": " + @paso.nombre %></p>
         </div>
       </div>
-      <h4 class="titulo-etapa"><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo %> </h4>
+       
+      <p>Estándar:</p>
+      <p class="descripcion-etapa"><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo %></p>
       <p>Descripción:</p>
       <p class="descripcion-etapa"><%= @paso.descripcion %></p>
       <p>Observaciones:</p>
       <p class="descripcion-etapa"><%= @estandar.observaciones %></p>
-    
-    <div class="container modificar-puntos">
-      <% if logged_in?(:escuela) %>
-        <div class="col-md-7">
-          <em>Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class= "detalle" value="<%= @cert_escolar.puntaje %>" disabled > 
-          <span class="container-etapa">Puntaje máximo:&nbsp;<span id="puntaje_total"><%= @estandar.puntaje_total %></span></span>
-        </div>
-        <div class="col-md-5">
-          <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision']] ) %>
-        </div>
-      <% elsif logged_in?(:cert_site_admin, :certificador)    %>
-        <div class="col-md-7">
-          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
-          <span class="container-etapa">Puntaje máximo:&nbsp;<span id="puntaje_total"><%= @estandar.puntaje_total %></span></span>
-        </div>
-        <div class="col-md-5">
-          <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision'], ['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
-        </div>
-      <% end %> 
-    </div>
-   
-    <p><div class="col-md-4">
+      
       <div class="btn-group">
         <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
           Material Obligatorio <span class="caret"></span>
@@ -59,9 +40,7 @@
           <% end %>
         </ul>
       </div>
-    </div>
 
-    <div class="col-md-4">
       <div class="btn-group">
         <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
           Material Apoyo <span class="caret"></span>
@@ -74,9 +53,57 @@
           <% end %>
         </ul>
       </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-warning btn-lg dropdown-toggle" data-toggle="dropdown">
+          Detalle puntuación <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <% if !@estandar.puntos_estandars.blank? %>
+            <% @estandar.puntos_estandars.each do |puntos| %>
+              <li class="negritas"><%= puntos.puntos.to_s + ' ' + puntos.descripcion.to_s %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+      <span class="container-puntos">Puntaje máximo:&nbsp;<span id="puntaje_total"><%= @estandar.puntaje_total %></span></span>
+      <br><hr>
+
+
+    <div class="container modificar-puntos">
+      <% if logged_in?(:escuela) %>
+        <div class="col-md-7">
+          <em>Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class= "detalle" value="<%= @cert_escolar.puntaje %>" disabled > 
+          
+        </div>
+        <div class="col-md-5">
+          <% if  !@cert_escolar.revision? %>
+            <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision']], disabled: true ) %>
+          <% else %>
+            <em>En r evisión</em>  
+          <% end %>
+        </div>
+      <% elsif logged_in?(:certificador) %>
+        <div class="col-md-7">
+          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
+          <span class="container-etapa">Puntaje máximo:&nbsp;<span id="puntaje_total"><%= @estandar.puntaje_total %></span></span>
+        </div>
+        <div class="col-md-5">
+          <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision'], ['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
+        </div>
+      <% elsif logged_in?(:cert_site_admin, :certificador)    %>
+        <div class="col-md-7">
+          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
+          <span class="container-etapa">Puntaje máximo:&nbsp;<span id="puntaje_total"><%= @estandar.puntaje_total %></span></span>
+        </div>
+        <div class="col-md-5">
+          <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
+        </div>
+      <% end %> 
     </div>
+   
   </div>
-  </div></p>
+  </div>
   
   <div class="col-md-4"> <!-- evidencias subidas y subir mas -->
     <p class="titulo-evidencias">Evidencias</p>
@@ -103,7 +130,34 @@
              <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %>
         <% end %>
       </span>
-    </div> 
+    </div> <hr>
+
+    <p class="titulo-evidencias">Revisiones</p> <!-- subir revisiones por parte del certificador -->
+    <div class="container container-revisiones">
+      <% if @cert_escolar.revisiones.attached? %>
+        <% @cert_escolar.revisiones.each do |upload| %>
+          <div class="row">
+            <div class="col-md-9">
+              <%= link_to upload.filename, upload, target: '_blank' %> <br/>
+            </div>
+            <div class="col-md-1">
+              <small><%= link_to 'Eliminar', cert_escolar_delete_upload_revisiones_path(:cert_escolar_id => @cert_escolar.id, :revisiones_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } if logged_in?(:certificador) %></small><br/>
+            </div>
+          </div>
+
+        <% end %>
+      <% else %>
+        <small>Sin revisiones</small>
+      <% end %>
+      <span class="agregar-evidencias">
+        <% if logged_in?(:certificador) %>
+          <h3>Agregar Revisiones</h3>
+             <%= form.file_field :revisiones, multiple: true, class: "form-control btn btn-large btn-warning btn-file" if (@cert_escolar.revision?) %>
+        <% end %>
+      </span>
+
+       
+
      
   </div> 
  <% end %>
