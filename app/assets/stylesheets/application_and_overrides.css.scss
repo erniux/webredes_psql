@@ -268,10 +268,16 @@ footer .glyphicon {
 .container-fluid-login {
   padding: 65px 22px;
   //background-color: #C0C0C0;  
-  background-image: url('/assets/redes.jpg'); 
+  
+}
+
+.logo-login {
   background-position: left;
   background-repeat: no-repeat;
-  background-size: 40%;
+  width: 25em;
+  margin-left: 50px;
+
+
 }
 
 .container-fluid-socios {
