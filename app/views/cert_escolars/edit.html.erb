@@ -86,7 +86,6 @@
       <% elsif logged_in?(:certificador) %>
         <div class="col-md-7">
           <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
-          <span class="container-etapa">Puntaje máximo:&nbsp;<span id="puntaje_total"><%= @estandar.puntaje_total %></span></span>
         </div>
         <div class="col-md-5">
           <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision'], ['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
@@ -94,7 +93,6 @@
       <% elsif logged_in?(:cert_site_admin, :certificador)    %>
         <div class="col-md-7">
           <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
-          <span class="container-etapa">Puntaje máximo:&nbsp;<span id="puntaje_total"><%= @estandar.puntaje_total %></span></span>
         </div>
         <div class="col-md-5">
           <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
