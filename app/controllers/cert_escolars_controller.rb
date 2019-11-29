@@ -59,7 +59,7 @@ class CertEscolarsController < ApplicationController
           format.html { render :edit }
         end
       else
-        format.html { redirect_to edit_cert_escolar_url, notice: 'Puntos Obtenidos no debe ser mayor a Puntaje Total' } 
+        format.html { redirect_to edit_cert_escolar_url, notice: 'Puntos obtenidos no debe ser mayor a Puntaje máximo ' } 
        
     end #if validacion 
   end #respond_to

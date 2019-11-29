@@ -78,10 +78,12 @@
           <em>Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class= "detalle" value="<%= @cert_escolar.puntaje %>" disabled > 
         </div>
         <div class="col-md-5">
-          <% if  !@cert_escolar.revision? %>
-            <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision']], disabled: true ) %>
-          <% else %>
+          <% if  !@cert_escolar.revision? && !@cert_escolar.cumplido?  %>
+            <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Desarrollo', 'desarrollo'], ['Revisión', 'revision']], disabled: true ) %>
+          <% elsif @cert_escolar.revision?  %>
             <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisión', 'revision']], disabled: true ) %>  
+          <% elsif @cert_escolar.cumplido? %>
+            <em>Estado:&nbsp;</em><%= form.select(:status, [['Cumplido', 'cumplido']], disabled: true ) %>  
           <% end %>
         </div>
       <% elsif logged_in?(:certificador) %>
@@ -89,14 +91,22 @@
           <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
         </div>
         <div class="col-md-5">
-          <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
+          <% if !@cert_escolar.desarrollo? && !@cert_escolar.cumplido? && !@cert_escolar.comentarios? %>
+            <em>Estado:&nbsp;</em><%= form.select(:status, [['Sin avance', 'sin_avance'], ['Revisión', 'revision'], ['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
+          <% elsif @cert_escolar.cumplido? %>
+            <em>Estado:&nbsp;</em><%= form.select(:status, [['Cumplido', 'cumplido']], disabled: true ) %>
+          <% elsif @cert_escolar.desarrollo? %>    
+            <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo']], disabled: true ) %>
+          <% elsif @cert_escolar.comentarios? %>    
+            <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios']], disabled: true ) %>
+          <% end %>
         </div>
-      <% elsif logged_in?(:cert_site_admin, :certificador)    %>
+      <% elsif logged_in?(:cert_site_admin)    %>
         <div class="col-md-7">
           <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
         </div>
         <div class="col-md-5">
-          <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
+          <em>Estado:&nbsp;</em><%= form.select(:status, [['Sin avance', 'sin_avance'], ['Desarrollo', 'desarrollo'], ['Revisión', 'revision'], ['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
         </div>
       <% end %> 
     </div>
@@ -140,7 +150,7 @@
               <%= link_to upload.filename, upload, target: '_blank' %> <br/>
             </div>
             <div class="col-md-1">
-              <small><%= link_to 'Eliminar', cert_escolar_delete_upload_revisiones_path(:cert_escolar_id => @cert_escolar.id, :revisiones_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } if logged_in?(:certificador) %></small><br/>
+              <small><%= link_to 'Eliminar', cert_escolar_delete_upload_revisiones_path(:cert_escolar_id => @cert_escolar.id, :revisiones_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } if logged_in?(:certificador, :cert_site_admin) %></small><br/>
             </div>
           </div>
 
@@ -149,7 +159,7 @@
         <small>Sin revisiones</small>
       <% end %>
       <span class="agregar-evidencias">
-        <% if logged_in?(:certificador) %>
+        <% if logged_in?(:certificador, :cert_site_admin) %>
           <h3>Agregar Revisiones</h3>
              <%= form.file_field :revisiones, multiple: true, class: "form-control btn btn-large btn-warning btn-file" if (@cert_escolar.revision?) %>
         <% end %>

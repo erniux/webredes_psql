@@ -25,9 +25,9 @@
           <tr>
             <th class="estandar">Estandar</th>
             <th class="descripcion">Descripción</th>
-            <th class="puntaje">Puntaje Total</th>
+            <th class="puntaje">Puntaje máximo</th>
             <th class="avance">Avance</th>
-            <th class="puntaje">Puntos Cumplidos</th>
+            <th class="puntaje">Puntos cumplidos</th>
             <th>Estatus</th>
           </tr>
         </thead>
@@ -38,9 +38,9 @@
           <% avance = ((estandar.puntaje.to_f/@nombre_estandar.puntaje_total)*100).to_i %> <!-- &nbsp;% -->
           <tbody>
             <tr>
-              <td><small><%= link_to link, edit_cert_escolar_path(estandar) %></small></td>
-              <td><small><%= @nombre_estandar.descripcion %></small></td>
-              <td><small><strong><%= @nombre_estandar.puntaje_total %></strong></small></td>
+              <td><small><%= link_to link.truncate(55), edit_cert_escolar_path(estandar) %></small></td>
+              <td><small><%= @nombre_estandar.descripcion.truncate(65) %></small></td>
+              <td><small><%= number_with_precision(@nombre_estandar.puntaje_total, precision: 2) %></small></td>
                
               <% if avance == 0 %>
                 <td class="progress-bar cero" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>           
@@ -68,8 +68,8 @@
                 <td class="progressbar progress-bar cien" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
               <% end %> 
              
-              <td><small><strong><%= estandar.puntaje %></strong></small></td>
-              <td><small><strong><%= estandar.status %></strong></small></td>
+              <td><small><%= estandar.puntaje %></small></td>
+              <td><small><%= estandar.status %></small></td>
             </tr>
           </tbody>
         <% end %>
