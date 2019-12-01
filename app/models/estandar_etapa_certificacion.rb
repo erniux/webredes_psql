@@ -18,12 +18,13 @@ class EstandarEtapaCertificacion < ApplicationRecord
 	before_create  do
 		self.num_etapa = self.etapa_certificacion.num_paso
 	end
+	
 	attr_accessor :remove_obligatorio, :remove_apoyo
 	
-	after_save do
-		Array(remove_obligatorio).each { |id| obligatorio.find_by_id(id).try(:purge) }
-		Array(remove_apoyo).each { |id| apoyo.find_by_id(id).try(:purge) }
-	end
+	 after_save do
+	 	Array(remove_obligatorio).each { |id| obligatorio.find_by_id(id).try(:purge) }
+	 	Array(remove_apoyo).each { |id| apoyo.find_by_id(id).try(:purge) }
+	 end
 
 	def nombre_archivo(archivo) 
 		nombre_archivo = archivo.filename 

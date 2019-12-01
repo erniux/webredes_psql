@@ -193,14 +193,22 @@ RailsAdmin.config do |config|
       field :puntaje_total do 
         label 'Puntaje máximo'
       end
+      
+      #field :obligatorio, :multiple_active_storage do
+      #  label 'Documentos obligatorios'
+      #  delete_method :remove_obligatorio
+      #end
+      
+      field :apoyo, :multiple_active_storage do
+        label 'Documentos de apoyo'
+        partial 'nombre_archivo'
+       end 
+
       field :obligatorio, :multiple_active_storage do
         label 'Documentos obligatorios'
-        delete_method :remove_obligatorio
+        partial 'nombre_archivo'
       end
-      field :apoyo, :multiple_active_storage do
-        label 'Documentos de Apoyo'
-        delete_method :remove_apoyo
-       end 
+        
       field :puntos_estandars do
         label 'Detalle Puntaje'
         visible(true)
