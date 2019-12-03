@@ -79,7 +79,7 @@
         </div>
         <div class="col-md-5">
           <% if  !@cert_escolar.revision? && !@cert_escolar.cumplido?  %>
-            <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Desarrollo', 'desarrollo'], ['Revisión', 'revision']], disabled: true ) %>
+            <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision']], disabled: true ) %>
           <% elsif @cert_escolar.revision?  %>
             <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisión', 'revision']], disabled: true ) %>  
           <% elsif @cert_escolar.cumplido? %>
@@ -92,7 +92,7 @@
         </div>
         <div class="col-md-5">
           <% if !@cert_escolar.desarrollo? && !@cert_escolar.cumplido? && !@cert_escolar.comentarios? %>
-            <em>Estado:&nbsp;</em><%= form.select(:status, [['Sin avance', 'sin_avance'], ['Revisión', 'revision'], ['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
+            <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
           <% elsif @cert_escolar.cumplido? %>
             <em>Estado:&nbsp;</em><%= form.select(:status, [['Cumplido', 'cumplido']], disabled: true ) %>
           <% elsif @cert_escolar.desarrollo? %>    
