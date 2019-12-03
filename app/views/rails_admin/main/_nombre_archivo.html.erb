@@ -1,4 +1,5 @@
 <% field.attachments.each_with_index do |attachment, i| %>
+<p>
   <div class="<%= (field.reorderable ? 'sortables' : '') %> toggle">
   	<div class="col-md-4">
     <%= link_to attachment.value.blob.filename, Rails.application.routes.url_helpers.rails_blob_path(attachment.value.blob, only_path: true), target: '_blank' %>
@@ -16,6 +17,7 @@
   </div>
 <% end %>
 <%= form.file_field(field.name, field.html_attributes.reverse_merge({ data: { :"multiple-fileupload" => true }, multiple: true })) %>
+</p>
 <% if field.cache_method %>
   <%= form.hidden_field(field.cache_method) %>
 <% end %>
