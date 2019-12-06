@@ -861,9 +861,20 @@ div#body-cert {
   width: 50;
   //height: 550px;
   background-color: #DAD9DA;
-  border-radius: 21px 21px 21px 21px;
-  -moz-border-radius: 21px 21px 21px 21px;
-  -webkit-border-radius: 21px 21px 21px 21px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px ;
+  border: 0px solid #000000;
+}
+
+.container-revisiones {
+  padding: 10px 10px;
+  width: 50;
+  //height: 550px;
+  background-color: #ffdab9;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px ;
   border: 0px solid #000000;
 }
 

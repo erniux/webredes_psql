@@ -121,10 +121,22 @@
         <% @cert_escolar.evidencias.each do |upload| %>
           <div class="row">
             <div class="col-md-9">
-              <%= link_to upload.filename, upload, target: '_blank' %> <br/>
+              <%= link_to upload.filename, upload, target: '_blank'   %> <br/>
             </div>
             <div class="col-md-1">
-              <small><%= link_to 'Eliminar', cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, :evidencias_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } %></small><br/>
+            <% if logged_in?(:escuela) %>
+              <% if @cert_escolar.desarrollo? || @cert_escolar.comentarios? %>
+              <small>
+                <%= link_to cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, 
+                                  :evidencias_id => upload.id), method: :delete, 
+                                  data: { confirm: '¿Confirma Eliminar Archivo?' } do  %>
+                      <%= fa_stacked_icon "trash inverse", base: "square", class: "fa-1x", style: "color: #dd0707" %>
+                <% end %>                
+              </small><br/>
+              <p></p>
+              <% end %>
+            <% end %>
+
             </div>
           </div>
 
@@ -134,7 +146,7 @@
       <% end %>
 
       <span class="agregar-evidencias">
-        <% if logged_in?(:escuela) %>
+        <% if logged_in?(:escuela) && (@cert_escolar.comentarios? || @cert_escolar.desarrollo?)  %>
           <h3>Agregar Evidencias</h3>
              <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %>
         <% end %>
@@ -150,9 +162,18 @@
               <%= link_to upload.filename, upload, target: '_blank' %> <br/>
             </div>
             <div class="col-md-1">
-              <small><%= link_to 'Eliminar', cert_escolar_delete_upload_revisiones_path(:cert_escolar_id => @cert_escolar.id, :revisiones_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } if logged_in?(:certificador, :cert_site_admin) %></small><br/>
-            </div>
+            <% if logged_in?(:certificador, :cert_site_admin) %>
+              <% if @cert_escolar.revision? %>
+                <small>
+                  <%= link_to cert_escolar_delete_upload_revisiones_path(:cert_escolar_id => @cert_escolar.id, 
+                            :revisiones_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } do   %>
+                    <%= fa_stacked_icon "trash inverse", base: "square", class: "fa-1x", style: "color:#dd0707" %>
+                  <% end %>
+                </small><br/>
+                <% end %>
+            <% end %>   
           </div>
+        </div>
 
         <% end %>
       <% else %>
@@ -160,8 +181,10 @@
       <% end %>
       <span class="agregar-evidencias">
         <% if logged_in?(:certificador, :cert_site_admin) %>
-          <h3>Agregar Revisiones</h3>
-             <%= form.file_field :revisiones, multiple: true, class: "form-control btn btn-large btn-warning btn-file" if (@cert_escolar.revision?) %>
+          <% if @cert_escolar.revision? %>
+            <h3>Agregar Revisiones</h3>
+               <%= form.file_field :revisiones, multiple: true, class: "form-control btn btn-large btn-warning btn-file"  %>
+          <% end %>     
         <% end %>
       </span>
   </div> 
