@@ -1,4 +1,5 @@
 <div id="body-cert">
+
   <% if current_user.has_roles?(:certificador, :cert_site_admin)  %>
     <h3> Seguimiento Certificación </h3>
   <% elsif current_user.has_roles?(:escuela) %>  

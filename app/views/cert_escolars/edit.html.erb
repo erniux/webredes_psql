@@ -5,7 +5,7 @@
           <%= js add_gritter(message, title: "Aviso", sticky: false) %>
         <% end %>
     <% end %>
-
+ 
   <div class="actions">
     <p><%= form.submit "Guardar", class: "btn btn-primary btn-md" %>
     <%= link_to "Regresar", cert_escolars_path, class: "btn btn-info btn-md"  %></p>
@@ -98,7 +98,7 @@
           <% elsif @cert_escolar.desarrollo? %>    
             <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo']], disabled: true ) %>
           <% elsif @cert_escolar.comentarios? %>    
-            <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios']], disabled: true ) %>
+            <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']], disabled: true ) %>
           <% end %>
         </div>
       <% elsif logged_in?(:cert_site_admin)    %>

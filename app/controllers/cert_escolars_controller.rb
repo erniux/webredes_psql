@@ -22,8 +22,8 @@ class CertEscolarsController < ApplicationController
     end
   end
 
-  def show
-  end
+  #def show
+  #end
 
   def show_escuela #este es el show 
     @cert_escolar = CertEscolar.find(params[:id])
@@ -34,12 +34,10 @@ class CertEscolarsController < ApplicationController
   end
 
   def edit
-
   end
 
   def create
     @cert_escolar = CertEscolar.new(cert_escolar_params)
-
     respond_to do |format|
       if @cert_escolar.save
         format.html { redirect_to cert_escolars_path, notice: 'Registro creado con éxito.' }
@@ -50,19 +48,48 @@ class CertEscolarsController < ApplicationController
   end
 
   def update
-    
     respond_to do |format|
       if (cert_escolar_params[:puntaje].to_i <= @cert_escolar.puntos_objetivo) 
         if @cert_escolar.update(cert_escolar_params)
           format.html { redirect_to edit_cert_escolar_url, notice: 'Registro actualizado con éxito.' }
         else
           format.html { render :edit }
+          #redirect_to edit_cert_escolar_url
+          if @cert_escolar.status == 'revision'
+            if !@cert_escolar.evidencias.attached?
+              @cert_escolar.status = 'comentarios'
+              @cert_escolar.save!
+              flash[:error] = "favor de anexar evidencias"
+            end
+          end
+
+          if @cert_escolar.status == 'cumplido'
+            if @cert_escolar.revisiones.attached?
+               ActiveRecord::Rollback 
+              #@cert_escolar.save!
+              flash[:error] = "favor de eliminar archivos de revisiones"
+            end
+          end
+          
+          if (cert_escolar_params[:puntaje].to_i < @cert_escolar.puntos_objetivo)   
+             if @cert_escolar.status == 'cumplido'
+              #redirect_to edit_cert_escolar_url
+              ActiveRecord::Rollback 
+              @cert_escolar.status = 'revision'
+              #@cert_escolar.save!
+              flash[:error] = "Los puntos no son suficientes para Cumplir el estandar"
+              #format.html { render :edit }
+            end 
+          end  
+           
+
         end
-      else
+      elsif (cert_escolar_params[:puntaje].to_i > @cert_escolar.puntos_objetivo)  
         format.html { redirect_to edit_cert_escolar_url, notice: 'Puntos obtenidos no debe ser mayor a Puntaje máximo ' } 
-       
-    end #if validacion 
+      end #if validacion 
+      
   end #respond_to
+  
 end #metodo
  
 

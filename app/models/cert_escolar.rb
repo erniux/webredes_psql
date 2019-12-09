@@ -10,23 +10,43 @@ class CertEscolar < ApplicationRecord
 
   before_update do |proceso| 
   	validates_presence_of :observaciones
-    validates_numericality_of :puntaje, greater_than_or_equal_to: 0 
-
-    puts "estatus del proceso " + proceso.status.to_s
-    if proceso.status == 'revision'
-      puts "**************** PROCESO ************ " + proceso.inspect
-      if proceso.evidencias.attached?
-       
-       puts "************* HELLO WORLD!!!! ************************"
-      else
-        puts "******** NO TIENE EVIDENCIAS ********************"
-        proceso.status == 'comentarios'
+    validates_numericality_of :puntaje, greater_than_or_equal_to: 0, message: "Puntaje debe ser numérico" 
+    
+    if proceso.status == 'comentarios' 
+      if !proceso.revisiones.attached?
         raise ActiveRecord::Rollback
+        proceso.status == 'revision'
+        proceso.save!
+      end  
+    end
+    
+    if proceso.status == 'revision'
+      if !proceso.evidencias.attached?
+        raise ActiveRecord::Rollback
+        proceso.status == 'comentarios'
+        proceso.save!
       end
-    end   
-  end
+    end
+
+    if proceso.status == 'cumplido'  
+      if proceso.revisiones.attached?
+        raise ActiveRecord::Rollback
+        proceso.status == 'revision'
+        proceso.save!
+      end
+
+      if (proceso.puntos_objetivo != proceso.puntaje) && proceso.status == 'cumplido'
+        raise ActiveRecord::Rollback
+        proceso.status == 'revision'
+        proceso.save!
+      end
+    end 
 
     
+end
+
+   
+
   pg_search_scope :search_by_full_escuela, associated_against: { escuela: [ :nombre, :razon_social] }, 
   					using:   {tsearch: { prefix: true }},
   					order_within_rank: " paso ASC,  estandar ASC"
