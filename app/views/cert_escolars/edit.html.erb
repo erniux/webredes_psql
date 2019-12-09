@@ -5,7 +5,7 @@
           <%= js add_gritter(message, title: "Aviso", sticky: false) %>
         <% end %>
     <% end %>
- 
+ <hr>
   <div class="actions">
     <p><%= form.submit "Guardar", class: "btn btn-primary btn-md" %>
     <%= link_to "Regresar", cert_escolars_path, class: "btn btn-info btn-md"  %></p>
@@ -25,6 +25,8 @@
       <p class="descripcion-etapa"><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo %></p>
       <p>Descripción:</p>
       <p class="descripcion-etapa"><%= @estandar.descripcion %></p>
+      <p>Evidencias:</p>
+      <p class="descripcion-etapa"><%= @estandar.evidencias.html_safe %></p>
       <p>Observaciones:</p>
       <p class="descripcion-etapa"><%= @estandar.observaciones %></p>
       
@@ -140,7 +142,7 @@
             </div>
           </div>
 
-        <% end %>
+        <% end %> 
       <% else %>
         <small>Sin evidencias anexas</small>
       <% end %>
