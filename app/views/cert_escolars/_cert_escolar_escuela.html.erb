@@ -16,8 +16,8 @@
     <% avance = ((estandar.puntaje.to_f/@nombre_estandar.puntaje_total)*100).to_i %> <!-- &nbsp;% -->
     <tbody>
       <tr>
-        <td><small><%=  link_to link, edit_cert_escolar_path(estandar) %></small></td>
-        <td><small><%= @nombre_estandar.descripcion %></small></td>
+        <td><small><%=  link_to link.truncate(55), edit_cert_escolar_path(estandar) %></small></td>
+        <td><small><%= @nombre_estandar.descripcion.truncate(65) %></small></td>
         <td style="text-align: -webkit-center;"><small><strong><%= @nombre_estandar.puntaje_total %></strong></small></td>
         <% if avance == 0 %>
           <td class="progress-bar cero" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>           
