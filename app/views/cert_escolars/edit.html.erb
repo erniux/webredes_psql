@@ -125,7 +125,7 @@
             </div>
             <div class="col-md-1">
             <% if logged_in?(:escuela) %>
-              <% if @cert_escolar.desarrollo? || @cert_escolar.comentarios? %>
+              <% if @cert_escolar.sin_avance? || @cert_escolar.desarrollo? || @cert_escolar.comentarios? %>
               <small>
                 <%= link_to cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, 
                                   :evidencias_id => upload.id), method: :delete, 
