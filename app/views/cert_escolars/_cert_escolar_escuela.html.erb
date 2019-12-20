@@ -1,54 +1,38 @@
-<table>
-  <thead>
-    <tr>
-      <th class="estandar">Estándar</th>
-      <th class="descripcion">Descripción</th>
-      <th class="puntaje">Puntaje Total</th>
-      <th class="avance">Avance</th>
-      <th class="puntaje">Puntos Cumplidos</th>
-      <th>Estatus</th>
-    </tr>
-  </thead>
-    
-  <% escuela.each do |estandar| %>
+<section>
+    <div class="col-md-3 titulo">Estándar</div>
+    <div class="col-md-3 titulo">Descripción</div>
+    <div class="col-md-2 titulo">Puntaje total</div>
+    <div class="col-md-1 titulo">Avance</div>
+    <div class="col-md-2 titulo">Puntos cumplidos</div>
+    <div class="col-md-1 titulo">Estatus</div>
+</section>
+<% i = 1 %>
+<% escuela.each do |estandar| %>
     <% @nombre_estandar = EstandarEtapaCertificacion.find_by(num_etapa: estandar.paso, num_estandar: estandar.estandar) %>
     <% link = estandar.paso.to_s + "." + estandar.estandar.to_s + " " + @nombre_estandar.titulo %>
-    <% avance = ((estandar.puntaje.to_f/@nombre_estandar.puntaje_total)*100).to_i %> <!-- &nbsp;% -->
-    <tbody>
-      <tr>
-        <td><small><%=  link_to link.truncate(55), edit_cert_escolar_path(estandar) %></small></td>
-        <td><small><%= @nombre_estandar.descripcion.truncate(65) %></small></td>
-        <td style="text-align: -webkit-center;"><small><strong><%= @nombre_estandar.puntaje_total %></strong></small></td>
-        <% if avance == 0 %>
-          <td class="progress-bar cero" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>           
-        <% elsif avance > 0 && avance < 10 %>
-          <td class="progress-bar cinco" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
-        <% elsif avance >= 10 && avance < 20 %>
-          <td class="progress-bar diez" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
-        <% elsif avance >= 20 && avance < 30 %>
-          <td class="progress-bar veinte" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
-        <% elsif avance >= 30 && avance < 40 %>
-          <td class="progress-bar treinta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
-        <% elsif avance >= 40 && avance < 50 %>
-          <td class="progress-bar cuarenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
-        <% elsif avance >= 50 && avance < 60 %>
-          <td class="progress-bar cincuenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
-        <% elsif avance >= 60 && avance < 70 %>
-          <td class="progress-bar sesenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
-        <% elsif avance >= 70 && avance < 80 %>
-          <td class="progress-bar setenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
-        <% elsif avance >= 80 && avance < 90 %>
-          <td class="progress-bar ochenta" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
-        <% elsif avance >= 90 && avance < 99 %>
-          <td class="progress-bar noventa" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
-        <% elsif avance == 100  %>
-          <td class="progress-bar cien" role="progressbar"><%= number_with_precision(avance, precision: 2) %>%</td>
-        <% end %> 
-         
-        <td style="text-align: -webkit-center;"><small><strong><%= estandar.puntaje %></strong></small></td>
-        <td><small><strong><%= estandar.status %></strong></small></td>
-      </tr>
-    </tbody>
-  <% end %>
-</table>
-       
+    <% avance = ((estandar.puntaje.to_f/@nombre_estandar.puntaje_total)*100).to_i %>  
+    <section>
+    <% if i.odd? %>
+      <article class="detalle-non">
+    <% else %>  
+      <article class="detalle-par">
+    <%end %>
+      <span><% i %></span>
+    <div class="col-md-3"><%=  link_to link.truncate(55), edit_cert_escolar_path(estandar) %></div>
+    <div class="col-md-3"><%= @nombre_estandar.descripcion.truncate(65) %></div>
+    <div class="col-md-2"><%= @nombre_estandar.puntaje_total %></div>
+    <% if avance <= 50 %>
+      <div class="col-md-1 rojo"><%= number_with_precision(avance, precision: 2) %></div>
+    <% elsif avance > 50 && avance < 100 %>
+      <div class="col-md-1 naranja"><%= number_with_precision(avance, precision: 2) %></div>
+    <% else %>
+      <div class="col-md-1 verde"><%= number_with_precision(avance, precision: 2) %></div>
+    <% end %>
+    <div class="col-md-2" ><%= estandar.puntaje %></div>
+    <div class="col-md-1"><%= estandar.status %></div>
+    </article>
+    </section>
+    <% i = i + 1%>
+<% end %>
+<div class="decorativo" ></div>
+ 

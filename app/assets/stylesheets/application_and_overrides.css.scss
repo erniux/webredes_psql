@@ -5,72 +5,17 @@
 @import "font-awesome"; 
 @import "tooltip";
 @import "footer";
+@import "tablas.css";
  
 body {
     padding-top: 150px;     
   } 
-
-.detalle { 
-    text-align: right; 
-    width: 100px;
-    
-}
-
-.jumbotron {
-  color: black;
-  margin-bottom: -135px;
-  margin-top: 144px;
-  background-color: #FDFEFE;
-}
-
-.bg-grey {
-  background-color: #C0C1C0;
-  padding: 124px 30px;
-
-}
-
-.negritas {
-  color: black;
-  margin-left: 10px;
-}
-
-.container-fluid {
-  margin-bottom: -50px;
-  margin-top: 144px;
-  
-}
-
-.container-inicio {
-  margin-bottom: -32px;
-  margin-top: 60px;
-  margin-left: 0px;
-  padding: 10px 100px;
-  /* font-family: 'Myriad Pro Light'; */
-  font-size: 20px;
-  text-align: -webkit-center;
-
-  
-}
-
+   
 .container {
   width: 1470px;
   /* font-family: 'Myriad Pro Regular'; */
 }
-
-.container-menu {
-  /* font-family: 'Myriad Pro Regular'; */
-  
-
-}
-.logo-small {
-  color: #FF0000;
-  font-size: 50px;
-}
-
-.logo {
-  color: #FF0000;
-  font-size: 200px;
-}
+ 
 
 @media (max-width: 6000px) {
   .body {    
@@ -84,21 +29,6 @@ body {
     width: 100%
     }
   } 
-  
-
-
-.item h4 {
-  font-size: 19px;
-  line-height: 1.375em;
-  font-weight: 400;
-  font-style: italic;
-  margin: 70px 0;
-}
-
-.item span {
-  font-style: normal;
-  font-size: 16px;
-}
 
 .navbar {
   margin-bottom: 0;
@@ -111,6 +41,16 @@ body {
   text-align: -webkit-center;
 }
 
+.botonimagen{
+  background-image: url('/assets/flecha_roja.jpg');
+  //width: 235px;
+  //height: 75px;
+  background-repeat: no-repeat;
+  background-color: white;
+  color: white;
+  font-size: larger;
+   
+}
 
 .item-rojo a:hover {
   background-image: url('/assets/flecha_roja.jpg'); 
@@ -140,15 +80,16 @@ body {
   background-size: 100%;
   }  
 
+.navbar-default .navbar-nav > .open > a:focus {
+  /* color: #555; */
+   background-color: #FFFFFF;
+  }
 
-.icon-bar {
-   background-color:black !important;
-}
 
 .navbar li a, .navbar .navbar-brand {
   color: black !important;
   font-size: initial;
-  width: 8.5em;
+  width: 10em;
   background-color: white; 
   box-sizing: border-box;
 }
@@ -167,7 +108,7 @@ body {
 
 .navbar-default .navbar-toggle {
   border-color: white;
-  color: #black !important;
+  color: black !important;
   background-color: white;
 }
 
@@ -176,16 +117,38 @@ body {
   
 }
 
-footer .glyphicon {
-  font-size: 20px;
-  margin-bottom: 20px;
-  color: #FF0000;
-  background-color: white;
-}
  
 /*++++++++++++++++ mis estilos :-) ETR +++++++++++++++++++++++*/
 /*++++++++++++++++ mis estilos :-) ETR +++++++++++++++++++++++*/
 
+
+
+.container-fluid-login {
+  padding: 65px 22px;
+  //background-color: #C0C0C0;  
+}
+
+.logo-login {
+  background-position: left;
+  background-repeat: no-repeat;
+  width: 20em;
+}
+
+.bienvenido-nav {
+  margin-left: -50px;
+  margin-top: 10px;
+}
+
+.row-login {
+  width: 35rem;
+  margin: 10em 10em;
+  float: right;
+  /* font-family: 'Myriad Pro light'; */
+  font-size: 18px;
+  margin-top: -1em;
+}
+ 
+/**** ESTILOS DEL BANNER CON GOOGLE WEB DESIGNER ****/
 .banner{
   background-color: #8E8E8D; 
   color: white;  
@@ -202,210 +165,8 @@ footer .glyphicon {
     }
 
 @-webkit-keyframes animateBgTile {
-   from {right: 0;} to {right: 1500px;} }
-  
- 
-.nosotros-titulo {
-  text-align: right;
-  font-size: 80px;
-  color: white;
-} 
-
-.bg-dark{
-  background-color: #696969;
-  padding: 30px 60px;
-  margin: 126px;
-  color: #FFFFFF;
-  font-size: medium;
-}
-
-.nosotros-enfoque{
-  padding: 10px 20px;
-  margin-top: -300pxx;
-  margin-bottom: 10px;
-  background-color: #646463;
-  color: white;
-}
-
-.nosotros-reconocimiento{
-  background-color: red;
-  color: white;
-   
-  margin-left: 5%;
-  margin-top: -1%;
-  padding: 10px 40px;
-}
-
-.manzanita {
-  margin: 10px 20px;
-}
-
-.container-fluid-crud {
-   margin-left: 5%;
-   margin-right: 5%;
-   padding: 10px 10px;
-}
-
-.socios-sombra{
-  background-color: #C0C1C0;
-  text-align: right;
-  padding: 60px 60px;
-  color: white;
-}
-
-.container-fluid-grey {
-  padding: 10px 22px;
-  background-color: #C0C1C0;
-  height: 100%;
-}
-
- 
-.conteiner-fluid-white {
-  padding: 50px 350px;
-  background-color: #FFF; 
-}
-
-.container-fluid-login {
-  padding: 65px 22px;
-  //background-color: #C0C0C0;  
-  
-}
-
-.logo-login {
-  background-position: left;
-  background-repeat: no-repeat;
-  width: 25em;
-  margin-left: 50px;
-
-
-}
-
-.container-fluid-socios {
-  padding: 65px 22px;
-  background-color: #C0C0C0;
-  
-}
-
-.row-login {
-  padding: 20px 10px;
-  width: 40rem;
-  margin: 8px auto;
-  float: right;
-  /* font-family: 'Myriad Pro light'; */
-  font-size: 18px;
-}
-
-.row-login-rapido {
-  padding: 10px 10px;
-  /* font-family: 'Myriad Pro light'; */
-  font-size: 18px;
-  background-color: #8E8E8D;
-}
-
-.row-registro-rapido {
-  padding: 64px 20px;
-  /* font-family: 'Myriad Pro light'; */
-  font-size: 18px;
-  background-color: #8E8E8D;
-}
-
-.conoce-mas-socio {
-  padding: 30px 10px;
-  font-size: 20px;
-  font-style: italic;
-}
-
-.socio-materiales {
-  padding: 20px 20px;
-  margin: 10px 10px;
-  background-color:   #696969;
-}
-
-.btn-danger-registrate { 
-  color: #fff;
-  background-color: #D9534F;
-  border-color: #d43f3a;
-  display: inline-block;
-  font-weight: normal;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  padding: 25px 12px;
-  line-height: 1.428571429;
-  border-radius: 8px;
-  width: 300px;
-  height: 100px;
-  font-size: 27px;
-  margin-top: -50px;
-  margin-left: 100px;
-}
-
-.container-fluid-eventos {
-  padding: 120px 22px;
-  background-color: #FFF;
-}
-
-.imagen-eventos{
-  width: 80%; 
-  align: center;
-}
-
-.logo-mas {
-  width: 50px;
-  background-color: #fff;
-}
-
-.foto-uno {
-  width: 100;
-  height: 100;
-  -moz-transform: rotate(-10deg);
-  -o-transform: rotate(-10deg);
-  -webkit-transform: rotate(-10deg);
-  transform: rotate(-10deg);
-}
-.foto-dos {
-  width: 100;
-  height: 100;
-  margin-top: 30px;
-  -moz-transform: rotate(10deg);
-  -o-transform: rotate(10deg);
-  -webkit-transform: rotate(10deg);
-  transform: rotate(10deg);
-}
-.foto-tres {
-  width: 100;
-  height: 100;
-  margin-top: 50px;
-  -moz-transform: rotate(-20deg);
-  -o-transform: rotate(-20deg);
-  -webkit-transform: rotate(-20deg);
-  transform: rotate(-20deg);
-}
-.foto-cuatro {
-  width: 100;
-  height: 100;
-  -moz-transform: rotate(15deg);
-  -o-transform: rotate(15deg);
-  -webkit-transform: rotate(15deg);
-  transform: rotate(15deg);
-}
-
-.fotos-contacto{
-  margin-top: 100px;
-  
-}
-
-.info-contacto{
-  background-color: #3C3C3C ;
-  color: white;
-  padding: 50px;
-}
-
-/**** ESTILOS DEL BANNER CON GOOGLE WEB DESIGNER ****/
- 
+   from {right: 0;} to {right: 1500px;} 
+  }
  
 .gwd-span-1teu {
   font-size: 30px;
@@ -435,209 +196,6 @@ footer .glyphicon {
  
 /* CERTIFICACIONES */
 
-.sucede {
-  padding: 10px 30px;
-  margin-top: 50px;
-  background-color: #C0C1C0;
-  
-}
-
-.certificate {
-  padding: 10px 30px;
-  margin-top: 50px;
-  background-color: #FC0107;
-  color: white;
-}
-
-.ingresar-cert {
-  padding: 10px 30px;
-  margin-top: 50px;
-  background-color: #327839;
-  color: white;
-  
-}
-
-.columna-ancha {
-  width: 500px;
-}
-
-.columna-media {
-  width: 350px;
-}
-
-.imagen-inicial {
-  width: 85%;
-  margin-left: 10%;
-}
-
-.imagen-nosotros{
-  width: 80%; 
-  align: center;
-  
-}
-
-.avance {
-  width: 150px;
- }
-
-.estandar {
-  width: 350px;
- }
-
-.descripcion {
-  width: 450px;
- }
-
- .puntaje {
-  width: 150px;
- }
- 
- .td-centrado {
- text-align: center;
- }
- 
-
-.logo-inicial {
-  width: 40%;
-  margin-left: 55%;
-
-}
-
-.manzana-inicial {
-  width: 30%;
-  align: center;
-}
-
-.certificate-inicial > p{
-  margin-left: 50%;
-  margin-right: 10%;
-  font-size: 18px;
-  /* font-family: 'Myriad Pro Regular'; */
-  text-align: justify;
-}
-
-.certificacion{
-  margin-top: -25%;
-  color: white;
-  /* font-family: 'Myriad Pro Regular'; */
-  font-sizer: 20px;
-}
-
-.inicio{
-  color: white;
-  /* font-family: 'Myriad Pro Regular'; */
-  
-}
-
-.estandar-texto-cert {
-  /* font-family: 'Myriad Pro Regular'; */
-  font-sizer: 20px;
-  color: black;
-  
-}
-
-.como-funciona-certificacion{
-  color: white;
-  /* font-family: 'Myriad Pro light'; */
-  font-size: 18px;
-  text-align: justify;
-  padding: 10px 10px;
-  margin-left: 15%;
-  margin-right: 20%;
-  background-color: #646463;
-}
-
-.como-proceso{
-  /* font-family: 'Myriad Pro light'; */
-  font-size: 18px;
-  text-align: justify;
-  margin-left: 15%;
-  margin-right: 20%;
-  margin-top: 10%;
-  background-color: #646463;
-  padding: 20px 20px;
-  color: white;
-  
-}
-
-#cert-niveles {
-    counter-reset: li; 
-    list-style: none; 
-    *list-style: decimal; 
-    /* font: 20px 'Myriad Pro light', 'lucida sans'; */
-    padding: 0;
-    margin-bottom: 4em;
-    text-shadow: 0 1px 0 rgba(255,255,255,.5);
-}
-
-#cert-niveles ol {
-    margin: 0 0 0 2em; 
-}
-
-#cert-niveles li{
-    position: relative;
-    display: block;
-    padding: .4em .4em .4em .8em;
-    *padding: .4em;
-    margin: .5em 0 .5em 2.5em;
-    background: #ddd;
-    color: #444;
-    text-decoration: none;
-    transition: all .3s ease-out;   
-}
-
-#cert-niveles li:hover{
-    background: #eee;
-}   
-
-#cert-niveles li:before{
-    content: counter(li);
-    counter-increment: li;
-    position: absolute; 
-    left: -2.5em;
-    top: 50%;
-    margin-top: -1em;
-    height: 2em;
-    width: 2em;
-    line-height: 2em;
-    text-align: center;
-    font-weight: bold;
-}
-
-#cert-niveles li:after{
-    position: absolute; 
-    content: '';
-    border: .5em solid transparent;
-    left: -1em;
-    top: 50%;
-    margin-top: -.5em;
-    transition: all .3s ease-out;               
-}
-
-#cert-niveles li:hover:after{
-    left: -.5em;
-    border-left-color: #fa8072;             
-}
-
-.cert-bronce:before {
-  background-color: #d37f3c;
-}
-
-.cert-plata:before {
-  background-color: #d5dddf;
-}
-
-.cert-oro:before {
-  background-color: #ecc662;
-}
-
-
-
-.subtitulo {
-  padding: 40px 51px;
-    text-align: center;
-}
-
 .control-busqueda {
   position: relative;
   z-index: 2;
@@ -652,50 +210,7 @@ footer .glyphicon {
 /* SOCIOS SIDEBAR */
 
 
-div#menu-side-bar {
-  position: fixed;
-  width: 65px;
-  height: 100%;
-  background-color: #2f3030;
-  overflow: hidden;
-  -webkit-transition: width 0.5s;
-}
-
-div#menu-side-bar:hover{
-  width: 250px;
-}
-
-
-div#logo-sidebar {
-  width: 40px;
-  height: 40px;
-  margin: 10px;
-  background-image: url('/assets/menu.png'); 
-}
-
-div.container-sidebar {
-  width: 150px;
-  height: 40px;
-  margin-left: 10px;
-  margin-top: 20px;
-}
-
-div#container-sidebar-first {
-  margin-top: 70px;
-}
-
-div.logo-interior{
-  width: 40px;
-  height: 40px;
-  /* background-image: url('/assets/menu.png');  */
-  float: left;
-}
-
-li.texto-sidebar {
-  //margin-left: 0px;
-  //line-height: 0px;
-  //width: 100%;
-}
+ 
 
 /* Cuerpo de CERTIFICACIONES */
 
@@ -705,53 +220,15 @@ div#body-cert {
    padding: 30px 10px;
 }
 
-
-
-/* HACER LAS IMAGENES GRANDES EN HOVER */
-.container-enlarge {
-    display: inline-block;
-    position: relative;
-    margin: 15px;
-}
-.container-enlarge > img {
-    height: auto;
-    max-width: 100%;
-    width: 150px;
-    border-radius: 5px;
-}
-.container-enlarge span {
-    position: absolute;
-    top: -9999em;
-    left: -9999em;
-}
-.container-enlarge:hover span {
-    top: -220px;
-    left: -75px;
-    width: 300px;
-}
-
-.etapa-certificacion{
-  background-color: #C0C1C0;
-  border-radius: 8px;   
-  margin-top: 10px;
-  padding: 20px 10px;
-
-}
-
-.lista-social-links {
-  font-size: 2.5em;
-  
-}
-
 .cero {
  width: 0%;
- background-color: #DF0101;
+ background-color: #B92227;
  color: black;
 }
 
 .cinco {
   width: 5%;
-  background-color: #DF3A01;
+  background-color: #B92227;
   color: black;
   border-radius: 21px 21px 21px 21px;
 }
@@ -824,8 +301,14 @@ div#body-cert {
 }
 
 .descripcion-etapa {
-  background-color: white;
+  background-color: rgb(201, 201, 201);
   color: black;
+  padding: 10px 10px;
+  margin-top: -1rem;
+}
+
+.etiqueta-etapa {
+  background-color: #b4b2b2;
   padding: 10px 10px;
 }
 
@@ -836,14 +319,16 @@ div#body-cert {
 }
 
 .container-etapa {  
-  padding: 10px 10px;
-  background-color: #53AAC4;
-  color: white;
-  border-radius: 10px 10px 10px 10px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border: 0px solid #000000;
-
+      /* padding: 10px 10px; */
+      background-color: transparent;
+      color: black;
+      border-radius: 10px 10px 10px 10px;
+      -moz-border-radius: 10px 10px 10px 10px;
+      -webkit-border-radius: 10px 10px 10px 10px;
+      border: 0px solid #000000;
+      width: 80%;
+      margin-left: 80px;
+      margin-top: -90px;
 }
 
 .container-puntos {
@@ -861,31 +346,24 @@ div#body-cert {
   width: 50;
   //height: 550px;
   background-color: #DAD9DA;
-  border-radius: 10px 10px 10px 10px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px ;
-  border: 0px solid #000000;
+   
 }
 
 .container-revisiones {
   padding: 10px 10px;
   width: 50;
   //height: 550px;
-  background-color: #ffdab9;
-  border-radius: 10px 10px 10px 10px;
-  -moz-border-radius: 10px 10px 10px 10px;
-  -webkit-border-radius: 10px 10px 10px 10px ;
-  border: 0px solid #000000;
+  background-color: #DAD9DA;
+   
 }
 
 .titulo-evidencias {
   font-size: 2em;
   text-align: center;
   background: grey;
-  color: white;text-size: 10em;
-  border-radius: 21px 21px 21px 21px;
-  -moz-border-radius: 21px 21px 21px 21px;
-  -webkit-border-radius: 21px 21px 21px 21px;
+  color: white;
+  //font-size: 10em;
+   
   border: 0px solid #000000;
 }
 
@@ -893,6 +371,7 @@ div#body-cert {
   width: 40;
   height: 400px;
   margin-left: 10px;
+  background-color: #DAD9DA;
 }
 
 .puntos-etiqueta {
@@ -902,20 +381,25 @@ div#body-cert {
   padding: 5px 10px;
 }
 
-.modificar-puntos {
-    background-color: grey;
-    padding: 30px 30px;
-    margin-left: auto;
-    width: 100%;
-    color: black;
-  border-radius: 20px 20px 20px 20px;
-  -moz-border-radius: 20px 20px 20px 20px;
-  -webkit-border-radius: 20px 20px 20px 20px;
-  border: 0px solid #000000;
-}
-
 .puntos-lista {
   color: black;
+}
+
+.captura-puntos {
+  text-align: right;  
+  font-style: normal;
+  color: black;
+}
+
+.fondo-gris {
+  background-color: grey;
+  color: white;
+  height: 5.5rem;
+  width: 45%;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+  padding: 1rem 1rem;
+  text-align: center;
 }
 
  

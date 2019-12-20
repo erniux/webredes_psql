@@ -5,33 +5,35 @@
           <%= js add_gritter(message, title: "Aviso", sticky: false) %>
         <% end %>
     <% end %>
- <hr>
+ 
   <div class="actions">
-    <p><%= form.submit "Guardar", class: "btn btn-primary btn-md" %>
-    <%= link_to "Regresar", cert_escolars_path, class: "btn btn-info btn-md"  %></p>
+    <div class="row">
+      <div class="cuadrado"><%= form.submit "Guardar", class: "btn btn-flecha" %></div>
+      </div>
+      <br>
+      <div class="row">
+        <%= link_to cert_escolars_path do   %>
+         <%= fa_stacked_icon "undo inverse", base: "circle", class: "fa-2x", style: "color: #B92227; margin-left: 20px" %>
+        <% end %>
+    </div>
   </div>
   
-  <div class="col-md-8">
-    <div class="container container-etapa">
+  <div class="container container-etapa">    
+    <div class="col-md-7">
       <% @estandar = @cert_escolar.det_estandar(@cert_escolar.paso, @cert_escolar.estandar) %>
       <% @paso = @cert_escolar.det_paso(@cert_escolar.paso) %>
-      <div class="row">
-        <div class="col-md-8">
-         <p>Paso <%= @paso.num_paso.to_s + ": " + @paso.nombre %></p>
-        </div>
-      </div>
-       
-      <p>Estándar:</p>
-      <p class="descripcion-etapa"><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo %></p>
-      <p>Descripción:</p>
-      <p class="descripcion-etapa"><%= @estandar.descripcion %></p>
-      <p>Evidencias:</p>
-      <p class="descripcion-etapa"><%= @estandar.evidencias.html_safe %></p>
-      <p>Observaciones:</p>
-      <p class="descripcion-etapa"><%= @estandar.observaciones %></p>
+      <small><p class="etiqueta-etapa"><strong>Paso <%= @paso.num_paso.to_s + ": " + @paso.nombre %></strong></p></small>
+      <small><p class="etiqueta-etapa"><strong>Estándar:</strong></p></small>
+      <small><p class="descripcion-etapa"><%= @cert_escolar.paso.to_s + "." + @cert_escolar.estandar.to_s + " " + @estandar.titulo %></p></small>
+      <small><p class="etiqueta-etapa"><strong>Descripción:</strong></p></small>
+      <small><p class="descripcion-etapa"><%= @estandar.descripcion %></p></small>
+      <small><p class="etiqueta-etapa"><strong>Evidencias:</strong></p></small>
+      <small><p class="descripcion-etapa"><%= @estandar.evidencias.html_safe %></p></small>
+      <small><p class="etiqueta-etapa"><strong>Observaciones:<strong></p></small>
+      <small><p class="descripcion-etapa"><%= @estandar.observaciones %></p></small>
       
       <div class="btn-group">
-        <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-toggle="dropdown">
+        <button type="button" class="boton-estandar dropdown-toggle" data-toggle="dropdown">
           Material Obligatorio <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
@@ -44,7 +46,7 @@
       </div>
 
       <div class="btn-group">
-        <button type="button" class="btn btn-info btn-lg dropdown-toggle" data-toggle="dropdown">
+        <button type="button" class="boton-estandar dropdown-toggle" data-toggle="dropdown">
           Material Apoyo <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
@@ -57,7 +59,7 @@
       </div>
 
       <div class="btn-group">
-        <button type="button" class="btn btn-warning btn-lg dropdown-toggle" data-toggle="dropdown">
+        <button type="button" class="boton-estandar btn-md dropdown-toggle" data-toggle="dropdown">
           Detalle puntuación <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" role="menu">
@@ -70,16 +72,13 @@
           <% end %>
         </ul>
       </div>
-      <span class="container-puntos">Puntaje máximo:&nbsp;<span id="puntaje_total"><%= @estandar.puntaje_total %></span></span>
-      <br><hr>
-
-
-    <div class="container modificar-puntos">
+      <div class="decorativo-estandar" ></div>
+     
       <% if logged_in?(:escuela) %>
-        <div class="col-md-7">
-          <em>Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class= "detalle" value="<%= @cert_escolar.puntaje %>" disabled > 
+        <div class="col-md-5 fondo-gris">
+          <em>Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class="captura-puntos", size="5" value="<%= @cert_escolar.puntaje  %>" disabled ><small>&nbsp;de <%= @estandar.puntaje_total %> posibles</small> 
         </div>
-        <div class="col-md-5">
+        <div class="col-md-7 fondo-gris">
           <% if  !@cert_escolar.revision? && !@cert_escolar.cumplido?  %>
             <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision']], disabled: true ) %>
           <% elsif @cert_escolar.revision?  %>
@@ -89,10 +88,12 @@
           <% end %>
         </div>
       <% elsif logged_in?(:certificador) %>
-        <div class="col-md-7">
-          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
+        <div class="col-md-5 fondo-gris">
+          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "captura-puntos", size: 5 %><small>&nbsp;de <%= @estandar.puntaje_total %> posibles</small>  
+          <%= @estandar.puntaje_total %>
         </div>
-        <div class="col-md-5">
+         
+        <div class="col-md-7 fondo-gris">
           <% if !@cert_escolar.desarrollo? && !@cert_escolar.cumplido? && !@cert_escolar.comentarios? %>
             <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
           <% elsif @cert_escolar.cumplido? %>
@@ -104,17 +105,17 @@
           <% end %>
         </div>
       <% elsif logged_in?(:cert_site_admin)    %>
-        <div class="col-md-7">
-          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "detalle" %> 
+        <div class="col-md-5 fondo-gris">
+          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "captura-puntos", size: 5 %><small>&nbsp;de <%= @estandar.puntaje_total %> posibles</small>  
         </div>
-        <div class="col-md-5">
+         
+        <div class="col-md-7 fondo-gris">
           <em>Estado:&nbsp;</em><%= form.select(:status, [['Sin avance', 'sin_avance'], ['Desarrollo', 'desarrollo'], ['Revisión', 'revision'], ['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
         </div>
       <% end %> 
     </div>
+  
    
-  </div>
-  </div>
   
   <div class="col-md-4"> <!-- evidencias subidas y subir mas -->
     <p class="titulo-evidencias">Evidencias</p>
@@ -123,7 +124,7 @@
         <% @cert_escolar.evidencias.each do |upload| %>
           <div class="row">
             <div class="col-md-9">
-              <%= link_to upload.filename, upload, target: '_blank'   %> <br/>
+              <%= link_to upload.filename, upload, target: '_blank' %> <br/>
             </div>
             <div class="col-md-1">
             <% if logged_in?(:escuela) %>
@@ -132,7 +133,7 @@
                 <%= link_to cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, 
                                   :evidencias_id => upload.id), method: :delete, 
                                   data: { confirm: '¿Confirma Eliminar Archivo?' } do  %>
-                      <%= fa_stacked_icon "trash inverse", base: "square", class: "fa-1x", style: "color: #dd0707" %>
+                      <%= fa_stacked_icon "trash inverse", base: "square", class: "fa-1x", style: "color: #B92227" %>
                 <% end %>                
               </small><br/>
               <p></p>
@@ -149,8 +150,9 @@
 
       <span class="agregar-evidencias">
         <% if logged_in?(:escuela) && (@cert_escolar.sin_avance? || @cert_escolar.comentarios? || @cert_escolar.desarrollo?)  %>
-          <h3>Agregar Evidencias</h3>
-             <%= form.file_field :evidencias, multiple: true, class: "form-control btn btn-large btn-warning btn-file" if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %>
+             <p><%= form.file_field :evidencias, multiple: true   if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %></p>
+             <p><button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_evidencias').click();"><p> Adjuntar archivos </p></button>
+             <p><span class="file_name"></span></p>
         <% end %>
       </span>
     </div> <hr>
@@ -169,7 +171,7 @@
                 <small>
                   <%= link_to cert_escolar_delete_upload_revisiones_path(:cert_escolar_id => @cert_escolar.id, 
                             :revisiones_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } do   %>
-                    <%= fa_stacked_icon "trash inverse", base: "square", class: "fa-1x", style: "color:#dd0707" %>
+                    <%= fa_stacked_icon "trash inverse", base: "square", class: "fa-1x", style: "color: #B92227" %>
                   <% end %>
                 </small><br/>
                 <% end %>
@@ -184,7 +186,9 @@
       <span class="agregar-evidencias">
         <% if logged_in?(:certificador, :cert_site_admin) %>
           <% if @cert_escolar.revision? %>
-            <h3>Agregar Revisiones</h3>
+          <p><%= form.file_field :revisiones, multiple: true %></p>
+             <p><button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_revisiones').click();"><p> Adjuntar archivos </p></button>
+             <p><span class="file_name"></span></p>
                <%= form.file_field :revisiones, multiple: true, class: "form-control btn btn-large btn-warning btn-file"  %>
           <% end %>     
         <% end %>
@@ -193,5 +197,8 @@
  <% end %>
 </div>
 
- 
+
+ <script>
+  
+ </script>
 

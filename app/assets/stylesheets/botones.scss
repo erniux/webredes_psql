@@ -1,0 +1,95 @@
+ .btn-flecha {
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    z-index: 100;
+ }
+
+ .btn-flecha:hover {
+    color: white;
+ }
+
+ .cuadrado {
+    float: left;
+    position: relative;
+    height: 40px;
+    width: 80px;
+    border: solid 0px #B92227;
+    border-right: none;
+    background: #B92227;
+    align-self: center;
+  }
+
+  .cuadrado-archivos {
+    float: left;
+    position: relative;
+    height: 40px;
+    width: 160px;
+    border: solid 0px #B92227;
+    border-right: none;
+    background: #B92227;
+    align-self: center;
+    color: white;
+  }
+  
+  .cuadrado:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-top: 20px solid transparent;
+    border-left: 30px solid #B92227;
+    border-bottom: 20px solid transparent;
+    margin-left: 80px;
+    content: '';
+  }
+  .cuadrado-archivos:after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border-top: 20px solid transparent;
+    border-left: 30px solid #B92227;
+    border-bottom: 20px solid transparent;
+    margin-left: 80px;
+    margin-top: -35px;
+    content: '';
+  }
+
+  .boton-estandar {
+    width: 180px;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #fff;
+    background-color: #B92227;
+    border-color: #B92227;
+      
+  }
+
+  #cert_escolar_evidencias {
+      display: none;
+  }
+
+  #cert_escolar_revisiones {
+    display: none;
+  }
+   
+
+  

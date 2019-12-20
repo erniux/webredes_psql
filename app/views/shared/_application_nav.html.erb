@@ -11,28 +11,29 @@
       </button>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
- 
       <ul class="nav navbar-nav">
-        <li class="item-rojo">
-          <% if current_user %>
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= current_user.nombre %> <span></span></a>
+        <% if current_user %>
+          <li class="item-manzanita">
+            <%= link_to root_path do %>
+              <%= image_tag "manzana_pequena.jpg", width: 30 %>
+            <% end %>
+          </li>
+          <li class="item-rojo">
+            <a class="dropdown-toggle bienvenido-nav" data-toggle="dropdown" href="#"><%= current_user.nombre %></a>
             <ul class="dropdown-menu">
-              <li><%= link_to "salir", destroy_user_session_path, method: :delete, class: "active" %></li>
               <% if current_user.has_role?(:certificador, :cert_site_admin, :escuela) %>
-                <%= render 'shared/menu_certificador' %>
-              <% end %>
-            </ul>
-          <% else %>
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bienvenido<span></span></a>
-             
-          <% end %>
+              <%= render 'shared/menu_certificador' %>
+            <% end %>
+            <li><%= link_to "Salir", destroy_user_session_path, method: :delete, class: "active" %></li>
+          </ul>
         </li>
- 
-        <li class="item-manzanita">
-          <%= link_to root_path do %>
-            <%= image_tag "manzana_pequena.jpg", width: 25 %>
-          <% end %>
-        </li>
+        <% else %>
+          <li class="item-manzanita">
+           <%= link_to root_path do %>
+              <%= image_tag "manzana_pequena.jpg", width: 30 %>  
+            <% end %>
+          <li class="bienvenido-nav"><%= link_to "Bienvenido", root_path %></li>
+        <% end %>
       </ul>
  
   </div>

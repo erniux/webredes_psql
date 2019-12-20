@@ -1,10 +1,8 @@
 <div id="body-cert">
-
   <% if current_user.has_roles?(:certificador, :cert_site_admin)  %>
     <h3> Seguimiento Certificación </h3>
   <% elsif current_user.has_roles?(:escuela) %>  
-    <h3> Seguimiento Certificación &nbsp;<%= @results.first.proceso %>&nbsp; <%= @results.first.nombre_escuela %></h3><br> 
-     
+    <h3> Seguimiento certificación &nbsp;<%= @results.first.proceso %>&nbsp; <%= @results.first.nombre_escuela.titleize %></h3>
   <% end %>
   
   <% if logged_in?(:cert_site_admin, :certificador) %>
@@ -16,9 +14,9 @@
         <div class="col-md-6">
           <%= submit_tag 'Buscar', class: "btn btn-info btn-lg" %> 
         </div>
-      </div>
+      </div><br>
     <% end %>
-  <% end %><br>
+  <% end %>
      
     <% if !@results.nil? %>
       <% if logged_in?(:cert_site_admin, :certificador) %>
@@ -28,8 +26,8 @@
          
       <% end %>
     <% end %>
-
 </div>
+
 
  
    

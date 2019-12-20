@@ -3,8 +3,9 @@
 <div id="socios" class="container-fluid-login">
   <div class="row">
        <% @acercade_certificates = AcercadeCertificate.first %>
-  <%= image_tag @acercade_certificates.logo,  class: 'logo-login' if @acercade_certificates.logo.attached? %>
       <div class="col-md-6 row-login">
+      <%= image_tag @acercade_certificates.logo,  class: 'logo-login' if @acercade_certificates.logo.attached? %>
+      <p></p>
         <%= f.label :'Usuario' %>
         <%= f.email_field :email,
                           autofocus: true,
@@ -21,7 +22,8 @@
           <%= f.check_box :remember_me %> Recordarme
         <% end %><br><br> 
 
-        <%= f.submit "Entrar", class: "btn btn-primary" %>   
+        <div class="cuadrado"><%= f.submit "Entrar", class: "btn btn-flecha" %></div>
+ 
       </div>
     </div>
   </div>
