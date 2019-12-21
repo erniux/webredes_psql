@@ -1,3 +1,17 @@
 // Place all the styles related to the ReconocimientoRedes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.inicio {
+    margin-left: -50px;
+    margin-right: 20px;
+    background-image: url('fondo-manzana.png');
+    background-size: 50rem 50rem;
+    background-position: bottom left; 
+    background-origin: content-box, padding-box;
+}
+
+.sucede {
+    background-color: #ED1C24;
+    color: white;
+    margin-right: 25%;
+}

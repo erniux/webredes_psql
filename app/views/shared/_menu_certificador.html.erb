@@ -1,7 +1,7 @@
 <% if current_user.has_role?(:escuela) %>
-	<li class="texto-sidebar"><%= link_to 'Dashboard', cert_escolars_path %></li>
+	<li class="texto-sidebar"><%= link_to 'Tablero', cert_escolars_path %></li>
 <% elsif current_user.has_role?(:certificador) %>
-	<li class="texto-sidebar"><%= link_to 'Dashboard', certificador_dashboard_path %></li>	
+	<li class="texto-sidebar"><%= link_to 'Tablero', certificador_dashboard_path %></li>	
 <% elsif current_user.has_role?(:cert_site_admin) %>
 	<li class="texto-sidebar"><%= link_to 'Escuelas', cert_escolars_path %></li>
 	<li class="texto-sidebar"><%= link_to 'Certificadores', certificador_dashboard_path %></li>

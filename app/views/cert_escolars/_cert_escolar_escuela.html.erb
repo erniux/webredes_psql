@@ -12,25 +12,37 @@
     <% link = estandar.paso.to_s + "." + estandar.estandar.to_s + " " + @nombre_estandar.titulo %>
     <% avance = ((estandar.puntaje.to_f/@nombre_estandar.puntaje_total)*100).to_i %>  
     <section>
-    <% if i.odd? %>
-      <article class="detalle-non">
-    <% else %>  
-      <article class="detalle-par">
-    <%end %>
+      <% if i.odd? %>
+        <article class="detalle-non">
+      <% else %>  
+        <article class="detalle-par">
+      <%end %>
       <span><% i %></span>
-    <div class="col-md-3"><%=  link_to link.truncate(55), edit_cert_escolar_path(estandar) %></div>
-    <div class="col-md-3"><%= @nombre_estandar.descripcion.truncate(65) %></div>
-    <div class="col-md-2"><%= @nombre_estandar.puntaje_total %></div>
-    <% if avance <= 50 %>
-      <div class="col-md-1 rojo"><%= number_with_precision(avance, precision: 2) %></div>
-    <% elsif avance > 50 && avance < 100 %>
-      <div class="col-md-1 naranja"><%= number_with_precision(avance, precision: 2) %></div>
-    <% else %>
-      <div class="col-md-1 verde"><%= number_with_precision(avance, precision: 2) %></div>
-    <% end %>
-    <div class="col-md-2" ><%= estandar.puntaje %></div>
-    <div class="col-md-1"><%= estandar.status %></div>
-    </article>
+      <div class="col-md-3 detalle-estandar"><%=  link_to link.truncate(60), edit_cert_escolar_path(estandar) %></div>
+      <div class="col-md-3 detalle-descripcion"><%= @nombre_estandar.descripcion.truncate(65) %></div>
+      <div class="col-md-2 detalle-puntos-totales"><%= @nombre_estandar.puntaje_total %></div>
+      <% if avance <= 50 %>
+        <div class="col-md-1 rojo detalle-avance"><%= number_with_precision(avance, precision: 2) %></div>
+      <% elsif avance > 50 && avance < 100 %>
+        <div class="col-md-1 naranja detalle-avance"><%= number_with_precision(avance, precision: 2) %></div>
+      <% else %>
+        <div class="col-md-1 verde detalle-avance"><%= number_with_precision(avance, precision: 2) %></div>
+      <% end %>
+      <div class="col-md-2 detalle-puntos-cumplidos" ><%= estandar.puntaje %></div>
+      <% case estandar.status %>
+        <% when 'sin_avance' %>
+            <div class="col-md-1 detalle-estatus">Sin avance</div>
+          <% when 'desarrollo' %>
+            <div class="col-md-1 detalle-estatus">Desarrollo</div>
+          <% when 'revision' %>
+            <div class="col-md-1 detalle-estatus">Revisión</div>
+          <% when 'comentarios' %>
+            <div class="col-md-1 detalle-estatus">Comentarios</div>
+          <% when 'cumplido' %>
+            <div class="col-md-1 detalle-estatus">Cumplido</div>
+      <% end %>
+ 
+      </article>
     </section>
     <% i = i + 1%>
 <% end %>

@@ -11,6 +11,40 @@ section {
     color: #fff;
   }
 
+  .detalle-estandar {
+    text-align: justify;
+    margin-left: -20px;
+  }
+
+  .detalle-descripcion {
+    text-align: justify;
+    margin-left: 2px;
+  }
+
+  .detalle-avance {
+    margin-left: 20px;
+    margin-right: -20px;
+    text-align: center;
+  }
+
+  .detalle-estatus {
+    margin-left: 23px;
+    text-align: right;
+    margin-right: -40px;
+  }
+
+  .detalle-puntos-cumplidos {
+    margin-left: 40px;
+    margin-right: -30px;
+    text-align: center;
+  }
+
+  .detalle-puntos-totales {
+    margin-left: 40px;
+    margin-right: -40px;
+    text-align: center;
+  }
+
   .detalle-non{
     display: table-cell;
     padding: 12px;
@@ -31,7 +65,7 @@ section {
   }
 
   .rojo {
-    background-color: #DF0101;
+    background-color: #ED1C24;
     color: black;
     border-radius: 21px 21px 21px 21px;
   } 
@@ -43,7 +77,7 @@ section {
         border-radius: 21px 21px 21px 21px;
   }
   .verde {
-    background-color: rgb(1, 223, 68);
+    background-color: #009444;
     color: black;
     border-radius: 21px 21px 21px 21px;
   } 
@@ -51,8 +85,8 @@ section {
   .decorativo {
     width: 100%;
     height: 8rem;
-    border-left: solid #B92227;
-    border-bottom: solid #B92227;
+    border-left: solid #ED1C24;
+    border-bottom: solid #ED1C24;
     border-width: 0.5rem;
     margin-top: -7rem;
     margin-left: -1rem;
@@ -61,8 +95,8 @@ section {
   .decorativo-estandar {
     width: 100%;
     height: 42rem;
-    border-left: solid #B92227;
-    border-bottom: solid #B92227;
+    border-left: solid #ED1C24;
+    border-bottom: solid #ED1C24;
     border-width: 0.5rem;
     
     margin-top: -40rem;

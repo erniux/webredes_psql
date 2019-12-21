@@ -113,11 +113,9 @@ body {
 }
 
 .navbar-default .navbar-nav > .active > a {
-  background-color: white;  
-  
+  background-color: white;    
 }
 
- 
 /*++++++++++++++++ mis estilos :-) ETR +++++++++++++++++++++++*/
 /*++++++++++++++++ mis estilos :-) ETR +++++++++++++++++++++++*/
 
@@ -125,6 +123,11 @@ body {
 
 .container-fluid-login {
   padding: 65px 22px;
+  background-image: url('fondo-manzana.png');
+  background-repeat: no-repeat;
+  background-size: 50rem 50rem;
+  background-position: bottom left; 
+  background-origin: content-box, padding-box;
   //background-color: #C0C0C0;  
 }
 
@@ -222,13 +225,13 @@ div#body-cert {
 
 .cero {
  width: 0%;
- background-color: #B92227;
+ background-color: #ED1C24;
  color: black;
 }
 
 .cinco {
   width: 5%;
-  background-color: #B92227;
+  background-color: #ED1C24;
   color: black;
   border-radius: 21px 21px 21px 21px;
 }
@@ -294,7 +297,7 @@ div#body-cert {
 
 .cien {
  width: 100%;
- background-color: #21FF06;
+ background-color: #009444;
  border-radius: 21px 21px 21px 21px;
  color: black;
 
@@ -393,7 +396,7 @@ div#body-cert {
 
 .fondo-gris {
   background-color: grey;
-  color: white;
+  //color: white;
   height: 5.5rem;
   width: 45%;
   margin-left: 1.5rem;
@@ -401,5 +404,11 @@ div#body-cert {
   padding: 1rem 1rem;
   text-align: center;
 }
+
+ .letra-blanca {
+  color: white;
+} 
+
+
 
  

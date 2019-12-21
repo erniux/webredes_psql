@@ -1,11 +1,7 @@
 <div class="inicio">
-	
 	<%= image_tag @acercade_certificates.foto, width: '100%' if @acercade_certificates.foto.attached? %>
 
-</div>
-
-<p></p>
-
+ 
 <div class="container-fluid-crud">
   <div class="row">
   	<div class="col-md-8">
@@ -23,7 +19,6 @@
 		<p><strong>PLATA:</strong></p> La escuela desarrolla un plan de acción con base en la metodología de gestión de riesgos.</p>
 		<p><strong>ORO:</strong></p> La escuela implementa adecuadamente la metodología de gestión de riesgos</p>
 
-		<%= render 'shared/application_precios' %>
 
 
 		<p><h2><%= @acercade_certificates.tit_titulo_3.html_safe  %></h2> </p>
@@ -45,8 +40,6 @@
 		</div>
   </div>
 </div>
-
-<%= render 'shared/application_fast_login' %>
 
 </div>
 

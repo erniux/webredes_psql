@@ -13,7 +13,7 @@
       <br>
       <div class="row">
         <%= link_to cert_escolars_path do   %>
-         <%= fa_stacked_icon "undo inverse", base: "circle", class: "fa-2x", style: "color: #B92227; margin-left: 20px" %>
+         <%= fa_stacked_icon "undo inverse", base: "circle", class: "fa-2x", style: "color: #ED1C24; margin-left: 20px" %>
         <% end %>
     </div>
   </div>
@@ -76,20 +76,20 @@
      
       <% if logged_in?(:escuela) %>
         <div class="col-md-5 fondo-gris">
-          <em>Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class="captura-puntos", size="5" value="<%= @cert_escolar.puntaje  %>" disabled ><small>&nbsp;de <%= @estandar.puntaje_total %> posibles</small> 
+          <em class= "letra-blanca">Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class="captura-puntos", size="5" value="<%= @cert_escolar.puntaje  %>" disabled ><small class="letra-blanca">&nbsp;de <%= @estandar.puntaje_total %> posibles</small> 
         </div>
         <div class="col-md-7 fondo-gris">
           <% if  !@cert_escolar.revision? && !@cert_escolar.cumplido?  %>
-            <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision']], disabled: true ) %>
+            <em class= "letra-blanca">Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo'], ['Revisión', 'revision']], disabled: true) %>
           <% elsif @cert_escolar.revision?  %>
-            <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisión', 'revision']], disabled: true ) %>  
+            <em class= "letra-blanca">Estado:&nbsp;</em><%= form.select(:status, [['Revisión', 'revision']], disabled: true) %>
           <% elsif @cert_escolar.cumplido? %>
-            <em>Estado:&nbsp;</em><%= form.select(:status, [['Cumplido', 'cumplido']], disabled: true ) %>  
+            <em class= "letra-blanca">Estado:&nbsp;</em><%= form.select(:status, [['Cumplido', 'cumplido']], disabled: true) %>
           <% end %>
         </div>
       <% elsif logged_in?(:certificador) %>
         <div class="col-md-5 fondo-gris">
-          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "captura-puntos", size: 5 %><small>&nbsp;de <%= @estandar.puntaje_total %> posibles</small>  
+          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "captura-puntos", size: 5 %><small>&nbsp;de <%= @estandar.puntaje_total class: "letra-blanca" %> posibles</small>  
           <%= @estandar.puntaje_total %>
         </div>
          
@@ -133,7 +133,7 @@
                 <%= link_to cert_escolar_delete_upload_attachment_path(:cert_escolar_id => @cert_escolar.id, 
                                   :evidencias_id => upload.id), method: :delete, 
                                   data: { confirm: '¿Confirma Eliminar Archivo?' } do  %>
-                      <%= fa_stacked_icon "trash inverse", base: "square", class: "fa-1x", style: "color: #B92227" %>
+                      <%= fa_stacked_icon "trash inverse", base: "square", class: "fa-1x", style: "color: #ED1C24" %>
                 <% end %>                
               </small><br/>
               <p></p>
@@ -145,14 +145,16 @@
 
         <% end %> 
       <% else %>
-        <small>Sin evidencias anexas</small>
+        <small>Sin evidencias</small>
       <% end %>
 
       <span class="agregar-evidencias">
         <% if logged_in?(:escuela) && (@cert_escolar.sin_avance? || @cert_escolar.comentarios? || @cert_escolar.desarrollo?)  %>
-             <p><%= form.file_field :evidencias, multiple: true   if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %></p>
-             <p><button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_evidencias').click();"><p> Adjuntar archivos </p></button>
-             <p><span class="file_name"></span></p>
+             <p><%= form.file_field :evidencias, multiple: true, class: "cuadrado-archivos"   if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %></p>
+             <button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_evidencias').click();"><p> Adjuntar archivos </button>
+      
+               
+     
         <% end %>
       </span>
     </div> <hr>
@@ -171,7 +173,7 @@
                 <small>
                   <%= link_to cert_escolar_delete_upload_revisiones_path(:cert_escolar_id => @cert_escolar.id, 
                             :revisiones_id => upload.id), method: :delete, data: { confirm: '¿Confirma Eliminar Archivo?' } do   %>
-                    <%= fa_stacked_icon "trash inverse", base: "square", class: "fa-1x", style: "color: #B92227" %>
+                    <%= fa_stacked_icon "trash inverse", base: "square", class: "fa-1x", style: "color: #ED1C24" %>
                   <% end %>
                 </small><br/>
                 <% end %>
@@ -190,6 +192,7 @@
              <p><button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_revisiones').click();"><p> Adjuntar archivos </p></button>
              <p><span class="file_name"></span></p>
                <%= form.file_field :revisiones, multiple: true, class: "form-control btn btn-large btn-warning btn-file"  %>
+                
           <% end %>     
         <% end %>
       </span>
@@ -198,7 +201,8 @@
 </div>
 
 
- <script>
-  
- </script>
-
+  <script>
+  $(document).on('click', '.new_evidencias #cert_escolar_evidencias', function() {
+  return $('#file_name').html($('#cert_escolar_evidencias').val().replace(/^.*[\\\/]/, ''));
+});
+  </script>
