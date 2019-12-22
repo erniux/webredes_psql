@@ -89,8 +89,7 @@
         </div>
       <% elsif logged_in?(:certificador) %>
         <div class="col-md-5 fondo-gris">
-          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "captura-puntos", size: 5 %><small>&nbsp;de <%= @estandar.puntaje_total class: "letra-blanca" %> posibles</small>  
-          <%= @estandar.puntaje_total %>
+          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "captura-puntos", size: 5 %><small>&nbsp;de <%= @estandar.puntaje_total %> posibles</small>  
         </div>
          
         <div class="col-md-7 fondo-gris">
