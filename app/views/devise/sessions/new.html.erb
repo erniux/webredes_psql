@@ -1,8 +1,11 @@
 <div class="container">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-<div id="socios" class="container-fluid-login">
+<div class="container-fluid-login">
   <div class="row">
        <% @acercade_certificates = AcercadeCertificate.first %>
+       <div class="col-md-4">
+       <%= image_tag @acercade_certificates.manzana, class: "manzanita-inicio" if @acercade_certificates.manzana.attached? %>
+       </div>
       <div class="col-md-6 row-login">
       <%= image_tag @acercade_certificates.logo,  class: 'logo-login' if @acercade_certificates.logo.attached? %>
       <p></p>

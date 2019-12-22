@@ -50,6 +50,6 @@ class AcercadeCertificatesController < ApplicationController
                                                    :tit_titulo_9, :tit_titulo_10, :desc_titulo_1, :desc_titulo_2, 
                                                    :desc_titulo_3, :desc_titulo_4, :desc_titulo_5, :desc_titulo_6, 
                                                    :desc_titulo_7, :desc_titulo_8, :desc_titulo_9, :desc_titulo_10, 
-                                                   :foto, :logo)
+                                                   :foto, :logo, :manzana)
     end
 end
