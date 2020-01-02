@@ -1,3 +1,29 @@
+<% school_name = "" %>
+<% proceso_periodo = "" %> 
+<% @results.each do |nombre_escuela| %>
+  <% if school_name != nombre_escuela.nombre_escuela %>  
+    <div><%= nombre_escuela.nombre_escuela %> </div>
+    <% school_name = nombre_escuela.nombre_escuela %>
+    <% @results.each do |proceso| %>
+      <% if proceso.nombre_escuela == school_name && proceso.proceso != proceso_periodo %>
+        <div><%= proceso.proceso %>
+        <% proceso_periodo = proceso.proceso %> 
+        <% @results.each do |estandar| %>
+          <% if estandar.nombre_escuela == school_name && estandar.proceso == proceso_periodo %>
+          <div><%= estandar.paso.to_s + "." + estandar.estandar.to_s %></div>
+          <% end %>
+        <% end %>
+
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+
+
+
+
 <% escuela_name = "" %>
 <% proceso_periodo = "" %>   
 <% @results.each do |nombre_escuela| %>
@@ -92,11 +118,11 @@
             <% proceso_periodo = proceso.proceso %> 
           <% end %>
         </div>
-        <div class="decorativo"></div>  
+        <div class="decorativo"></div>
       </div>
       
     <% end %>
-  
+    
   <% end %>
    
   <% escuela_name = nombre_escuela.nombre_escuela %>
