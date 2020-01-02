@@ -8,7 +8,6 @@ class CertEscolarsController < ApplicationController
         @results = CertEscolar.search_by_full_escuela(params[:term]).order(proceso: 'ASC', paso: 'ASC', estandar: 'ASC')
       else
         @results = CertEscolar.all.order(escuela_id: 'ASC', proceso: 'ASC', paso: 'ASC', estandar: 'ASC')
-        puts @results.inspect
       end
     elsif current_user.has_role?(:escuela)
       @results = CertEscolar.where(escuela_id: current_user.escuela_id).all.order(proceso: 'ASC', paso: 'ASC', estandar: 'ASC')

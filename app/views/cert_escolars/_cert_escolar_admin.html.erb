@@ -1,5 +1,6 @@
 <% school_name = "" %>
 <% proceso_periodo = "" %> 
+<%= '*************total registros: ' + @results.count.to_s %>
 <% @results.each do |nombre_escuela| %>
   <% if school_name != nombre_escuela.nombre_escuela %>  
     <div><%= nombre_escuela.nombre_escuela %> </div>
