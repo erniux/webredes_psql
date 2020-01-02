@@ -45,7 +45,6 @@ class CertEscolar < ApplicationRecord
     
 end
 
-   
 
   pg_search_scope :search_by_full_escuela, associated_against: { escuela: [ :nombre, :razon_social] }, 
   					using:   {tsearch: { prefix: true }},

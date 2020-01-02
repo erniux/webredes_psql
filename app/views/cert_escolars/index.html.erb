@@ -2,7 +2,7 @@
   <% if current_user.has_roles?(:certificador, :cert_site_admin)  %>
     <h3> Seguimiento Certificación </h3>
   <% elsif current_user.has_roles?(:escuela) %>  
-    <h3> Seguimiento certificación &nbsp;<%= @results.first.proceso %>&nbsp; <%= @results.first.nombre_escuela.titleize %></h3>
+    <h3> Seguimiento certificación &nbsp; <%= @results.first.nombre_escuela.titleize %></h3>
   <% end %>
   
   <% if logged_in?(:cert_site_admin, :certificador) %>

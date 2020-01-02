@@ -5,17 +5,17 @@ class CertEscolarsController < ApplicationController
   def index
     if current_user.has_role?(:cert_site_admin) 
       if params[:term].present?
-        @results = CertEscolar.search_by_full_escuela(params[:term]).order(paso: 'ASC', estandar: 'ASC')
+        @results = CertEscolar.search_by_full_escuela(params[:term]).order(proceso: 'ASC', paso: 'ASC', estandar: 'ASC')
       else
-        @results = CertEscolar.all.order(escuela_id: 'ASC', paso: 'ASC', estandar: 'ASC')
+        @results = CertEscolar.all.order(escuela_id: 'ASC', proceso: 'ASC', paso: 'ASC', estandar: 'ASC')
       end
     elsif current_user.has_role?(:escuela)
-      @results = CertEscolar.where(escuela_id: current_user.escuela_id).all.order(paso: 'ASC', estandar: 'ASC')
+      @results = CertEscolar.where(escuela_id: current_user.escuela_id).all.order(proceso: 'ASC', paso: 'ASC', estandar: 'ASC')
     elsif current_user.has_role?(:certificador)
       @certificador = Certificador.where(email: current_user.email)
       id = @certificador.ids
       @escuelas = Escuela.where(certificador_id: id)
-      @results = CertEscolar.where(escuela_id: @escuelas).order(escuela_id: 'ASC', paso: 'ASC', estandar: 'ASC')
+      @results = CertEscolar.where(escuela_id: @escuelas).order(escuela_id: 'ASC', proceso: 'ASC', paso: 'ASC', estandar: 'ASC')
     end
     if @results.blank?
       flash.now[:notice] = 'No existen registros!'
