@@ -1,33 +1,4 @@
-<% school_name = "" %>
-<% proceso_periodo = "" %> 
-
-<% @results.each do |nombre_escuela| %>
-  <% if school_name != nombre_escuela.nombre_escuela %>  
-    <div><strong><%= nombre_escuela.nombre_escuela %></strong> </div>
-    <% school_name = nombre_escuela.nombre_escuela %>
-    <% proceso_periodo = "" %> 
-    <% @results.each do |proceso| %>
-    <div><%= "VALIDACION PARA MOSTRAR PROCESO " %></div>
-    <div><%= "proceso.nombre_escuela == " + proceso.nombre_escuela + " school_name = " + school_name + " proceso.proceso != " + proceso.proceso + " proceso_periodo = " + proceso_periodo %></div>
-      <% if proceso.nombre_escuela == school_name && proceso.proceso != proceso_periodo %>
-        <div><strong><%= proceso.proceso %></strong></div>
-        <% proceso_periodo = proceso.proceso %> 
-        <% @results.each do |estandar| %>
-        <div><%= "*** VALIDACION PARA MOSTRAR ESTANDARES ***" %><div>
-        <div><%=  "proceso.nombre_escuela = " + proceso.nombre_escuela + " school_name = " + school_name + "proceso.proceso = " + proceso.proceso + " proceso_periodo = " + proceso_periodo %></div>
-          <% if estandar.nombre_escuela == school_name && estandar.proceso == proceso_periodo %>
-          <div><strong><%= estandar.paso.to_s + "." + estandar.estandar.to_s %></strong></div>
-          <% proceso_periodo = estandar.proceso %> 
-          <% end %>
-        <% end %>
-
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
-
-<% escuela_name = "" %>
-<% proceso_periodo = "" %>   
+<% escuela_name = "" %> 
 <% @results.each do |nombre_escuela| %>
   <% if escuela_name != nombre_escuela.nombre_escuela %>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -41,6 +12,7 @@
                                aria-controls="collapseOne">
                     <h4><%= nombre_escuela.nombre_escuela %></h4>
                     <% escuela_name = nombre_escuela.nombre_escuela %>
+                    <% proceso_periodo = "" %> 
             </a>
           </h4>
         </div>
