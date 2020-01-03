@@ -1,3 +1,30 @@
+<% school_name = "" %>
+<% proceso_periodo = "" %> 
+
+<% @results.each do |nombre_escuela| %>
+  <% if school_name != nombre_escuela.nombre_escuela %>  
+    <div><%= nombre_escuela.nombre_escuela %> </div>
+    <% school_name = nombre_escuela.nombre_escuela %>
+    <% @results.each do |proceso| %>
+    <div><%= "VALIDACION PARA MOSTRAR PROCESO " %></div>
+    <div><%= "proceso.nombre_escuela == " + proceso.nombre_escuela + " school_name = " + school_name + " proceso.proceso != " + proceso.proceso + " proceso_periodo = " + proceso_periodo %></div>
+      <% if proceso.nombre_escuela == school_name && proceso.proceso != proceso_periodo %>
+        <div><%= proceso.proceso %></div>
+        <% proceso_periodo = proceso.proceso %> 
+        <% @results.each do |estandar| %>
+        <div><%= "*** VALIDACION PARA MOSTRAR ESTANDARES ***" %><div>
+        <div><%=  "proceso.nombre_escuela = " + proceso.nombre_escuela + " school_name = " + school_name + "proceso.proceso = " + proceso.proceso + " proceso_periodo = " + proceso_periodo %></div>
+          <% if estandar.nombre_escuela == school_name && estandar.proceso == proceso_periodo %>
+          <div><%= estandar.paso.to_s + "." + estandar.estandar.to_s %></div>
+          <% proceso_periodo = estandar.proceso %> 
+          <% end %>
+        <% end %>
+
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+
 <% escuela_name = "" %>
 <% proceso_periodo = "" %>   
 <% @results.each do |nombre_escuela| %>
