@@ -103,4 +103,9 @@ section {
     margin-left: -1rem;
   }
 
+  .borde-rojo {
+    border-color:  #ED1C24;
+    border-width: thick;
+  }
+
   
