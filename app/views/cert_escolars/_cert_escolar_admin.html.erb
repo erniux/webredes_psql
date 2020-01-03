@@ -5,6 +5,7 @@
   <% if school_name != nombre_escuela.nombre_escuela %>  
     <div><strong><%= nombre_escuela.nombre_escuela %></strong> </div>
     <% school_name = nombre_escuela.nombre_escuela %>
+    <% proceso_periodo = "" %> 
     <% @results.each do |proceso| %>
     <div><%= "VALIDACION PARA MOSTRAR PROCESO " %></div>
     <div><%= "proceso.nombre_escuela == " + proceso.nombre_escuela + " school_name = " + school_name + " proceso.proceso != " + proceso.proceso + " proceso_periodo = " + proceso_periodo %></div>
