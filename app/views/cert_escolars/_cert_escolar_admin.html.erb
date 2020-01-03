@@ -3,7 +3,7 @@
 
 <% @results.each do |nombre_escuela| %>
   <% if school_name != nombre_escuela.nombre_escuela %>  
-    <div><%= nombre_escuela.nombre_escuela %> </div>
+    <div><strong><%= nombre_escuela.nombre_escuela %></strong> </div>
     <% school_name = nombre_escuela.nombre_escuela %>
     <% @results.each do |proceso| %>
     <div><%= "VALIDACION PARA MOSTRAR PROCESO " %></div>
