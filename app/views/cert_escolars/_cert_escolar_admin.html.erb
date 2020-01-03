@@ -1,26 +1,3 @@
-<% school_name = "" %>
-<% proceso_periodo = "" %> 
-<%= '*************total registros: ' + @results.count.to_s %>
-<% @results.each do |nombre_escuela| %>
-  <% if school_name != nombre_escuela.nombre_escuela %>  
-    <div><%= nombre_escuela.nombre_escuela %> </div>
-    <% school_name = nombre_escuela.nombre_escuela %>
-    <% @results.each do |proceso| %>
-      <% if proceso.nombre_escuela == school_name && proceso.proceso != proceso_periodo %>
-        <div><%= proceso.proceso %>
-        <% proceso_periodo = proceso.proceso %> 
-        <% @results.each do |estandar| %>
-          <% if estandar.nombre_escuela == school_name && estandar.proceso == proceso_periodo %>
-          <div><%= estandar.paso.to_s + "." + estandar.estandar.to_s %></div>
-          <% proceso_periodo = estandar.proceso %> 
-          <% end %>
-        <% end %>
-
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
-
 <% escuela_name = "" %>
 <% proceso_periodo = "" %>   
 <% @results.each do |nombre_escuela| %>
@@ -52,7 +29,7 @@
             <h4 class="panel-title">
               <a role="button" data-toggle="collapse" 
                                data-parent="#accordion" 
-                               href="#collapse<%= proceso.proceso %>" 
+                               href="#collapse<%= proceso.proceso + nombre_escuela.escuela_id.to_s  %>" 
                                aria-expanded="true" 
                                aria-controls="collapseOne">
                     <h4><%= proceso.proceso  %> </h4>
@@ -62,7 +39,7 @@
           </div>
         </div>
       </div>
-      <div class="collapse" id="<%= "collapse#{proceso.proceso}" %>">
+      <div class="collapse" id="<%= "collapse#{proceso.proceso + nombre_escuela.escuela_id.to_s}" %>">
         <div class="panel-body">
           <section>
             <div class="col-md-3 titulo">Estándar</div>
