@@ -4,9 +4,7 @@ module CertRoutes
 
 	def after_sign_in_path_for(resource)
     	
-    	if current_user.has_role?(:socio)
-    	  recursos_path
-        elsif current_user.has_role?(:cert_site_admin)
+    	if current_user.has_role?(:cert_site_admin)
           rails_admin_path
     	elsif current_user.has_role?(:escuela)
     	   cert_escolars_path

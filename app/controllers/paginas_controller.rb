@@ -1,5 +1,5 @@
 class PaginasController < ApplicationController
-    access [:cert_site_admin, :escuela, :certificador] => [:chat, :certificador, :inicio, :contacto, :reconocimientos]
+    access [:cert_site_admin, :escuela, :certificador] => [ :certificador, :reconocimientos]
   def inicio
     @eventos = Evento.last
     @avisos = Aviso.last

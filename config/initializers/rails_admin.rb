@@ -11,8 +11,8 @@ RailsAdmin.config do |config|
       unless current_user.has_role?(:cert_site_admin)  
         redirect_to main_app.root_path 
       end
-    #else
-    #  redirect_to main_app.root_path 
+    else
+      redirect_to main_app.root_path 
     end
   end
  
