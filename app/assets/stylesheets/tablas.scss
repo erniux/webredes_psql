@@ -7,6 +7,10 @@
     color: #fff;
   }
 
+  .aviso-titulo-archivo {
+    padding: 20px 0px;
+  }
+
 .puntaje {
     width: 15%;
   }
@@ -112,6 +116,23 @@
     border-width: thick;
   }
 
+  .tabla-avisos {
+    width: 80%;
+    margin-left: 10rem;
+    -webkit-border-horizontal-spacing: 2px;
+    -webkit-border-vertical-spacing: 1.5rem;
+     
+  }
+
+   
+
+   td {
+    padding: 8px;
+    line-height: 1.428571429;
+    vertical-align: top;
+    border-top: 1px solid black;
+     
+  }
 
   @media screen and (max-width: 1100px) {
     table {

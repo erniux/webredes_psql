@@ -8,6 +8,8 @@ class User < ApplicationRecord
     petergate(roles: [:admin, :editor, :socio, :certificador, :escuela, :site_admin, :cert_site_admin], multiple: false)                                      
   
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
+
+    has_many :avisos
         
     validates_presence_of :nombre, :appaterno, :email
     validates :email, uniqueness: true 

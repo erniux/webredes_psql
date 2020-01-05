@@ -1,6 +1,7 @@
 class AvisosController < ApplicationController
   before_action :set_aviso, only: [:show, :edit, :update, :destroy]
-  access all: [:show, :index], site_admin: :all
+  #access all: [:show, :index], site_admin: :all
+  access cert_site_admin: :all, certificador: :all,  escuela: [:show, :index]
 
   def index
     @avisos = Aviso.all.order("updated_at DESC")
@@ -21,7 +22,7 @@ class AvisosController < ApplicationController
 
     respond_to do |format|
       if @aviso.save
-        format.html { redirect_to @aviso, notice: 'Regsitro creado correctamente.' }
+        format.html { redirect_to avisos_path, notice: 'Regsitro creado correctamente.' }
       else
         format.html { render :new }
       end
@@ -40,7 +41,7 @@ class AvisosController < ApplicationController
 
   def destroy
     @aviso.destroy
-    respond_to do |format|
+    respond_to do |format| 
       format.html { redirect_to avisos_url, notice: 'Regsitro eliminado correctamente.' }
     end
   end
@@ -51,7 +52,7 @@ class AvisosController < ApplicationController
     end
 
     def aviso_params
-      params.require(:aviso).permit(:id, :titulo, :detalle, :fecha, :user_id, :foto, uploads: [])
+      params.require(:aviso).permit(:id, :titulo, :detalle, :fecha, :user_id, :archivo, :user_id)
     end
 end
 

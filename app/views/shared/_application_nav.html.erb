@@ -24,6 +24,8 @@
               <% if current_user.has_role?(:certificador, :cert_site_admin, :escuela) %>
               <%= render 'shared/menu_certificador' %>
             <% end %>
+            <li class="texto-sidebar"><%= link_to 'Avisos', avisos_path %></li>
+	          <li class="texto-sidebar"><%= link_to 'Calendario', '#' %></li>
             <li><%= link_to "Salir", destroy_user_session_path, method: :delete, class: "active" %></li>
           </ul>
         </li>

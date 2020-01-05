@@ -5,26 +5,25 @@
       <% end %>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :"título" %>
     <%= form.text_field :titulo, size: 60 %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :"descripción" %>
-    <%= form.trix_editor :detalle %>
+    <%= form.text_field :detalle, size: 100 %>
   </div>
 
   <div class="btn btn-default btn-lg">
-    <%= form.label :foto %>
-    <%= form.file_field :foto %>
+    <%= form.label :archivo %>
+    <%= form.file_field :archivo, accept: 'application/pdf' %>
   </div>
 
 <p></p>
   <div class="actions">
-    <%= form.submit "Guardar", class: "btn btn-primary btn-lg", size: 50 %>
-    <%= link_to 'Mostrar', @aviso, class: "btn btn-default btn-lg", size: 50 %> 
-    <%= link_to 'Regresar a Blog', avisos_path, class: "btn btn-info btn-lg", size: 50 %>
+    <%= form.submit "Guardar", class: "btn btn-primary btn-md", size: 50 %>
+    <%= link_to 'Regresar a Avisos', avisos_path, class: "btn btn-info btn-md", size: 50 %>
   </div>
 
 <% end %>

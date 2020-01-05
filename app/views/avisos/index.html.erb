@@ -1,29 +1,51 @@
-<div class="container-fluid-crud">
-<h1>blog</h1>
-<br>
-<p><%= link_to 'Nueva Entrada', new_aviso_path, class: "btn btn-default btn-lg" if logged_in?(:site_admin) %></p>
-<br>
-<% @avisos.each do |aviso| %>
-  <div class="row">
-    <div class="card">
-      <div class="col-md-6">
-         <strong><%= aviso.titulo %></strong>
-         <p><%= link_to 'Mostrar', aviso, class: "btn btn-primary btn-lg", size: 50 %> 
-         <%= link_to 'Modificar', edit_aviso_path(aviso), class: "btn btn-success btn-lg", size: 50 if logged_in?(:site_admin) %> 
-         <%= link_to 'Eliminar', aviso, method: :delete, data: { confirm: '¿Confirma eliminar el Registro?' },
-                      class: "btn btn-danger btn-lg", size: 50 if logged_in?(:site_admin) %></p>
-         <h6><%= aviso.updated_at.strftime("%d/%m/%Y %H:%M:%S") %></h6>
-         
-         <p><%= aviso.detalle.html_safe %></p>
-      </div>
-      <div class="col-md-6">
-        <%= image_tag(aviso.foto, width: 450, height:350) if aviso.foto.attached? %> 
-      </div>
+ 
+<h1>Avisos</h1>
 
-    </div>
-  </div>
-  <br>
+ 
+<% if logged_in?(:cert_site_admin, :certificador) %>
+  <%= link_to new_aviso_path, class: "btn btn-primary" do %>
+			<span class="fa-1x"><%= fa_icon "plus" %></span>
+				Agregar Aviso
+  <% end %>
 <% end %>
-</div>
-</div>
 
+<table class="tabla-avisos">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Circular</th>
+      <% if logged_in?(:cert_site_admin, :certificador) %>
+        <th colspan='2'>Acciones</th>
+        <% end %>
+      
+    </tr>
+  </thead>
+  <tbody>
+  <% @avisos.each do |aviso| %>
+    <tr>
+      <td class="aviso-titulo-archivo"><%= aviso.titulo %></td>
+         <% if aviso.archivo.attached? %>
+            <td><span class="fa-2x"><%= fa_icon "file-pdf-o", style: "color: #ED1C24" %></span>&nbsp;<%= link_to aviso.archivo.filename, aviso.archivo, target: '_blank'%></td>
+            
+              
+             
+         <% end %>
+          
+          
+         <% if logged_in?(:cert_site_admin, :certificador) %>
+            <td><%= link_to edit_aviso_path(aviso), class: "btn btn-primary"  do %>
+			        <span class="fa-1x"><%= fa_icon "pencil" %></span>
+            <% end %>
+             
+            <%= link_to aviso, method: :delete, data:{ confirm: '¿Confirma eliminar el registro?'}, class: "btn btn-danger"  do %>
+						<span class="fa-1x"><%= fa_icon "minus" %></span></td>
+					<% end %>
+
+
+         <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+ 
+ 
