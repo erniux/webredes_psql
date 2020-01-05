@@ -32,7 +32,7 @@ class AvisosController < ApplicationController
   def update
     respond_to do |format|
       if @aviso.update(aviso_params)
-        format.html { redirect_to @aviso, notice: 'Regsitro actualizado correctamente.' }
+        format.html { redirect_to edit_aviso_url, notice: 'Registro actualizado con éxito.' }
       else
         format.html { render :edit }
       end

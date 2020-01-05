@@ -41,8 +41,6 @@ class CertEscolar < ApplicationRecord
         proceso.save!
       end
     end 
-
-    
 end
 
 

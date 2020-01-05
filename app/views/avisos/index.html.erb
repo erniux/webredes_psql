@@ -1,7 +1,6 @@
  
 <h1>Avisos</h1>
 
- 
 <% if logged_in?(:cert_site_admin, :certificador) %>
   <%= link_to new_aviso_path, class: "btn btn-primary" do %>
 			<span class="fa-1x"><%= fa_icon "plus" %></span>
@@ -9,6 +8,9 @@
   <% end %>
 <% end %>
 
+<% if @avisos.blank? %>
+<% flash[:notice] = "No existen avisos" %>
+<% else %>
 <table class="tabla-avisos">
   <thead>
     <tr>
@@ -17,7 +19,6 @@
       <% if logged_in?(:cert_site_admin, :certificador) %>
         <th colspan='2'>Acciones</th>
         <% end %>
-      
     </tr>
   </thead>
   <tbody>
@@ -47,5 +48,6 @@
   <% end %>
   </tbody>
 </table>
+<% end %>
  
  
