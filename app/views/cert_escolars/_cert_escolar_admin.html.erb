@@ -1,3 +1,5 @@
+
+
 <% escuela_name = "" %> 
 <% @results.each do |nombre_escuela| %>
   <% if escuela_name != nombre_escuela.nombre_escuela %>
@@ -41,7 +43,7 @@
       </div>
       <div class="collapse" id="<%= "collapse#{proceso.proceso + nombre_escuela.escuela_id.to_s}" %>">
         <div class="panel-body">
-          <section>
+          <section class="titulo-cert-escolar">
             <div class="col-md-3 titulo">Estándar</div>
             <div class="col-md-3 titulo">Descripción</div>
             <div class="col-md-2 titulo">Puntaje total</div>
@@ -67,11 +69,11 @@
               <div class="col-md-3 detalle-descripcion"><%= @nombre_estandar.descripcion.truncate(65) %></div>
               <div class="col-md-2 detalle-puntos-totales"><%= @nombre_estandar.puntaje_total %></div>
               <% if avance <= 50 %>
-                <div class="col-md-1 rojo detalle-avance"><%= number_with_precision(avance, precision: 2) %></div>
+                <div class="col-md-1 rojo detalle-avance"><%= number_with_precision(avance, precision: 2) %>%</div>
               <% elsif avance > 50 && avance < 100 %>
-                <div class="col-md-1 naranja detalle-avance"><%= number_with_precision(avance, precision: 2) %></div>
+                <div class="col-md-1 naranja detalle-avance"><%= number_with_precision(avance, precision: 2) %>%</div>
               <% else %>
-                <div class="col-md-1 verde detalle-avance"><%= number_with_precision(avance, precision: 2) %></div>
+                <div class="col-md-1 verde detalle-avance"><%= number_with_precision(avance, precision: 2) %>%</div>
               <% end %>
               <div class="col-md-2 detalle-puntos-cumplidos" ><%= estandar.puntaje %></div>
               <% case estandar.status %>

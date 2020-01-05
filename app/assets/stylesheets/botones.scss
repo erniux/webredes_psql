@@ -58,13 +58,13 @@
   }
 
   .boton-estandar {
-    width: 180px;
-    display: inline-block;
+    width: 100%;
+    display: block;
     margin-bottom: 0;
     font-weight: normal;
     text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
+    //white-space: nowrap;
+    //vertical-align: middle;
     touch-action: manipulation;
     cursor: pointer;
     background-image: none;
@@ -80,7 +80,8 @@
     color: #fff;
     background-color: #ED1C24;
     border-color: #ED1C24;
-      
+    float: none;
+    word-wrap: break-word;
   }
 
   #cert_escolar_evidencias {

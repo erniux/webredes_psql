@@ -30,6 +30,8 @@ body {
     }
   } 
 
+   
+
 .navbar {
   margin-bottom: 0;
   margin-top: 0;
@@ -137,6 +139,7 @@ body {
 .manzanita-inicio {
   width: 50rem;
   margin-top: 5rem;
+  position: absolute;
   
 
 }
@@ -147,7 +150,7 @@ body {
 }
 
 .row-login {
-  width: 35rem;
+  width: 27rem;
   margin: 10em 10em;
   float: right;
   /* font-family: 'Myriad Pro light'; */
@@ -401,12 +404,14 @@ div#body-cert {
 .fondo-gris {
   background-color: grey;
   //color: white;
-  height: 5.5rem;
+  height: 70px;
   width: 45%;
   margin-left: 1.5rem;
-  margin-top: 1rem;
   padding: 1rem 1rem;
   text-align: center;
+  margin-top: 10px;
+   
+  
 }
 
  .letra-blanca {

@@ -29,54 +29,57 @@
       <small><p class="descripcion-etapa"><%= @estandar.descripcion %></p></small>
       <small><p class="etiqueta-etapa"><strong>Evidencias:</strong></p></small>
       <small><p class="descripcion-etapa"><%= @estandar.evidencias.html_safe %></p></small>
-      <small><p class="etiqueta-etapa"><strong>Observaciones:<strong></p></small>
+      <small><p class="etiqueta-etapa"><strong>Observaciones:</strong></p></small>
       <small><p class="descripcion-etapa"><%= @estandar.observaciones %></p></small>
       
-      <div class="btn-group">
-        <button type="button" class="boton-estandar dropdown-toggle" data-toggle="dropdown">
-          Material Obligatorio <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <% if @estandar.obligatorio.attached? %>
-            <% @estandar.obligatorio.each do |upload| %>
-              <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+       
+        <div class="col-md-4">
+          <button type="button" class="boton-estandar dropdown-toggle" data-toggle="dropdown">
+            Material Obligatorio <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <% if @estandar.obligatorio.attached? %>
+              <% @estandar.obligatorio.each do |upload| %>
+                <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+              <% end %>
             <% end %>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class="btn-group">
-        <button type="button" class="boton-estandar dropdown-toggle" data-toggle="dropdown">
-          Material Apoyo <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <% if @estandar.apoyo.attached? %>
-            <% @estandar.apoyo.each do |upload| %>
-              <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+          </ul>
+        </div>
+ 
+        <div class="col-md-4">
+          <button type="button" class="boton-estandar dropdown-toggle" data-toggle="dropdown">
+            Material Apoyo <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <% if @estandar.apoyo.attached? %>
+              <% @estandar.apoyo.each do |upload| %>
+                <li><%= link_to upload.filename, upload, target: '_blank' %></li>
+              <% end %>
             <% end %>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class="btn-group">
-        <button type="button" class="boton-estandar btn-md dropdown-toggle" data-toggle="dropdown">
-          Detalle puntuación <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <% if !@estandar.puntos_estandars.blank? %>
-            <% @estandar.puntos_estandars.each do |puntos| %>
-             <li><a href="#" class="tooltip-toggle" aria-label="<%= puntos.descripcion %>" tabindex="0">
-                <%= puntos.puntos.to_s + ' ' + puntos.descripcion.truncate(20) %>
-              </a></li>
+          </ul>
+        </div>
+  
+        <div class="col-md-4">
+          <button type="button" class="boton-estandar btn-md dropdown-toggle" data-toggle="dropdown">
+            Detalle puntuación <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <% if !@estandar.puntos_estandars.blank? %>
+              <% @estandar.puntos_estandars.each do |puntos| %>
+              <li><a href="#" class="tooltip-toggle" aria-label="<%= puntos.descripcion %>" tabindex="0">
+                  <%= puntos.puntos.to_s + ' ' + puntos.descripcion.truncate(20) %>
+                </a></li>
+              <% end %>
             <% end %>
-          <% end %>
-        </ul>
-      </div>
+          </ul>
+        </div>
+       <br><br><br>
       <div class="decorativo-estandar" ></div>
      
       <% if logged_in?(:escuela) %>
         <div class="col-md-5 fondo-gris">
-          <em class= "letra-blanca">Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class="captura-puntos", size="5" value="<%= @cert_escolar.puntaje  %>" disabled ><small class="letra-blanca">&nbsp;de <%= @estandar.puntaje_total %> posibles</small> 
+          <em class= "letra-blanca">Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class="captura-puntos", size="5" value="<%= @cert_escolar.puntaje  %>" disabled >
+          <p><small class="letra-blanca">de <%= @estandar.puntaje_total %> posibles</small></p> 
         </div>
         <div class="col-md-7 fondo-gris">
           <% if  !@cert_escolar.revision? && !@cert_escolar.cumplido?  %>
@@ -89,32 +92,34 @@
         </div>
       <% elsif logged_in?(:certificador) %>
         <div class="col-md-5 fondo-gris">
-          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "captura-puntos", size: 5 %><small>&nbsp;de <%= @estandar.puntaje_total %> posibles</small>  
+          <em class= "letra-blanca">Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "captura-puntos", size: 5 %>
+          <p><small class="letra-blanca">de <%= @estandar.puntaje_total %> posibles</small></p>  
         </div>
          
         <div class="col-md-7 fondo-gris">
           <% if !@cert_escolar.desarrollo? && !@cert_escolar.cumplido? && !@cert_escolar.comentarios? %>
-            <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
+            <em class= "letra-blanca">Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
           <% elsif @cert_escolar.cumplido? %>
-            <em>Estado:&nbsp;</em><%= form.select(:status, [['Cumplido', 'cumplido']], disabled: true ) %>
+            <em class= "letra-blanca">Estado:&nbsp;</em><%= form.select(:status, [['Cumplido', 'cumplido']], disabled: true ) %>
           <% elsif @cert_escolar.desarrollo? %>    
-            <em>Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo']], disabled: true ) %>
+            <em class= "letra-blanca">Estado:&nbsp;</em><%= form.select(:status, [['Desarrollo', 'desarrollo']], disabled: true ) %>
           <% elsif @cert_escolar.comentarios? %>    
-            <em>Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']], disabled: true ) %>
+            <em class= "letra-blanca">Estado:&nbsp;</em><%= form.select(:status, [['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']], disabled: true ) %>
           <% end %>
         </div>
+        
       <% elsif logged_in?(:cert_site_admin)    %>
         <div class="col-md-5 fondo-gris">
-          <em>Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "captura-puntos", size: 5 %><small>&nbsp;de <%= @estandar.puntaje_total %> posibles</small>  
+          <em class= "letra-blanca">Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "captura-puntos", size: 5 %>
+          <p><small class="letra-blanca">de <%= @estandar.puntaje_total %> posibles</small></p>
         </div>
          
         <div class="col-md-7 fondo-gris">
-          <em>Estado:&nbsp;</em><%= form.select(:status, [['Sin avance', 'sin_avance'], ['Desarrollo', 'desarrollo'], ['Revisión', 'revision'], ['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
+          <em class= "letra-blanca">Estado:&nbsp;</em><%= form.select(:status, [['Sin avance', 'sin_avance'], ['Desarrollo', 'desarrollo'], ['Revisión', 'revision'], ['Revisado con comentarios', 'comentarios'], ['Cumplido', 'cumplido']] ) %>
         </div>
       <% end %> 
     </div>
-  
-   
+   <br>
   
   <div class="col-md-4"> <!-- evidencias subidas y subir mas -->
     <p class="titulo-evidencias">Evidencias</p>

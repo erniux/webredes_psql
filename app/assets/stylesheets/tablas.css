@@ -1,8 +1,4 @@
-section {
-    width: 100%;
-    border-spacing: 5px;
-  }
-  .titulo{
+.titulo{
     display: table-cell;
     padding: 12px;
     background: #696969;
@@ -11,7 +7,15 @@ section {
     color: #fff;
   }
 
-  .detalle-estandar {
+.puntaje {
+    width: 15%;
+  }
+
+.estatus {
+    width: 20%;
+  }
+
+.detalle-estandar {
     text-align: justify;
     margin-left: -20px;
   }
@@ -22,8 +26,8 @@ section {
   }
 
   .detalle-avance {
-    margin-left: 20px;
-    margin-right: -20px;
+    margin-left: 40px;
+    margin-right: -40px;
     text-align: center;
   }
 
@@ -40,7 +44,7 @@ section {
   }
 
   .detalle-puntos-totales {
-    margin-left: 40px;
+    margin-left: 20px;
     margin-right: -40px;
     text-align: center;
   }
@@ -107,5 +111,99 @@ section {
     border-color:  #ED1C24;
     border-width: thick;
   }
+
+
+  @media screen and (max-width: 1100px) {
+    table {
+        width:100%;
+    }
+    thead {
+        display: none;
+    }
+     
+    tbody td {
+        display: block;
+        text-align:center;
+        width:100%;
+    }
+
+    .titulo-cert-escolar {
+        display: none;
+    }
+
+    .detalle-descripcion {
+        display: none;
+    }
+    
+    .detalle-puntos-totales { 
+      margin-left: 20px;
+      margin-right: 20px;
+      text-align: center;
+    }
+
+    .detalle-puntos-totales:before {
+      content: "Puntos totales: ";
+      color: white;
+    }
+
+    .detalle-puntos-cumplidos {
+      margin-left: 20px;
+      margin-right: 20px;
+      text-align: center;
+    }
+    .detalle-puntos-cumplidos:before {
+      content: 'Puntos cumplidos: ';
+      color: white;
+
+    }
+
+    .detalle-avance {
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: center;
+    }
+
+    .detalle-estatus {
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: center;
+    }
+
+    .detalle-estatus:before {
+      content: 'Estatus: ';
+      color: white;
+    }
+
+    .fondo-gris {
+      width: 100%;
+      margin-top: 10px;
+      margin-left: -10px;
+    }
+
+    .boton-estandar {
+      width: 100%;
+    }
+    .decorativo-estandar {
+      margin-top: -40rem;
+      }
+    
+}
+
+@media screen and (max-width: 990px) {
+  .boton-estandar {
+    width: 80%;
+    margin-top: 10px;
+  }
+
+  .decorativo-estandar {
+  margin-top: -46rem;
+  }
+
+  .fondo-gris {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: -10px;
+  }
+}
 
   
