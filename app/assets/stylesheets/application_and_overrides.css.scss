@@ -11,7 +11,8 @@
   font-family: 'Myriad Pro Regular'; 
   font-style: normal;
   font-weight: normal;
-  src: url('MYRIADPRO-REGULAR.woff')
+  //src: url('MYRIADPRO-REGULAR.woff')
+  src: local('Myriad Pro Regular'), url('fonts/MyriadPro-Regular.woff') format('woff');
   }
   @font-face {
   font-family: 'Myriad Pro Light'; 
