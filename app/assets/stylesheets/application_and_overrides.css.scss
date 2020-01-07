@@ -11,30 +11,10 @@
   font-family: 'Myriad Pro Regular'; 
   font-style: normal;
   font-weight: normal;
-  //src: url('MYRIADPRO-REGULAR.woff')
-  src: local('Myriad Pro Regular'), url('fonts/MyriadPro-Regular.woff') format('woff');
+  src: font_url('MYRIADPRO-REGULAR.woff');
+  //src: local('Myriad Pro Regular'), url('fonts/MyriadPro-Regular.woff') format('woff');
   }
-  @font-face {
-  font-family: 'Myriad Pro Light'; 
-  font-style: normal;
-  font-weight: normal;
-  src: url('MyriadPro-Light.woff')
-  //src: local('Myriad Pro Light'), url('fonts/MyriadPro-Light.woff') format('woff');
-  }
-  @font-face {
-  font-family: 'Myriad Pro Bold';
-  font-style: normal;
-  font-weight: normal;
-  src: url ('MYRIADPRO-BOLD.woff')
-  //src: local('Myriad Pro Bold'), url('fonts/MYRIADPRO-BOLD.woff') format('woff');
-  }
-  @font-face {
-  font-family: 'Myriad Pro Bold Italic';
-  font-style: normal;
-  font-weight: normal;
-  src: url ('MYRIADPRO-BOLDIT.woff')
-  //src: local('Myriad Pro Bold Italic'), url('fonts/MYRIADPRO-BOLDIT.woff') format('woff');
-  }
+   
   
 html {
   font-family: 'Myriad Pro Regular'; 
@@ -42,13 +22,11 @@ html {
 }  
 body {
     padding-top: 150px;  
-    font-family: 'Myriad Pro Regular'; 
-    
+
   } 
    
 .container {
   width: 1470px;
-  /* font-family: 'Myriad Pro Regular'; */
 }
  
 
@@ -186,7 +164,6 @@ body {
   width: 27rem;
   margin: 10em 10em;
   float: right;
-  /* font-family: 'Myriad Pro light'; */
   font-size: 18px;
   margin-top: -1em;
 }
