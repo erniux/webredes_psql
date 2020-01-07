@@ -7,10 +7,42 @@
 @import "footer";
 @import "tablas.scss";
 
-
- 
+@font-face {
+  font-family: 'Myriad Pro Regular'; 
+  font-style: normal;
+  font-weight: normal;
+  src: url('MYRIADPRO-REGULAR.woff')
+  }
+  @font-face {
+  font-family: 'Myriad Pro Light'; 
+  font-style: normal;
+  font-weight: normal;
+  src: url('MyriadPro-Light.woff')
+  //src: local('Myriad Pro Light'), url('fonts/MyriadPro-Light.woff') format('woff');
+  }
+  @font-face {
+  font-family: 'Myriad Pro Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: url ('MYRIADPRO-BOLD.woff')
+  //src: local('Myriad Pro Bold'), url('fonts/MYRIADPRO-BOLD.woff') format('woff');
+  }
+  @font-face {
+  font-family: 'Myriad Pro Bold Italic';
+  font-style: normal;
+  font-weight: normal;
+  src: url ('MYRIADPRO-BOLDIT.woff')
+  //src: local('Myriad Pro Bold Italic'), url('fonts/MYRIADPRO-BOLDIT.woff') format('woff');
+  }
+  
+html {
+  font-family: 'Myriad Pro Regular'; 
+  
+}  
 body {
-    padding-top: 150px;   
+    padding-top: 150px;  
+    font-family: 'Myriad Pro Regular'; 
+    
   } 
    
 .container {
@@ -126,7 +158,7 @@ body {
 .container-fluid-login {
   width: 100%;
   height: 50rem;
-  overflow: hidden;
+  //overflow: hidden;
   position: relative;
   margin-top: 10px;
   //background: red;
@@ -142,8 +174,6 @@ body {
   width: 50rem;
   margin-top: 5rem;
   position: absolute;
-  
-
 }
 
 .bienvenido-nav {

@@ -78,7 +78,7 @@
      
       <% if logged_in?(:escuela) %>
         <div class="col-md-5 fondo-gris">
-          <em class= "letra-blanca">Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class="captura-puntos", size="5" value="<%= @cert_escolar.puntaje  %>" disabled >
+          <em class= "letra-blanca">Puntos Obtenidos:&nbsp;</em>&nbsp;<input type="text" class="captura-puntos", size="5" value="<%= number_with_precision(@cert_escolar.puntaje, precision: 0)  %>" disabled >
           <p><small class="letra-blanca">de <%= @estandar.puntaje_total %> posibles</small></p> 
         </div>
         <div class="col-md-7 fondo-gris">
@@ -92,7 +92,7 @@
         </div>
       <% elsif logged_in?(:certificador) %>
         <div class="col-md-5 fondo-gris">
-          <em class= "letra-blanca">Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, class: "captura-puntos", size: 5 %>
+          <em class= "letra-blanca">Puntos Obtenidos:</em>&nbsp;<%= form.text_field :puntaje, step: 0, class: "captura-puntos", size: 5 %>
           <p><small class="letra-blanca">de <%= @estandar.puntaje_total %> posibles</small></p>  
         </div>
          
@@ -155,10 +155,7 @@
       <span class="agregar-evidencias">
         <% if logged_in?(:escuela) && (@cert_escolar.sin_avance? || @cert_escolar.comentarios? || @cert_escolar.desarrollo?)  %>
              <p><%= form.file_field :evidencias, multiple: true, class: "cuadrado-archivos"   if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %></p>
-             <button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_evidencias').click();"><p> Adjuntar archivos </button>
-      
-               
-     
+             <button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_evidencias').click();">Adjuntar archivos </button>
         <% end %>
       </span>
     </div> <hr>
@@ -193,7 +190,7 @@
         <% if logged_in?(:certificador, :cert_site_admin) %>
           <% if @cert_escolar.revision? %>
           <p><%= form.file_field :revisiones, multiple: true %></p>
-             <p><button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_revisiones').click();"><p> Adjuntar archivos </p></button>
+             <p><button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_revisiones').click();">  Adjuntar archivos  </button>
              <p><span class="file_name"></span></p>
                <%= form.file_field :revisiones, multiple: true, class: "form-control btn btn-large btn-warning btn-file"  %>
                 
