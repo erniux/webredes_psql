@@ -135,6 +135,12 @@
   }
 
   @media screen and (max-width: 1100px) {
+
+    .simple-calendar .day {
+      height: 100%;
+      width: 100%;
+     }
+     
     table {
         width:100%;
     }
@@ -225,6 +231,12 @@
     margin-top: 10px;
     margin-left: -10px;
   }
+
+  .simple-calendar .day {
+    height: 100%;
+    width: 100%;
+   }
+
 }
 
   

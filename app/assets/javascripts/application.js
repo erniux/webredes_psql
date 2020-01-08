@@ -10,26 +10,23 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require jquery
-//= require jquery_ujs
+//= require rails-ujs
+//= require jquery-ui
 //= require turbolinks
+//= require bootstrap-sprockets 
+//= require moment 
+//= require fullcalendar
 //= require trix
 //= require activestorage
 //= require gritter
 //= require cocoon
+//= require daterangepicker
 //= require_tree .
+
  
 
-$(function() {
-    $(document).on('page:fetch',   function() { $('body').css( 'cursor', 'progress' ); });
-    $(document).on('page:change',  function() { $('body').css( 'cursor', 'default' ); });
-    
-});
 
-$(document).ready( function() {
-    $(':file').on('fileselect', function(event, numFiles, label) {
-        console.log(numFiles);
-        console.log(label);
-    });
-});
+ 
+
+ 

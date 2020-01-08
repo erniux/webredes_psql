@@ -1,0 +1,54 @@
+<div class="container-calendario">
+   <% if logged_in?(:cert_site_admin, :certificador) %>
+      <%= link_to new_event_path, class: "btn btn-primary", remote: true do %>
+			   <span class="fa-1x"><%= fa_icon "plus" %></span>
+				        Agregar evento
+      <% end %>
+    <% end %>
+
+
+<div class="calendar"></div>
+
+
+<div class="modal" tabindex="-1" role="dialog" id="form-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="form-modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="form-modal-body">        
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+</div>
+<!--
+ 
+<br>
+<div class="container-calendario">
+<%= month_calendar attribute: :start, end_attribute: :end,  events: (@events) do |date, meetings| %>
+  <%= date.day %>
+
+  <% meetings.each do |meeting| %>
+    <%= link_to meeting.titulo, event_path(meeting.id) %>
+  <% end %>
+
+  <% end %>
+  </div>
+ 
+-->
+<script>
+$(document).ready(function() {
+    $('#calendar').fullCalendar();
+
+
+   
+ 
+});
+
+</script>

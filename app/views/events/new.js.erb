@@ -1,0 +1,10 @@
+//$('#remote_container').html('<%= j render "new" %>');
+//$('#new_event').modal('show');
+
+$('#form-modal-title').html("Crear Evento");
+$('#form-modal-body').html('<%= j render("form" ) %>');
+$('#form-modal').modal('show');
+$('#form-modal-save-btn').click(function() {
+	$('#new_tipo_montaje').submit();
+});
+

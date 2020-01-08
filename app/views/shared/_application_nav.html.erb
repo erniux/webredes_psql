@@ -25,7 +25,7 @@
               <%= render 'shared/menu_certificador' %>
             <% end %>
             <li class="texto-sidebar"><%= link_to 'Avisos', avisos_path %></li>
-	          <li class="texto-sidebar"><%= link_to 'Calendario', '#' %></li>
+	          <li class="texto-sidebar"><%= link_to 'Calendario', events_path %></li>
             <li><%= link_to "Salir", destroy_user_session_path, method: :delete, class: "active" %></li>
           </ul>
         </li>

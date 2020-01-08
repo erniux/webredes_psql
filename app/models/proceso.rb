@@ -35,7 +35,7 @@ class Proceso < ApplicationRecord
 		else
 			proceso_base = Proceso.first
 			pasos = EtapaCertificacion.where(proceso_id: proceso_base.id) 
-			estandares = EstandarEtapaCertificacion.where(procespo_id: proceso_base.id)
+			estandares = EstandarEtapaCertificacion.where(proceso_id: proceso_base.id)
 			pasos.each do |paso|
 				query = "INSERT INTO etapa_certificacions (nombre , descripcion, num_paso, proceso_id, created_at, updated_at) 
 							  VALUES 

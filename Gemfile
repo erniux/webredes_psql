@@ -65,8 +65,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'rails_admin', '~> 2.0'
 gem 'pg_search', '~> 2.3'
 gem 'jquery-turbolinks'
-  
- 
-
-
+gem 'simple_calendar', '~> 2.3'
+gem 'fullcalendar-rails', '~> 3.9'
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 

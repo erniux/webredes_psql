@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :etapa_certificacions
   resources :reconocimiento_redes
   resources :avisos 
-  resources :eventos
+  resources :events
   resources :recursos
   resources :precios
   resources :acercades

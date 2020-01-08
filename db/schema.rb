@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_07_005909) do
+ActiveRecord::Schema.define(version: 2020_01_08_161707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -218,12 +218,12 @@ ActiveRecord::Schema.define(version: 2020_01_07_005909) do
     t.index ["proceso_id"], name: "index_etapa_certificacions_on_proceso_id"
   end
 
-  create_table "eventos", force: :cascade do |t|
+  create_table "events", id: :bigint, default: -> { "nextval('eventos_id_seq'::regclass)" }, force: :cascade do |t|
     t.string "titulo"
     t.string "detalle"
     t.string "lugar"
-    t.datetime "fecha_inicio"
-    t.datetime "fecha_fin"
+    t.datetime "start"
+    t.datetime "end"
     t.string "expositor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -231,6 +231,7 @@ ActiveRecord::Schema.define(version: 2020_01_07_005909) do
     t.bigint "user_id"
     t.string "slug"
     t.binary "imagen_2"
+    t.string "color"
     t.index ["slug"], name: "index_eventos_on_slug", unique: true
     t.index ["user_id"], name: "index_eventos_on_user_id"
   end
@@ -353,7 +354,7 @@ ActiveRecord::Schema.define(version: 2020_01_07_005909) do
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
   add_foreign_key "estandar_etapa_certificacions", "procesos"
   add_foreign_key "etapa_certificacions", "procesos"
-  add_foreign_key "eventos", "users"
+  add_foreign_key "events", "users"
   add_foreign_key "precios", "users"
   add_foreign_key "proceso_certificacions", "escuelas"
   add_foreign_key "proceso_certificacions", "procesos"

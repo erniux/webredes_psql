@@ -10,6 +10,7 @@ class User < ApplicationRecord
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
     has_many :avisos
+    has_many :eventos
         
     validates_presence_of :nombre, :appaterno, :email
     validates :email, uniqueness: true 
