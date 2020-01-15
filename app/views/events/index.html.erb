@@ -1,11 +1,4 @@
 <div class="container-calendario">
-   <% if logged_in?(:cert_site_admin, :certificador) %>
-      <%= link_to new_event_path, class: "btn btn-primary", remote: true do %>
-			   <span class="fa-1x"><%= fa_icon "plus" %></span>
-				        Agregar evento
-      <% end %>
-    <% end %>
-
 
 <div class="calendar"></div>
 

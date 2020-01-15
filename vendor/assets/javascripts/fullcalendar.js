@@ -678,7 +678,7 @@ FC.divideDurationByDuration = divideDurationByDuration;
 FC.multiplyDuration = multiplyDuration;
 FC.durationHasTime = durationHasTime;
 
-var dayIDs = [ 'sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat' ];
+var dayIDs = [ 'domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado' ];
 var intervalUnits = [ 'year', 'month', 'week', 'day', 'hour', 'minute', 'second', 'millisecond' ];
 
 
@@ -4257,6 +4257,7 @@ Grid.mixin({
 		this.bindSegHandlerToEl(el, 'mouseleave', this.handleSegMouseout);
 		this.bindSegHandlerToEl(el, 'mousedown', this.handleSegMousedown);
 		this.bindSegHandlerToEl(el, 'click', this.handleSegClick);
+		this.bindSegHandlerToEl(el, 'dblclick', this.handleSegdblClick);
 	},
 
 
@@ -4279,6 +4280,12 @@ Grid.mixin({
 	handleSegClick: function(seg, ev) {
 		return this.view.trigger('eventClick', seg.el[0], seg.event, ev); // can return `false` to cancel
 	},
+
+	 handleSegdblClick:  function(seg, ev) {
+		return this.view.trigger('eventdblClick', seg.el[0], seg.event, ev); // can return `false` to cancel
+	},
+
+ 
 
 
 	// Updates internal state and triggers handlers for when an event element is moused over

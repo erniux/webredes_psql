@@ -1,11 +1,10 @@
 class Event < ApplicationRecord
 	 
-	#validates_presence_of :titulo, :detalle, :lugar
+	validates_presence_of :titulo, :detalle, :lugar, :start, :end
 
-	belongs_to :user
+	#belongs_to :user
 	has_one_attached :foto
 	attr_accessor :date_range
-	
 
 	def all_day_event?
 		self.start == self.start.midnight && self.end == self.end.midnight ? true : false

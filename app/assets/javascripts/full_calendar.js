@@ -6,10 +6,16 @@ initialize_calendar = function() {
     var calendar = $(this);
     calendar.fullCalendar({
       header: {
-        left: 'prev,next today',
+        left: 'prev,next',
         center: 'title',
-        right: 'month,agendaWeek,agendaDay'
+        right: 'none'
       },
+      columnFormat: {
+        month: 'dddd',    // Monday, Wednesday, etc
+        week: 'dddd, MMM dS', // Monday 9/7
+        day: 'dddd, MMM dS'  // Monday 9/7
+      },
+      displayEventTime: false,
       selectable: true,
       selectHelper: true,
       editable: true,
@@ -38,9 +44,17 @@ initialize_calendar = function() {
       },
 
       eventClick: function(event, jsEvent, view) {
+        $.getScript(event.show_url, function() { });
+        alert("NO SE PORQUE NO HACE NADA");
+         
+      },
+
+      eventdblClick: function(event, jsEvent, view) {
         $.getScript(event.edit_url, function() { });
         
-      }
+      },
+
+      
     });
   })
 };

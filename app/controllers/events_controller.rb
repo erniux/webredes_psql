@@ -20,13 +20,35 @@ class EventsController < ApplicationController
 
   def create
      @event = current_user.events.new(event_params)
-     @event.save
+     respond_to do |format|
+      if @event.save
+        format.html { redirect_to events_path, notice: 'Evento creado con éxito.' }
+      end 
+    end
   end
 
-  def update
-    
-    @event.update(event_params)
-  
+  def create
+    @event = Event.new(event_params)
+
+    respond_to do |format|
+      if @event.save
+        format.html { redirect_to events_path, notice: 'Registro creado con éxito.' }
+      else
+        format.html { redirect_to events_path, notice: 'Registro no ha sido creado, verifique sus datos de entrada.' }
+      end
+    end
+end
+   
+def update
+    respond_to do |format|
+      if @event.update(event_params)
+        format.html { redirect_to events_path, notice: 'Registro actualizado con éxito.' }
+        format.json { render :show, status: :ok, location: @event }
+      else
+        format.html { render :edit }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
@@ -39,7 +61,7 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:id, :titulo, :detalle, :lugar, :date_range, :start, :end, :expositor, :created_at, :updated_at, :imagen, :user_id, :slug, :imagen_2, :color, :foto, :user_id)
+      params.require(:event).permit(:id, :titulo, :detalle, :lugar, :start, :end, :imagen, :user_id, :slug, :color)
     end
 end
 

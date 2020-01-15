@@ -7,48 +7,51 @@
 
 
   <div class="field">
-    <%= form.label :titulo %>
-    <%= form.text_field :titulo, size: 60 %>
+    <%= form.label 'Título' %>
+    <%= form.text_field :titulo, size: 60, class: 'form-control', autofocus: true, required: true %>
   </div>
 
   <div class="field">
     <%= form.label :detalle %>
-    <%= form.text_area :detalle %>
+    <%= form.text_field :detalle, size: 60, class: 'form-control', required: true %>
   </div>
 
   <div class="field">
     <%= form.label :lugar %>
-    <%= form.text_field :lugar, size: 60, class: 'input' %>
-  </div>
+    <%= form.text_field :lugar, size: 60, class: 'form-control', required: true %>
+  </div><br>
 
   <div class="field">
-    <%= form.label "Fechas" %>
-    <%= form.date_field :inicio, class: "daterange" %>
-  </div>
+  <%= form.label :color %>
+	<%= form.select :color, [['Gris 1', '#a1a1a1'], ['Gris 2', '#bababa'], ['Gris 3', '#969696'],['Gris 4', '#7d7d7d'], ['Gris 5', '#666666']  ], class: "form-control", required: true %>
+	</div>
+   
 
   <div class="field">
-    <%= form.label "Fecha Fin" %>
-    <%= form.datetime_field :end %>
+    <%= form.label "Fecha inicio" %>
+    <%= form.datetime_field :start, class: 'form-control', required: true   %>
   </div>
+
 
   <div class="field">
-    <%= form.label :expositor %>
-    <%= form.text_area :expositor %>
+    <%= form.label "Fecha fin" %>
+    <%= form.datetime_field :end, class: 'form-control', required: true  %>
   </div>
-
-  <div class="btn btn-default btn-lg">
+  <br>
+  <div class="btn btn-default btn-md">
     <%= form.label :foto %>
-    <%= form.file_field :foto %>
+    <%= form.file_field :foto, class: 'form-control' %>
   </div>
+  <br>
 
   <div class="actions">
-    <%= form.submit 'Guardar', class: "btn btn-primary btn-lg", size: 50 %>
-    <%= link_to 'Mostrar', @event, class: "btn btn-default btn-lg", size: 50 %> 
-   <%= link_to 'Regresar a Eventos', events_path, class: "btn btn-info btn-lg", size: 50 %>
+    <%= form.submit 'Guardar', class: "btn btn-primary btn-md", size: 50 %>
+   <%= link_to 'Cancelar', events_path, class: "btn btn-danger btn-md", size: 50 %>
   </div>
   
 <% end %>
 
+ 
 
 
 
