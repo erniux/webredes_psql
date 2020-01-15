@@ -44,8 +44,8 @@ initialize_calendar = function() {
       },
 
       eventClick: function(event, jsEvent, view) {
-        $.getScript(event.show_url, function() { });
-        alert("NO SE PORQUE NO HACE NADA");
+        $.getScript(event.edit_url, function() { });
+         
          
       },
 
