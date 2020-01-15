@@ -45,14 +45,13 @@ initialize_calendar = function() {
 
       eventClick: function(event, jsEvent, view) {
         $.getScript(event.edit_url, function() { });
-         
-         
       },
 
-      eventdblClick: function(event, jsEvent, view) {
-        $.getScript(event.edit_url, function() { });
-        
-      },
+      eventMouseover: function(event, jsEvent, view) {
+           alert(event.title);
+           $("tooltip").append($("<h2>HOLA MUNDO</h2>"))
+      }
+ 
 
       
     });
