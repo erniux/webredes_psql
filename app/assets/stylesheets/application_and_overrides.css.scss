@@ -45,8 +45,6 @@ body {
     }
   } 
 
-   
-
 .navbar {
   margin-bottom: 0;
   margin-top: 0;
@@ -422,8 +420,6 @@ div#body-cert {
   padding: 1rem 1rem;
   text-align: center;
   margin-top: 10px;
-   
-  
 }
 
  .letra-blanca {
@@ -432,8 +428,17 @@ div#body-cert {
 
 .modal-dialog {
   position: relative;
-width: auto;
-margin: 20rem 39rem;
+  width: auto;
+  margin: 20rem 39rem;
 }
 
- 
+.modal-header {
+  margin-left: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  height: 100%;
+}
+
+.modal-header .close {
+  margin-top: -70px;
+  margin-right: 10px;
+} 

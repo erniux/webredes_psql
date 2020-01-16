@@ -1,13 +1,6 @@
-<div class="modal fade" id="show_event">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Información del evento</h4>
-      </div>
-      <div class="modal-body">
-        <%= @event.inspect %>
-      </div>
-    </div>
-  </div>
+<p><em>Ubicación: <%= @event.lugar %></em></p>
+<p>Detalle: <span><%= @event.detalle %></span></p>
+<div class="imagen-show-evento">
+    <p><%= image_tag @event.foto, size: 100 if @event.foto.attached? %></p>
 </div>
+

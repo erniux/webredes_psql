@@ -1,3 +1,9 @@
+.container-calendario {
+    margin-top: 0px;
+    width: 80%;
+    margin-left: 70px;
+  }
+   
  .fc-day-header  {
      background-color: #ED1C24;
      color: white;
@@ -9,4 +15,8 @@
 
 .fc-day-number {
     font-size: initial;
+}
+
+.fc-event {
+ font-size: 1rem;   
 }

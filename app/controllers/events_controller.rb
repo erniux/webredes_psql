@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  access escuela: [:show, :index], cert_site_admin: :all, certificador: :all
+  access escuela: [:show, :index], cert_site_admin: [:index, :create, :update, :destroy], 
+         certificador: [:index, :create, :update, :destroy]
 
   def index
     @events = Event.all
@@ -61,7 +62,7 @@ def update
     end
 
     def event_params
-      params.require(:event).permit(:id, :titulo, :detalle, :lugar, :start, :end, :imagen, :user_id, :slug, :color)
+      params.require(:event).permit(:id, :titulo, :detalle, :lugar, :start, :end, :imagen, :user_id, :slug, :color, :foto)
     end
 end
 
