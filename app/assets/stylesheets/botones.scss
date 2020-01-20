@@ -25,7 +25,7 @@
     float: left;
     position: relative;
     height: 40px;
-    width: 160px;
+    width: 26rem;
     border: solid 0px #ED1C24;
     border-right: none;
     background: #ED1C24;
@@ -33,6 +33,7 @@
     color: white;
     margin-left: -22px;
     margin-bottom: -20px;
+    cursor: pointer;
   }
   
   .cuadrado:after {
@@ -66,7 +67,7 @@
      
   }
 
-  .btn-file {
+  /*.btn-file {
     position: relative;
     overflow: hidden;
 }
@@ -84,7 +85,7 @@
     background: white;
     cursor: inherit;
     display: block;
-}
+}*/
 
   .boton-estandar {
     width: 100%;
@@ -120,6 +121,24 @@
   #cert_escolar_revisiones {
     display: none;
   }
+
+
+  .file {
+    position: relative;
+    background: linear-gradient(to right, lightblue 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition:all 1s ease;
+ }
+  .file.done {
+    background: lightgreen;
+ }
+  .file a {
+    display: block;
+    position: relative;
+    padding: 5px;
+    color: black;
+ }
    
 
   

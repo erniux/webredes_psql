@@ -22,7 +22,12 @@
 //= require gritter
 //= require cocoon
 //= require daterangepicker
+//= require dropzone
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
 //= require_tree .
+
+ 
 
  
 

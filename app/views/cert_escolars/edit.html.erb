@@ -154,8 +154,30 @@
 
       <span class="agregar-evidencias">
         <% if logged_in?(:escuela) && (@cert_escolar.sin_avance? || @cert_escolar.comentarios? || @cert_escolar.desarrollo?)  %>
-             <p><%= form.file_field :evidencias, multiple: true, class: "cuadrado-archivos"   if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %></p>
-              <button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_evidencias').click();">Adjuntar archivos </button> 
+        <p><%= form.file_field :evidencias, multiple: true %></p>
+             <p><button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_evidencias').click();">  Adjuntar archivos  </button>
+          
+        <!-- Inicio de prueba dropzone 
+        <div class="dropzone dropzone-default dz-clickable" data-controller="dropzone" data-max-file-size="2" data-dropzone-max-files="1">
+           
+          <div class="dropzone-msg dz-message needsclick text-gray-600">
+            <h3 class="dropzone-msg-title">Drag here to upload or click here to browse</h3>
+            <span class="dropzone-msg-desc text-sm">2MB file size maximum. Allow file types png, jpg.</span>         
+        </div>
+        Fin prueba dropzone -->
+
+         
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>
+
+
+
+
         <% end %>
       </span>
     </div> <hr>
@@ -191,8 +213,7 @@
           <% if @cert_escolar.revision? %>
           <p><%= form.file_field :revisiones, multiple: true %></p>
              <p><button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_revisiones').click();">  Adjuntar archivos  </button>
-             <p><span class="file_name"></span></p>
-               <%= form.file_field :revisiones, multiple: true, class: "form-control btn btn-large btn-warning btn-file"  %>
+             
                 
           <% end %>     
         <% end %>
@@ -201,9 +222,5 @@
  <% end %>
 </div>
 
-
-  <script>
-  $(document).on('click', '.new_evidencias #cert_escolar_evidencias', function() {
-  return $('#file_name').html($('#cert_escolar_evidencias').val().replace(/^.*[\\\/]/, ''));
-});
-  </script>
+ 
+ 

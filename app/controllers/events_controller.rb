@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  access escuela: [:show, :index], cert_site_admin: [:index, :create, :update, :destroy], 
-         certificador: [:index, :create, :update, :destroy]
+  access escuela: [:show, :index], cert_site_admin: :all, certificador: :all
 
   def index
     @events = Event.all
