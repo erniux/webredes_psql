@@ -155,7 +155,7 @@
       <span class="agregar-evidencias">
         <% if logged_in?(:escuela) && (@cert_escolar.sin_avance? || @cert_escolar.comentarios? || @cert_escolar.desarrollo?)  %>
              <p><%= form.file_field :evidencias, multiple: true, class: "cuadrado-archivos"   if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %></p>
-             <button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_evidencias').click();">Adjuntar archivos </button> 
+             <button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_evidencias').click();">Adjuntar archivos </button>
         <% end %>
       </span>
     </div> <hr>
@@ -191,7 +191,8 @@
           <% if @cert_escolar.revision? %>
           <p><%= form.file_field :revisiones, multiple: true %></p>
              <p><button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_revisiones').click();">  Adjuntar archivos  </button>
-             
+             <p><span class="file_name"></span></p>
+               <%= form.file_field :revisiones, multiple: true, class: "form-control btn btn-large btn-warning btn-file"  %>
                 
           <% end %>     
         <% end %>
@@ -199,6 +200,13 @@
   </div> 
  <% end %>
 </div>
+
+
+  <script>
+  $(document).on('click', '.new_evidencias #cert_escolar_evidencias', function() {
+  return $('#file_name').html($('#cert_escolar_evidencias').val().replace(/^.*[\\\/]/, ''));
+});
+  </script>
 
  
  
