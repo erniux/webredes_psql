@@ -68,4 +68,7 @@ gem 'jquery-turbolinks'
 gem 'simple_calendar', '~> 2.3'
 gem 'fullcalendar-rails', '~> 3.9'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
-
+gem 'rack-cors', :require => 'rack/cors'
+gem 'dropzonejs-rails', '~> 0.8.4'
+gem 'jquery-fileupload-rails'
+ 

@@ -61,7 +61,7 @@ def update
     end
 
     def event_params
-      params.require(:event).permit(:id, :titulo, :detalle, :lugar, :start, :end, :imagen, :user_id, :slug, :color)
+      params.require(:event).permit(:id, :titulo, :detalle, :lugar, :start, :end, :imagen, :user_id, :slug, :color, :foto)
     end
 end
 

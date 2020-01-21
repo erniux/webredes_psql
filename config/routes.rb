@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     delete :delete_upload_attachment
     delete :delete_upload_revisiones
   end
+
+  #resources :media_contents, only: [:create]
+  #delete 'delete_media', to: "media_contents#delete_media"
+  #delete 'delete_all', to: 'media_contents#delete_all'
   
   resources :procesos
   resources :acercade_certificates
@@ -44,6 +48,6 @@ Rails.application.routes.draw do
 
   post "contactos/new"
   
-  root  'paginas#reconocimientos'  
+  root  'paginas#reconocimientos' 
   
 end

@@ -8,7 +8,9 @@
 @import "tablas.scss";
 @import "simple_calendar";
 @import "calendario";
+ 
 
+  
 @font-face {
   font-family: 'Myriad Pro Regular'; 
   font-style: normal;
@@ -44,8 +46,6 @@ body {
     width: 100%
     }
   } 
-
-   
 
 .navbar {
   margin-bottom: 0;
@@ -422,8 +422,6 @@ div#body-cert {
   padding: 1rem 1rem;
   text-align: center;
   margin-top: 10px;
-   
-  
 }
 
  .letra-blanca {
@@ -432,8 +430,17 @@ div#body-cert {
 
 .modal-dialog {
   position: relative;
-width: auto;
-margin: 20rem 39rem;
+  width: auto;
+  margin: 20rem 39rem;
 }
 
- 
+.modal-header {
+  margin-left: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  height: 100%;
+}
+
+.modal-header .close {
+  margin-top: -70px;
+  margin-right: 10px;
+} 

@@ -10,12 +10,11 @@ module CertRoutes
     	   cert_escolars_path
     	elsif current_user.has_role?(:certificador)
     	   certificador_dashboard_path
-    	else
-    	  root_path
-    	end
+		end
+		 
     end
 
     def after_sign_out_path_for(resource)
-  		root_path
+  		root_url
   	end
 end
