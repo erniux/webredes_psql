@@ -1,6 +1,3 @@
-$('#form-modal-title').html("Crear Evento");
+$('#form-modal-title').html("<h2><%= @event.titulo %></h2><p><%= @event.start.strftime('%d/%m/%Y %H:%M') %> - <%= @event.end.strftime('%d/%m/%Y %H:%M') %> </p>");
 $('#form-modal-body').html('<%= j render("show" ) %>');
 $('#form-modal').modal('show');
-$('#form-modal-save-btn').click(function() {
-	$('#new_tipo_montaje').submit();
-});

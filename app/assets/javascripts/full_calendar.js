@@ -15,6 +15,10 @@ initialize_calendar = function() {
         week: 'dddd, MMM dS', // Monday 9/7
         day: 'dddd, MMM dS'  // Monday 9/7
       },
+
+      contentHeight: 550,
+      fixedWeekCount: false,
+      handleWindowResize: true,
       displayEventTime: false,
       selectable: true,
       selectHelper: true,
@@ -43,19 +47,21 @@ initialize_calendar = function() {
         });
       },
 
-      eventClick: function(event, jsEvent, view) {
+      eventClick: function(event, element, view) {
         $.getScript(event.edit_url, function() { });
       },
 
-      eventMouseover: function(event, jsEvent, view) {
-           alert(event.title);
-           $("tooltip").append($("<h2>HOLA MUNDO</h2>"))
+      eventdblClick: function(event, element, view) {
+        $.getScript(event.show_url, function() { });
+            //$("#startTime").html(moment(event.start).format('MMM Do h:mm A'));
+            //$("#endTime").html(moment(event.end).format('MMM Do h:mm A'));
+            //$("#eventInfo").html(event.detalle);
+            //$("#eventLink").attr('href', event.show_url);
+            //$("#image").html(event.foto);
+            //$("#eventContent").dialog({ modal: true, title: event.title, width:350});
       }
- 
-
       
     });
   })
 };
 $(document).on('turbolinks:load', initialize_calendar);
-
