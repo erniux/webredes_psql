@@ -13,7 +13,6 @@
 //= require jquery
 //= require rails-ujs
 //= require jquery-ui
-//= require turbolinks
 //= require bootstrap-sprockets 
 //= require moment 
 //= require fullcalendar
@@ -22,9 +21,7 @@
 //= require gritter
 //= require cocoon
 //= require daterangepicker
-//= require dropzone
-//= require jquery-fileupload/basic
-//= require jquery-fileupload/vendor/tmpl
+//= require turbolinks
 //= require_tree .
 
  

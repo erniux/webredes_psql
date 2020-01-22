@@ -1,5 +1,5 @@
 <div class="container">
-	<%= form_with(model: @cert_escolar, local: true) do |form| %>
+	<%= form_for(@cert_escolar, html: { multipart: true} ) do |form| %>
     <% if @cert_escolar.errors.any? %>
         <% @cert_escolar.errors.full_messages.each do |message| %>
           <%= js add_gritter(message, title: "Aviso", sticky: false) %>
@@ -128,7 +128,8 @@
         <% @cert_escolar.evidencias.each do |upload| %>
           <div class="row">
             <div class="col-md-9">
-              <%= link_to upload.filename, upload, target: '_blank' %> <br/>
+              <% nombre_archivo = upload.filename.to_s  %>
+              <%= link_to nombre_archivo.truncate(25), upload, target: '_blank' %> <br/>
             </div>
             <div class="col-md-1">
             <% if logged_in?(:escuela) %>
@@ -151,11 +152,28 @@
       <% else %>
         <small>Sin evidencias</small>
       <% end %>
-
       <span class="agregar-evidencias">
         <% if logged_in?(:escuela) && (@cert_escolar.sin_avance? || @cert_escolar.comentarios? || @cert_escolar.desarrollo?)  %>
-             <p><%= form.file_field :evidencias, multiple: true, class: "cuadrado-archivos"   if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %></p>
-             <button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_evidencias').click();">Adjuntar archivos </button>
+             <!-- 
+             <p><%= form.file_field :evidencias, multiple: true   if (@cert_escolar.desarrollo? || @cert_escolar.sin_avance? || @cert_escolar.comentarios?) %></p>
+             <button type="button"   onclick="document.getElementById('cert_escolar_evidencias').click();">Adjuntar archivos </button>
+            --> 
+<!-- cambiando el estilo con boostrap -->
+ 
+            <div class="input-group">
+                <label class="input-group-btn">
+                    <span class="btn btn-adjuntar-archivos">
+                        Adjuntar archivos<%= form.file_field :evidencias, multiple: true %>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly>
+            </div>
+
+<!-- fin boostrap -->
+
+
+          
+
         <% end %>
       </span>
     </div> <hr>
@@ -166,7 +184,9 @@
         <% @cert_escolar.revisiones.each do |upload| %>
           <div class="row">
             <div class="col-md-9">
-              <%= link_to upload.filename, upload, target: '_blank' %> <br/>
+            <% nombre_archivo = upload.filename.to_s  %>
+              <%= link_to nombre_archivo.truncate(20), upload, target: '_blank' %> <br/>
+               
             </div>
             <div class="col-md-1">
             <% if logged_in?(:certificador, :cert_site_admin) %>
@@ -189,11 +209,25 @@
       <span class="agregar-evidencias">
         <% if logged_in?(:certificador, :cert_site_admin) %>
           <% if @cert_escolar.revision? %>
+          <!-- 
           <p><%= form.file_field :revisiones, multiple: true %></p>
              <p><button type="button" class="cuadrado-archivos" onclick="document.getElementById('cert_escolar_revisiones').click();">  Adjuntar archivos  </button>
              <p><span class="file_name"></span></p>
                <%= form.file_field :revisiones, multiple: true, class: "form-control btn btn-large btn-warning btn-file"  %>
-                
+              -->
+
+              <!-- cambiando el estilo con boostrap -->
+              <p></p>
+              <div class="input-group">
+                <label class="input-group-btn">
+                    <span class="btn btn-adjuntar-archivos">
+                        Adjuntar archivos<%= form.file_field :revisiones, multiple: true %>
+                    </span>
+                </label>
+                <input type="text" class="form-control" readonly>
+              </div>
+
+            <!-- fin boostrap -->  
           <% end %>     
         <% end %>
       </span>
@@ -201,12 +235,39 @@
  <% end %>
 </div>
 
-
+ 
   <script>
-  $(document).on('click', '.new_evidencias #cert_escolar_evidencias', function() {
-  return $('#file_name').html($('#cert_escolar_evidencias').val().replace(/^.*[\\\/]/, ''));
+    $(function() {
+
+  // We can attach the `fileselect` event to all file inputs on the page
+  $(document).on('change', ':file', function() {
+    var input = $(this),
+        numFiles = input.get(0).files ? input.get(0).files.length : 1,
+        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+  });
+
+  // We can watch for our custom `fileselect` event like this
+  $(document).ready( function() {
+      $(':file').on('fileselect', function(event, numFiles, label) {
+
+          var input = $(this).parents('.input-group').find(':text'),
+              log = numFiles > 1 ? numFiles + ' archivos a cargar' : label;
+
+          if( input.length ) {
+              input.val(log);
+          } else {
+              if( log ) alert(log);
+          }
+
+      });
+  });
+  
 });
+        
   </script>
+
+  
 
  
  
