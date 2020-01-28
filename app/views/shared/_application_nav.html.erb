@@ -21,11 +21,12 @@
           <li class="item-rojo">
             <a class="dropdown-toggle bienvenido-nav" data-toggle="dropdown" href="#"><%= current_user.nombre %></a>
             <ul class="dropdown-menu">
+            <li class="texto-sidebar"><%= link_to 'Avisos', avisos_path %></li>
+	          <li class="texto-sidebar"><%= link_to 'Calendario', events_path %></li>
               <% if current_user.has_role?(:certificador, :cert_site_admin, :escuela) %>
               <%= render 'shared/menu_certificador' %>
             <% end %>
-            <li class="texto-sidebar"><%= link_to 'Avisos', avisos_path %></li>
-	          <li class="texto-sidebar"><%= link_to 'Calendario', events_path %></li>
+            
             <li><%= link_to "Salir", destroy_user_session_path, method: :delete, class: "active" %></li>
           </ul>
         </li>

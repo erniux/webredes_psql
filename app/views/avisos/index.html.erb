@@ -14,6 +14,7 @@
 <table class="tabla-avisos">
   <thead>
     <tr>
+      <th>Fecha</th>
       <th>Título</th>
       <th>Circular</th>
       <% if logged_in?(:cert_site_admin, :certificador) %>
@@ -24,6 +25,7 @@
   <tbody>
   <% @avisos.each do |aviso| %>
     <tr>
+    <td class="aviso-titulo-archivo"><%= aviso.created_at.strftime("%d/%m/%Y") %></td>
       <td class="aviso-titulo-archivo"><%= aviso.titulo %></td>
          <% if aviso.archivo.attached? %>
             <td><span class="fa-2x"><%= fa_icon "file-pdf-o", style: "color: #ED1C24" %></span>&nbsp;<%= link_to aviso.archivo.filename, aviso.archivo, target: '_blank'%></td>

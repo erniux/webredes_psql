@@ -1,5 +1,5 @@
 <div class="container-fluid-crud">
-  <h2><%= image_tag "manzana.jpg", width: 100 %> Actualizar Registro Socios</h2>
+  <h2><%= image_tag "manzana.jpg", width: 100 %> Actualizar Registro Usuarios</h2>
   
      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
      <%= render "devise/shared/error_messages", resource: resource %>
@@ -19,36 +19,32 @@
 
 
           <div class="field">
-            <%= f.label :contraseña %> <i>(dejar vacio si no se actualiza la constraseña)</i><br />
+            <%= f.label 'Nueva Contraseña' %> &nbsp;<i>(dejar vacio si no se actualiza la constraseña)</i><br />
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-            <% if @minimum_password_length %>
-              <br />
-              <em>mínimo <%= @minimum_password_length %> caracteres</em>
-            <% end %>
           </div>
 
           <div class="field">
             <%= f.label :confirmar_contraseña %><br />
             <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+            <% if @minimum_password_length %>
+              <em>mínimo <%= @minimum_password_length %> caracteres</em>
+            <% end %>
           </div>
 
           <div class="field">
-            <%= f.label :contraseña_actual %> <i>(se requiere la contraseña actual par guardar los cambios)</i><br />
+            <%= f.label :contraseña_actual %>&nbsp; <i>(se requiere la contraseña actual par guardar los cambios)</i><br />
             <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
           </div>
 
-           
+           <br>
                 <div class="actions">
                   <%= f.submit "Enviar", class: "btn btn-primary" %>
-                  <%= render "devise/shared/links" %>
-                  <%= link_to "Regresar", root_path, class: 'btn btn-info', size: 20 %>
+                  <%= link_to "Cancelar", root_path, class: 'btn btn-info', size: 20 %>
                 </div>
           <% end %>
           </div>
         </div>
-
-          <p><%= button_to "Cancelar Cuenta", registration_path(resource_name),
-                 data: { confirm: "¿Confirma Cancelación?" }, method: :delete, class: "btn btn-danger" %></p>
+          
       </div>
     </div>
   </div>

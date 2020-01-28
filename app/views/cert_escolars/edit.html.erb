@@ -163,7 +163,7 @@
             <div class="input-group">
                 <label class="input-group-btn">
                     <span class="btn btn-adjuntar-archivos">
-                        Adjuntar archivos<%= form.file_field :evidencias, multiple: true %>
+                        Adjuntar archivos<%= form.file_field :evidencias, multiple: true, direct_upload: true %>
                     </span>
                 </label>
                 <input type="text" class="form-control" readonly>
@@ -221,7 +221,7 @@
               <div class="input-group">
                 <label class="input-group-btn">
                     <span class="btn btn-adjuntar-archivos">
-                        Adjuntar archivos<%= form.file_field :revisiones, multiple: true %>
+                        Adjuntar archivos<%= form.file_field :revisiones, multiple: true, direct_upload: true %>
                     </span>
                 </label>
                 <input type="text" class="form-control" readonly>

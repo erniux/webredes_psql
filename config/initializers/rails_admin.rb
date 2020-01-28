@@ -153,7 +153,6 @@ RailsAdmin.config do |config|
     
     list do
       sort_by  'proceso_id ASC,  estandar_etapa_certificacions.num_etapa ASC,  estandar_etapa_certificacions.num_estandar ASC, estandar_etapa_certificacions.id'
-       
       field :proceso_id do
         label 'Proceso'
         def value
@@ -170,6 +169,7 @@ RailsAdmin.config do |config|
       field :titulo
       field :puntaje_total
     end
+
     edit do
       field :proceso_id do
         label 'periodo/paso'
