@@ -13,7 +13,7 @@
       <br>
       <div class="row">
       <%= link_to  'javascript:history.back()' do  %>
-         
+       
          <%= fa_stacked_icon "undo inverse", base: "circle", class: "fa-2x", style: "color: #ED1C24; margin-left: 20px" %>
         <% end %>
     </div>
@@ -166,7 +166,7 @@
             <div class="input-group">
                 <label class="input-group-btn">
                     <span class="btn btn-adjuntar-archivos">
-                        Adjuntar archivos<%= form.file_field :evidencias, multiple: true, direct_upload: true %>
+                        Adjuntar archivos<%= form.file_field :evidencias, multiple: true %>
                     </span>
                 </label>
                 <input type="text" class="form-control" readonly>
@@ -224,7 +224,7 @@
               <div class="input-group">
                 <label class="input-group-btn">
                     <span class="btn btn-adjuntar-archivos">
-                        Adjuntar archivos<%= form.file_field :revisiones, multiple: true, direct_upload: true %>
+                        Adjuntar archivos<%= form.file_field :revisiones, multiple: true %>
                     </span>
                 </label>
                 <input type="text" class="form-control" readonly>

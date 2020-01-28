@@ -2,7 +2,11 @@
   <h2><%= image_tag "manzana.jpg", width: 100 %> Actualizar Registro Usuarios</h2>
   
      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-     <%= render "devise/shared/error_messages", resource: resource %>
+     <% if resource.errors.any? %>
+        <% resource.errors.full_messages.each do |message| %>
+          <%= js add_gritter(message, title: "Aviso", sticky: false) %>
+        <% end %>
+    <% end %>
      <div class="row">
         <div class="col-sm-4 form-group">
           <h2>Datos Usuario</h2>
@@ -19,7 +23,7 @@
 
 
           <div class="field">
-            <%= f.label 'Nueva Contraseña' %> &nbsp;<i>(dejar vacio si no se actualiza la constraseña)</i><br />
+            <%= f.label 'Nueva Contraseña' %> &nbsp;<br />
             <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
           </div>
 
@@ -32,7 +36,7 @@
           </div>
 
           <div class="field">
-            <%= f.label :contraseña_actual %>&nbsp; <i>(se requiere la contraseña actual par guardar los cambios)</i><br />
+            <%= f.label :contraseña_actual %>&nbsp; <br />
             <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
           </div>
 
