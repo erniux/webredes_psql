@@ -50,8 +50,17 @@ class CertEscolarsController < ApplicationController
   def update
     respond_to do |format|
       if (cert_escolar_params[:puntaje].to_i <= @cert_escolar.puntos_objetivo) 
+        
+         
+         
         if @cert_escolar.update(cert_escolar_params)
           format.html { redirect_to edit_cert_escolar_url, notice: 'Registro actualizado con éxito.' }
+          nombre_archivo = ''
+          @cert_escolar.evidencias.each do |upload| 
+            nombre_archivo = nombre_archivo + upload.filename.to_s + '|'
+          end
+          AuditLog.create!(status: @cert_escolar.status,  user_id: current_user.id, comentarios: nombre_archivo, escuela_id: @cert_escolar.escuela_id, paso: @cert_escolar.paso, estandar: @cert_escolar.estandar, puntaje: @cert_escolar.puntaje)
+
         else
           format.html { render :edit }
           #redirect_to edit_cert_escolar_url
@@ -102,7 +111,9 @@ end #metodo
 
   def delete_upload_attachment
     @cert_escolar=CertEscolar.find(params[:cert_escolar_id])
+    AuditLog.create!(status: @cert_escolar.status,  user_id: current_user.id, comentarios: 'Archivo eliminado ' + @cert_escolar.evidencias.find_by_id(params[:evidencias_id]).filename.to_s, escuela_id: @cert_escolar.escuela_id, paso: @cert_escolar.paso, estandar: @cert_escolar.estandar, puntaje: @cert_escolar.puntaje)
     @cert_escolar.evidencias.find_by_id(params[:evidencias_id]).purge
+    
     redirect_back(fallback_location: request.referer)
   end
 

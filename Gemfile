@@ -71,4 +71,5 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'dropzonejs-rails', '~> 0.8.4'
 gem 'jquery-fileupload-rails'
+gem 'paper_trail', '~> 10.3', '>= 10.3.1'
  

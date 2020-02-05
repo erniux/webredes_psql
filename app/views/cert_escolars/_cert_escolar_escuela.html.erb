@@ -8,7 +8,7 @@
               <a role="button" data-toggle="collapse" 
                                data-parent="#accordion" 
                                href="#collapse<%= proceso.proceso %>" 
-                               aria-expanded="true" 
+                              aria-expanded="true" 
                                aria-controls="collapseOne">
                     <h4><%= proceso.proceso %></h4>
                  </a>
@@ -17,7 +17,7 @@
         </div>
       </div>
    <% end %>
-   <div class="collapse" id="<%= "collapse#{proceso.proceso}" %>">
+   <div class="collapse" id="<%= "collapse#{proceso.proceso}" %>" aria-expanded = "true">
     <div class="panel-body">
       <section class="titulo-cert-escolar">
         <div class="col-md-3 titulo">Estándar</div>

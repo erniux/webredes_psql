@@ -2,7 +2,7 @@ RailsAdmin.config do |config|
   
   config.main_app_name = Proc.new { |controller| [ "Escuelas seguras", "" ] }
   config.included_models = [ "Certificador", "Escuela", "EtapaCertificacion", "EstandarEtapaCertificacion", 
-                             "PuntosEstandar",   "User", "Proceso", "ProcesoCertificacion"]
+                             "PuntosEstandar",   "User", "Proceso", "ProcesoCertificacion", "AuditLog"]
 
   ## == Devise ==
 
@@ -39,6 +39,24 @@ RailsAdmin.config do |config|
     visible false
   end
 
+  config.model "AuditLog" do
+    label 'Pistas de Auditoria'
+
+    list do
+      field :user do
+        label "Usuario"
+      end
+      field :paso
+      field :estandar
+      field :puntaje
+      field :status
+      field :escuela_id
+      field :comentarios do
+        label "Evidencias"
+      end
+    end
+  end  
+
   config.model 'User' do
     label 'Usuario'
     label_plural 'usuarios'
@@ -57,6 +75,50 @@ RailsAdmin.config do |config|
       field :roles do
         label "Perfil de usuario"
       end
+    end
+
+    show do
+      field :email do
+        label "Correo"
+      end
+
+      field :appaterno do
+        label "Apellido Paterno"
+      end
+
+      field :sign_in_count do
+        label "no. ingresos al sistema"
+      end
+
+      field :current_sign_in_at do
+        label "Ingreso actual"
+      end
+
+      field :last_sign_in_at do
+        label "Último ingreso"
+      end
+
+      field :current_sign_in_ip do
+        label "IP de ingreso actual"
+      end
+
+      field :last_sign_in_ip do
+        label "IP de último ingreso"
+      end
+
+      field :created_at do
+        label "Fecha creación usuario"
+      end
+
+      field :updated_at do
+        label "Fecha actualización usuario"
+      end
+
+      field :roles do
+        label "Perfil de usuario"
+      end
+      
+
     end
 
     edit do
