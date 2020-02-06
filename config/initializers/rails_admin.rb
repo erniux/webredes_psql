@@ -50,7 +50,16 @@ RailsAdmin.config do |config|
       field :estandar
       field :puntaje
       field :status
-      field :escuela_id
+      field :escuela_id do
+        def value
+          bindings[:object].nombre_escuela 
+        end
+      end
+
+      field :created_at do
+        label "Fecha y hora del movimiento"
+      end
+
       field :comentarios do
         label "Evidencias"
       end

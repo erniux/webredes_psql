@@ -59,7 +59,7 @@ class CertEscolarsController < ApplicationController
           @cert_escolar.evidencias.each do |upload| 
             nombre_archivo = nombre_archivo + upload.filename.to_s + '|'
           end
-          AuditLog.create!(status: @cert_escolar.status,  user_id: current_user.id, comentarios: nombre_archivo, escuela_id: @cert_escolar.escuela_id, paso: @cert_escolar.paso, estandar: @cert_escolar.estandar, puntaje: @cert_escolar.puntaje)
+          AuditLog.create!(status: @cert_escolar.status,  user_id: current_user.id, comentarios: 'Actualizacion de registro ' + nombre_archivo, escuela_id: @cert_escolar.escuela_id, paso: @cert_escolar.paso, estandar: @cert_escolar.estandar, puntaje: @cert_escolar.puntaje)
 
         else
           format.html { render :edit }
