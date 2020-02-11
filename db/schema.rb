@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_173315) do
+ActiveRecord::Schema.define(version: 2020_02_11_023251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -270,6 +270,7 @@ ActiveRecord::Schema.define(version: 2020_01_30_173315) do
     t.bigint "proceso_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "estatus", default: false
     t.index ["escuela_id"], name: "index_proceso_certificacions_on_escuela_id"
     t.index ["proceso_id"], name: "index_proceso_certificacions_on_proceso_id"
   end

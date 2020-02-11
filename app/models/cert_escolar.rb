@@ -1,16 +1,12 @@
 class CertEscolar < ApplicationRecord
-
   include PgSearch::Model
   
-
   #belongs_to :proceso_certificacion
   belongs_to :escuela
 	has_many_attached :evidencias
   has_many_attached :revisiones
 
   enum status: {sin_avance: 0, desarrollo: 1, revision: 2, comentarios: 3, cumplido: 4}
-
-  
 
   before_update do |proceso| 
   	validates_presence_of :observaciones
@@ -67,11 +63,23 @@ end
 	def puntos_objetivo
 		puntos_totales_estandar = EstandarEtapaCertificacion.find_by(num_etapa: self.paso, num_estandar: self.estandar).puntaje_total 
 		return puntos_totales_estandar
-	end  
+  end  
+  
+  def estandars_cumplidos
+    estandares_cumplidos = CertEscolar.all
+  end
 
   def nombre_escuela
     nombre_escuela = Escuela.where(id: self.escuela_id).first.nombre
-  end					
+  end			
+  
+  def proceso_certificacion_estatus
+    estatus = ProcesoCertificacion.where(id: self.proceso_certificacion_id).first.estatus
+  end
+
+  def total_estandares
+     
+  end
 
 end
 

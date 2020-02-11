@@ -59,7 +59,6 @@ before_action :set_escuela, only: [:show, :edit, :update, :destroy]
       @escuela = Escuela.find(params[:id])
     end
 
-
 	def escuela_params
     params.require(:escuela).permit( :id,  :nombre, :razon_social, :rfc, :calle, :numero, :colonia, 
       :municipio, :delegacion, :ciudad, :estado, :cp, :correo, :telefono_oficina, :sector, 

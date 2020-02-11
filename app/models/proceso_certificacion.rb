@@ -8,6 +8,7 @@ class ProcesoCertificacion < ApplicationRecord
 
 	validates_uniqueness_of :escuela_id, :scope => :proceso_id
 
+
 	after_create do |proceso|
   	estandares = EstandarEtapaCertificacion.where(proceso_id: proceso_id)
   	proceso_str = Proceso.where(id: proceso_id).first.periodo
@@ -31,3 +32,6 @@ class ProcesoCertificacion < ApplicationRecord
     end   
 
 end
+
+
+ 
