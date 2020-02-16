@@ -35,10 +35,6 @@ RailsAdmin.config do |config|
     visible false
   end
 
-  config.model "ProcesoCertificacion" do
-    visible false
-  end
-
   config.model "AuditLog" do
     label 'Pistas de Auditoria'
 
@@ -305,10 +301,28 @@ RailsAdmin.config do |config|
     object_label_method do
       :proceso_periodo
     end
-    label 'Proceso'
+    label 'Procesos Certificados'
+    list do
+      field :escuela_id do
+        def value
+          bindings[:object].nombre_escuela 
+        end
+      end
+      field :proceso_id do
+        def value
+          bindings[:object].proceso_periodo
+        end
+      end
+      field :estatus
+    end
+
     edit do
       field :proceso_id do
        partial 'proceso_certificacion_escuela'
+     end
+
+     field :estatus do
+      label "Cumplido"
      end
     end
   end

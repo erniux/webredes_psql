@@ -7,11 +7,12 @@ class CertEscolar < ApplicationRecord
   has_many_attached :revisiones
 
   enum status: {sin_avance: 0, desarrollo: 1, revision: 2, comentarios: 3, cumplido: 4}
-
+ 
   before_update do |proceso| 
   	validates_presence_of :observaciones
     validates_numericality_of :puntaje, greater_than_or_equal_to: 0, message: "Puntaje debe ser numérico" 
     
+
     if proceso.status == 'comentarios' 
       if !proceso.revisiones.attached?
         raise ActiveRecord::Rollback
@@ -41,10 +42,11 @@ class CertEscolar < ApplicationRecord
         proceso.save!
       end
     end 
-end
 
-
-  pg_search_scope :search_by_full_escuela, associated_against: { escuela: [ :nombre, :razon_social] }, 
+    
+  end
+  
+pg_search_scope :search_by_full_escuela, associated_against: { escuela: [ :nombre, :razon_social] }, 
   					using:   {tsearch: { prefix: true }},
   					order_within_rank: " paso ASC,  estandar ASC"
 
@@ -64,10 +66,6 @@ end
 		puntos_totales_estandar = EstandarEtapaCertificacion.find_by(num_etapa: self.paso, num_estandar: self.estandar).puntaje_total 
 		return puntos_totales_estandar
   end  
-  
-  def estandars_cumplidos
-    estandares_cumplidos = CertEscolar.all
-  end
 
   def nombre_escuela
     nombre_escuela = Escuela.where(id: self.escuela_id).first.nombre
@@ -77,8 +75,15 @@ end
     estatus = ProcesoCertificacion.where(id: self.proceso_certificacion_id).first.estatus
   end
 
-  def total_estandares
-     
+  def total_estandares_certificacion
+    proceso = self.first.proceso
+    proceso_id = Proceso.where(periodo: proceso).first.id
+    @total_estandares_proceso = EstandarEtapaCertificacion.where(proceso_id: proceso_id).count
+
+  end
+
+  def total_estandares_cumplidos(proceso, escudela)
+    @total_estandares_cumplidos = CertEscolar.where(proceso_certificacion_id: proceso, escuela_id: escuela, estatus: 'cumplido').count
   end
 
 end
