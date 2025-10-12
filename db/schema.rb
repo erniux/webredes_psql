@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_11_023251) do
+ActiveRecord::Schema.define(version: 2025_10_11_211048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,13 +125,10 @@ ActiveRecord::Schema.define(version: 2020_02_11_023251) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
-    t.integer "puntaje"
+    t.float "puntaje"
     t.bigint "certificador_id"
     t.bigint "escuela_id"
-    t.string "proceso"
-    t.bigint "proceso_certificacion_id"
     t.index ["escuela_id"], name: "index_cert_escolars_on_escuela_id"
-    t.index ["proceso_certificacion_id"], name: "index_cert_escolars_on_proceso_certificacion_id"
   end
 
   create_table "certificadors", force: :cascade do |t|
@@ -198,32 +195,27 @@ ActiveRecord::Schema.define(version: 2020_02_11_023251) do
     t.bigint "etapa_certificacion_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "puntaje"
-    t.text "evidencias"
     t.integer "puntaje_total"
-    t.integer "num_estandar"
-    t.integer "num_etapa"
-    t.bigint "proceso_id"
+    t.integer "estandar_id"
+    t.integer "etapa_id"
     t.index ["etapa_certificacion_id"], name: "index_estandar_etapa_certificacions_on_etapa_certificacion_id"
-    t.index ["proceso_id"], name: "index_estandar_etapa_certificacions_on_proceso_id"
   end
 
-  create_table "etapa_certificacions", id: :bigint, default: -> { "nextval('paso_certificacions_id_seq'::regclass)" }, force: :cascade do |t|
+  create_table "etapa_certificacions", force: :cascade do |t|
     t.text "nombre"
     t.text "descripcion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "num_paso"
-    t.bigint "proceso_id"
-    t.index ["proceso_id"], name: "index_etapa_certificacions_on_proceso_id"
+    t.string "etapa"
+    t.integer "num_etapa"
   end
 
-  create_table "events", id: :bigint, default: -> { "nextval('eventos_id_seq'::regclass)" }, force: :cascade do |t|
+  create_table "eventos", force: :cascade do |t|
     t.string "titulo"
     t.string "detalle"
     t.string "lugar"
-    t.datetime "start"
-    t.datetime "end"
+    t.datetime "fecha_inicio"
+    t.datetime "fecha_fin"
     t.string "expositor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -231,7 +223,6 @@ ActiveRecord::Schema.define(version: 2020_02_11_023251) do
     t.bigint "user_id"
     t.string "slug"
     t.binary "imagen_2"
-    t.string "color"
     t.index ["slug"], name: "index_eventos_on_slug", unique: true
     t.index ["user_id"], name: "index_eventos_on_user_id"
   end
@@ -265,24 +256,6 @@ ActiveRecord::Schema.define(version: 2020_02_11_023251) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "proceso_certificacions", force: :cascade do |t|
-    t.bigint "escuela_id"
-    t.bigint "proceso_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "estatus", default: false
-    t.index ["escuela_id"], name: "index_proceso_certificacions_on_escuela_id"
-    t.index ["proceso_id"], name: "index_proceso_certificacions_on_proceso_id"
-  end
-
-  create_table "procesos", force: :cascade do |t|
-    t.string "periodo"
-    t.integer "estatus"
-    t.string "titulo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "puntos_estandars", force: :cascade do |t|
     t.integer "paso"
     t.integer "estandar"
@@ -312,13 +285,11 @@ ActiveRecord::Schema.define(version: 2020_02_11_023251) do
     t.index ["user_id"], name: "index_recursos_on_user_id"
   end
 
-  create_table "servicios", force: :cascade do |t|
-    t.string "nombre"
-    t.text "caracteristicas"
+  create_table "room_messages", force: :cascade do |t|
+    t.bigint "room"
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_servicios_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -345,33 +316,17 @@ ActiveRecord::Schema.define(version: 2020_02_11_023251) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "versions", force: :cascade do |t|
-    t.string "item_type", null: false
-    t.bigint "item_id", null: false
-    t.string "event", null: false
-    t.string "whodunnit"
-    t.text "object"
-    t.datetime "created_at"
-    t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
-  end
-
   add_foreign_key "acercades", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "audit_logs", "users"
   add_foreign_key "avisos", "users"
   add_foreign_key "cert_escolars", "escuelas"
-  add_foreign_key "cert_escolars", "proceso_certificacions"
   add_foreign_key "escuelas", "certificadors"
   add_foreign_key "estandar_etapa_certificacions", "etapa_certificacions"
-  add_foreign_key "estandar_etapa_certificacions", "procesos"
-  add_foreign_key "etapa_certificacions", "procesos"
-  add_foreign_key "events", "users"
+  add_foreign_key "eventos", "users"
   add_foreign_key "precios", "users"
-  add_foreign_key "proceso_certificacions", "escuelas"
-  add_foreign_key "proceso_certificacions", "procesos"
   add_foreign_key "puntos_estandars", "estandar_etapa_certificacions"
   add_foreign_key "puntos_estandars", "etapa_certificacions"
   add_foreign_key "recursos", "users"
-  add_foreign_key "servicios", "users"
   add_foreign_key "users", "escuelas"
 end

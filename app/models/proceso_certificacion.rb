@@ -2,8 +2,12 @@ class ProcesoCertificacion < ApplicationRecord
   #has_many :cert_escolars
   #belongs_to :escuela
 
+  belongs_to :escuela, optional: true
+  belongs_to :proceso, optional: true
+
 	def proceso_periodo
-		proceso = Proceso.where(id: self.proceso_id).first.periodo
+		#proceso = Proceso.where(id: self.proceso_id).first.periodo
+    proceso&.periodo.to_s
 	end
 
 	validates_uniqueness_of :escuela_id, :scope => :proceso_id

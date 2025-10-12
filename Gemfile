@@ -1,21 +1,25 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
-ruby '2.5.2'
+ruby '2.6.6'
+gem 'rails', '~> 5.2.3'
+gem 'logger'
+
 #gem 'rails', '~> 5.2.2'
-gem "activerecord"
-gem "activestorage"
-gem "activemodel"
-#gem "actionpack"
-gem "actionview"
-gem "actionmailer"
-gem "activejob"
-gem "activesupport"
-gem "railties"
-gem "sprockets-rails"
+#gem "activerecord"
+#gem "activestorage"
+#gem "activemodel"
+##gem "actionpack"
+#gem "actionview"
+#gem "actionmailer"
+#gem "activejob"
+#gem "activesupport"
+#gem "railties"
+#gem "sprockets-rails"
 
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
+gem 'sassc', '~> 2.4.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'

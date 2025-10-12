@@ -19,3 +19,6 @@
 local_env.yml
 # Ignore application configuration
 /config/application.yml
+/config/credentials/*.key
+/config/database.yml
+

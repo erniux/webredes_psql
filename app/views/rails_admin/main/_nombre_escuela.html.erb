@@ -1,3 +1,5 @@
-<%= form.collection_select :escuela_id, Escuela.order(:nombre),:id,:nombre, include_blank: true %>
-
- 
+<% if defined?(form) && Escuela.any? %>
+  <%= form.collection_select :escuela_id, Escuela.order(:nombre), :id, :nombre, include_blank: true %>
+<% else %>
+  <p class="text-muted">No hay escuelas disponibles o el formulario no está cargado aún.</p>
+<% end %>
